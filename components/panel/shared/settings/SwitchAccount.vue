@@ -61,6 +61,10 @@ export default {
     assignNewRol(role, userId) {
       const url = process.env.apiUrl + 'users/' + userId + '/roles'
       const authorization = this.$store.getters['auth/headerAuthorization']
+      // resuelve el cambio a maestro
+      if (role === 'teacher') {
+        role = 'instructor'
+      }
       const data = { role: role }
       axios
         .put(url, data, {

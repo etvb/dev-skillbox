@@ -1,6 +1,7 @@
 <template>
   <card title="Zoom">
     <template v-slot:body>
+      {{ errors.zoom_id }}
       <b-message type="is-info">
         <!-- Enter your zoom ID https://zoom.us/j/YOURNUMBER (10-digit number from your Zoom profile).<br>
         If you do not have a Zoom ID yet, please create one -->
@@ -44,7 +45,8 @@ export default {
   },
   data() {
     return {
-      loading: false
+      loading: false,
+      errors: ''
     }
   },
   methods: {
@@ -68,7 +70,9 @@ export default {
         .catch(error => {
           this.loading = false
           if (error.response.status === 422) {
-            alert('Your Zoom id is already taken')
+            this.errors = error.response.data.errors
+            // alert('Tuvimos un error')
+            // alert('Your Zoom id is already taken')
           }
           alert('We have an error trying to update your data')
         })
