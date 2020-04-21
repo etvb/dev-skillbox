@@ -23,6 +23,7 @@
     "moment-timezone": "^0.5.27",
     "nuxt": "^2.4.0",
     "nuxt-buefy": "^0.3.2",
+    "vue-advanced-cropper": "^0.16.1",
     "vue-json-excel": "^0.2.98",
     "vue-paypal-checkout": "^3.2.0",
     "vue-slider-component": "^3.0.31",
