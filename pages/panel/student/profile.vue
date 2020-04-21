@@ -10,6 +10,7 @@
                   <b-upload
                     @change.native="uploadImage($event)"
                     name="photo"
+                    accept="image/*"
                   >
                     <a>
                       <img
@@ -31,7 +32,7 @@
                   </b-upload>              
                 </b-field>
               </div>
-              <div>
+              <div class="has-text-centered">
                 <cropper
                   ref="cropper"
                   :defaultSize="defaultSize"
@@ -44,8 +45,6 @@
                   @change="change"
                   classname="cropper"
                 />
-              </div>
-              <div>
                 <button
                   v-if="show"
                   @click="crop"
@@ -54,6 +53,7 @@
                   CUT
                 </button>
               </div>
+              
               <div class="-is-spaced-top">
                 <b-field label="First Name">
                   <b-input v-model="user.name" required />
@@ -252,6 +252,8 @@ export default {
           this.$store.commit('auth/logInUser', user)
           this.setUser()
           this.success()
+          this.image = false
+          this.cutImage = false
         })
         .catch(() => {
           this.loading = false
