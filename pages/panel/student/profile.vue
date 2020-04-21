@@ -28,10 +28,24 @@
                         />
                       </span>
                     </a>
-                  </b-upload>
+                  </b-upload>              
                 </b-field>
               </div>
-
+              <cropper
+                ref="cropper"
+                :src="image"
+                :stencil-props="{
+                  aspectRatio: 10/12
+                }"
+                @change="change"
+                classname="cropper"
+              />
+              <button @click="crop">
+                Cropper
+              </button>
+              test
+              lorem ipsum
+          
               <div class="-is-spaced-top">
                 <b-field label="First Name">
                   <b-input v-model="user.name" required />
@@ -110,14 +124,24 @@
 </template>
 <script>
 import Card from '~/components/general/Card.vue'
+import { Cropper } from 'vue-advanced-cropper'
 import axios from 'axios'
 export default {
   layout: 'panel',
   components: {
-    Card
+    Card,
+    Cropper
   },
   data() {
     return {
+      coordinates: {
+        width: 0,
+        height: 0,
+        left: 0,
+        top: 0
+      },
+      cropper: false,
+      image: false,
       loading: false,
       user: [],
       student: [],
@@ -133,6 +157,19 @@ export default {
     this.setLanguages()
   },
   methods: {
+    defaultSize() {
+      return {
+        width: 600,
+        height: 600
+      }
+    },
+    crop() {
+      const { coordinates, canvas } = this.$refs.cropper.getResult()
+      this.coordinates = coordinates
+      // You able to do different manipulations at a canvas
+      // but there we just get a cropped image
+      this.cropper = canvas.toDataURL()
+    },
     setUser() {
       this.user = this.$store.getters['auth/loggedUser']
       this.title = this.user.name
@@ -222,6 +259,7 @@ export default {
       reader.onload = e => {
         // this.profilePicture = e.target.result
         this.user.profile_picture = e.target.result
+        this.image = e.target.result
       }
       reader.readAsDataURL(file)
     }
