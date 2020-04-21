@@ -33,6 +33,28 @@
                 </b-field>
               </div>
 
+              <div class="has-text-centered">
+                <cropper
+                  ref="cropper"
+                  :defaultSize="defaultSize"
+                  :stencil-component="$options.components.CircleStencil"
+                  v-if="showCrup"  
+                  :src="image"
+                  :stencil-props="{
+                                
+                  }"
+                  @change="change"
+                  classname="cropper"
+                />
+                <button
+                  v-if="show"
+                  @click="crop"
+                  class="button -has-bg-primary has-text-white"
+                >
+                  CUT
+                </button>
+              </div>
+
               <div class="-is-spaced-top">
                 <b-field label="First Name">
                   <b-input v-model="user.name" required />
@@ -143,16 +165,30 @@
 
 <script>
 import Card from '~/components/general/Card.vue'
+import { Cropper, CircleStencil } from 'vue-advanced-cropper'
 import axios from 'axios'
 import Countries from '@/mixins/countries'
 export default {
   layout: 'panel',
   components: {
-    Card
+    Card,
+    Cropper,
+    // eslint-disable-next-line vue/no-unused-components
+    CircleStencil
   },
   mixins: [Countries],
   data() {
     return {
+      coordinates: {
+        width: 0,
+        height: 0,
+        left: 0,
+        top: 0
+      },
+      showCrup: false,
+      show: false,
+      cutImage: '',
+      image: '',
       loading: false,
       // user: '',
       user: [],
@@ -170,6 +206,26 @@ export default {
     this.setTimezones()
   },
   methods: {
+    change() {
+      this.show = true
+      this.showCrup = true
+    },
+    defaultSize() {
+      return {
+        width: 300,
+        height: 300
+      }
+    },
+    crop() {
+      const { coordinates, canvas } = this.$refs.cropper.getResult()
+      this.coordinates = coordinates
+      // You able to do different manipulations at a canvas
+      // but there we just get a cropped image
+      this.cutImage = canvas.toDataURL()
+      this.user.profile_picture = this.cutImage
+      this.show = false
+      this.showCrup = false
+    },
     setUser() {
       this.user = this.$store.getters['auth/loggedUser']
       this.title = this.user.name
@@ -231,6 +287,8 @@ export default {
           this.setUser()
           this.setInstructor()
           this.success()
+          this.image = false
+          this.cutImage = false
         })
         .catch(error => {
           this.loading = false
@@ -257,6 +315,10 @@ export default {
       const image = files[0]
       this.filename = image.name
       this.createImage(files[0])
+      if (image.length !== 0) {
+        this.show = true
+        this.showCrup = true
+      }
     },
     createImage(file) {
       // const image = new Image()
@@ -265,6 +327,7 @@ export default {
       reader.onload = e => {
         // this.profilePicture = e.target.result
         this.user.profile_picture = e.target.result
+        this.image = e.target.result
       }
       reader.readAsDataURL(file)
     }

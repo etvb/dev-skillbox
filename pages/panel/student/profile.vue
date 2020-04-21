@@ -188,8 +188,6 @@ export default {
       this.user.profile_picture = this.cutImage
       this.show = false
       this.showCrup = false
-      // eslint-disable-next-line no-console
-      console.log('prueba')
     },
     setUser() {
       this.user = this.$store.getters['auth/loggedUser']
