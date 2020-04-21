@@ -3,9 +3,10 @@ const pkg = require('./package')
 module.exports = {
   mode: 'universal',
   env: {
-    apiUrl: process.env.API_URL || 'http://localhost:8000/api/v1/',
+    // apiUrl: process.env.API_URL || 'http://localhost:8000/api/v1/',
     // apiUrl: process.env.API_URL || 'https://api.skillzzbox.com/api/v1/'
     // apiUrl: 'https://test-clases-ingles.herokuapp.com/api/v1/'
+    apiUrl: process.env.API_URL || 'http://localhost:8000/api/v1/'
   },
   /*
   ** Headers of the page
