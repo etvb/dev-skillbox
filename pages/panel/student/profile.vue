@@ -31,21 +31,29 @@
                   </b-upload>              
                 </b-field>
               </div>
-              <cropper
-                ref="cropper"
-                :src="image"
-                :stencil-props="{
-                  aspectRatio: 10/12
-                }"
-                @change="change"
-                classname="cropper"
-              />
-              <button @click="crop">
-                Cropper
-              </button>
-              test
-              lorem ipsum
-          
+              <div>
+                <cropper
+                  ref="cropper"
+                  :defaultSize="defaultSize"
+                  :stencil-component="$options.components.CircleStencil"
+                  v-if="showCrup"  
+                  :src="image"
+                  :stencil-props="{
+                                
+                  }"
+                  @change="change"
+                  classname="cropper"
+                />
+              </div>
+              <div>
+                <button
+                  v-if="show"
+                  @click="crop"
+                  class="button -has-bg-primary has-text-white"
+                >
+                  CUT
+                </button>
+              </div>
               <div class="-is-spaced-top">
                 <b-field label="First Name">
                   <b-input v-model="user.name" required />
@@ -124,13 +132,15 @@
 </template>
 <script>
 import Card from '~/components/general/Card.vue'
-import { Cropper } from 'vue-advanced-cropper'
+import { Cropper, CircleStencil } from 'vue-advanced-cropper'
 import axios from 'axios'
 export default {
   layout: 'panel',
   components: {
     Card,
-    Cropper
+    Cropper,
+    // eslint-disable-next-line vue/no-unused-components
+    CircleStencil
   },
   data() {
     return {
@@ -140,8 +150,10 @@ export default {
         left: 0,
         top: 0
       },
-      cropper: false,
-      image: false,
+      showCrup: false,
+      show: false,
+      cutImage: '',
+      image: '',
       loading: false,
       user: [],
       student: [],
@@ -157,10 +169,14 @@ export default {
     this.setLanguages()
   },
   methods: {
+    change() {
+      this.show = true
+      this.showCrup = true
+    },
     defaultSize() {
       return {
-        width: 600,
-        height: 600
+        width: 300,
+        height: 300
       }
     },
     crop() {
@@ -168,7 +184,12 @@ export default {
       this.coordinates = coordinates
       // You able to do different manipulations at a canvas
       // but there we just get a cropped image
-      this.cropper = canvas.toDataURL()
+      this.cutImage = canvas.toDataURL()
+      this.user.profile_picture = this.cutImage
+      this.show = false
+      this.showCrup = false
+      // eslint-disable-next-line no-console
+      console.log('prueba')
     },
     setUser() {
       this.user = this.$store.getters['auth/loggedUser']
@@ -251,6 +272,10 @@ export default {
       const image = files[0]
       this.filename = image.name
       this.createImage(files[0])
+      if (image.length !== 0) {
+        this.show = true
+        this.showCrup = true
+      }
     },
     createImage(file) {
       // const image = new Image()
@@ -267,6 +292,8 @@ export default {
 }
 </script>
 <style lang="sass">
+.cropper
+  max-height: 400px
 .-container-profile-picture
   .upload
     margin: auto
