@@ -31,11 +31,12 @@
               class="box is-radiusless -card-vertical"
             >
               <div>
-                <img
+                <!-- changed the img tag fot div  -->
+                <div
                   v-if="instructor.user.profile_picture"
-                  :src="instructor.user.profile_picture"
+                  :style="'background-image: url(' + instructor.user.profile_picture + '); background-size: cover; background-repeat: no-repeat'"
                   class="-is-circle -profile-picture"
-                >
+                />
                 <img
                   v-else
                   src="/profile.png"
