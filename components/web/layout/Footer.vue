@@ -39,12 +39,12 @@
             </h6>
             <ul class="is-marginless">
               <li>
-                <a 
-                  href="#"
+                <nuxt-link 
+                  to="about-us"
                   class="has-text-white"
                 >
                   About Us
-                </a>
+                </nuxt-link>
               </li>
               <li>
                 <nuxt-link
