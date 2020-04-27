@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="columns is-centered">
+    <div class="columns is-centered mybg">
       <div class="column is-10">
         <card title="Languages">
           <template v-slot:body>

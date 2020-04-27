@@ -1,5 +1,5 @@
 <template>
-  <div class="hero is-medium">
+  <div class="hero is-medium mybg">
     <div class="hero-body">
       <div class="container">
         <div class="columns">
@@ -102,3 +102,8 @@ export default {
   }
 }
 </script>
+<style>
+.mybg {
+  background-color: #f5f9fc;
+}
+</style>

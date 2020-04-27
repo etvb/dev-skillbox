@@ -3,7 +3,7 @@
     <div class="hero-body">
       <div class="container">
         <h4 class="title is-4">
-          Legal Notice
+          Company Details
         </h4>
         <p class="is-size-5"> 
           Skillzzbox is run by
@@ -16,7 +16,7 @@
         </p>
         <p class="-is-spaced-top is-size-5">
           Email:
-          <a href="mailto:hello@skillzzbox.com">hello@skillzzbox.com</a>
+          <a class="link" href="mailto:hello@skillzzbox.com">hello@skillzzbox.com</a>
         </p>
         <p class="-is-spaced-top is-size-5">
           UID: CHE-496.310.490
@@ -31,5 +31,8 @@ p {
 }
 #background {
   background: #f5f9fc;
+}
+.link {
+  color: #047fd8;
 }
 </style>

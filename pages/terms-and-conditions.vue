@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section class="section">
+    <section class="section mybg">
       <div class="container">
         <h4 class="title is-4">
           Terms and conditions

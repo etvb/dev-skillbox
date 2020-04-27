@@ -1,5 +1,5 @@
 <template>
-  <div class="section">
+  <div class="section mybg">
     <div class="container">
       <h4 v-if="language.instructors" class="title is-4 has-text-centered">
         We've  found {{ language.instructors.length }} teachers
@@ -39,6 +39,7 @@
                 />
                 <img
                   v-else
+                  style="opacity: .2;"
                   src="/profile.png"
                   class="-is-circle -profile-picture"
                 >
@@ -111,6 +112,9 @@
   </div>
 </template>
 <style lang="sass">
+  .mybg
+    background-color: #f5f9fc;
+    
   .-card-vertical
     .-profile-picture
       margin-right: 1rem

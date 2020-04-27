@@ -1,5 +1,5 @@
 <template>
-  <div class="section">
+  <div class="section mybg">
     <div class="container">
       <div class="columns is-centered">
         <div class="column is-8">

@@ -1,5 +1,5 @@
 <template>
-  <div class="columns is-centered">
+  <div class="columns is-centered mybg">
     <div class="column is-10">
       <b-message type="is-info">
         Select the days and times that you will be available to teach
