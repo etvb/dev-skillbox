@@ -49,7 +49,7 @@
                     {{ instructor.user.name + ' ' + instructor.user.lastname[0] + '.' }}
                   </h5>
                   <p class="subtitle is-6">
-                    {{ instructor.description }}
+                    {{ instructor.description | truncate(180) }}
                   </p>
                 </div>
               </div>
@@ -92,7 +92,7 @@
                       {{ lang.english }}
                     </h5>
                     <p class="subtitle is-6">
-                      {{ instructor.description = truncString(instructor.description,10,'...') }}
+                      {{ instructor.description }}
                     </p>
                   </div>
                 </div>
@@ -137,8 +137,20 @@ export default {
     Rating
   },
   watchQuery: ['days', 'price'],
+  filters: {
+    truncate: function(value, limit) {
+      // eslint-disable-next-line no-console
+      console.log(value)
+      if (String(value).length > limit) {
+        value = value.substring(0, limit - 3) + '...'
+      }
+
+      return value
+    }
+  },
   data() {
     return {
+      nombre: 'Edgardo',
       selectedLang: this.$route.params.lang,
       language: {
         instructors: []
@@ -171,10 +183,6 @@ export default {
       totalInstructors: data.totalInstructors,
       range
     }
-  },
-  created() {
-    // eslint-disable-next-line no-console
-    console.log(this.lang.instructors)
   },
   methods: {
     truncString(str, max, add) {
