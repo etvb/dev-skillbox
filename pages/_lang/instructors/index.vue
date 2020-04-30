@@ -92,7 +92,7 @@
                       {{ lang.english }}
                     </h5>
                     <p class="subtitle is-6">
-                      {{ instructor.description }}
+                      {{ instructor.description = truncString(instructor.description,10,'...') }}
                     </p>
                   </div>
                 </div>
@@ -171,6 +171,10 @@ export default {
       totalInstructors: data.totalInstructors,
       range
     }
+  },
+  created() {
+    // eslint-disable-next-line no-console
+    console.log(this.lang.instructors)
   },
   methods: {
     truncString(str, max, add) {
