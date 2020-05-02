@@ -5,7 +5,7 @@
         Select the days and times that you will be available to teach
       </b-message>
       <card :lineBottom="false" title="Schedule">
-        <template v-slot:body>
+        <template v-slot:body>          
           <table class="table is-fullwidth is-striped">
             <thead>
               <tr>
@@ -17,17 +17,45 @@
             </thead>
             <tbody>
               <tr v-for="day in days" :key="day.day">
-                <td>
+                <td :class="day.enabled ? '':'colorStart'">
                   {{ day.name }}
                 </td>
                 <td>
-                  <b-timepicker v-model="day.start_at" :increment-minutes="60" :max-time="maxTime()" size="is-small" inline />
+                  <b-timepicker
+                    v-model="day.start_at"
+                    :increment-minutes="60"
+                    :max-time="maxTime()"
+                    :disabled="!day.enabled"
+                    size="is-small"
+                    inline
+                  />                  
                 </td>
                 <td>
-                  <b-timepicker v-model="day.end_at" :increment-minutes="60" :min-time="minTime(day.start_at)" size="is-small" inline />
+                  <b-timepicker
+                    v-model="day.end_at"
+                    :increment-minutes="60"
+                    :min-time="minTime(day.start_at)"
+                    :disabled="!day.enabled"
+                    size="is-small"
+                    inline
+                  />
                 </td>
                 <td>
                   <button
+                    v-if="day.enabled"
+                    @click.prevent="disableDay(day)"
+                    class="button1 is-danger2 -disable2 is-block2 -is-fullwidth2"
+                  >
+                    Disable
+                  </button>
+                  <button
+                    v-else
+                    @click.prevent="enableDay(day)"
+                    class="button2 is-primary2 -enable2  -is-fullwidth2"
+                  >
+                    Enable 
+                  </button>
+                  <!-- <button
                     v-if="day.enabled"
                     @click.prevent="disableDay(day)"
                     class="button is-danger -disable -is-fullwidth"
@@ -40,7 +68,7 @@
                     class="button is-primary -enable is-block -is-fullwidth"
                   >
                     Enable
-                  </button>
+                  </button> -->
                 </td>
               </tr>
             </tbody>
@@ -53,7 +81,7 @@
                   <button
                     @click.prevent="updateSchedule"
                     :class="{'is-loading': loading}"
-                    class="button -has-bg-primary has-text-white -is-fullwidth"
+                    class="button3 -has-bg-primary has-text-white -is-fullwidth2"
                   >
                     &nbsp; Save &nbsp;
                   </button>
@@ -141,8 +169,36 @@ export default {
   },
   mounted() {
     this.getInstructorSchedules()
+    this.deletMinuts()
   },
   methods: {
+    deletMinuts() {
+      const colon = document.querySelectorAll('.is-colon')
+      const minuts = document.querySelectorAll('select')
+      minuts[1].style.display = 'none'
+      minuts[3].style.display = 'none'
+      minuts[5].style.display = 'none'
+      minuts[7].style.display = 'none'
+      minuts[9].style.display = 'none'
+      minuts[11].style.display = 'none'
+      minuts[13].style.display = 'none'
+      minuts[15].style.display = 'none'
+      minuts[17].style.display = 'none'
+      minuts[19].style.display = 'none'
+      minuts[21].style.display = 'none'
+      minuts[23].style.display = 'none'
+      minuts[25].style.display = 'none'
+      minuts[27].style.display = 'none'
+      // for (let i = 0; minuts.length >= i; i++) {
+      //   if (i / 2 !== 0) {
+      //     minuts[i].style.display = 'none'
+      //   }
+      // }
+
+      for (const item of colon) {
+        item.textContent = ''
+      }
+    },
     test() {
       /* alert('dewdw') */
       return new Date()
@@ -272,3 +328,49 @@ export default {
   }
 }
 </script>
+<style scoped>
+td {
+  vertical-align: middle;
+}
+.colorStart {
+  color: darkgrey;
+}
+.is-danger2 {
+  background-color: rgb(228, 224, 224);
+}
+button:focus {
+  outline: none;
+}
+.button2,
+.button1,
+.button3 {
+  text-decoration: none;
+  font-size: 16px;
+  color: #010db4;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  background-color: white;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #010db4;
+  border-radius: 9px;
+  cursor: pointer;
+}
+.button2:hover,
+.button1:hover,
+.button3:hover {
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.button1 {
+  background-color: rgb(228, 224, 224);
+}
+.button3 {
+  background-color: #167df0;
+}
+/* .timepicker {
+  display: none;
+} */
+</style>

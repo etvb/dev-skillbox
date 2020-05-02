@@ -1,140 +1,11 @@
 <template>
-  <div class="columns is-centered mybg">
+  <div class="columns is-centered ">
     <div class="column is-10">
       <b-message type="is-info">
         Select the days and times that you will be available to teach
       </b-message>
       <card :lineBottom="false" title="Schedule">
-        <template v-slot:body>
-          <h1 style="color:red">
-            option 1
-          </h1>
-          <table class="table is-fullwidth is-striped">
-            <thead>
-              <tr>
-                <th>Day</th>
-                <th>Actions</th>
-                <th>Start time</th>
-                <th>End time</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="day in days" :key="day.day">
-                <td>{{ day.name }}</td>
-                <td>
-                  <button
-                    v-if="day.enabled"
-                    @click.prevent="disableDay(day)"
-                    class="button is-primary -enable  -is-fullwidth"
-                  >
-                    Enable
-                  </button>
-                  <button
-                    v-else
-                    @click.prevent="enableDay(day)"
-                    class="button is-danger -disable is-block -is-fullwidth"
-                  >
-                    Disable
-                  </button>
-                </td>
-                <td>
-                  <!-- <b-timepicker
-                    v-if="day.enabled"              
-                    v-model="day.start_at"
-                    :increment-minutes="60"
-                    :max-time="maxTime()"
-                    size="is-small"  
-                    inline              
-                  /> -->
-                  <b-timepicker                                       
-                    v-model="day.start_at"
-                    :increment-minutes="60"
-                    :max-time="maxTime()"
-                    :disabled="!day.enabled" 
-                    size="is-small" 
-                    inline              
-                  />                  
-                </td>
-                <td>
-                  <b-timepicker    
-                    v-if="day.enabled"                
-                    v-model="day.end_at"
-                    :increment-minutes="60"
-                    :min-time="minTime(day.start_at)"
-                    size="is-small"                
-                    inline
-                  />
-                  <b-timepicker      
-                    v-else              
-                    v-model="day.end_at"
-                    :increment-minutes="60"
-                    :min-time="minTime(day.start_at)"
-                    size="is-small"
-                    disabled
-                    inline
-                  />
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          
-          <h1 style="color:red">
-            option 2
-          </h1>
-          <table class="table is-fullwidth is-striped">
-            <thead>
-              <tr>
-                <th>Day</th>
-                <th>Actions</th>
-                <th>Start time</th>
-                <th>End time</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="day in days" :key="day.day">
-                <td>{{ day.name }}</td>
-                <td>
-                  <button
-                    v-if="day.enabled"
-                    @click.prevent="disableDay(day)"
-                    class="button is-primary -enable  -is-fullwidth"
-                  >
-                    Enable
-                  </button>
-                  <button
-                    v-else
-                    @click.prevent="enableDay(day)"
-                    class="button is-danger -disable is-block -is-fullwidth"
-                  >
-                    Disable
-                  </button>
-                </td>
-                <td>
-                  <b-timepicker
-                    v-if="day.enabled"
-                    v-model="day.start_at"
-                    :increment-minutes="60"
-                    :max-time="maxTime()"
-                    size="is-small" 
-                    inline              
-                  />
-                </td>
-                <td>
-                  <b-timepicker
-                    v-if="day.enabled"
-                    v-model="day.end_at"
-                    :increment-minutes="60"
-                    :min-time="minTime(day.start_at)"
-                    size="is-small"
-                    inline
-                  />
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <h1 style="color:red">
-            option 3
-          </h1>
+        <template v-slot:body>          
           <table class="table is-fullwidth is-striped">
             <thead>
               <tr>
@@ -146,7 +17,7 @@
             </thead>
             <tbody>
               <tr v-for="day in days" :key="day.day">
-                <td class="size">
+                <td :class="day.enabled ? '':'colorStart'">
                   {{ day.name }}
                 </td>
                 <td>
@@ -157,7 +28,7 @@
                     :disabled="!day.enabled"
                     size="is-small"
                     inline
-                  />
+                  />                  
                 </td>
                 <td>
                   <b-timepicker
@@ -173,16 +44,16 @@
                   <button
                     v-if="day.enabled"
                     @click.prevent="disableDay(day)"
-                    class="button is-primary -enable  -is-fullwidth"
+                    class="button1 is-danger2 -disable2 is-block2 -is-fullwidth2"
                   >
-                    Enable
+                    Disable
                   </button>
                   <button
                     v-else
                     @click.prevent="enableDay(day)"
-                    class="button is-danger -disable is-block -is-fullwidth"
+                    class="button2 is-primary2 -enable2  -is-fullwidth2"
                   >
-                    Disable
+                    Enable 
                   </button>
                   <!-- <button
                     v-if="day.enabled"
@@ -298,8 +169,36 @@ export default {
   },
   mounted() {
     this.getInstructorSchedules()
+    this.deletMinuts()
   },
   methods: {
+    deletMinuts() {
+      const colon = document.querySelectorAll('.is-colon')
+      const minuts = document.querySelectorAll('select')
+      minuts[1].style.display = 'none'
+      minuts[3].style.display = 'none'
+      minuts[5].style.display = 'none'
+      minuts[7].style.display = 'none'
+      minuts[9].style.display = 'none'
+      minuts[11].style.display = 'none'
+      minuts[13].style.display = 'none'
+      minuts[15].style.display = 'none'
+      minuts[17].style.display = 'none'
+      minuts[19].style.display = 'none'
+      minuts[21].style.display = 'none'
+      minuts[23].style.display = 'none'
+      minuts[25].style.display = 'none'
+      minuts[27].style.display = 'none'
+      // for (let i = 0; minuts.length >= i; i++) {
+      //   if (i / 2 !== 0) {
+      //     minuts[i].style.display = 'none'
+      //   }
+      // }
+
+      for (const item of colon) {
+        item.textContent = ''
+      }
+    },
     test() {
       /* alert('dewdw') */
       return new Date()
@@ -433,11 +332,32 @@ export default {
 td {
   vertical-align: middle;
 }
-.timepicker.dropdown.dropdown-menu.dropdown-content
-  div[class='dropdown-item']
-  .field
-  span[class='control'] {
-  display: none;
+.colorStart {
+  color: darkgrey;
+}
+.is-danger2 {
+  background-color: rgb(228, 224, 224);
+}
+button:focus {
+  outline: none;
+}
+.button2,
+.button1 {
+  text-decoration: none;
+  font-size: 16px;
+  color: #010db4;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  background-color: white;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #010db4;
+  border-radius: 9px;
+}
+.button1 {
+  background-color: rgb(228, 224, 224);
 }
 /* .timepicker {
   display: none;
