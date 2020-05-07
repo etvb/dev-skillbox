@@ -1,6 +1,15 @@
 <template>
   <div class="section mybg">
     <div class="container">
+      <!-- navbar -->
+      <search2
+        :selected="selectedLang"
+        :daysFilter="true"
+        :rangeFilter="true"
+        :daysChecked="daysChecked"
+        :range="range"
+      />
+      
       <h4 v-if="language.instructors" class="title is-4 has-text-centered">
         We've  found {{ language.instructors.length }} teachers
       </h4>
@@ -112,6 +121,30 @@
   </div>
 </template>
 <style lang="sass">
+ 
+  #search
+    background-color: white;
+    margin-bottom: 1em 
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 10
+  @media screen and (min-width: 1024px)
+    #search nav .navbar-menu
+      justify-content: center
+    #search nav .navbar-menu .navbar-start
+      margin-right: 0
+    #search nav .navbar-menu .navbar-end
+      margin-left: 0
+  .mySize
+    width: 150px;
+    flex-wrap: wrap;
+    height: 55px;
+  .moreSpeaker, .morePrice
+    width: 180px
+  
+  .lessRating
+    width: 120px
   .mybg
     background-color: #f5f9fc;
     
@@ -129,18 +162,20 @@
 
 <script>
 import Search from '~/components/web/general/Search.vue'
+import Search2 from '~/components/web/general/Search2.vue'
 import Rating from '~/components/web/general/Rating.vue'
 import axios from 'axios'
 export default {
   components: {
     Search,
+    Search2,
     Rating
   },
   watchQuery: ['days', 'price'],
   filters: {
     truncate: function(value, limit) {
       // eslint-disable-next-line no-console
-      console.log(value)
+      // console.log(value)
       if (String(value).length > limit) {
         value = value.substring(0, limit - 3) + '...'
       }
@@ -150,7 +185,6 @@ export default {
   },
   data() {
     return {
-      nombre: 'Edgardo',
       selectedLang: this.$route.params.lang,
       language: {
         instructors: []

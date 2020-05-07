@@ -77,7 +77,7 @@
               <b-tag class="is-rounded -top-badge">
                 &nbsp; Top &nbsp;
               </b-tag>
-              <rating class="is-pulled-right" />
+              <rating :rating="4" class="is-pulled-right" />
             </div>
             <p class="-is-spaced-top title is-6">
               {{ instructor.description }}

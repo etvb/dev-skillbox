@@ -1,5 +1,6 @@
 <template>
   <div>
+    {{ $route.query.price }}
     <b-field>
       <b-select
         v-model="search"
@@ -32,6 +33,8 @@
     <div v-if="daysFilter" class="box is-radiusless -is-spaced-top">
       <h6 class="title is-6">
         Availability
+        {{ daysChecked }}
+        {{ days }}
       </h6>
       <div
         v-for="day in days"
