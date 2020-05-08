@@ -1,7 +1,8 @@
 <template>
-  <div class="columns is-centered ">
+  <div class="columns is-centered mybg">
     <div class="column is-10">
       <b-message type="is-info">
+        <!-- NORMAL -->
         Select the days and times that you will be available to teach
       </b-message>
       <card :lineBottom="false" title="Schedule">
@@ -81,7 +82,7 @@
                   <button
                     @click.prevent="updateSchedule"
                     :class="{'is-loading': loading}"
-                    class="button -has-bg-primary has-text-white -is-fullwidth"
+                    class="button3 -has-bg-primary has-text-white -is-fullwidth2"
                   >
                     &nbsp; Save &nbsp;
                   </button>
@@ -342,7 +343,8 @@ button:focus {
   outline: none;
 }
 .button2,
-.button1 {
+.button1,
+.button3 {
   text-decoration: none;
   font-size: 16px;
   color: #010db4;
@@ -355,9 +357,19 @@ button:focus {
   border-style: solid;
   border-color: #010db4;
   border-radius: 9px;
+  cursor: pointer;
 }
+.button2:hover,
+.button1:hover,
+.button3:hover {
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
 .button1 {
   background-color: rgb(228, 224, 224);
+}
+.button3 {
+  background-color: #167df0;
 }
 /* .timepicker {
   display: none;

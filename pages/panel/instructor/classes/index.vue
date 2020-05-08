@@ -8,9 +8,9 @@
               <nuxt-link to="/panel/instructor/classes/schedule" class="button -is-primary-outlined">
                 Schedule
               </nuxt-link>
-              <!-- <nuxt-link to="/panel/instructor/classes/schedule2-copy" class="button -is-primary-outlined">
+              <nuxt-link to="/panel/instructor/classes/schedule2-copy" class="button -is-primary-outlined">
                 Schedule2
-              </nuxt-link> -->
+              </nuxt-link>
             </p>
             <p class="control">
               <nuxt-link to="/panel/instructor/classes/languages" class="button -is-primary-outlined">
