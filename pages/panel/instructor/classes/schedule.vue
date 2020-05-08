@@ -3,7 +3,7 @@
     <div class="column is-10">
       <b-message type="is-info">
         <!-- NORMAL -->
-        Select the days and times that you will be available to teach
+        Select the days and times that you will be available to teach.
       </b-message>
       <card :lineBottom="false" title="Schedule">
         <template v-slot:body>          

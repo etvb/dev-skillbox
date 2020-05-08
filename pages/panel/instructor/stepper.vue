@@ -8,6 +8,9 @@
               <profile @completed="changeTab(1)" />
             </b-tab-item>
             <b-tab-item :disabled="!enabled1" label="Schedules">
+              <b-message type="is-info">
+                Select the days and times that you will be available to teach
+              </b-message>
               <c-schedule2 @completed="changeTab(2)" />
               <!-- <schedule @completed="changeTab(2)" /> -->
             </b-tab-item>

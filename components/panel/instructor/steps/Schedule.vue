@@ -1,7 +1,8 @@
 <template>
   <div>
     <b-message type="is-info">
-      Select the days and times that you will be available to teach
+      <!-- steps -->
+      Select the days and times that you will be available to teach.
     </b-message>
     <table class="table is-fullwidth is-striped">
       <thead>
