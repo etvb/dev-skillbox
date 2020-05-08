@@ -92,7 +92,7 @@ const midnight = new Date(new Date().setHours(0, 0, 0, 0))
 // const midnight = new Date()
 // const midnight = '00:00:00'
 export default {
-  layout: 'panel',
+  // layout: 'panel',
   components: {
     // Card,
     // DisableDates
