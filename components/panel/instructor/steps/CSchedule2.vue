@@ -306,7 +306,10 @@ export default {
       const urlNow = window.location.href
       // eslint-disable-next-line no-console
       console.log(urlNow)
-      if (urlNow !== 'http://localhost:3000/panel/instructor/stepper') {
+      if (
+        urlNow !==
+        'https://optimistic-wilson-2d6039.netlify.app/panel/instructor/stepper'
+      ) {
         this.$snackbar.open({
           message: `Schedule was updated succesfully`,
           position: 'is-top-right'
