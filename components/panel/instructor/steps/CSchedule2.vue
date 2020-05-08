@@ -1,62 +1,54 @@
 <template>
-  <div class="columns is-centered mybg">
-    <div class="column is-10">
-      <b-message type="is-info">
-        <!-- NORMAL -->
-        Select the days and times that you will be available to teach
-      </b-message>
-      <card :lineBottom="false" title="Schedule">
-        <template v-slot:body>          
-          <table class="table is-fullwidth is-striped">
-            <thead>
-              <tr>
-                <th>Day</th>
-                <th>Start time</th>
-                <th>End time</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="day in days" :key="day.day">
-                <td :class="day.enabled ? '':'colorStart'">
-                  {{ day.name }}
-                </td>
-                <td>
-                  <b-timepicker
-                    v-model="day.start_at"
-                    :increment-minutes="60"
-                    :max-time="maxTime()"
-                    :disabled="!day.enabled"
-                    size="is-small"
-                    inline
-                  />                  
-                </td>
-                <td>
-                  <b-timepicker
-                    v-model="day.end_at"
-                    :increment-minutes="60"
-                    :min-time="minTime(day.start_at)"
-                    :disabled="!day.enabled"
-                    size="is-small"
-                    inline
-                  />
-                </td>
-                <td>
-                  <button
-                    v-if="day.enabled"
-                    @click.prevent="disableDay(day)"
-                    class="button1 is-danger2 -disable2 is-block2 -is-fullwidth2"
-                  >
-                    Disable
-                  </button>
-                  <button
-                    v-else
-                    @click.prevent="enableDay(day)"
-                    class="button2 is-primary2 -enable2  -is-fullwidth2"
-                  >
-                    Enable 
-                  </button>
-                  <!-- <button
+  <table class="table is-fullwidth is-striped">
+    <thead>
+      <tr>
+        <th>Day</th>
+        <th>Start time</th>
+        <th>End time</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="day in days" :key="day.day">
+        <td :class="day.enabled ? '':'colorStart'">
+          {{ day.name }}
+        </td>
+        <td>
+          <b-timepicker
+            v-model="day.start_at"
+            :increment-minutes="60"
+            :max-time="maxTime()"
+            :disabled="!day.enabled"
+            size="is-small"
+            inline
+          />                  
+        </td>
+        <td>
+          <b-timepicker
+            v-model="day.end_at"
+            :increment-minutes="60"
+            :min-time="minTime(day.start_at)"
+            :disabled="!day.enabled"
+            size="is-small"
+            inline
+          />
+        </td>
+        <td>
+          <button
+            v-if="day.enabled"
+            @click.prevent="disableDay(day)"
+            class="button1 is-danger2 -disable2 is-block2 -is-fullwidth2"
+          >
+            Disable
+          </button>
+          <button
+            v-else
+            @click.prevent="enableDay(day)"
+            class="button2 is-primary2 -enable2  -is-fullwidth2"
+          >
+            Enable 
+          </button>
+          <!-- <button
                     v-if="day.enabled"
                     @click.prevent="disableDay(day)"
                     class="button is-danger -disable -is-fullwidth"
@@ -70,36 +62,30 @@
                   >
                     Enable
                   </button> -->
-                </td>
-              </tr>
-            </tbody>
-            <tfoot>
-              <tr>
-                <td />
-                <td />
-                <td />
-                <td>
-                  <button
-                    @click.prevent="updateSchedule"
-                    :class="{'is-loading': loading}"
-                    class="button3 -has-bg-primary has-text-white -is-fullwidth2"
-                  >
-                    &nbsp; Save &nbsp;
-                  </button>
-                </td>
-              </tr>
-            </tfoot>
-          </table>
-        </template>
-      </card>
-
-      <disable-dates />
-    </div>
-  </div>
+        </td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td />
+        <td />
+        <td />
+        <td>
+          <button
+            @click.prevent="updateSchedule"
+            :class="{'is-loading': loading}"
+            class="button3 -has-bg-primary has-text-white -is-fullwidth2"
+          >
+            &nbsp; Save &nbsp;
+          </button>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
 </template>
 <script>
-import Card from '~/components/general/Card.vue'
-import DisableDates from '~/components/panel/instructor/classes/schedule/DisableDates.vue'
+// import Card from '~/components/general/Card.vue'
+// import DisableDates from '~/components/panel/instructor/classes/schedule/DisableDates.vue'
 import axios from 'axios'
 import moment from 'moment'
 const midnight = new Date(new Date().setHours(0, 0, 0, 0))
@@ -108,8 +94,8 @@ const midnight = new Date(new Date().setHours(0, 0, 0, 0))
 export default {
   layout: 'panel',
   components: {
-    Card,
-    DisableDates
+    // Card,
+    // DisableDates
   },
   data() {
     return {
