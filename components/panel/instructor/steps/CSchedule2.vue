@@ -14,7 +14,13 @@
           {{ day.name }}
         </td>
         <td>
-          <b-timepicker
+          <!-- <select id="" name="">
+            <option value="0">
+              00
+            </option>
+          </select> -->
+          <b-timepicker 
+            id="prueba"
             v-model="day.start_at"
             :increment-minutes="60"
             :max-time="maxTime()"
@@ -81,6 +87,7 @@
         </td>
       </tr>
     </tfoot>
+    <!-- <disable-dates /> -->
   </table>
 </template>
 <script>
@@ -161,7 +168,9 @@ export default {
   methods: {
     deletMinuts() {
       const colon = document.querySelectorAll('.is-colon')
-      const minuts = document.querySelectorAll('select')
+      const minuts = document.querySelectorAll('.timepicker select')
+      // eslint-disable-next-line no-console
+      console.log(minuts)
       minuts[1].style.display = 'none'
       minuts[3].style.display = 'none'
       minuts[5].style.display = 'none'
@@ -294,10 +303,16 @@ export default {
       return schedules
     },
     success() {
-      this.$snackbar.open({
-        message: `Schedule was updated succesfully`,
-        position: 'is-top-right'
-      })
+      const urlNow = window.location.href
+      // eslint-disable-next-line no-console
+      console.log(urlNow)
+      if (urlNow !== 'http://localhost:3000/panel/instructor/stepper') {
+        this.$snackbar.open({
+          message: `Schedule was updated succesfully`,
+          position: 'is-top-right'
+        })
+      }
+      this.$emit('completed')
     },
     minTime(date) {
       const hour = date.getHours()

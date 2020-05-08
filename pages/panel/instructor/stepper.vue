@@ -8,7 +8,8 @@
               <profile @completed="changeTab(1)" />
             </b-tab-item>
             <b-tab-item :disabled="!enabled1" label="Schedules">
-              <schedule @completed="changeTab(2)" />
+              <c-schedule2 @completed="changeTab(2)" />
+              <!-- <schedule @completed="changeTab(2)" /> -->
             </b-tab-item>
             <b-tab-item :disabled="!enabled2" label="Languages">
               <languages @completed="changeTab(3)" />
@@ -23,15 +24,17 @@
   </div>
 </template>
 <script>
+import CSchedule2 from '~/components/panel/instructor/steps/CSchedule2.vue'
 import Profile from '~/components/panel/instructor/steps/Profile.vue'
-import Schedule from '~/components/panel/instructor/steps/Schedule.vue'
+// import Schedule from '~/components/panel/instructor/steps/Schedule.vue'
 import Languages from '~/components/panel/instructor/steps/Languages.vue'
 import Settings from '~/components/panel/instructor/steps/Settings.vue'
 export default {
   layout: 'panel',
   components: {
+    CSchedule2,
     Profile,
-    Schedule,
+    // Schedule,
     Languages,
     Settings
   },
