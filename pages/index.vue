@@ -1,11 +1,11 @@
 <template>
   <div>
-    <nuxt-link
+    <!-- <nuxt-link
       to="/prueba"
       class="navbar-item"
     >
       prueba
-    </nuxt-link>
+    </nuxt-link> -->
     <!-- Jumbotron -->
     <div class="hero is-medium -is-relative -home-jumbotron">
       <div class="is-overlay" />
