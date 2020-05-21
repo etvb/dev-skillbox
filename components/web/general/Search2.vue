@@ -1,148 +1,228 @@
 <template>
-  <div id="search">
-    <b-navbar>
-      <template slot="start">
-        <div class="button-search">
-          <select id="" @change="prueba2($event)" name="fs">
-            <option value="1">
-              uno
-            </option>
-            <option value="2">
-              dos
-            </option>
-          </select>
+  <div id="navbar-web2 search">
+    <div>
+      <nav class="navbar2" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <!-- nuxt-imagen -->
+          <!-- start button hamburger -->
+          <div
+            @click="openMenu2"
+            role="button"
+            class="navbar-burger burger"
+            aria-label="menu"
+            aria-expanded="false"
+            data-target2="navbar2"
+          >
+            <span aria-hidden="true" />
+            <span aria-hidden="true" />
+            <span aria-hidden="true" />
+          </div>
+          <!-- end button hamburger -->
         </div>
-        <div class="button-search">
-          <i class="fas fa-globe" />
-          <span>Language</span>
+        <div id="navbar2" class="navbar-menu">
+          <!-- aqui poner los botones -->
+          
 
-          <b-field>
-            <b-select
-              v-model="search"                           
-              placeholder="Select language"
-              size="is-small"
-            >
-              <option
-                v-for="language in languages"
-                :value="language.id"
-                :key="language.id"
+          <!--start buttom language -->
+          <div class="button-search">
+            <i class="fas fa-globe" />
+            <span class="titleButtom">Language</span>
+            <!-- {{ search }} -->
+            <b-field>
+              <!-- :input="searchInstructors()" -->
+              <b-select
+                v-model="search"  
+          
+                placeholder="Select language"
+                size="is-small"
               >
-                {{ language.english }}
-              </option>
-              <option value="other">
-                Other languages
-              </option>
-            </b-select>
-          </b-field>
-        </div>
-        
-        <!-- button-Availability -->
-        <b-dropdown aria-role="list">
-          <button slot="trigger" slot-scope="{ active }" class="button is-primary2 mySize">
-            <b-icon icon="account-multiple" />
-            <span>Availability</span>
-            <b-icon :icon="active ? 'menu-up' : 'menu-down'" />
-            <p />
-          </button>
-          <b-dropdown-item aria-role="listitem">
-            <div
-              v-for="day in days"
-              :key="day.id"
-              class="field"
-            >
-              <b-checkbox
-                v-model="daysChecked"
-                :native-value="day.id"
-              >
-                {{ day.name }}
-              </b-checkbox>
+                <option
+                  v-for="language in languages"
+                  :value="language.id"
+                  :key="language.id"
+                >
+                  {{ language.english }}
+                </option>
+                <option value="others">
+                  Other languages
+                </option>
+              </b-select>
+            </b-field>
+          </div>
+          <!--end buttom language -->
+
+          <!-- button-Availability -->
+          <div @click="showMe()" class="button-search">
+            <i class="far fa-calendar-alt" />
+
+            <span class="titleButtom">Availability</span>
+            <br>
+            <div>
+              <!-- {{ daysChecked }} -->
+              <span class="sizeSmall">Su</span>
+              <span class="sizeSmall">Mo</span>
+              <span class="sizeSmall">Tu</span>
+              <span class="sizeSmall">We</span>
+              <span class="sizeSmall">Th</span>
+              <span class="sizeSmall">Fr</span>
+              <span class="sizeSmall">Sa</span>
+              <i class="fas fa-angle-down" />
             </div>
-          </b-dropdown-item>
-        </b-dropdown>
-        <!-- button-Speaker -->
-        <b-dropdown on-change="prueba2($event)" aria-role="list">
-          <button slot="trigger" slot-scope="{ active }" class="button is-primary2 mySize moreSpeaker ">
-            <b-icon icon="account-multiple" />
-            <span>Native Speaker</span>
-            <b-icon :icon="active ? 'menu-up' : 'menu-down'" />
-            <p>lsdk</p>
-          </button>
-          <b-dropdown-item aria-role="listitem">
-            Action
-          </b-dropdown-item>
-          <b-dropdown-item aria-role="listitem">
-            Another action
-          </b-dropdown-item>
-          <b-dropdown-item aria-role="listitem" class="prueba">
-            Something else
-          </b-dropdown-item>
-        </b-dropdown>
-        <!-- button-Price -->
-        <b-dropdown aria-role="list">
-          <button slot="trigger" slot-scope="{ active }" class="button is-primary2 mySize morePrice">
-            <b-icon icon="account-multiple" />
-            <span>Lesson Price</span>
-            <b-icon :icon="active ? 'menu-up' : 'menu-down'" />
-            <p>lsdk</p>
-          </button>
-          <b-dropdown-item aria-role="listitem">
-            Action
-          </b-dropdown-item>
-          <b-dropdown-item aria-role="listitem">
-            Another action
-          </b-dropdown-item>
-          <b-dropdown-item aria-role="listitem">
-            Something else
-          </b-dropdown-item>
-        </b-dropdown>
-        <!-- button-Location -->
-        <b-dropdown aria-role="list">
-          <button slot="trigger" slot-scope="{ active }" class="button is-primary2 mySize">
-            <b-icon icon="account-multiple" />
-            <span>Location</span>
-            <b-icon :icon="active ? 'menu-up' : 'menu-down'" />
-            <p>lsdk</p>
-          </button>
-          <b-dropdown-item aria-role="listitem">
-            Action
-          </b-dropdown-item>
-          <b-dropdown-item aria-role="listitem">
-            Another action
-          </b-dropdown-item>
-          <b-dropdown-item aria-role="listitem">
-            Something else
-          </b-dropdown-item>
-        </b-dropdown>
-        <!-- button-Rating -->
-        <b-dropdown aria-role="list">
-          <button slot="trigger" slot-scope="{ active }" class="button is-primary2 mySize lessRating">
-            <b-icon icon="account-multiple" />
-            <span>Rating</span>
-            <b-icon :icon="active ? 'menu-up' : 'menu-down'" />
-            <p>lsdk</p>
-          </button>
-          <b-dropdown-item aria-role="listitem">
-            Action
-          </b-dropdown-item>
-          <b-dropdown-item aria-role="listitem">
-            Another action
-          </b-dropdown-item>
-          <b-dropdown-item aria-role="listitem">
-            Something else
-          </b-dropdown-item>
-        </b-dropdown>
-      </template>
-    </b-navbar>
+            <div id="menu" class="days">
+              <div
+                v-for="day in days"
+                :key="day.id"
+                class="field"
+              >
+                <b-checkbox
+                  v-model="daysChecked"
+                  :native-value="day.id"
+                  :input="searchInstructors()"
+                >
+                  {{ day.name }}
+                </b-checkbox>
+              </div>
+            </div>
+          </div>
+          <!-- end button-Availability -->
+
+          <!-- button-Speaker -->
+          <div class="button-search">
+            <i class="fas fa-chalkboard-teacher" />
+            <span class="titleButtom">Native Speaker</span>
+
+            <b-field>
+              <b-select
+                size="is-small"
+                expanded="true"                     
+              >
+                <option value="0">
+                  YES
+                </option>
+                <option value="1">
+                  NO
+                </option>
+              </b-select>
+            </b-field>
+          </div>
+          <!--end button-Speaker -->
+
+          <!-- Lesson Price -->
+          <div class="button-search">
+            <i class="far fa-money-bill-alt" />
+            <span class="titleButtom">Lesson Price</span>
+            <div>
+              <!-- <i class="fas fa-angle-down" /> -->
+              <div class="contentNumber">
+                <input
+                  v-model="range[0]"
+                  :max="range[1]"
+                  class="sizeNumber"
+                  type="number"
+                  placeholder="Min 0"
+                  min="0"
+                >
+                <input
+                  v-model="range[1]"
+                  :min="range[0]"
+                  class="sizeNumber"
+                  type="number"
+                  placeholder="Max 50"
+                  max="50"
+                >
+              </div>
+            </div>
+          </div>
+          <!--end Lesson Price -->
+
+          <!-- localtion -->
+          <div class="button-search">
+            <i class="fas fa-chalkboard-teacher" />
+            <span class="titleButtom">Location</span>
+
+            <b-field>
+              <b-select                         
+                placeholder=""
+                size="is-small"
+              >
+                <!-- <option v-for="($location) in locationes" :key="$location" value="0">
+                  {{ $location }}
+                </option> -->
+              </b-select>
+            </b-field>
+          </div>
+          <!--end localtion -->
+
+          <!-- rating -->
+          <div class="button-search">
+            <i class="fas fa-chalkboard-teacher" />
+            <span class="titleButtom">Rating</span>
+
+            <b-field>
+              <b-select  
+                expanded="true"                     
+                placeholder=""
+                size="is-small"
+                class="prueba"
+              >
+                <option value="0">
+                  *
+                </option>
+                <option value="2">
+                  * *
+                </option>
+                <option value="3">
+                  * * *
+                </option>
+                <option value="4">
+                  * * * *
+                </option>
+              </b-select>
+            </b-field>
+          </div>
+          <!--end rating -->
+        </div>
+      </nav>
+    </div>
   </div>
 </template>
 <style lang="sass" scoped>
+  .navbar-menu2
+    // background-color: #f5f9fc
+    // height: 80px
+    // width: 100%
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-wrap: wrap
+    // background-color: #34495e
   #search
-    background-color: white;
+    background-color: #f5f9fc;
     margin-bottom: 1em 
     position: -webkit-sticky;
     position: sticky;
     top: 0;
     z-index: 10
+  .days
+    border: 1px solid lightgrey
+    position: absolute
+    top: 120px
+    background-color: white
+    padding: 3px
+    display: none
+    z-index: 10
+  @media screen and (min-width: 230px)
+    .days
+      top: 160px
+  @media screen and (min-width: 373px)
+    .days
+      top: 120px
+
+  .days.show
+    display: block
+  .sizeSmall
+    margin-top: 5px
+    font-size: 10px
   @media screen and (min-width: 1024px)
     #search nav .navbar-menu
       justify-content: center
@@ -151,9 +231,20 @@
     #search nav .navbar-menu .navbar-end
       margin-left: 0
   .button-search
+    padding: 0 5px
+    margin: 0 5px 5px 5px
     border: 1px solid lightgrey
+    display: inline-block
+    height: 55px
+    border-radius: 10px
+    min-width: 150px
+    cursor: pointer
+    background-color: white
   .button-search .fiel .control span select
     border: 0
+  .titleButtom
+    font-size: 14px
+    font-weight: bold
   .mySize
     width: 150px;
     flex-wrap: wrap;
@@ -163,6 +254,11 @@
   
   .lessRating
     width: 120px
+  .contentNumber
+    text-align: center
+  .sizeNumber
+    width: 62px
+    height: 22px
 </style>
 
 <script>
@@ -170,6 +266,14 @@ import axios from 'axios'
 
 export default {
   props: {
+    // search: {
+    //   type: String,
+    //   default: ''
+    // },
+    location: {
+      type: Object,
+      default: () => {}
+    },
     selected: {
       type: String,
       default: ''
@@ -193,9 +297,10 @@ export default {
   },
   data() {
     return {
-      prueba: '',
+      // locationes: [],
+      prueba: 0,
       search: '',
-      languages: [],
+      languages: '',
       days: [
         { name: 'Sunday', id: 0 },
         { name: 'Monday', id: 1 },
@@ -208,27 +313,49 @@ export default {
       loading: false
     }
   },
-  computed: {
-    lenguaje() {
-      const id = parseInt(this.search)
-      // eslint-disable-next-line no-console
-      console.log('id' + id)
-      return this.languages.find(language => {
-        return language.id === id
-      })
-    }
-  },
-  mounted() {
-    this.delete()
-    this.setLanguages()
+  // computed: {
+  //   lenguaje() {
+  //     const id = parseInt(this.search)
+  //     // eslint-disable-next-line no-console
+  //     console.log('id' + id)
+  //     return this.languages.find(language => {
+  //       return language.id === id
+  //     })
+  //   }
+  // },
+  // whit this no error alert, this is called firt
+  beforeMount() {
     if (this.selected) {
       this.search = this.selected
     }
   },
+  mounted() {
+    // eslint-disable-next-line no-console
+    console.log('al cargar SE2' + this.selected)
+
+    // this.delete()
+    this.setLanguages()
+
+    // this.getLocation()
+  },
   methods: {
-    prueba2(event) {
+    openMenu2(event) {
+      const element = event.target
+      const trigger = element.closest('div')
+
+      const target = trigger.dataset.target2
+      const $target = document.getElementById(target)
+
+      trigger.classList.toggle('is-active')
+      $target.classList.toggle('is-active')
+    },
+    showMe() {
+      const menu = document.getElementById('menu')
+      menu.classList.toggle('show')
+    },
+    prueba2() {
       // eslint-disable-next-line no-console
-      console.log(event)
+      console.log('llamada')
     },
     delete() {
       const border = document.querySelectorAll('select')
@@ -238,11 +365,11 @@ export default {
     },
     searchInstructors() {
       // eslint-disable-next-line no-console
-      console.log('hola')
-      if (this.search === '') {
-        alert('Please select a language')
-        return
-      }
+      console.log('ejecutando desde SE2')
+      // if (this.search === '') {
+      //   alert('Please select a language5')
+      //   return
+      // }
       this.loading = true
       setTimeout(() => {
         this.loading = false
@@ -262,6 +389,7 @@ export default {
     },
     getDaysFiltereds() {
       const days = this.daysChecked
+      // si esta vacio devuelve el arreglo vacio
       if (!days.length) return ''
 
       return 'days=' + days
@@ -269,6 +397,26 @@ export default {
     getRangePrice() {
       const range = this.range
       return '&price=' + range[0] + '-' + range[1]
+    },
+    getLocation() {
+      const location = this.location
+      const locationes = []
+      // eslint-disable-next-line no-console
+      console.log(location)
+      for (const item of location) {
+        // eslint-disable-next-line no-console
+        // console.log(item)
+        for (const instructor of item.instructors) {
+          // if (this.locationes.indexOf(instructor.user.country) === -1) {
+          //   this.locationes.push(instructor.user.country)
+          // }
+          if (locationes.indexOf(instructor.user.country) === -1) {
+            locationes.push(instructor.user.country)
+          }
+        }
+      }
+      // eslint-disable-next-line no-console
+      console.log(locationes)
     }
   }
 }

@@ -1,13 +1,13 @@
 <template>
-  <div class="section mybg">
+  <div class="section">
     <div class="container">
       <!-- navbar -->
       <search2
         :selected="selectedLang"
-        :daysFilter="true"
-        :rangeFilter="true"
         :daysChecked="daysChecked"
         :range="range"
+        :mostrar="false"
+        :location="location"
       />
       
       <h4 v-if="language.instructors" class="title is-4 has-text-centered">
@@ -191,13 +191,20 @@ export default {
       },
       totalInstructors: 0,
       daysChecked: [],
-      range: []
+      range: [],
+      prueba: {},
+      location: []
     }
   },
   async asyncData({ params, query }) {
+    // eslint-disable-next-line no-console
+    console.log('ASYNC antes de DAYS ' + query.days)
+
     const langId = params.lang
     let days = ['0', '1', '2', '3', '4', '5', '6']
     let range = [0, 50]
+    // eslint-disable-next-line no-console
+    console.log('ASYNC ' + query.days)
     if (query.days) {
       days = query.days.split(',')
     }
@@ -215,16 +222,20 @@ export default {
       language: data.language,
       daysChecked: days,
       totalInstructors: data.totalInstructors,
-      range
-    }
-  },
-  methods: {
-    truncString(str, max, add) {
-      add = add || '...'
-      return typeof str === 'string' && str.length > max
-        ? str.substring(0, max) + add
-        : str
+      range,
+      prueba: data,
+      location: data.language
     }
   }
+  // methods: {
+  //   truncString(str, max, add) {
+  //     // eslint-disable-next-line no-console
+  //     console.log(this.language)
+  //     add = add || '...'
+  //     return typeof str === 'string' && str.length > max
+  //       ? str.substring(0, max) + add
+  //       : str
+  //   }
+  // }
 }
 </script>
