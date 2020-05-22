@@ -29,12 +29,17 @@
           </div>
         </div>
         <div v-if="language.instructors" class="column">
-          <nuxt-link
-            :to="'/'+$route.params.lang+'/instructors/' + instructor.id"
+          <div
             v-for="(instructor, index) in language.instructors"
             v-if="instructor.user"
             :key="instructor.id"
           >
+            <!-- <nuxt-link
+            :to="'/'+$route.params.lang+'/instructors/' + instructor.id"
+            v-for="(instructor, index) in language.instructors"
+            v-if="instructor.user"
+            :key="instructor.id"
+          > -->
             <div
               :class="index != 0 ? '-is-spaced-top': ''"
               class="box is-radiusless -card-vertical container-profile"
@@ -60,10 +65,10 @@
                     <h5 class="title is-6">
                       {{ instructor.user.name + ' ' + instructor.user.lastname[0] + '.' }}
                     </h5>
-                    <span>BAndera</span>
+                    <span class="container-profile-flag">BAndera</span>
                   </div>
-                  <lavel>Native Language: <span>put languege</span> </lavel><br>
-                  <lavel>Raiting: <span>put rating</span></lavel>
+                  <p>Native Language: <span>put languege</span> </p><br>
+                  <p>Raiting: <rating :rating="instructor.average_rating ? instructor.average_rating : 0" class="is-pulled-right" /></p>
                 </div>
                 <div>
                   <span>Corazon
@@ -74,18 +79,37 @@
               <hr>
               <div class="is-inline-block -description">
                 <p class="subtitle is-6">
-                  {{ instructor.description | truncate(180) }}
+                  {{ instructor.description | truncate(180) }}read more
                 </p>
               </div>
               <hr>
-              <div class="">
-                <b-tag class="is-rounded -top-badge">
+              <div class="container-profile-teacher">
+                <!-- <b-tag class="is-rounded -top-badge">
                   &nbsp; Top &nbsp;
                 </b-tag>
-                <rating :rating="instructor.average_rating ? instructor.average_rating : 0" class="is-pulled-right" />
+                <rating :rating="instructor.average_rating ? instructor.average_rating : 0" class="is-pulled-right" /> -->
+                <div>
+                  <p>Lesson Price:</p>
+                  <p>USD put $$$</p>
+                  <button>Book</button>
+                </div>
+                <div>
+                  <p>Location:</p>
+                  <p>put contry</p>
+                  <nuxt-link
+                    :to="'/'+$route.params.lang+'/instructors/' + instructor.id"
+                  > 
+                    <button>Schedule</button>
+                  </nuxt-link>
+                </div>
+                <div>
+                  <p>Teaches:</p>
+                  <p>put lengugages</p>
+                  <button>Video</button>
+                </div>
               </div>
             </div>
-          </nuxt-link>
+          </div>
         </div>
         <div v-else class="column">
           <template v-for="(lang, indexLang) in language">
@@ -144,9 +168,13 @@
     flex: 1 1 auto
 
   .container-profile-info, 
-  .container-profile-name
+  .container-profile-name,
+  .container-profile-teacher
     display: flex
     justify-content: space-between 
+  
+  .container-profile-flag
+    margin-right: 10px
 
   // .container-profile-name
   //   flex: 1 1 auto
@@ -208,7 +236,7 @@ export default {
       // eslint-disable-next-line no-console
       // console.log(value)
       if (String(value).length > limit) {
-        value = value.substring(0, limit - 3) + '...'
+        value = value.substring(0, limit - 3) + '... '
       }
 
       return value
@@ -250,12 +278,12 @@ export default {
     }
   },
   methods: {
-    truncString(str, max, add) {
-      add = add || '...'
-      return typeof str === 'string' && str.length > max
-        ? str.substring(0, max) + add
-        : str
-    }
+    // truncString(str, max, add) {
+    //   add = add || '...'
+    //   return typeof str === 'string' && str.length > max
+    //     ? str.substring(0, max) + add
+    //     : str
+    // }
   }
 }
 </script>
