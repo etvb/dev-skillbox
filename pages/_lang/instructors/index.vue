@@ -37,15 +37,17 @@
           >
             <div
               :class="index != 0 ? '-is-spaced-top': ''"
-              class="box is-radiusless -card-vertical"
+              class="box is-radiusless -card-vertical container-profile"
             >
-              <div>
-                <!-- changed the img tag fot div  -->
+              <div class="container-profile-info">
+                <!-- changed the img tag fot div, if the user has image show  -->
                 <div
                   v-if="instructor.user.profile_picture"
                   :style="'background-image: url(' + instructor.user.profile_picture + '); background-size: cover; background-repeat: no-repeat'"
-                  class="-is-circle -profile-picture"
+                  class="-is-circle -profile-picture is-inline-block"
                 />
+                
+                <!-- if the user don´t have imege show this -->
                 <img
                   v-else
                   style="opacity: .2;"
@@ -53,14 +55,27 @@
                   class="-is-circle -profile-picture"
                 >
                 <!-- <div v-else class="-profile-picture is-inline-block" /> -->
-                <div class="is-inline-block -description">
-                  <h5 class="title is-6">
-                    {{ instructor.user.name + ' ' + instructor.user.lastname[0] + '.' }}
-                  </h5>
-                  <p class="subtitle is-6">
-                    {{ instructor.description | truncate(180) }}
-                  </p>
+                <div class="container-profile-main">
+                  <div class="container-profile-name">
+                    <h5 class="title is-6">
+                      {{ instructor.user.name + ' ' + instructor.user.lastname[0] + '.' }}
+                    </h5>
+                    <span>BAndera</span>
+                  </div>
+                  <lavel>Native Language: <span>put languege</span> </lavel><br>
+                  <lavel>Raiting: <span>put rating</span></lavel>
                 </div>
+                <div>
+                  <span>Corazon
+                  </span>
+                  <like />
+                </div>
+              </div>
+              <hr>
+              <div class="is-inline-block -description">
+                <p class="subtitle is-6">
+                  {{ instructor.description | truncate(180) }}
+                </p>
               </div>
               <hr>
               <div class="">
@@ -121,7 +136,21 @@
   </div>
 </template>
 <style lang="sass">
- 
+
+  .container-profile
+    border: 2px solid red
+  
+  .container-profile-main
+    flex: 1 1 auto
+
+  .container-profile-info, 
+  .container-profile-name
+    display: flex
+    justify-content: space-between 
+
+  // .container-profile-name
+  //   flex: 1 1 auto
+
   #search
     background-color: white;
     margin-bottom: 1em 
@@ -161,12 +190,14 @@
 </style>
 
 <script>
+import Like from '~/components/general/Like.vue'
 import Search from '~/components/web/general/Search.vue'
 import Search2 from '~/components/web/general/Search2.vue'
 import Rating from '~/components/web/general/Rating.vue'
 import axios from 'axios'
 export default {
   components: {
+    Like,
     Search,
     Search2,
     Rating
