@@ -7,7 +7,9 @@
         :daysChecked="daysChecked"
         :range="range"
         :mostrar="false"
-        :location="location"
+        :countryPasada="countryParaPasar"
+        :dataPrueba="infoInstructors"
+        :prueba="language"
       />
       
       <h4 v-if="language.instructors" class="title is-4 has-text-centered">
@@ -171,7 +173,7 @@ export default {
     Search2,
     Rating
   },
-  watchQuery: ['days', 'price'],
+  watchQuery: ['days', 'price', 'country'],
   filters: {
     truncate: function(value, limit) {
       // eslint-disable-next-line no-console
@@ -190,21 +192,22 @@ export default {
         instructors: []
       },
       totalInstructors: 0,
-      daysChecked: [],
-      range: [],
-      prueba: {},
-      location: []
+      // daysChecked: [],
+      range: []
+      // prueba: {}
+      // countryParaPasar: []
     }
   },
   async asyncData({ params, query }) {
     // eslint-disable-next-line no-console
-    console.log('ASYNC antes de DAYS ' + query.days)
+    console.log('ya entre')
 
     const langId = params.lang
     let days = ['0', '1', '2', '3', '4', '5', '6']
     let range = [0, 50]
+    const location = ''
     // eslint-disable-next-line no-console
-    console.log('ASYNC ' + query.days)
+    console.log('ASYNC ' + query.location)
     if (query.days) {
       days = query.days.split(',')
     }
@@ -215,7 +218,8 @@ export default {
     const url = `${process.env.apiUrl}languages/${langId}/instructors`
     const filters = {
       days: days,
-      price_range: range
+      price_range: range,
+      country: location
     }
     const { data } = await axios.post(url, filters)
     return {
@@ -223,8 +227,8 @@ export default {
       daysChecked: days,
       totalInstructors: data.totalInstructors,
       range,
-      prueba: data,
-      location: data.language
+      infoInstructors: data.language,
+      countryParaPasar: location
     }
   }
   // methods: {

@@ -138,16 +138,17 @@
           <!-- localtion -->
           <div class="button-search">
             <i class="fas fa-chalkboard-teacher" />
-            <span class="titleButtom">Location</span>
+            <span class="titleButtom">Location {{ countryPasada }}</span>
 
             <b-field>
               <b-select                         
+                v-model="locationSelected"
                 placeholder=""
                 size="is-small"
               >
-                <!-- <option v-for="($location) in locationes" :key="$location" value="0">
+                <option v-for="($location ) in locationes" :key="$location">
                   {{ $location }}
-                </option> -->
+                </option>
               </b-select>
             </b-field>
           </div>
@@ -270,9 +271,13 @@ export default {
     //   type: String,
     //   default: ''
     // },
-    location: {
+    dataPrueba: {
       type: Object,
       default: () => {}
+    },
+    countryPasada: {
+      type: String,
+      default: ''
     },
     selected: {
       type: String,
@@ -297,8 +302,9 @@ export default {
   },
   data() {
     return {
-      // locationes: [],
-      prueba: 0,
+      locationSelected: '',
+      locationes: [],
+      // prueba: 0,
       search: '',
       languages: '',
       days: [
@@ -328,14 +334,17 @@ export default {
     if (this.selected) {
       this.search = this.selected
     }
+    if (this.dataPrueba.instructors) {
+      this.locationsFunctionInstructors()
+    } else {
+      this.locationFunctionOther()
+    }
   },
   mounted() {
-    // eslint-disable-next-line no-console
-    console.log('al cargar SE2' + this.selected)
-
     // this.delete()
     this.setLanguages()
 
+    // this.locationsFunction()
     // this.getLocation()
   },
   methods: {
@@ -376,8 +385,11 @@ export default {
       }, 1000)
       const days = this.getDaysFiltereds()
       const rangePrice = this.getRangePrice()
+      const locationes = this.getLocation()
       // this.$router.push('/' + this.search + '/instructors')
-      this.$router.push('/' + this.search + '/instructors?' + days + rangePrice)
+      this.$router.push(
+        '/' + this.search + '/instructors?' + days + rangePrice + locationes
+      )
     },
     setLanguages() {
       // const url = process.env.apiUrl + 'languages'
@@ -399,24 +411,38 @@ export default {
       return '&price=' + range[0] + '-' + range[1]
     },
     getLocation() {
-      const location = this.location
-      const locationes = []
+      const location = this.locationSelected
       // eslint-disable-next-line no-console
       console.log(location)
-      for (const item of location) {
-        // eslint-disable-next-line no-console
-        // console.log(item)
-        for (const instructor of item.instructors) {
-          // if (this.locationes.indexOf(instructor.user.country) === -1) {
-          //   this.locationes.push(instructor.user.country)
-          // }
-          if (locationes.indexOf(instructor.user.country) === -1) {
-            locationes.push(instructor.user.country)
-          }
+      return '&location=' + location
+    },
+    locationsFunctionInstructors() {
+      const instructors = this.dataPrueba.instructors
+      const locations = []
+      instructors.forEach(element => {
+        if (
+          locations.indexOf(element.user.country) === -1 &&
+          element.user.country !== null
+        ) {
+          locations.push(element.user.country)
         }
-      }
-      // eslint-disable-next-line no-console
-      console.log(locationes)
+      })
+      this.locationes = locations
+    },
+    locationFunctionOther() {
+      const instructors = this.dataPrueba
+      const locations = []
+      instructors.forEach(element => {
+        element.instructors.forEach(element => {
+          if (
+            locations.indexOf(element.user.country) === -1 &&
+            element.user.country !== null
+          ) {
+            locations.push(element.user.country)
+          }
+        })
+      })
+      this.locationes = locations
     }
   }
 }
