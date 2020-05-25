@@ -21,7 +21,7 @@
         </div>
         <div id="navbar2" class="navbar-menu">
           <!-- aqui poner los botones -->
-          
+
 
           <!--start buttom language -->
           <div class="button-search">
@@ -31,8 +31,8 @@
             <b-field>
               <!-- :input="searchInstructors()" -->
               <b-select
-                v-model="search"  
-          
+                v-model="search"
+
                 placeholder="Select language"
                 size="is-small"
               >
@@ -74,10 +74,17 @@
                 :key="day.id"
                 class="field"
               >
-                <b-checkbox
+                <!-- <b-checkbox
                   v-model="daysChecked"
                   :native-value="day.id"
                   :input="searchInstructors()"
+                >
+                  {{ day.name }}
+                </b-checkbox> -->
+                <b-checkbox
+                  v-model="daysComponent"
+                  :native-value="day.id"
+                  :input="changeDays()"
                 >
                   {{ day.name }}
                 </b-checkbox>
@@ -93,8 +100,9 @@
 
             <b-field>
               <b-select
+                @input="changeNativeSpeaker"
                 size="is-small"
-                expanded="true"                     
+                expanded="true"
               >
                 <option value="0">
                   YES
@@ -141,10 +149,11 @@
             <span class="titleButtom">Location {{ countryPasada }}</span>
 
             <b-field>
-              <b-select                         
+              <b-select
                 v-model="locationSelected"
                 placeholder=""
                 size="is-small"
+                @input="changeLocation"
               >
                 <option v-for="($location ) in locationes" :key="$location">
                   {{ $location }}
@@ -160,11 +169,12 @@
             <span class="titleButtom">Rating</span>
 
             <b-field>
-              <b-select  
-                expanded="true"                     
+              <b-select
+                expanded="true"
                 placeholder=""
                 size="is-small"
                 class="prueba"
+                @input="changeRating"
               >
                 <option value="0">
                   *
@@ -199,7 +209,7 @@
     // background-color: #34495e
   #search
     background-color: #f5f9fc;
-    margin-bottom: 1em 
+    margin-bottom: 1em
     position: -webkit-sticky;
     position: sticky;
     top: 0;
@@ -252,7 +262,7 @@
     height: 55px;
   .moreSpeaker, .morePrice
     width: 180px
-  
+
   .lessRating
     width: 120px
   .contentNumber
@@ -316,7 +326,8 @@ export default {
         { name: 'Friday', id: 5 },
         { name: 'Saturday', id: 6 }
       ],
-      loading: false
+      loading: false,
+      daysComponent: this.daysChecked.slice()
     }
   },
   // computed: {
@@ -372,7 +383,7 @@ export default {
         item.style.border = 0
       }
     },
-    searchInstructors() {
+    /* searchInstructors() {
       // eslint-disable-next-line no-console
       console.log('ejecutando desde SE2')
       // if (this.search === '') {
@@ -387,10 +398,15 @@ export default {
       const rangePrice = this.getRangePrice()
       const locationes = this.getLocation()
       // this.$router.push('/' + this.search + '/instructors')
+      // this.$router.push(
+      //   '/' + this.search + '/instructors?' + days + rangePrice + locationes
+      // )
       this.$router.push(
-        '/' + this.search + '/instructors?' + days + rangePrice + locationes
+        `/${this.search}/instructors?${days +
+          rangePrice +
+          locationes}&test='33ss'`
       )
-    },
+    }, */
     setLanguages() {
       // const url = process.env.apiUrl + 'languages'
       const url = process.env.apiUrl + 'languages/availables'
@@ -399,23 +415,23 @@ export default {
         // eslint-disable-next-line no-console
       })
     },
-    getDaysFiltereds() {
+    /* getDaysFiltereds() {
       const days = this.daysChecked
       // si esta vacio devuelve el arreglo vacio
       if (!days.length) return ''
 
       return 'days=' + days
-    },
+    }, */
     getRangePrice() {
       const range = this.range
       return '&price=' + range[0] + '-' + range[1]
     },
-    getLocation() {
+    /* getLocation() {
       const location = this.locationSelected
       // eslint-disable-next-line no-console
       console.log(location)
       return '&location=' + location
-    },
+    }, */
     locationsFunctionInstructors() {
       const instructors = this.dataPrueba.instructors
       const locations = []
@@ -443,6 +459,27 @@ export default {
         })
       })
       this.locationes = locations
+    },
+    changeNativeSpeaker(value) {
+      this.$router.push({
+        path: this.$route.fullPath,
+        query: { native: value }
+      })
+    },
+    changeDays() {
+      this.$emit('changeDays', this.daysComponent)
+    },
+    changeLocation(value) {
+      this.$router.push({
+        path: this.$route.fullPath,
+        query: { location: value }
+      })
+    },
+    changeRating(value) {
+      this.$router.push({
+        path: this.$route.fullPath,
+        query: { rating: value }
+      })
     }
   }
 }

@@ -10,8 +10,9 @@
         :countryPasada="countryParaPasar"
         :dataPrueba="infoInstructors"
         :prueba="language"
+        @changeDays="changeDays"
       />
-      
+
       <h4 v-if="language.instructors" class="title is-4 has-text-centered">
         We've  found {{ language.instructors.length }} teachers
       </h4>
@@ -123,10 +124,10 @@
   </div>
 </template>
 <style lang="sass">
- 
+
   #search
     background-color: white;
-    margin-bottom: 1em 
+    margin-bottom: 1em
     position: -webkit-sticky;
     position: sticky;
     top: 0;
@@ -144,12 +145,12 @@
     height: 55px;
   .moreSpeaker, .morePrice
     width: 180px
-  
+
   .lessRating
     width: 120px
   .mybg
     background-color: #f5f9fc;
-    
+
   .-card-vertical
     .-profile-picture
       margin-right: 1rem
@@ -173,7 +174,8 @@ export default {
     Search2,
     Rating
   },
-  watchQuery: ['days', 'price', 'country'],
+  // watchQuery: ['days', 'price', 'country', 'native'],
+  watchQuery: true,
   filters: {
     truncate: function(value, limit) {
       // eslint-disable-next-line no-console
@@ -205,7 +207,10 @@ export default {
     const langId = params.lang
     let days = ['0', '1', '2', '3', '4', '5', '6']
     let range = [0, 50]
-    const location = ''
+    let native = 0
+    let rating = null
+    let location = null
+    // const location = ''
     // eslint-disable-next-line no-console
     console.log('ASYNC ' + query.location)
     if (query.days) {
@@ -214,12 +219,24 @@ export default {
     if (query.price) {
       range = query.price.split('-')
     }
+    if (query.native) {
+      native = query.native
+    }
+    if (query.location) {
+      location = query.location
+    }
+    if (query.rating) {
+      rating = query.rating
+    }
 
     const url = `${process.env.apiUrl}languages/${langId}/instructors`
     const filters = {
       days: days,
       price_range: range,
-      country: location
+      country: location,
+      native,
+      rating,
+      location
     }
     const { data } = await axios.post(url, filters)
     return {
@@ -228,7 +245,20 @@ export default {
       totalInstructors: data.totalInstructors,
       range,
       infoInstructors: data.language,
-      countryParaPasar: location
+      countryParaPasar: location,
+      native,
+      location,
+      rating
+    }
+  },
+  methods: {
+    changeDays(days = []) {
+      this.daysChecked = days
+      const newDays = days.toString()
+      this.$router.push({
+        path: this.$route.fullPath,
+        query: { days: newDays }
+      })
     }
   }
   // methods: {
