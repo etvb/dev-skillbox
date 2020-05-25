@@ -33,8 +33,8 @@
     <div v-if="daysFilter" class="box is-radiusless -is-spaced-top">
       <h6 class="title is-6">
         Availability
-        {{ daysChecked }}
-        {{ days }}
+        <!-- {{ daysChecked }} -->
+        <!-- {{ days }} -->
       </h6>
       <div
         v-for="day in days"
@@ -53,6 +53,7 @@
       <h6 class="title is-6 -price-filter">
         Price
       </h6>
+      {{ range }}
       <vue-slider
         v-model="range"
         :min-range="5"
@@ -123,13 +124,24 @@ export default {
     }
   },
   mounted() {
+    // eslint-disable-next-line no-console
+    console.log('al cargar SEARCH' + this.search)
+
+    // eslint-disable-next-line no-console
+    console.log('al cargar SEARCH' + this.selected)
     this.setLanguages()
     if (this.selected) {
       this.search = this.selected
     }
   },
   methods: {
+    prueba() {
+      // eslint-disable-next-line no-console
+      console.log(this.search)
+    },
     searchInstructors() {
+      // eslint-disable-next-line no-console
+      console.log('desde el boton dias checados' + this.daysChecked)
       if (this.search === '') {
         alert('Please select a language')
         return
@@ -144,6 +156,8 @@ export default {
       this.$router.push('/' + this.search + '/instructors?' + days + rangePrice)
     },
     setLanguages() {
+      // eslint-disable-next-line no-console
+      console.log('desde los props' + this.selected)
       // const url = process.env.apiUrl + 'languages'
       const url = process.env.apiUrl + 'languages/availables'
       axios.get(url).then(response => {
@@ -152,8 +166,10 @@ export default {
     },
     getDaysFiltereds() {
       const days = this.daysChecked
+      // si esta vacio devuelve el arreglo vacio
       if (!days.length) return ''
-
+      // eslint-disable-next-line no-console
+      console.log('desde getDaysFiltereds' + days)
       return 'days=' + days
     },
     getRangePrice() {

@@ -1,5 +1,11 @@
 <template>
   <div>
+    <!-- <nuxt-link
+      to="/prueba"
+      class="navbar-item"
+    >
+      prueba
+    </nuxt-link> -->
     <!-- Jumbotron -->
     <div class="hero is-medium -is-relative -home-jumbotron">
       <div class="is-overlay" />
@@ -166,6 +172,7 @@
         </a>
       </div>
     </div>
+    </nuxt-link>
   </div>
 </template>
 <style lang="sass">

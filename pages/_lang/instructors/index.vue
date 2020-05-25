@@ -1,13 +1,15 @@
 <template>
-  <div class="section mybg">
+  <div class="section">
     <div class="container">
       <!-- navbar -->
       <search2
         :selected="selectedLang"
-        :daysFilter="true"
-        :rangeFilter="true"
         :daysChecked="daysChecked"
         :range="range"
+        :mostrar="false"
+        :countryPasada="countryParaPasar"
+        :dataPrueba="infoInstructors"
+        :prueba="language"
       />
       
       <h4 v-if="language.instructors" class="title is-4 has-text-centered">
@@ -171,7 +173,7 @@ export default {
     Search2,
     Rating
   },
-  watchQuery: ['days', 'price'],
+  watchQuery: ['days', 'price', 'country'],
   filters: {
     truncate: function(value, limit) {
       // eslint-disable-next-line no-console
@@ -190,14 +192,22 @@ export default {
         instructors: []
       },
       totalInstructors: 0,
-      daysChecked: [],
+      // daysChecked: [],
       range: []
+      // prueba: {}
+      // countryParaPasar: []
     }
   },
   async asyncData({ params, query }) {
+    // eslint-disable-next-line no-console
+    console.log('ya entre')
+
     const langId = params.lang
     let days = ['0', '1', '2', '3', '4', '5', '6']
     let range = [0, 50]
+    const location = ''
+    // eslint-disable-next-line no-console
+    console.log('ASYNC ' + query.location)
     if (query.days) {
       days = query.days.split(',')
     }
@@ -208,23 +218,28 @@ export default {
     const url = `${process.env.apiUrl}languages/${langId}/instructors`
     const filters = {
       days: days,
-      price_range: range
+      price_range: range,
+      country: location
     }
     const { data } = await axios.post(url, filters)
     return {
       language: data.language,
       daysChecked: days,
       totalInstructors: data.totalInstructors,
-      range
-    }
-  },
-  methods: {
-    truncString(str, max, add) {
-      add = add || '...'
-      return typeof str === 'string' && str.length > max
-        ? str.substring(0, max) + add
-        : str
+      range,
+      infoInstructors: data.language,
+      countryParaPasar: location
     }
   }
+  // methods: {
+  //   truncString(str, max, add) {
+  //     // eslint-disable-next-line no-console
+  //     console.log(this.language)
+  //     add = add || '...'
+  //     return typeof str === 'string' && str.length > max
+  //       ? str.substring(0, max) + add
+  //       : str
+  //   }
+  // }
 }
 </script>
