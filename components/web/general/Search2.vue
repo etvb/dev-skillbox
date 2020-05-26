@@ -104,10 +104,10 @@
                 size="is-small"
                 expanded="true"
               >
-                <option value="0">
+                <option value="1">
                   YES
                 </option>
-                <option value="1">
+                <option value="0">
                   NO
                 </option>
               </b-select>
@@ -155,7 +155,10 @@
                 size="is-small"
                 @input="changeLocation"
               >
-                <option v-for="($location ) in locationes" :key="$location">
+                <option
+                  v-for="($location ) in locationes"
+                  :key="$location"
+                >
                   {{ $location }}
                 </option>
               </b-select>
