@@ -62,13 +62,13 @@
                 <!-- <div v-else class="-profile-picture is-inline-block" /> -->
                 <div class="container-profile-main">
                   <div class="container-profile-name">
-                    <h5 class="title is-6">
+                    <h5 class="title is-marginless is-6">
                       {{ instructor.user.name + ' ' + instructor.user.lastname[0] + '.' }}
                     </h5>
                     <span class="container-profile-flag">BAndera</span>
                   </div>
                   <p>Native Language: <span>put languege</span> </p><br>
-                  <p>Raiting: <rating :rating="instructor.average_rating ? instructor.average_rating : 0" class="is-pulled-right" /></p>
+                  <p class="container-profile-raiting">Raiting: <rating :rating="instructor.average_rating ? instructor.average_rating : 0" /></p>
                 </div>
                 <div>
                   <span>Corazon
@@ -91,7 +91,7 @@
                 <div>
                   <p>Lesson Price:</p>
                   <p>USD put $$$</p>
-                  <button>Book</button>
+                  <button class="button is-info is-expand is-fullwidth">Book</button>
                 </div>
                 <div>
                   <p>Location:</p>
@@ -99,13 +99,13 @@
                   <nuxt-link
                     :to="'/'+$route.params.lang+'/instructors/' + instructor.id"
                   > 
-                    <button>Schedule</button>
+                    <button class="button is-info is-expand is-fullwidth">Schedule</button>
                   </nuxt-link>
                 </div>
                 <div>
                   <p>Teaches:</p>
                   <p>put lengugages</p>
-                  <button>Video</button>
+                  <button class="button is-info is-expand is-fullwidth">Video</button>
                 </div>
               </div>
             </div>
@@ -161,6 +161,10 @@
 </template>
 <style lang="sass">
 
+  hr
+    margin-top: 10px
+  rating
+    float: none !important
   .container-profile
     border: 2px solid red
   
@@ -172,6 +176,9 @@
   .container-profile-teacher
     display: flex
     justify-content: space-between 
+
+  .container-profile-raiting
+    margin-top: -25px
   
   .container-profile-flag
     margin-right: 10px

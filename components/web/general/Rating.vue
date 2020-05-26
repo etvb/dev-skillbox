@@ -1,6 +1,6 @@
 <template>
   <div class="block is-inline-block">
-    {{ rating }}
+    <!-- {{ rating }} -->
     <!-- :class="star" does nothing, it's only used to prevent unused 'star' error -->
     <b-icon
       v-for="(star, index) in parseInt(rating)"
