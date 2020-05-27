@@ -32,7 +32,7 @@
               <!-- :input="searchInstructors()" -->
               <b-select
                 v-model="search"
-
+                @input="changeLanguage"
                 placeholder="Select language"
                 size="is-small"
               >
@@ -100,6 +100,7 @@
 
             <b-field>
               <b-select
+                v-model="native"
                 @input="changeNativeSpeaker"
                 size="is-small"
                 expanded="true"
@@ -151,9 +152,9 @@
             <b-field>
               <b-select
                 v-model="locationSelected"
+                @input="changeLocation"
                 placeholder=""
                 size="is-small"
-                @input="changeLocation"
               >
                 <option
                   v-for="($location ) in locationes"
@@ -173,11 +174,12 @@
 
             <b-field>
               <b-select
+                v-model="rating"
+                @input="changeRating"
                 expanded="true"
                 placeholder=""
                 size="is-small"
                 class="prueba"
-                @input="changeRating"
               >
                 <option value="0">
                   *
@@ -315,6 +317,8 @@ export default {
   },
   data() {
     return {
+      native: '',
+      rating: '',
       locationSelected: '',
       locationes: [],
       // prueba: 0,
@@ -357,9 +361,12 @@ export default {
   mounted() {
     // this.delete()
     this.setLanguages()
-
+    // eslint-disable-next-line no-console
+    console.log('ROUTE')
     // this.locationsFunction()
     // this.getLocation()
+    // eslint-disable-next-line no-console
+    console.log(this.$route)
   },
   methods: {
     openMenu2(event) {
@@ -483,6 +490,27 @@ export default {
         path: this.$route.fullPath,
         query: { rating: value }
       })
+    },
+    changeLanguage(value) {
+      // this.$emit('prueba', value)
+      // eslint-disable-next-line no-console
+      console.log('YE ESTRE')
+      // eslint-disable-next-line no-console
+      console.log(value)
+      // this.$router.push('/' + this.search + '/instructors')
+      const path = this.$route.fullPath
+      const newPath = path.replace(this.selected, value)
+      this.$router.push({
+        path: newPath
+      })
+      // this.changeRating()
+      // this.$router.pa
+      // this.$route.params.lang = this.search
+      // otra forma de hacerlo
+      // this.$router.push({
+      //   path: '/' + value + '/instructors',
+      //   query: { rating: this.rating, native: this.native }
+      // })
     }
   }
 }

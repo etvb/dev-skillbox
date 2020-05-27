@@ -11,6 +11,7 @@
         :dataPrueba="infoInstructors"
         :prueba="language"
         @changeDays="changeDays"
+        @prueba="infoComponente"
       />
 
       <h4 v-if="language.instructors" class="title is-4 has-text-centered">
@@ -259,6 +260,16 @@ export default {
         path: this.$route.fullPath,
         query: { days: newDays }
       })
+    },
+    infoComponente(language) {
+      // eslint-disable-next-line no-console
+      console.log('dentro del PADRE')
+      // eslint-disable-next-line no-console
+      console.log(language)
+
+      // this.$router.push({
+      //   path: '/' + language + '/instructors/' + this.$router.query.rating
+      // })
     }
   }
   // methods: {
