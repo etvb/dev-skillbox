@@ -126,6 +126,7 @@
                 <input
                   v-model="range[0]"
                   :max="range[1]"
+                  @change="changeRangePrice"
                   class="sizeNumber"
                   type="number"
                   placeholder="Min 0"
@@ -134,6 +135,7 @@
                 <input
                   v-model="range[1]"
                   :min="range[0]"
+                  @change="changeRangePrice"
                   class="sizeNumber"
                   type="number"
                   placeholder="Max 50"
@@ -513,14 +515,14 @@ export default {
         path: '/' + value + '/instructors',
         query: { rating: this.rating, native: this.native }
       })
+    },
+    changeRangePrice() {
+      // const price = this.range[0] + '-' + this.range[1]
+      this.$router.push({
+        path: this.$route.fullPath,
+        query: { price: this.range[0] + '-' + this.range[1] }
+      })
     }
-    // changeRangePriceMin(value) {
-    //   const price = value[0]
-    //   this.$router.push({
-    //     path: this.$route.fullPath,
-    //     query: { price: value[0] }
-    //   })
-    // }
   }
 }
 </script>
