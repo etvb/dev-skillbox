@@ -42,7 +42,7 @@
           > -->
             <div
               :class="index != 0 ? '-is-spaced-top': ''"
-              class="box is-radiusless -card-vertical container-profile"
+              class="box is-radiusless -card-vertical container-profile "
             >
               <div class="container-profile-info">
                 <!-- changed the img tag fot div, if the user has image show  -->
@@ -62,24 +62,29 @@
                 <!-- <div v-else class="-profile-picture is-inline-block" /> -->
                 <div class="container-profile-main">
                   <div class="container-profile-name">
-                    <h5 class="title is-marginless is-6">
+                    <h5 class="title is-marginless is-6 has-text-weight-bold">
                       {{ instructor.user.name + ' ' + instructor.user.lastname[0] + '.' }}
                     </h5>
                     <span class="container-profile-flag">BAndera</span>
                   </div>
-                  <p>Native Language: <span>put languege</span> </p><br>
-                  <p class="container-profile-raiting">Raiting: <rating :rating="instructor.average_rating ? instructor.average_rating : 0" /></p>
+                  <p class="has-text-grey-lighter has-text-weight-semibold"> Native Language: <span>{{ instructor.user.language.english }}</span> </p><br>
+                  <p class="container-profile-raiting has-text-grey-lighter has-text-weight-semibold">
+                    Raiting: <rating :rating="instructor.average_rating ? instructor.average_rating : 0" />
+                  </p>
                 </div>
                 <div>
-                  <span>Corazon
-                  </span>
                   <like />
                 </div>
               </div>
               <hr>
-              <div class="is-inline-block -description">
-                <p class="subtitle is-6">
-                  {{ instructor.description | truncate(180) }}read more
+              <div class="is-inline-block -description container-profile-description">
+                <p class="subtitle is-6 profile-description">
+                  {{ instructor.description | truncate(180) }}  
+                  <nuxt-link
+                    :to="'/'+$route.params.lang+'/instructors/' + instructor.id"
+                  >
+                    <span class="has-text-weight-bold has-text-info	"> read more.</span> 
+                  </nuxt-link>
                 </p>
               </div>
               <hr>
@@ -89,23 +94,29 @@
                 </b-tag>
                 <rating :rating="instructor.average_rating ? instructor.average_rating : 0" class="is-pulled-right" /> -->
                 <div>
-                  <p>Lesson Price:</p>
-                  <p>USD put $$$</p>
-                  <button class="button is-info is-expand is-fullwidth">Book</button>
+                  <p class="is-size-7 has-text-grey-lighter has-text-weight-bold">Lesson Price:</p>
+                  <p class="has-text-weight-semibold"> USD {{ instructor.price_by_class }} </p>
+                  <button class="button is-info is-expand is-fullwidth">
+                    Book
+                  </button>
                 </div>
                 <div>
-                  <p>Location:</p>
-                  <p>put contry</p>
+                  <p class="is-size-7 has-text-grey-lighter has-text-weight-bold">Location:</p>
+                  <p class="has-text-weight-semibold">{{ instructor.user.country }}</p>
                   <nuxt-link
                     :to="'/'+$route.params.lang+'/instructors/' + instructor.id"
                   > 
-                    <button class="button is-info is-expand is-fullwidth">Schedule</button>
+                    <button class="button is-info is-expand is-fullwidth">
+                      Schedule
+                    </button>
                   </nuxt-link>
                 </div>
                 <div>
-                  <p>Teaches:</p>
-                  <p>put lengugages</p>
-                  <button class="button is-info is-expand is-fullwidth">Video</button>
+                  <p class="is-size-7 has-text-grey-lighter has-text-weight-bold">Teaches:</p>
+                  <p class="has-text-weight-semibold">put lengugages</p>
+                  <button class="button is-info is-expand is-fullwidth">
+                    Video
+                  </button>
                 </div>
               </div>
             </div>
@@ -155,6 +166,7 @@
             </nuxt-link>
           </template>
         </div>
+        <!-- <div class=" column is-2" /> -->
       </div>
     </div>
   </div>
@@ -165,11 +177,17 @@
     margin-top: 10px
   rating
     float: none !important
+  .container-card
+    
   .container-profile
-    border: 2px solid red
+    // border: 2px solid red
+    padding-left: 30px
+    padding-right: 30px
   
   .container-profile-main
     flex: 1 1 auto
+    margin-left: 20px
+    margin-right: 20px
 
   .container-profile-info, 
   .container-profile-name,
@@ -182,6 +200,12 @@
   
   .container-profile-flag
     margin-right: 10px
+
+  .container-profile-description
+    min-height: 60px
+    .profile-description
+      margin-left: 30px
+      margin-right: 30px
 
   // .container-profile-name
   //   flex: 1 1 auto
@@ -220,7 +244,7 @@
     .-description
       vertical-align: super
     &:hover
-      cursor: pointer
+      // cursor: pointer
       box-shadow: 0 10px 8px rgba(0, 0, 0, 0.15), 0 1px 10px rgba(0, 0, 0, 0.2)
 </style>
 
@@ -277,6 +301,10 @@ export default {
       price_range: range
     }
     const { data } = await axios.post(url, filters)
+    // eslint-disable-next-line no-console
+    console.log('data de ESTE INDX')
+    // eslint-disable-next-line no-console
+    console.log(data.language)
     return {
       language: data.language,
       daysChecked: days,

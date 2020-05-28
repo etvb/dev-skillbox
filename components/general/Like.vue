@@ -7,7 +7,7 @@
     <b-icon
       :pack="liked ? 'fas' : 'far'"
       icon="heart"
-      class="has-text-white"
+      class="has-text-black"
     />
   </a>  
 </template>
