@@ -147,7 +147,7 @@
           <!-- localtion -->
           <div class="button-search">
             <i class="fas fa-chalkboard-teacher" />
-            <span class="titleButtom">Location {{ countryPasada }}</span>
+            <span class="titleButtom">Location</span>
 
             <b-field>
               <b-select
@@ -317,6 +317,8 @@ export default {
   },
   data() {
     return {
+      min: '',
+      max: '',
       native: '',
       rating: '',
       locationSelected: '',
@@ -498,20 +500,27 @@ export default {
       // eslint-disable-next-line no-console
       console.log(value)
       // this.$router.push('/' + this.search + '/instructors')
-      const path = this.$route.fullPath
-      const newPath = path.replace(this.selected, value)
-      this.$router.push({
-        path: newPath
-      })
+      // const path = this.$route.fullPath
+      // const newPath = path.replace(this.selected, value)
+      // this.$router.push({
+      //   path: newPath
+      // })
       // this.changeRating()
       // this.$router.pa
       // this.$route.params.lang = this.search
       // otra forma de hacerlo
-      // this.$router.push({
-      //   path: '/' + value + '/instructors',
-      //   query: { rating: this.rating, native: this.native }
-      // })
+      this.$router.push({
+        path: '/' + value + '/instructors',
+        query: { rating: this.rating, native: this.native }
+      })
     }
+    // changeRangePriceMin(value) {
+    //   const price = value[0]
+    //   this.$router.push({
+    //     path: this.$route.fullPath,
+    //     query: { price: value[0] }
+    //   })
+    // }
   }
 }
 </script>

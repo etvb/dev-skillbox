@@ -177,8 +177,6 @@
 </template>
 <style lang="sass">
 
-<<<<<<< HEAD
-=======
   hr
     margin-top: 10px
   rating
@@ -216,7 +214,6 @@
   // .container-profile-name
   //   flex: 1 1 auto
 
->>>>>>> profile
   #search
     background-color: white;
     margin-bottom: 1em
@@ -350,7 +347,6 @@ export default {
     }
   },
   methods: {
-<<<<<<< HEAD
     changeDays(days = []) {
       this.daysChecked = days
       const newDays = days.toString()
@@ -369,14 +365,6 @@ export default {
       //   path: '/' + language + '/instructors/' + this.$router.query.rating
       // })
     }
-=======
-    // truncString(str, max, add) {
-    //   add = add || '...'
-    //   return typeof str === 'string' && str.length > max
-    //     ? str.substring(0, max) + add
-    //     : str
-    // }
->>>>>>> profile
   }
   // methods: {
   //   truncString(str, max, add) {
