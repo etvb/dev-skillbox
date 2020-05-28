@@ -33,23 +33,30 @@
           </div>
         </div>
         <div v-if="language.instructors" class="column">
-          <nuxt-link
-            :to="'/'+$route.params.lang+'/instructors/' + instructor.id"
+          <div
             v-for="(instructor, index) in language.instructors"
             v-if="instructor.user"
             :key="instructor.id"
           >
+            <!-- <nuxt-link
+            :to="'/'+$route.params.lang+'/instructors/' + instructor.id"
+            v-for="(instructor, index) in language.instructors"
+            v-if="instructor.user"
+            :key="instructor.id"
+          > -->
             <div
               :class="index != 0 ? '-is-spaced-top': ''"
-              class="box is-radiusless -card-vertical"
+              class="box is-radiusless -card-vertical container-profile "
             >
-              <div>
-                <!-- changed the img tag fot div  -->
+              <div class="container-profile-info">
+                <!-- changed the img tag fot div, if the user has image show  -->
                 <div
                   v-if="instructor.user.profile_picture"
                   :style="'background-image: url(' + instructor.user.profile_picture + '); background-size: cover; background-repeat: no-repeat'"
-                  class="-is-circle -profile-picture"
+                  class="-is-circle -profile-picture is-inline-block"
                 />
+                
+                <!-- if the user don´t have imege show this -->
                 <img
                   v-else
                   style="opacity: .2;"
@@ -57,24 +64,67 @@
                   class="-is-circle -profile-picture"
                 >
                 <!-- <div v-else class="-profile-picture is-inline-block" /> -->
-                <div class="is-inline-block -description">
-                  <h5 class="title is-6">
-                    {{ instructor.user.name + ' ' + instructor.user.lastname[0] + '.' }}
-                  </h5>
-                  <p class="subtitle is-6">
-                    {{ instructor.description | truncate(180) }}
+                <div class="container-profile-main">
+                  <div class="container-profile-name">
+                    <h5 class="title is-marginless is-6 has-text-weight-bold">
+                      {{ instructor.user.name + ' ' + instructor.user.lastname[0] + '.' }}
+                    </h5>
+                    <span class="container-profile-flag">BAndera</span>
+                  </div>
+                  <p class="has-text-grey-lighter has-text-weight-semibold"> Native Language: <span>{{ instructor.user.language.english }}</span> </p><br>
+                  <p class="container-profile-raiting has-text-grey-lighter has-text-weight-semibold">
+                    Raiting: <rating :rating="instructor.average_rating ? instructor.average_rating : 0" />
                   </p>
+                </div>
+                <div>
+                  <like />
                 </div>
               </div>
               <hr>
-              <div class="">
-                <b-tag class="is-rounded -top-badge">
+              <div class="is-inline-block -description container-profile-description">
+                <p class="subtitle is-6 profile-description">
+                  {{ instructor.description | truncate(180) }}  
+                  <nuxt-link
+                    :to="'/'+$route.params.lang+'/instructors/' + instructor.id"
+                  >
+                    <span class="has-text-weight-bold has-text-info	"> read more.</span> 
+                  </nuxt-link>
+                </p>
+              </div>
+              <hr>
+              <div class="container-profile-teacher">
+                <!-- <b-tag class="is-rounded -top-badge">
                   &nbsp; Top &nbsp;
                 </b-tag>
-                <rating :rating="instructor.average_rating ? instructor.average_rating : 0" class="is-pulled-right" />
+                <rating :rating="instructor.average_rating ? instructor.average_rating : 0" class="is-pulled-right" /> -->
+                <div>
+                  <p class="is-size-7 has-text-grey-lighter has-text-weight-bold">Lesson Price:</p>
+                  <p class="has-text-weight-semibold"> USD {{ instructor.price_by_class }} </p>
+                  <button class="button is-info is-expand is-fullwidth">
+                    Book
+                  </button>
+                </div>
+                <div>
+                  <p class="is-size-7 has-text-grey-lighter has-text-weight-bold">Location:</p>
+                  <p class="has-text-weight-semibold">{{ instructor.user.country }}</p>
+                  <nuxt-link
+                    :to="'/'+$route.params.lang+'/instructors/' + instructor.id"
+                  > 
+                    <button class="button is-info is-expand is-fullwidth">
+                      Schedule
+                    </button>
+                  </nuxt-link>
+                </div>
+                <div>
+                  <p class="is-size-7 has-text-grey-lighter has-text-weight-bold">Teaches:</p>
+                  <p class="has-text-weight-semibold">put lengugages</p>
+                  <button class="button is-info is-expand is-fullwidth">
+                    Video
+                  </button>
+                </div>
               </div>
             </div>
-          </nuxt-link>
+          </div>
         </div>
         <div v-else class="column">
           <template v-for="(lang, indexLang) in language">
@@ -120,12 +170,53 @@
             </nuxt-link>
           </template>
         </div>
+        <!-- <div class=" column is-2" /> -->
       </div>
     </div>
   </div>
 </template>
 <style lang="sass">
 
+<<<<<<< HEAD
+=======
+  hr
+    margin-top: 10px
+  rating
+    float: none !important
+  .container-card
+    
+  .container-profile
+    // border: 2px solid red
+    padding-left: 30px
+    padding-right: 30px
+  
+  .container-profile-main
+    flex: 1 1 auto
+    margin-left: 20px
+    margin-right: 20px
+
+  .container-profile-info, 
+  .container-profile-name,
+  .container-profile-teacher
+    display: flex
+    justify-content: space-between 
+
+  .container-profile-raiting
+    margin-top: -25px
+  
+  .container-profile-flag
+    margin-right: 10px
+
+  .container-profile-description
+    min-height: 60px
+    .profile-description
+      margin-left: 30px
+      margin-right: 30px
+
+  // .container-profile-name
+  //   flex: 1 1 auto
+
+>>>>>>> profile
   #search
     background-color: white;
     margin-bottom: 1em
@@ -160,17 +251,19 @@
     .-description
       vertical-align: super
     &:hover
-      cursor: pointer
+      // cursor: pointer
       box-shadow: 0 10px 8px rgba(0, 0, 0, 0.15), 0 1px 10px rgba(0, 0, 0, 0.2)
 </style>
 
 <script>
+import Like from '~/components/general/Like.vue'
 import Search from '~/components/web/general/Search.vue'
 import Search2 from '~/components/web/general/Search2.vue'
 import Rating from '~/components/web/general/Rating.vue'
 import axios from 'axios'
 export default {
   components: {
+    Like,
     Search,
     Search2,
     Rating
@@ -182,7 +275,7 @@ export default {
       // eslint-disable-next-line no-console
       // console.log(value)
       if (String(value).length > limit) {
-        value = value.substring(0, limit - 3) + '...'
+        value = value.substring(0, limit - 3) + '... '
       }
 
       return value
@@ -240,6 +333,10 @@ export default {
       location
     }
     const { data } = await axios.post(url, filters)
+    // eslint-disable-next-line no-console
+    console.log('data de ESTE INDX')
+    // eslint-disable-next-line no-console
+    console.log(data.language)
     return {
       language: data.language,
       daysChecked: days,
@@ -253,6 +350,7 @@ export default {
     }
   },
   methods: {
+<<<<<<< HEAD
     changeDays(days = []) {
       this.daysChecked = days
       const newDays = days.toString()
@@ -271,6 +369,14 @@ export default {
       //   path: '/' + language + '/instructors/' + this.$router.query.rating
       // })
     }
+=======
+    // truncString(str, max, add) {
+    //   add = add || '...'
+    //   return typeof str === 'string' && str.length > max
+    //     ? str.substring(0, max) + add
+    //     : str
+    // }
+>>>>>>> profile
   }
   // methods: {
   //   truncString(str, max, add) {
