@@ -214,6 +214,8 @@
     align-items: center
     flex-wrap: wrap
     // background-color: #34495e
+  #navbar2
+    justify-content: center
   #search
     background-color: #f5f9fc;
     margin-bottom: 1em
