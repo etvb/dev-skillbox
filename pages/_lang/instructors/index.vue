@@ -1,5 +1,5 @@
 <template>
-  <div class="section">
+  <div class="section mybg">
     <div class="container">
       <!-- navbar -->
       <search2
@@ -81,7 +81,7 @@
                     Raiting: <rating :rating="instructor.average_rating ? instructor.average_rating : 0" />
                   </p>
                 </div>
-                <div>
+                <div class="conteiner-like">
                   <like />
                 </div>
               </div>
@@ -222,6 +222,9 @@
   .container-profile-flag
     margin-right: 10px
     border: 1px solid hsl(0, 0%, 96%)
+  
+  .conteiner-like
+    padding: 22px
 
 
   .container-profile-description
@@ -387,36 +390,12 @@ export default {
       // })
     },
     pais(country) {
-      // eslint-disable-next-line no-console
-      console.log('HASTA LA MADRE')
       const paises = this.countries[0]
-      // eslint-disable-next-line no-console
-      // console.log(paises)
-      // eslint-disable-next-line no-unused-vars
       for (const pa in paises) {
-        // eslint-disable-next-line no-console
-        console.log('dentro del FOR')
-        // eslint-disable-next-line no-console
-        console.log(paises[pa])
         if (paises[pa] === country) {
-          // eslint-disable-next-line no-console
-          console.log('dentro del if')
-          // eslint-disable-next-line no-console
-          console.log(`src="https:// www.countryflags.io/${pa}/flat/48.png`)
           return `https://www.countryflags.io/${pa}/flat/64.png`
         }
       }
-      // return this.Countries
-      // for (const pais of paises) {
-      // eslint-disable-next-line no-console
-      // console.log(pais)
-      // eslint-disable-next-line no-console
-      // if (country === this.contries.pais) {
-      // eslint-disable-next-line no-console
-      // console.log(`src="https:// www.countryflags.io/${pais}/flat/48.png`)
-      // return `src="https:// www.countryflags.io/${pais}/flat/48.png`
-      // }
-      // }
     }
   }
   // methods: {

@@ -8,6 +8,7 @@
       :pack="liked ? 'fas' : 'far'"
       icon="heart"
       class="has-text-black"
+      size="is-medium"
     />
   </a>  
 </template>
