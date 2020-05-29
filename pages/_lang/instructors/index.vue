@@ -70,9 +70,6 @@
                       {{ instructor.user.name + ' ' + instructor.user.lastname[0] + '.' }}
                     </h5>
                     <!-- flag -->
-                    <span class="container-profile-flag">
-                      <img :src="pais(instructor.user.country)">
-                    </span>   
                   </div>
                   <p class="has-text-grey-lighter has-text-weight-semibold">
                     Native Language: <span>{{ instructor.user.language.english }}</span>
@@ -81,6 +78,9 @@
                     Raiting: <rating :rating="instructor.average_rating ? instructor.average_rating : 0" />
                   </p>
                 </div>
+                <span class="container-profile-flag">
+                  <img :src="pais(instructor.user.country)">
+                </span>   
                 <div class="conteiner-like">
                   <like />
                 </div>
