@@ -69,9 +69,14 @@
                     <h5 class="title is-marginless is-6 has-text-weight-bold">
                       {{ instructor.user.name + ' ' + instructor.user.lastname[0] + '.' }}
                     </h5>
-                    <span class="container-profile-flag">BAndera</span>
+                    <!-- flag -->
+                    <span class="container-profile-flag">
+                      <img :src="pais(instructor.user.country)">
+                    </span>   
                   </div>
-                  <p class="has-text-grey-lighter has-text-weight-semibold"> Native Language: <span>{{ instructor.user.language.english }}</span> </p><br>
+                  <p class="has-text-grey-lighter has-text-weight-semibold">
+                    Native Language: <span>{{ instructor.user.language.english }}</span>
+                  </p><br>
                   <p class="container-profile-raiting has-text-grey-lighter has-text-weight-semibold">
                     Raiting: <rating :rating="instructor.average_rating ? instructor.average_rating : 0" />
                   </p>
@@ -98,15 +103,23 @@
                 </b-tag>
                 <rating :rating="instructor.average_rating ? instructor.average_rating : 0" class="is-pulled-right" /> -->
                 <div>
-                  <p class="is-size-7 has-text-grey-lighter has-text-weight-bold">Lesson Price:</p>
-                  <p class="has-text-weight-semibold"> USD {{ instructor.price_by_class }} </p>
+                  <p class="is-size-7 has-text-grey-lighter has-text-weight-bold">
+                    Lesson Price:
+                  </p>
+                  <p class="has-text-weight-semibold">
+                    USD {{ instructor.price_by_class }}
+                  </p>
                   <button class="button is-info is-expand is-fullwidth">
                     Book
                   </button>
                 </div>
                 <div>
-                  <p class="is-size-7 has-text-grey-lighter has-text-weight-bold">Location:</p>
-                  <p class="has-text-weight-semibold">{{ instructor.user.country }}</p>
+                  <p class="is-size-7 has-text-grey-lighter has-text-weight-bold">
+                    Location:
+                  </p>
+                  <p class="has-text-weight-semibold">
+                    {{ instructor.user.country }}
+                  </p>
                   <nuxt-link
                     :to="'/'+$route.params.lang+'/instructors/' + instructor.id"
                   > 
@@ -116,8 +129,12 @@
                   </nuxt-link>
                 </div>
                 <div>
-                  <p class="is-size-7 has-text-grey-lighter has-text-weight-bold">Teaches:</p>
-                  <p class="has-text-weight-semibold">put lengugages</p>
+                  <p class="is-size-7 has-text-grey-lighter has-text-weight-bold">
+                    Teaches:
+                  </p>
+                  <p class="has-text-weight-semibold">
+                    put lengugages
+                  </p>
                   <button class="button is-info is-expand is-fullwidth">
                     Video
                   </button>
@@ -204,6 +221,8 @@
   
   .container-profile-flag
     margin-right: 10px
+    border: 1px solid hsl(0, 0%, 96%)
+
 
   .container-profile-description
     min-height: 60px
@@ -257,6 +276,7 @@ import Like from '~/components/general/Like.vue'
 import Search from '~/components/web/general/Search.vue'
 import Search2 from '~/components/web/general/Search2.vue'
 import Rating from '~/components/web/general/Rating.vue'
+import Countries from '@/mixins/countries'
 import axios from 'axios'
 export default {
   components: {
@@ -265,8 +285,6 @@ export default {
     Search2,
     Rating
   },
-  // watchQuery: ['days', 'price', 'country', 'native'],
-  watchQuery: true,
   filters: {
     truncate: function(value, limit) {
       // eslint-disable-next-line no-console
@@ -278,8 +296,12 @@ export default {
       return value
     }
   },
+  mixins: [Countries],
+  // watchQuery: ['days', 'price', 'country', 'native'],
+  watchQuery: true,
   data() {
     return {
+      url: 'https://www.countryflags.io',
       selectedLang: this.$route.params.lang,
       language: {
         instructors: []
@@ -292,9 +314,6 @@ export default {
     }
   },
   async asyncData({ params, query }) {
-    // eslint-disable-next-line no-console
-    console.log('ya entre')
-
     const langId = params.lang
     let days = ['0', '1', '2', '3', '4', '5', '6']
     let range = [0, 50]
@@ -333,7 +352,7 @@ export default {
     // eslint-disable-next-line no-console
     console.log('data de ESTE INDX')
     // eslint-disable-next-line no-console
-    console.log(data.language)
+    console.log(data)
     return {
       language: data.language,
       daysChecked: days,
@@ -346,6 +365,9 @@ export default {
       rating
     }
   },
+  mounted() {
+    // this.pais('Mexico')
+  },
   methods: {
     changeDays(days = []) {
       this.daysChecked = days
@@ -357,13 +379,44 @@ export default {
     },
     infoComponente(language) {
       // eslint-disable-next-line no-console
-      console.log('dentro del PADRE')
+      // console.log('dentro del PADRE')
       // eslint-disable-next-line no-console
-      console.log(language)
-
+      // console.log(language)
       // this.$router.push({
       //   path: '/' + language + '/instructors/' + this.$router.query.rating
       // })
+    },
+    pais(country) {
+      // eslint-disable-next-line no-console
+      console.log('HASTA LA MADRE')
+      const paises = this.countries[0]
+      // eslint-disable-next-line no-console
+      // console.log(paises)
+      // eslint-disable-next-line no-unused-vars
+      for (const pa in paises) {
+        // eslint-disable-next-line no-console
+        console.log('dentro del FOR')
+        // eslint-disable-next-line no-console
+        console.log(paises[pa])
+        if (paises[pa] === country) {
+          // eslint-disable-next-line no-console
+          console.log('dentro del if')
+          // eslint-disable-next-line no-console
+          console.log(`src="https:// www.countryflags.io/${pa}/flat/48.png`)
+          return `https://www.countryflags.io/${pa}/flat/64.png`
+        }
+      }
+      // return this.Countries
+      // for (const pais of paises) {
+      // eslint-disable-next-line no-console
+      // console.log(pais)
+      // eslint-disable-next-line no-console
+      // if (country === this.contries.pais) {
+      // eslint-disable-next-line no-console
+      // console.log(`src="https:// www.countryflags.io/${pais}/flat/48.png`)
+      // return `src="https:// www.countryflags.io/${pais}/flat/48.png`
+      // }
+      // }
     }
   }
   // methods: {

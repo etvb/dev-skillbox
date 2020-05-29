@@ -108,7 +108,7 @@
                 <option value="1">
                   YES
                 </option>
-                <option value="0">
+                <option value="0" selected>
                   NO
                 </option>
               </b-select>
@@ -498,9 +498,9 @@ export default {
     changeLanguage(value) {
       // this.$emit('prueba', value)
       // eslint-disable-next-line no-console
-      console.log('YE ESTRE')
+      // console.log('YE ESTRE')
       // eslint-disable-next-line no-console
-      console.log(value)
+      // console.log(value)
       // this.$router.push('/' + this.search + '/instructors')
       // const path = this.$route.fullPath
       // const newPath = path.replace(this.selected, value)
