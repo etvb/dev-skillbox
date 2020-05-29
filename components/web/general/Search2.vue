@@ -205,6 +205,9 @@
   </div>
 </template>
 <style lang="sass" scoped>
+  i.fas,
+  i.far
+    color: hsl(204, 86%, 53%)
   .navbar-menu2
     // background-color: #f5f9fc
     // height: 80px
@@ -216,6 +219,7 @@
     // background-color: #34495e
   #navbar2
     justify-content: center
+    margin-bottom: 1rem
   #search
     background-color: #f5f9fc;
     margin-bottom: 1em
