@@ -69,7 +69,6 @@
                     <h5 class="title is-marginless is-6 has-text-weight-bold">
                       {{ instructor.user.name + ' ' + instructor.user.lastname[0] + '.' }}
                     </h5>
-                    <!-- flag -->
                   </div>
                   <p class="has-text-grey-lighter has-text-weight-semibold">
                     Native Language: <span>{{ instructor.user.language.english }}</span>
@@ -78,6 +77,7 @@
                     Raiting: <rating :rating="instructor.average_rating ? instructor.average_rating : 0" />
                   </p>
                 </div>
+                <!-- flag -->
                 <span class="container-profile-flag">
                   <img :src="pais(instructor.user.country)">
                 </span>   
@@ -143,9 +143,10 @@
             </div>
           </div>
         </div>
+        <!-- insertar aqui -->
         <div v-else class="column">
           <template v-for="(lang, indexLang) in language">
-            <nuxt-link
+            <div
               :to="'/'+lang.id+'/instructors/' + instructor.id"
               v-for="(instructor, index) in lang.instructors"
               v-if="instructor.user"
@@ -153,18 +154,58 @@
               :class="indexLang != 0 ? '-is-spaced-top': ''"
               class="is-block"
             >
-              <div
+              <!-- <nuxt-link
+              :to="'/'+lang.id+'/instructors/' + instructor.id"
+              v-for="(instructor, index) in lang.instructors"
+              v-if="instructor.user"
+              :key="instructor.id"
+              :class="indexLang != 0 ? '-is-spaced-top': ''"
+              class="is-block"
+            > -->
+              <!-- <div
                 :class="index != 0 ? '-is-spaced-top': ''"
                 class="box is-radiusless -card-vertical"
+              > -->
+              <div
+                :class="index != 0 ? '-is-spaced-top': ''"
+                class="box is-radiusless -card-vertical container-profile "
               >
-                <div>
-                  <img
+                <div class="container-profile-info">
+                  <div
                     v-if="instructor.user.profile_picture"
-                    :src="instructor.user.profile_picture"
+                    :style="'background-image: url(' + instructor.user.profile_picture + '); background-size: cover; background-repeat: no-repeat'"
+                    class="-is-circle -profile-picture is-inline-block"
+                  />
+
+                  <!-- <div v-else class="-profile-picture is-inline-block" /> -->
+                  <img
+                    v-else
+                    style="opacity: .2;"
+                    src="/profile.png"
                     class="-is-circle -profile-picture"
                   >
-                  <div v-else class="-profile-picture is-inline-block" />
-                  <div class="is-inline-block -description">
+                  <div class="container-profile-main">
+                    <div class="container-profile-name">
+                      <h5 class="title is-marginless is-6 has-text-weight-bold">
+                        {{ instructor.user.name + ' ' + instructor.user.lastname[0] + '.' }}
+                      </h5>
+                    <!-- flag -->
+                    </div>
+                    <p class="has-text-grey-lighter has-text-weight-semibold">
+                      Native Language: <span>{{ lang.english }}</span>
+                    </p><br>
+                    <p class="container-profile-raiting has-text-grey-lighter has-text-weight-semibold">
+                      Raiting: <rating :rating="instructor.average_rating ? instructor.average_rating : 0" />
+                    </p>
+                  </div>
+                  <!-- flag -->
+                  <span class="container-profile-flag">
+                    <img :src="pais(instructor.user.country)">
+                  </span>   
+                  <div class="conteiner-like">
+                    <like />
+                  </div>
+                  <!-- <div class="is-inline-block -description">
                     <h5 class="title is-6 is-marginless">
                       {{ instructor.user.name + ' ' + instructor.user.lastname[0] + '.' }}
                     </h5>
@@ -174,17 +215,71 @@
                     <p class="subtitle is-6">
                       {{ instructor.description }}
                     </p>
-                  </div>
+                  </div> -->
                 </div>
                 <hr>
-                <div class="">
+                <div class="is-inline-block -description container-profile-description">
+                  <p class="subtitle is-6 profile-description">
+                    {{ instructor.description | truncate(180) }}  
+                    <nuxt-link
+                      :to="'/'+lang.id+'/instructors/' + instructor.id"
+                    >
+                      <span class="has-text-weight-bold has-text-info	"> read more.</span> 
+                    </nuxt-link>
+                  </p>
+                </div>
+                <hr>
+                <div class="container-profile-teacher">
+                  <!-- <b-tag class="is-rounded -top-badge">
+                    &nbsp; Top &nbsp;
+                  </b-tag>
+                  <rating :rating="instructor.average_rating ? instructor.average_rating : 0" class="is-pulled-right" /> -->
+                  <div>
+                    <p class="is-size-7 has-text-grey-lighter has-text-weight-bold">
+                      Lesson Price:
+                    </p>
+                    <p class="has-text-weight-semibold">
+                      USD {{ instructor.price_by_class }}
+                    </p>
+                    <button class="button is-info is-expand is-fullwidth">
+                      Book
+                    </button>
+                  </div>
+                  <div>
+                    <p class="is-size-7 has-text-grey-lighter has-text-weight-bold">
+                      Location:
+                    </p>
+                    <p class="has-text-weight-semibold">
+                      {{ instructor.user.country }}
+                    </p>
+                    <nuxt-link
+                      :to="'/'+lang.id+'/instructors/' + instructor.id"
+                    > 
+                      <button class="button is-info is-expand is-fullwidth">
+                        Schedule
+                      </button>
+                    </nuxt-link>
+                  </div>
+                  <div>
+                    <p class="is-size-7 has-text-grey-lighter has-text-weight-bold">
+                      Teaches:
+                    </p>
+                    <p class="has-text-weight-semibold">
+                      put lengugages
+                    </p>
+                    <button class="button is-info is-expand is-fullwidth">
+                      Video
+                    </button>
+                  </div>
+                </div>
+                <!-- <div class="">
                   <b-tag class="is-rounded -top-badge">
                     &nbsp; Top &nbsp;
                   </b-tag>
                   <rating :rating="instructor.average_rating ? instructor.average_rating : 0" class="is-pulled-right" />
-                </div>
+                </div> -->
               </div>
-            </nuxt-link>
+            </div>
           </template>
         </div>
         <!-- <div class=" column is-2" /> -->
