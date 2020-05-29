@@ -208,6 +208,8 @@
   i.fas,
   i.far
     color: hsl(204, 86%, 53%)
+  .fa-angle-down
+    color: #8b70d9 !important
   .navbar-menu2
     // background-color: #f5f9fc
     // height: 80px
