@@ -183,7 +183,7 @@
                 size="is-small"
                 class="prueba"
               >
-                <option value="0">
+                <option value="1">
                   *
                 </option>
                 <option value="2">

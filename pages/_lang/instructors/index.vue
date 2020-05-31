@@ -55,7 +55,7 @@
                   :style="'background-image: url(' + instructor.user.profile_picture + '); background-size: cover; background-repeat: no-repeat'"
                   class="-is-circle -profile-picture is-inline-block"
                 />
-                
+
                 <!-- if the user don´t have imege show this -->
                 <img
                   v-else
@@ -80,7 +80,7 @@
                 <!-- flag -->
                 <span class="container-profile-flag">
                   <img :src="pais(instructor.user.country)">
-                </span>   
+                </span>
                 <div class="conteiner-like">
                   <like />
                 </div>
@@ -88,11 +88,11 @@
               <hr>
               <div class="is-inline-block -description container-profile-description">
                 <p class="subtitle is-6 profile-description">
-                  {{ instructor.description | truncate(180) }}  
+                  {{ instructor.description | truncate(180) }}
                   <nuxt-link
                     :to="'/'+$route.params.lang+'/instructors/' + instructor.id"
                   >
-                    <span class="has-text-weight-bold has-text-info	"> read more.</span> 
+                    <span class="has-text-weight-bold has-text-info	"> read more.</span>
                   </nuxt-link>
                 </p>
               </div>
@@ -122,7 +122,7 @@
                   </p>
                   <nuxt-link
                     :to="'/'+$route.params.lang+'/instructors/' + instructor.id"
-                  > 
+                  >
                     <button class="button is-info is-expand is-fullwidth">
                       Schedule
                     </button>
@@ -201,7 +201,7 @@
                   <!-- flag -->
                   <span class="container-profile-flag">
                     <img :src="pais(instructor.user.country)">
-                  </span>   
+                  </span>
                   <div class="conteiner-like">
                     <like />
                   </div>
@@ -220,11 +220,11 @@
                 <hr>
                 <div class="is-inline-block -description container-profile-description">
                   <p class="subtitle is-6 profile-description">
-                    {{ instructor.description | truncate(180) }}  
+                    {{ instructor.description | truncate(180) }}
                     <nuxt-link
                       :to="'/'+lang.id+'/instructors/' + instructor.id"
                     >
-                      <span class="has-text-weight-bold has-text-info	"> read more.</span> 
+                      <span class="has-text-weight-bold has-text-info	"> read more.</span>
                     </nuxt-link>
                   </p>
                 </div>
@@ -254,7 +254,7 @@
                     </p>
                     <nuxt-link
                       :to="'/'+lang.id+'/instructors/' + instructor.id"
-                    > 
+                    >
                       <button class="button is-info is-expand is-fullwidth">
                         Schedule
                       </button>
@@ -294,30 +294,30 @@
   rating
     float: none !important
   .container-card
-    
+
   .container-profile
     // border: 2px solid red
     padding-left: 30px
     padding-right: 30px
-  
+
   .container-profile-main
     flex: 1 1 auto
     margin-left: 20px
     margin-right: 20px
 
-  .container-profile-info, 
+  .container-profile-info,
   .container-profile-name,
   .container-profile-teacher
     display: flex
-    justify-content: space-between 
+    justify-content: space-between
 
   .container-profile-raiting
     margin-top: -25px
-  
+
   .container-profile-flag
     margin-right: 10px
     border: 1px solid hsl(0, 0%, 96%)
-  
+
   .conteiner-like
     padding: 22px
 
@@ -451,6 +451,16 @@ export default {
     console.log('data de ESTE INDX')
     // eslint-disable-next-line no-console
     console.log(data)
+
+    // Filter by rating
+    if (query.rating) {
+      data.language.instructors = data.language.instructors.filter(
+        instructor => {
+          return parseInt(instructor.average_rating) === parseInt(rating)
+        }
+      )
+    }
+
     return {
       language: data.language,
       daysChecked: days,
