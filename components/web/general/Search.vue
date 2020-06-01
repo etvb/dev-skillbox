@@ -167,7 +167,18 @@ export default {
     getDaysFiltereds() {
       const days = this.daysChecked
       // si esta vacio devuelve el arreglo vacio
-      if (!days.length) return ''
+      // if (!days.length) return ''
+      // si viene desde la búsqueda principal(donde no se puede filttrar por días) devolvemos todos los días, si ya se encuentra en
+      // la parte donde se puede filtrar por días respetamos la busqueda aunque este vacía
+      if (!days.length) {
+        const fromLangPage = this.$route.params.lang
+        if (fromLangPage) {
+          return ''
+        } else {
+          return 'days=0,1,2,3,4,5,6'
+        }
+      }
+      alert(days)
       // eslint-disable-next-line no-console
       console.log('desde getDaysFiltereds' + days)
       return 'days=' + days

@@ -413,7 +413,8 @@ export default {
   },
   async asyncData({ params, query }) {
     const langId = params.lang
-    let days = ['0', '1', '2', '3', '4', '5', '6']
+    // let days = ['0', '1', '2', '3', '4', '5', '6']
+    let days = []
     let range = [0, 50]
     let native = 0
     let rating = null
