@@ -183,7 +183,7 @@
                 size="is-small"
                 class="prueba"
               >
-                <option value="0">
+                <option value="1">
                   *
                 </option>
                 <option value="2">
@@ -373,12 +373,8 @@ export default {
   mounted() {
     // this.delete()
     this.setLanguages()
-    // eslint-disable-next-line no-console
-    console.log('ROUTE')
     // this.locationsFunction()
     // this.getLocation()
-    // eslint-disable-next-line no-console
-    console.log(this.$route)
   },
   methods: {
     openMenu2(event) {
@@ -394,10 +390,6 @@ export default {
     showMe() {
       const menu = document.getElementById('menu')
       menu.classList.toggle('show')
-    },
-    prueba2() {
-      // eslint-disable-next-line no-console
-      console.log('llamada')
     },
     delete() {
       const border = document.querySelectorAll('select')

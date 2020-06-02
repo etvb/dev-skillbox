@@ -51,9 +51,10 @@
               <div class="container-profile-info">
                 <!-- changed the img tag fot div, if the user has image show  -->
                 <div
+                  id="container-profile-img"
                   v-if="instructor.user.profile_picture"
                   :style="'background-image: url(' + instructor.user.profile_picture + '); background-size: cover; background-repeat: no-repeat'"
-                  class="-is-circle -profile-picture is-inline-block"
+                  class="-is-circle -profile-picture is-inline-block "
                 />
                 
                 <!-- if the user don´t have imege show this -->
@@ -367,6 +368,23 @@
     &:hover
       // cursor: pointer
       box-shadow: 0 10px 8px rgba(0, 0, 0, 0.15), 0 1px 10px rgba(0, 0, 0, 0.2)
+  
+  @media screen and (max-width: 500px)
+    .mybg, .container-profile, .container-profile-main
+      // background-color: red
+      padding-left: 5px
+      padding-right: 5px
+    .container-profile-main
+      flex: 1 1 auto
+      margin-left: 5px
+      margin-right: 5px
+      font-size: 14px
+    .conteiner-like
+      padding: 14px 5px 22px 5px
+    #container-profile-img
+      margin-right: 0
+
+    
 </style>
 
 <script>
