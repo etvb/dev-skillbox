@@ -18,7 +18,7 @@
         We've  found {{ language.instructors.length }} teachers
       </h4>
       <h4 v-else class="title is-4 has-text-centered">
-        We've  found {{ totalInstructors }} teachers
+        We've  found {{ suma() }} teachers
       </h4>
       <div class="columns">
         <div class="column is-2">
@@ -162,7 +162,7 @@
               :key="instructor.id"
               :class="indexLang != 0 ? '-is-spaced-top': ''"
               class="is-block"
-            > -->
+              > -->
               <!-- <div
                 :class="index != 0 ? '-is-spaced-top': ''"
                 class="box is-radiusless -card-vertical"
@@ -179,6 +179,7 @@
                   />
 
                   <!-- <div v-else class="-profile-picture is-inline-block" /> -->
+                  
                   <img
                     v-else
                     style="opacity: .2;"
@@ -417,6 +418,8 @@ export default {
   watchQuery: true,
   data() {
     return {
+      instructors: [],
+      total: parseInt(this.instructors) + parseInt(this.total),
       url: 'https://www.countryflags.io',
       selectedLang: this.$route.params.lang,
       language: {
@@ -468,7 +471,7 @@ export default {
     // eslint-disable-next-line no-console
     console.log('data de ESTE INDX')
     // eslint-disable-next-line no-console
-    console.log(data)
+    console.log(data.language)
     return {
       language: data.language,
       daysChecked: days,
@@ -483,8 +486,20 @@ export default {
   },
   mounted() {
     // this.pais('Mexico')
+    // this.suma()
   },
   methods: {
+    suma() {
+      let total = 0
+      for (const instructor of this.language) {
+        const acumulador = parseInt(instructor.instructors.length)
+        total = total + acumulador
+      }
+      return total
+      // eslint-disable-next-line no-console
+      // console.log(lang)
+      // this.instructors.push(lang)
+    },
     changeDays(days = []) {
       this.daysChecked = days
       const newDays = days.toString()
