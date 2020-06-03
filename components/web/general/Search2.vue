@@ -102,8 +102,8 @@
               <b-select
                 v-model="native"
                 @input="changeNativeSpeaker"
+                :expanded="true"
                 size="is-small"
-                expanded="true"
               >
                 <option value="1">
                   YES
@@ -178,7 +178,7 @@
               <b-select
                 v-model="rating"
                 @input="changeRating"
-                expanded="true"
+                :expanded="true"
                 placeholder=""
                 size="is-small"
                 class="prueba"
