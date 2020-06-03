@@ -472,6 +472,14 @@ export default {
     console.log('data de ESTE INDX')
     // eslint-disable-next-line no-console
     console.log(data.language)
+    // Filter by rating
+    if (query.rating) {
+      data.language.instructors = data.language.instructors.filter(
+        instructor => {
+          return parseInt(instructor.average_rating) === parseInt(rating)
+        }
+      )
+    }
     return {
       language: data.language,
       daysChecked: days,
