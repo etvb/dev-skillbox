@@ -1,5 +1,9 @@
 <template>
   <div class="section mybg">
+    <CVideo 
+      :isCardModalIntroductionVideo="isCardModalIntroductionVideo"
+      :videoData="video"
+    />
     <div class="container">
       <!-- navbar -->
       <search2
@@ -110,7 +114,10 @@
                   <p class="has-text-weight-semibold">
                     USD {{ instructor.price_by_class }}
                   </p>
-                  <button class="button is-info is-expand is-fullwidth">
+                  <button
+                    @click="activateCalendarModal"
+                    class="button is-info is-expand is-fullwidth"
+                  >
                     Book
                   </button>
                 </div>
@@ -136,7 +143,13 @@
                   <p class="has-text-weight-semibold">
                     put lengugages
                   </p>
-                  <button class="button is-info is-expand is-fullwidth">
+                  <button
+                    id="buttomVideo5"
+                    :disabled="!instructor.video_url"
+                    @click="openVideo(instructor.video_url)"
+                    :value="instructor.video_url"
+                    class="button is-info is-expand is-fullwidth"
+                  > 
                     Video
                   </button>
                 </div>
@@ -243,7 +256,10 @@
                     <p class="has-text-weight-semibold">
                       USD {{ instructor.price_by_class }}
                     </p>
-                    <button class="button is-info is-expand is-fullwidth">
+                    <button
+                      @click="activateCalendarModal"
+                      class="button is-info is-expand is-fullwidth"
+                    >
                       Book
                     </button>
                   </div>
@@ -269,7 +285,7 @@
                     <p class="has-text-weight-semibold">
                       put lengugages
                     </p>
-                    <button class="button is-info is-expand is-fullwidth">
+                    <button :disabled="prueba" class="button is-info is-expand is-fullwidth">
                       Video
                     </button>
                   </div>
@@ -287,6 +303,9 @@
         <div class=" column is-2" />
       </div>
     </div>
+    <CBook
+      :isCalendarModalActive="isCalendarModalActive"
+    />
   </div>
 </template>
 <style lang="sass">
@@ -389,6 +408,8 @@
 </style>
 
 <script>
+import CBook from '~/components/web/general/CBook.vue'
+import CVideo from '~/components/web/general/CVideo.vue'
 import Like from '~/components/general/Like.vue'
 // import Search from '~/components/web/general/Search.vue'
 import Search2 from '~/components/web/general/Search2.vue'
@@ -397,6 +418,8 @@ import Countries from '@/mixins/countries'
 import axios from 'axios'
 export default {
   components: {
+    CBook,
+    CVideo,
     Like,
     // Search,
     Search2,
@@ -418,8 +441,13 @@ export default {
   watchQuery: true,
   data() {
     return {
-      instructors: [],
-      total: parseInt(this.instructors) + parseInt(this.total),
+      video: '',
+      isCalendarModalActive: false,
+      isCardModalIntroductionVideo: false,
+      instructor: [],
+      nuevo: [],
+      // instructors: [],
+      // total: parseInt(this.instructors) + parseInt(this.total),
       url: 'https://www.countryflags.io',
       selectedLang: this.$route.params.lang,
       language: {
@@ -473,13 +501,37 @@ export default {
     console.log('data de ESTE INDX')
     // eslint-disable-next-line no-console
     console.log(data.language)
+    // eslint-disable-next-line no-console
+    // console.log(langId)
     // Filter by rating
     if (query.rating) {
-      data.language.instructors = data.language.instructors.filter(
-        instructor => {
-          return parseInt(instructor.average_rating) === parseInt(rating)
+      if (langId !== 'others') {
+        data.language.instructors = data.language.instructors.filter(
+          instructor => {
+            return parseInt(instructor.average_rating) === parseInt(rating)
+          }
+        )
+      } else {
+        // eslint-disable-next-line no-console
+        console.log('DNTRO')
+        for (const data2 of data.language) {
+          // eslint-disable-next-line no-console
+          // console.log(data2)
+          data.language.instructors = data2.instructors.filter(
+            elementoActual => {
+              return (
+                parseInt(elementoActual.average_rating) === parseInt(rating)
+              )
+            }
+          )
+          // eslint-disable-next-line no-console
+          // console.log(data.)
+          // eslint-disable-next-line no-console
+          // console.log(data.language.instructors)
         }
-      )
+        // data.language = nuevo
+        // data.language.instructors = nuevo
+      }
     }
     return {
       language: data.language,
@@ -498,6 +550,28 @@ export default {
     // this.suma()
   },
   methods: {
+    activateCalendarModal() {
+      this.isCalendarModalActive = true
+      setTimeout(() => {
+        this.setFieldLevelWidth()
+      }, 100)
+    },
+    setFieldLevelWidth() {
+      // put this inside of the CBook compinent and tray to auto exec when component is visible
+      const fields = document.querySelectorAll('.-field-level')
+      const calendarWidth = document.getElementById('calendar-box').offsetWidth
+      fields.forEach(field => {
+        field.style.maxWidth = calendarWidth + 'px'
+      })
+    },
+    // prueba() {
+    //   const bottomVideo2 = document.getElementById('buttomVideo')
+    //   alert(bottomVideo2.dataset.url)
+    // },
+    openVideo(video) {
+      this.video = video
+      this.isCardModalIntroductionVideo = true
+    },
     suma() {
       let total = 0
       for (const instructor of this.language) {
@@ -505,9 +579,6 @@ export default {
         total = total + acumulador
       }
       return total
-      // eslint-disable-next-line no-console
-      // console.log(lang)
-      // this.instructors.push(lang)
     },
     changeDays(days = []) {
       this.daysChecked = days

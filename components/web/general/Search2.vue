@@ -513,7 +513,9 @@ export default {
       // otra forma de hacerlo
       this.$router.push({
         path: '/' + value + '/instructors',
-        query: { rating: this.rating, native: this.native }
+        query: {
+          days: '0,1,2,3,4,5,6'
+        }
       })
     },
     changeRangePrice() {
