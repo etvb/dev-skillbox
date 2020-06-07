@@ -1,5 +1,5 @@
 <template>
-  <div class="section">
+  <div class="section mybg contenedor-principal">
     <b-modal :active.sync="isCardModalIntroductionVideo" :width="560" scroll="keep">
       <div>
         <iframe
@@ -13,76 +13,118 @@
         />
       </div>
     </b-modal>
-    <div class="container">
+    <div id="prueba" class="container">
       <a @click.prevent="goBack" href="#" class="-has-text-primary">Back to results</a>
       <div class="columns is-centered">
         <div class="column is-8">
-          <div class="box is-radiusless -card-details-instructor">
+          <div id="prueba" class="box is-radiusless -card-details-instructor">
             <!-- In case have course picture -->
             <!-- <div v-if="instructor.course.img"> -->
-            <div v-if="instructor.course">
-              <div class="columns">
-                <div class="column is-7 -column-profile -vertical-flex-align -is-borderless-mobile">
-                  <div class="-has-margin-auto">
-                    <div class="-is-relative -container-profile-picture -is-fullwidth">
+            <!-- <div v-if="instructor.course"> -->
+            <!-- <div class="columns"> -->
+            <!-- <div class="column is-7 -column-profile -vertical-flex-align -is-borderless-mobile"> -->
+            <!-- <div class="-has-margin-auto"> -->
+            <!-- <div class="-is-relative -container-profile-picture -is-fullwidth">
                       <div class="-profile-picture is-inline-block -is-absolute" />
                     </div>
                     <h5 class="title is-5 has-text-centered -name -is-spaced-top">
                       Georg B.
-                    </h5>
-                    <div v-if="instructor.video_url" class="has-text-centered">
+                    </h5> -->
+            <!-- <div v-if="instructor.video_url" class="has-text-centered">
                       <button class="button is-small -is-primary-outlined is-rounded">
                         <span>
-                          Watch the introduction video
+                          Watch the introduction video 555555
                         </span>
                       </button>
-                    </div>
-                  </div>
-                </div>
-                <div class="column is-hidden-mobile">
+                    </div> -->
+            <!-- </div> -->
+            <!-- </div> -->
+            <!-- <div class="column is-hidden-mobile">
                   <figure class="image">
+                    HOLA HOLA
                     <img :src="instructor.course.img">
                   </figure>
-                </div>
-              </div>
-              <hr>
-            </div>
+                </div> -->
+            <!-- </div> -->
+            <!-- <hr> -->
+            <!-- </div> -->
             <!-- In case only have profile picture -->
-            <div v-else>
+            <div>
               <div v-show="instructor.user" class="-is-relative -container-profile-picture -is-fullwidth has-text-centered">
-                <div
+                <!-- nueva vista -->
+                <div class="container-profile-info">
+                  <!-- changed the img tag fot div, if the user has image show  -->
+                  <div
+                    id="container-profile-img"
+                    v-if="instructor.user.profile_picture"
+                    :style="'background-image: url(' + instructor.user.profile_picture + '); background-size: cover; background-repeat: no-repeat'"
+                    class="-is-circle -profile-picture is-inline-block "
+                  />
+                
+                  <!-- if the user don´t have imege show this -->
+                  <img
+                    v-else
+                    style="opacity: .2;"
+                    src="/profile.png"
+                    class="-is-circle -profile-picture"
+                  >
+                  <!-- <div v-else class="-profile-picture is-inline-block" /> -->
+                  <div class="container-profile-main">
+                    <div class="container-profile-name">
+                      <h5 class="title is-marginless is-6 has-text-weight-bold">
+                        {{ instructor.user.name + ' ' + instructor.user.lastname[0] + '.' }}
+                      </h5>
+                    </div>
+                    <p class="has-text-grey-lighter has-text-weight-semibold">
+                      Native Language: <span>{{ instructor.user.language.english }}</span>
+                    </p><br>
+                    <p class="container-profile-raiting has-text-grey-lighter has-text-weight-semibold">
+                      Raiting: <rating :rating="instructor.average_rating ? instructor.average_rating : 0" />
+                    </p>
+                  </div>
+                  <!-- flag -->
+                  <span class="container-profile-flag">
+                    <img :src="pais(instructor.user.country)">
+                  </span>   
+                  <div class="conteiner-like">
+                    <like />
+                  </div>
+                </div>
+                <!-- nueva vista FIN -->
+                <hr>
+                <!-- <div
                   :style="'background-image: url(' + instructor.user.profile_picture + ')'"
                   class="-profile-picture is-inline-block -is-absolute"
-                />
+                /> -->
                 <!-- <img
                   v-if="instructor.user.profile_picture"
                   :src="instructor.user.profile_picture"
                   class="-is-circle -profile-picture -is-absolute"
                 > -->
-                <hr>
+                <!-- <hr> -->
               </div>
-              <h5 class="title is-5 has-text-centered -name">
+              <!-- <h5 class="title is-5 has-text-centered -name">
                 {{ adaptedName }}
-              </h5>
-              <div v-if="instructor.video_url" class="has-text-centered">
+              </h5> -->
+              <!-- <div v-if="instructor.video_url" class="has-text-centered">
                 <button @click="openVideo" class="button is-small -is-primary-outlined is-rounded">
                   <span>
                     Watch the introduction video
                   </span>
                 </button>
-              </div>
+              </div> -->
             </div>
 
-            <div class="-is-spaced-top">
+            <!-- <div class="-is-spaced-top">
               <b-tag class="is-rounded -top-badge">
                 &nbsp; Top &nbsp;
               </b-tag>
               <rating :rating="4" class="is-pulled-right" />
-            </div>
-            <p class="-is-spaced-top title is-6">
+            </div> -->
+            <p class="-is-spaced-top title is-6 description ">
               {{ instructor.description }}
             </p>
-            <div
+            <!-- <div
               id="sticky"
               v-if="!isCalendarModalActive"
               class="box is-radiusless -sticky-data -has-bg-primary"
@@ -97,33 +139,79 @@
                 Book
               </button>
               <like class="-like" />
-            </div>
-            <h6 class="title is-6 -is-marginless-bottom">
+            </div> -->
+            <hr>
+            <h6 class="title is-6 -is-marginless-bottom has-text-grey-lighter has-text-weight-semibold">
               About {{ adaptedName }}
             </h6>
             <div>
               {{ instructor.bio }}
             </div>
-            <h6 class="title is-6 -is-spaced-top -is-marginless-bottom">
-              Native language
-            </h6>
-            <p>
-              {{ instructorLanguage.english }}
-            </p>
-            <h6 class="title is-6 -is-spaced-top -is-marginless-bottom">
-              Languages that {{ adaptedName }} can teach you
+            <hr>
+            <h6 class="title is-6 -is-spaced-top -is-marginless-bottom has-text-grey-lighter has-text-weight-semibold">
+              Teaches:
             </h6>
             <p v-for="(language, index) in instructorLanguages" :key="index">
               {{ language }}
             </p>
-            <h6 class="title is-6 -is-spaced-top -is-marginless-bottom">
+            <!-- <h6 class="title is-6 -is-spaced-top -is-marginless-bottom">
+              Native language
+            </h6> -->
+            <p>
+              {{ instructorLanguage.english }}
+            </p>
+            <!-- <h6 class="title is-6 -is-spaced-top -is-marginless-bottom">
               Location
             </h6>
             <p>
               {{ instructor.user.country }}
-            </p>
+            </p> -->
+            <div class="container-profile-teacher">
+              <div>
+                <p class="is-size-7 has-text-grey-lighter has-text-weight-bold">
+                  Lesson Price:
+                </p>
+                <p class="has-text-weight-semibold">
+                  USD {{ instructor.price_by_class }}
+                </p>
+                <button
+                  @click="activateCalendarModal"
+                  class="button is-info is-expand is-fullwidth"
+                >
+                  Book
+                </button>
+              </div>
+              <div>
+                <p class="is-size-7 has-text-grey-lighter has-text-weight-bold">
+                  Location:
+                </p>
+                <p class="has-text-weight-semibold">
+                  {{ instructor.user.country }}
+                </p>
+                <button class="button is-info is-expand is-fullwidth">
+                  Schedule
+                </button>
+              </div>
+              <div>
+                <!-- <p class="is-size-7 has-text-grey-lighter has-text-weight-bold">
+                  Teaches55555555:
+                </p>
+                <p class="has-text-weight-semibold">
+                  put lengugages
+                </p> -->
+                <button
+                  :disabled="!instructor.video_url"
+                  @click="openVideo(instructor.video_url)"
+                  :value="instructor.video_url"
+                  class="button is-info is-expand is-fullwidth"
+                > 
+                  Video
+                </button>
+              </div>
+            </div>
           </div>
           <!-- End box -->
+
           <b-modal
             :active.sync="isCalendarModalActive"
             class="-has-bg-primary"
@@ -261,7 +349,7 @@
       background-position: center
       background-repeat: no-repeat
       background-size: cover
-    hr
+    hr2
       position: absolute
       width: 100%
       top: 25%
@@ -283,11 +371,33 @@
       z-index: 99
       .-button-book
         top: 0
+
+  hr
+    margin-top: 10px
+    margin-bottom: 10px
+  .description
+    padding-top: 20px
+  
+  @media screen and (max-width: 500px)
+    .contenedor-principal
+      padding-left: 10px
+      padding-right: 10px
+  
+    #prueba
+      background-color: red
+      padding-left: 10px
+      padding-right: 10px
+
+    #container-profile-img
+      width: 60px
+      height: 50px
+
 </style>
 <script>
 import Rating from '~/components/web/general/Rating.vue'
 import Like from '~/components/general/Like.vue'
 import axios from 'axios'
+import Countries from '@/mixins/countries'
 import { mapGetters } from 'vuex'
 // import moment from 'moment'
 export default {
@@ -295,6 +405,7 @@ export default {
     Rating,
     Like
   },
+  mixins: [Countries],
   data() {
     const today = new Date()
     return {
@@ -392,15 +503,27 @@ export default {
       return unselectableDays
     }
   },
-  async asyncData({ params }) {
+  async asyncData({ params, query }) {
+    // eslint-disable-next-line no-console
+    // console.log(query.isCalendarModalActive)
     const idInstructor = params.id
     const { data } = await axios.get(
       `${process.env.apiUrl}instructor/${idInstructor}`
     )
-    return { instructor: data }
+    // eslint-disable-next-line no-console
+    console.log('data de un VATO')
+    // eslint-disable-next-line no-console
+    console.log(data)
+    return {
+      instructor: data,
+      isCalendarModalActive: query.isCalendarModalActive
+    }
   },
   mounted() {
-    window.addEventListener('scroll', this.handleScroll)
+    if (this.isCalendarModalActive) {
+      this.setFieldLevelWidth()
+    }
+    // window.addEventListener('scroll', this.handleScroll)
     this.getLanguage()
     this.getTimezone()
     this.getInstructorSchedules()
@@ -408,9 +531,17 @@ export default {
     this.getLanguageToTeach()
   },
   destroyed() {
-    window.removeEventListener('scroll', this.handleScroll)
+    // window.removeEventListener('scroll', this.handleScroll)
   },
   methods: {
+    pais(country) {
+      const paises = this.countries[0]
+      for (const pa in paises) {
+        if (paises[pa] === country) {
+          return `https://www.countryflags.io/${pa}/flat/64.png`
+        }
+      }
+    },
     openVideo() {
       this.isCardModalIntroductionVideo = true
     },
@@ -438,17 +569,17 @@ export default {
         this.languageToTeach = response.data
       })
     },
-    handleScroll(event) {
-      const elementSticky = document.getElementById('sticky')
-      // Get the offset position of the sticky
-      const sticky = elementSticky.offsetTop
+    // handleScroll(event) {
+    //   const elementSticky = document.getElementById('sticky')
+    //   // Get the offset position of the sticky
+    //   const sticky = elementSticky.offsetTop
 
-      if (window.pageYOffset > sticky) {
-        elementSticky.classList.add('sticky')
-      } else {
-        elementSticky.classList.remove('sticky')
-      }
-    },
+    //   if (window.pageYOffset > sticky) {
+    //     elementSticky.classList.add('sticky')
+    //   } else {
+    //     elementSticky.classList.remove('sticky')
+    //   }
+    // },
     selectableDays(schedules) {
       const days = []
       schedules.forEach(schedule => {

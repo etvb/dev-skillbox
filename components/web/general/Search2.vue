@@ -97,22 +97,24 @@
           <div class="button-search">
             <i class="fas fa-chalkboard-teacher" />
             <span class="titleButtom">Native Speaker</span>
-
-            <b-field>
-              <b-select
-                v-model="native"
-                @input="changeNativeSpeaker"
-                :expanded="true"
-                size="is-small"
-              >
-                <option value="1">
-                  YES
-                </option>
-                <option value="0" selected>
-                  NO
-                </option>
-              </b-select>
-            </b-field>
+            <div id="NO">
+              NO
+            </div>
+            
+            <b-select
+              v-model="native"
+              @input="changeNativeSpeaker"
+              :expanded="true"
+              size="is-small"
+              placeholder="NO"
+            >
+              <option value="1">
+                YES
+              </option>
+              <option value="0">
+                NO
+              </option>
+            </b-select>
           </div>
           <!--end button-Speaker -->
 
@@ -205,6 +207,10 @@
   </div>
 </template>
 <style lang="sass" scoped>
+  #NO
+    position: absolute
+    z-index: 1
+    padding-left: 5px
   i.fas,
   i.far
     color: hsl(204, 86%, 53%)
@@ -239,10 +245,10 @@
     z-index: 10
   @media screen and (min-width: 230px)
     .days
-      top: 160px
-  @media screen and (min-width: 373px)
-    .days
       top: 120px
+  // @media screen and (min-width: 373px)
+  //   .days
+  //     top: 120px
 
   .days.show
     display: block
@@ -475,10 +481,15 @@ export default {
       this.locationes = locations
     },
     changeNativeSpeaker(value) {
+      this.hideNO()
       this.$router.push({
         path: this.$route.fullPath,
         query: { native: value }
       })
+    },
+    hideNO() {
+      const element = document.getElementById('NO')
+      element.style.zIndex = '0'
     },
     changeDays() {
       this.$emit('changeDays', this.daysComponent)

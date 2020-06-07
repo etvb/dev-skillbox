@@ -114,12 +114,16 @@
                   <p class="has-text-weight-semibold">
                     USD {{ instructor.price_by_class }}
                   </p>
-                  <button
-                    @click="activateCalendarModal"
-                    class="button is-info is-expand is-fullwidth"
+                  <nuxt-link
+                    :to="'/'+$route.params.lang+'/instructors/' + instructor.id + '?isCalendarModalActive=true'"
                   >
-                    Book
-                  </button>
+                    <!-- @click="activateCalendarModal" -->
+                    <button 
+                      class="button is-info is-expand is-fullwidth"
+                    >
+                      Book
+                    </button>
+                  </nuxt-link>
                 </div>
                 <div>
                   <p class="is-size-7 has-text-grey-lighter has-text-weight-bold">
@@ -144,7 +148,6 @@
                     put lengugages
                   </p>
                   <button
-                    id="buttomVideo5"
                     :disabled="!instructor.video_url"
                     @click="openVideo(instructor.video_url)"
                     :value="instructor.video_url"
@@ -303,9 +306,6 @@
         <div class=" column is-2" />
       </div>
     </div>
-    <CBook
-      :isCalendarModalActive="isCalendarModalActive"
-    />
   </div>
 </template>
 <style lang="sass">
@@ -325,12 +325,20 @@
     flex: 1 1 auto
     margin-left: 20px
     margin-right: 20px
+    text-align: initial
+    
 
   .container-profile-info, 
   .container-profile-name,
   .container-profile-teacher
     display: flex
     justify-content: space-between 
+  
+  .container-profile-teacher
+    div
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
 
   .container-profile-raiting
     margin-top: -25px
@@ -345,6 +353,7 @@
 
   .container-profile-description
     min-height: 60px
+    max-height: 80px
     .profile-description
       margin-left: 30px
       margin-right: 30px
@@ -390,6 +399,9 @@
       box-shadow: 0 10px 8px rgba(0, 0, 0, 0.15), 0 1px 10px rgba(0, 0, 0, 0.2)
   
   @media screen and (max-width: 500px)
+    #prueba
+      padding-left: 10px
+      padding-right: 10px
     .mybg, .container-profile, .container-profile-main
       // background-color: red
       padding-left: 5px
@@ -401,14 +413,16 @@
       font-size: 14px
     .conteiner-like
       padding: 14px 5px 22px 5px
+    .container-profile-description
+      min-height: 60px
+      max-height: 80px
     #container-profile-img
       margin-right: 0
-
     
 </style>
 
 <script>
-import CBook from '~/components/web/general/CBook.vue'
+// import CBook from '~/components/web/general/CBook.vue'
 import CVideo from '~/components/web/general/CVideo.vue'
 import Like from '~/components/general/Like.vue'
 // import Search from '~/components/web/general/Search.vue'
@@ -418,7 +432,7 @@ import Countries from '@/mixins/countries'
 import axios from 'axios'
 export default {
   components: {
-    CBook,
+    // CBook,
     CVideo,
     Like,
     // Search,
