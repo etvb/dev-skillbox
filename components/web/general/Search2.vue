@@ -105,8 +105,8 @@
               v-model="native"
               @input="changeNativeSpeaker"
               :expanded="true"
+              :disabled="prueba"
               size="is-small"
-              placeholder="NO"
             >
               <option value="1">
                 YES
@@ -333,6 +333,7 @@ export default {
   },
   data() {
     return {
+      prueba: false,
       min: '',
       max: '',
       native: '',
@@ -385,6 +386,9 @@ export default {
     this.setLanguages()
     // this.locationsFunction()
     // this.getLocation()
+    if (this.search === 'others') {
+      this.prueba = true
+    }
   },
   methods: {
     openMenu2(event) {
