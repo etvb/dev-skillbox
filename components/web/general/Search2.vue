@@ -58,7 +58,7 @@
             <span class="titleButtom">Availability</span>
             <br>
             <div>
-              <!-- {{ daysChecked }} -->
+              <!-- {{ daysComponent }} -->
               <span class="sizeSmall">Su</span>
               <span class="sizeSmall">Mo</span>
               <span class="sizeSmall">Tu</span>
@@ -378,6 +378,10 @@ export default {
   },
   mounted() {
     // this.delete()
+    // eslint-disable-next-line no-console
+    console.log(this.daysChecked)
+    // eslint-disable-next-line no-console
+    console.log(this.daysComponent)
     this.setLanguages()
     // this.locationsFunction()
     // this.getLocation()
