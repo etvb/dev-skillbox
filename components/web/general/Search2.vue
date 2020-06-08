@@ -59,7 +59,7 @@
             <br>
             <div>
               <!-- {{ daysComponent }} -->
-              <span class="sizeSmall">Su</span>
+              <span id="su" class="sizeSmall">Su</span>
               <span class="sizeSmall">Mo</span>
               <span class="sizeSmall">Tu</span>
               <span class="sizeSmall">We</span>
@@ -492,6 +492,7 @@ export default {
       })
     },
     hideNO() {
+      // add 'NO' in the buttom native spiker
       const element = document.getElementById('NO')
       element.style.zIndex = '0'
     },

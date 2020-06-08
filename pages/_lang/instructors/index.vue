@@ -259,12 +259,16 @@
                     <p class="has-text-weight-semibold">
                       USD {{ instructor.price_by_class }}
                     </p>
-                    <button
-                      @click="activateCalendarModal"
-                      class="button is-info is-expand is-fullwidth"
+                    <nuxt-link
+                      :to="'/'+$route.params.lang+'/instructors/' + instructor.id + '?isCalendarModalActive=true'"
                     >
-                      Book
-                    </button>
+                      <!-- @click="activateCalendarModal" -->
+                      <button 
+                        class="button is-info is-expand is-fullwidth"
+                      >
+                        Book
+                      </button>
+                    </nuxt-link>
                   </div>
                   <div>
                     <p class="is-size-7 has-text-grey-lighter has-text-weight-bold">
@@ -288,7 +292,12 @@
                     <p class="has-text-weight-semibold">
                       put lengugages
                     </p>
-                    <button :disabled="prueba" class="button is-info is-expand is-fullwidth">
+                    <button
+                      :disabled="!instructor.video_url"
+                      @click="openVideo(instructor.video_url)"
+                      :value="instructor.video_url"
+                      class="button is-info is-expand is-fullwidth"
+                    > 
                       Video
                     </button>
                   </div>
