@@ -59,13 +59,13 @@
             <br>
             <div>
               <!-- {{ daysComponent }} -->
-              <span id="su" class="sizeSmall">Su</span>
-              <span class="sizeSmall">Mo</span>
-              <span class="sizeSmall">Tu</span>
-              <span class="sizeSmall">We</span>
-              <span class="sizeSmall">Th</span>
-              <span class="sizeSmall">Fr</span>
-              <span class="sizeSmall">Sa</span>
+              <span id="su" class="sizeSmall has-text-weight-bold colorDays">Su</span>
+              <span id="mo" class="sizeSmall has-text-weight-bold colorDays">Mo</span>
+              <span id="tu" class="sizeSmall has-text-weight-bold colorDays">Tu</span>
+              <span id="we" class="sizeSmall has-text-weight-bold colorDays">We</span>
+              <span id="th" class="sizeSmall has-text-weight-bold colorDays">Th</span>
+              <span id="fr" class="sizeSmall has-text-weight-bold colorDays">Fr</span>
+              <span id="sa" class="sizeSmall has-text-weight-bold colorDays">Sa</span>
               <i class="fas fa-angle-down" />
             </div>
             <div id="menu" class="days">
@@ -84,7 +84,7 @@
                 <b-checkbox
                   v-model="daysComponent"
                   :native-value="day.id"
-                  :input="changeDays()"
+                  @input="changeDays(day.id)"
                 >
                   {{ day.name }}
                 </b-checkbox>
@@ -105,7 +105,7 @@
               v-model="native"
               @input="changeNativeSpeaker"
               :expanded="true"
-              :disabled="prueba"
+              :disabled="disableNative"
               size="is-small"
             >
               <option value="1">
@@ -160,8 +160,9 @@
                 placeholder=""
                 size="is-small"
               >
+                <option value="">All</option>
                 <option
-                  v-for="($location ) in locationes"
+                  v-for="$location in locationes"
                   :key="$location"
                 >
                   {{ $location }}
@@ -185,6 +186,9 @@
                 size="is-small"
                 class="prueba"
               >
+                <option value="">
+                  All
+                </option>
                 <option value="1">
                   *
                 </option>
@@ -207,6 +211,8 @@
   </div>
 </template>
 <style lang="sass" scoped>
+  .colorDays
+    color: hsl(204, 86%, 53%)
   #NO
     position: absolute
     z-index: 1
@@ -333,7 +339,7 @@ export default {
   },
   data() {
     return {
-      prueba: false,
+      disableNative: false,
       min: '',
       max: '',
       native: '',
@@ -378,19 +384,46 @@ export default {
     }
   },
   mounted() {
-    // this.delete()
-    // eslint-disable-next-line no-console
-    console.log(this.daysChecked)
-    // eslint-disable-next-line no-console
-    console.log(this.daysComponent)
     this.setLanguages()
+    // this.changeColorDays()
     // this.locationsFunction()
     // this.getLocation()
     if (this.search === 'others') {
-      this.prueba = true
+      this.disableNative = true
     }
   },
   methods: {
+    changeColorDays(dia) {
+      switch (dia) {
+        case 0:
+          const sunday = document.getElementById('su')
+          sunday.classList.toggle('colorDays')
+          break
+        case 1:
+          const monday = document.getElementById('mo')
+          monday.classList.toggle('colorDays')
+          break
+        case 2:
+          const tuesday = document.getElementById('tu')
+          tuesday.classList.toggle('colorDays')
+          break
+        case 3:
+          const wednesday = document.getElementById('we')
+          wednesday.classList.toggle('colorDays')
+          break
+        case 4:
+          const thurday = document.getElementById('th')
+          thurday.classList.toggle('colorDays')
+          break
+        case 5:
+          const friday = document.getElementById('fr')
+          friday.classList.toggle('colorDays')
+          break
+        case 6:
+          const saturday = document.getElementById('sa')
+          saturday.classList.toggle('colorDays')
+      }
+    },
     openMenu2(event) {
       const element = event.target
       const trigger = element.closest('div')
@@ -500,8 +533,9 @@ export default {
       const element = document.getElementById('NO')
       element.style.zIndex = '0'
     },
-    changeDays() {
+    changeDays(dia) {
       this.$emit('changeDays', this.daysComponent)
+      this.changeColorDays(dia)
     },
     changeLocation(value) {
       this.$router.push({
