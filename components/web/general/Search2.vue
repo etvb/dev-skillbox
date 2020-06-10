@@ -28,13 +28,14 @@
             <!-- <i class="fas fa-globe" /> -->
             <span class="titleButtom">Language</span>
             <!-- {{ search }} -->
-            <b-field>
+            <b-field class="field">
               <!-- :input="searchInstructors()" -->
               <b-select
                 v-model="search"
                 @input="changeLanguage"
                 placeholder="Select language"
                 size="is-small"
+                expanded
               >
                 <option
                   v-for="language in languages"
@@ -47,6 +48,7 @@
                   Other languages
                 </option>
               </b-select>
+              <i class="fas fa-angle-down arrow" />
             </b-field>
           </div>
           <!--end buttom language -->
@@ -100,21 +102,23 @@
             <div id="NO">
               No
             </div>
-            
-            <b-select
-              v-model="native"
-              @input="changeNativeSpeaker"
-              :expanded="true"
-              :disabled="disableNative"
-              size="is-small"
-            >
-              <option value="1">
-                Yes
-              </option>
-              <option value="0">
-                No
-              </option>
-            </b-select>
+            <b-field class="field">
+              <b-select
+                v-model="native"
+                @input="changeNativeSpeaker"
+                :expanded="true"
+                :disabled="disableNative"
+                size="is-small"
+              >
+                <option value="1">
+                  Yes
+                </option>
+                <option value="0">
+                  No
+                </option>
+              </b-select>
+              <i class="fas fa-angle-down arrow" />
+            </b-field>
           </div>
           <!--end button-Speaker -->
 
@@ -125,7 +129,7 @@
             <div>
               <!-- <i class="fas fa-angle-down" /> -->
               <div class="contentNumber">
-                <input
+                <!-- <input
                   v-model="range[0]"
                   :max="range[1]"
                   @change="changeRangePrice"
@@ -133,7 +137,7 @@
                   type="number"
                   placeholder="Min 0"
                   min="0"
-                >
+                > -->
                 <input
                   v-model="range[1]"
                   :min="range[0]"
@@ -153,14 +157,17 @@
             <!-- <i class="fas fa-chalkboard-teacher" /> -->
             <span class="titleButtom">Location</span>
 
-            <b-field>
+            <b-field class="field">
               <b-select
                 v-model="locationSelected"
                 @input="changeLocation"
                 placeholder=""
                 size="is-small"
+                expanded
               >
-                <option value="">All</option>
+                <option value="">
+                  All
+                </option>
                 <option
                   v-for="$location in locationes"
                   :key="$location"
@@ -168,6 +175,7 @@
                   {{ $location }}
                 </option>
               </b-select>
+              <i class="fas fa-angle-down arrow" />
             </b-field>
           </div>
           <!--end localtion -->
@@ -177,7 +185,7 @@
             <!-- <i class="fas fa-chalkboard-teacher" /> -->
             <span class="titleButtom">Rating</span>
 
-            <b-field>
+            <b-field class="field">
               <b-select
                 v-model="rating"
                 @input="changeRating"
@@ -202,6 +210,7 @@
                   * * * *
                 </option>
               </b-select>
+              <i class="fas fa-angle-down arrow" />
             </b-field>
           </div>
           <!--end rating -->
@@ -211,6 +220,14 @@
   </div>
 </template>
 <style lang="sass" scoped>
+  // #fb05bb
+  .field
+    position: relative
+  .arrow
+    position: absolute
+    top: 7px
+    left: 116px
+    z-index: 10
   .colorDays
     color: hsl(204, 86%, 53%)
   #NO
@@ -221,7 +238,7 @@
   i.far
     color: hsl(204, 86%, 53%)
   .fa-angle-down
-    color: #8b70d9 !important
+    color: #fb05bb !important
   .navbar-menu2
     // background-color: #f5f9fc
     // height: 80px
