@@ -25,7 +25,7 @@
 
           <!--start buttom language -->
           <div class="button-search">
-            <i class="fas fa-globe" />
+            <!-- <i class="fas fa-globe" /> -->
             <span class="titleButtom">Language</span>
             <!-- {{ search }} -->
             <b-field>
@@ -53,7 +53,7 @@
 
           <!-- button-Availability -->
           <div @click="showMe()" class="button-search">
-            <i class="far fa-calendar-alt" />
+            <!-- <i class="far fa-calendar-alt" /> -->
 
             <span class="titleButtom">Availability</span>
             <br>
@@ -95,7 +95,7 @@
 
           <!-- button-Speaker -->
           <div class="button-search">
-            <i class="fas fa-chalkboard-teacher" />
+            <!-- <i class="fas fa-chalkboard-teacher" /> -->
             <span class="titleButtom">Native Speaker</span>
             <div id="NO">
               NO
@@ -120,7 +120,7 @@
 
           <!-- Lesson Price -->
           <div class="button-search">
-            <i class="far fa-money-bill-alt" />
+            <!-- <i class="far fa-money-bill-alt" /> -->
             <span class="titleButtom">Lesson Price</span>
             <div>
               <!-- <i class="fas fa-angle-down" /> -->
@@ -150,7 +150,7 @@
 
           <!-- localtion -->
           <div class="button-search">
-            <i class="fas fa-chalkboard-teacher" />
+            <!-- <i class="fas fa-chalkboard-teacher" /> -->
             <span class="titleButtom">Location</span>
 
             <b-field>
@@ -174,7 +174,7 @@
 
           <!-- rating -->
           <div class="button-search">
-            <i class="fas fa-chalkboard-teacher" />
+            <!-- <i class="fas fa-chalkboard-teacher" /> -->
             <span class="titleButtom">Rating</span>
 
             <b-field>
