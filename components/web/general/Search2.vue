@@ -98,7 +98,7 @@
             <!-- <i class="fas fa-chalkboard-teacher" /> -->
             <span class="titleButtom">Native Speaker</span>
             <div id="NO">
-              NO
+              No
             </div>
             
             <b-select
@@ -109,10 +109,10 @@
               size="is-small"
             >
               <option value="1">
-                YES
+                Yes
               </option>
               <option value="0">
-                NO
+                No
               </option>
             </b-select>
           </div>
