@@ -24,18 +24,16 @@
 
 
           <!--start buttom language -->
-          <div class="button-search">
+          <div class="button-search-pink">
             <!-- <i class="fas fa-globe" /> -->
             <span class="titleButtom">Language</span>
             <!-- {{ search }} -->
             <b-field class="field">
               <!-- :input="searchInstructors()" -->
-              <b-select
+              <select
                 v-model="search"
-                @input="changeLanguage"
-                placeholder="Select language"
-                size="is-small"
-                expanded
+                @change="changeLanguage(search)"
+                class="searchSelect-pink"
               >
                 <option
                   v-for="language in languages"
@@ -47,14 +45,14 @@
                 <option value="others">
                   Other languages
                 </option>
-              </b-select>
+              </select>
               <i class="fas fa-angle-down arrow" />
             </b-field>
           </div>
           <!--end buttom language -->
 
           <!-- button-Availability -->
-          <div @click="showMe()" class="button-search">
+          <div @click="showMe()" :class="[daysComponent.length !== 0 ? used='used' : '']" class="button-search">
             <!-- <i class="far fa-calendar-alt" /> -->
 
             <span class="titleButtom">Availability</span>
@@ -96,34 +94,33 @@
           <!-- end button-Availability -->
 
           <!-- button-Speaker -->
-          <div class="button-search">
+          <div class="button-search-pink">
             <!-- <i class="fas fa-chalkboard-teacher" /> -->
             <span class="titleButtom">Native Speaker</span>
             <div id="NO">
               No
             </div>
             <b-field class="field">
-              <b-select
+              <select
                 v-model="native"
-                @input="changeNativeSpeaker"
-                :expanded="true"
+                @change="changeNativeSpeaker(native)"
                 :disabled="disableNative"
-                size="is-small"
+                class="searchSelect-pink"
               >
                 <option value="1">
                   Yes
                 </option>
-                <option value="0">
+                <option value="0" selected="selected">
                   No
                 </option>
-              </b-select>
+              </select>
               <i class="fas fa-angle-down arrow" />
             </b-field>
           </div>
           <!--end button-Speaker -->
 
           <!-- Lesson Price -->
-          <div class="button-search">
+          <div :class="[range[1] !== '0' ? used='used' : '']" class="button-search">
             <!-- <i class="far fa-money-bill-alt" /> -->
             <span class="titleButtom">Lesson Price</span>
             <div>
@@ -140,9 +137,10 @@
                 > -->
                 <input
                   v-model="range[1]"
-                  :min="range[0]"
                   @change="changeRangePrice"
-                  class="sizeNumber"
+                  :class="[range[1] !== '0' ? used = 'used' : '']"
+                  min="0"
+                  class="sizeNumber searchSelect"
                   type="number"
                   placeholder="Max 50"
                   max="50"
@@ -153,17 +151,16 @@
           <!--end Lesson Price -->
 
           <!-- localtion -->
-          <div class="button-search">
+          <div :class="[locationSelected !== '' ? used ='used': '', ]" class="button-search">
             <!-- <i class="fas fa-chalkboard-teacher" /> -->
             <span class="titleButtom">Location</span>
 
             <b-field class="field">
-              <b-select
+              <select
                 v-model="locationSelected"
-                @input="changeLocation"
-                placeholder=""
-                size="is-small"
-                expanded
+                @change="changeLocation(locationSelected)"
+                :class="[locationSelected !== '' ? used='used' : '']"
+                class="searchSelect"
               >
                 <option value="">
                   All
@@ -174,26 +171,27 @@
                 >
                   {{ $location }}
                 </option>
-              </b-select>
+              </select>
               <i class="fas fa-angle-down arrow" />
             </b-field>
           </div>
           <!--end localtion -->
 
           <!-- rating -->
-          <div class="button-search">
+          <div :class="[rating !== '' ? used ='used': '']" class="button-search">
             <!-- <i class="fas fa-chalkboard-teacher" /> -->
             <span class="titleButtom">Rating</span>
 
             <b-field class="field">
-              <b-select
+              <select
                 v-model="rating"
-                @input="changeRating"
-                :expanded="true"
-                placeholder=""
-                size="is-small"
-                class="prueba"
+                @change="changeRating(rating)"
+                :class="[rating !== '' ? used='used' : '']"
+                class="searchSelect"
               >
+                <!-- :expanded="true"
+                placeholder=""
+                size="is-small" -->
                 <option value="">
                   All
                 </option>
@@ -209,7 +207,7 @@
                 <option value="4">
                   * * * *
                 </option>
-              </b-select>
+              </select>
               <i class="fas fa-angle-down arrow" />
             </b-field>
           </div>
@@ -220,7 +218,25 @@
   </div>
 </template>
 <style lang="sass" scoped>
+  .used
+    background-color: #efc0d8 !important
+    border-color: #fb05bb !important 
   // #fb05bb
+  .searchSelect, .searchSelect-pink
+    background-color: white
+    min-width: 137px
+    height: 24px
+    appearance: none
+    -webkit-appearance: none
+    padding-left: 8px
+    border-color: #dbdbdb
+    border-width: 1px
+    border-style: solid
+  .searchSelect-pink
+    background-color: #efc0d8
+    border-color: #fb05bb
+
+
   .field
     position: relative
   .arrow
@@ -229,7 +245,7 @@
     left: 116px
     z-index: 10
   .colorDays
-    color: hsl(204, 86%, 53%)
+    color: #fb05bb
   #NO
     position: absolute
     z-index: 1
@@ -285,7 +301,8 @@
       margin-right: 0
     #search nav .navbar-menu .navbar-end
       margin-left: 0
-  .button-search
+  .button-search, 
+  .button-search-pink
     padding: 0 5px
     margin: 0 5px 5px 5px
     border: 1px solid lightgrey
@@ -295,6 +312,11 @@
     min-width: 150px
     cursor: pointer
     background-color: white
+  .button-search-pink
+    background-color: #efc0d8
+    border-color: #fb05bb
+
+
   .button-search .fiel .control span select
     border: 0
   .titleButtom
@@ -312,8 +334,8 @@
   .contentNumber
     text-align: center
   .sizeNumber
-    width: 62px
-    height: 22px
+    width: 137px
+    height: 24px
 </style>
 
 <script>
@@ -356,6 +378,7 @@ export default {
   },
   data() {
     return {
+      usado: true,
       disableNative: false,
       min: '',
       max: '',
