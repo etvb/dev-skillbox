@@ -135,7 +135,7 @@
                   placeholder="Min 0"
                   min="0"
                 > -->
-                <input
+                <!-- <input
                   v-model="range[1]"
                   @change="changeRangePrice"
                   :class="[range[1] !== '0' ? used = 'used' : '']"
@@ -144,7 +144,28 @@
                   type="number"
                   placeholder="Max 50"
                   max="50"
-                >
+                > -->
+                <!-- slide -->
+                <!-- <div class="slider-wrapper">
+                  <input 
+                    v-model="range[1]"
+                    @change="changeRangePrice"
+                    type="range"
+                    min="0"
+                    max="50"
+                  >
+                </div> -->
+                <vue-slider
+                  v-model="range[1]"
+                  :tooltip="'always'"
+                  @change="changeRangePrice"
+                  type="range"
+                  min="0"
+                  max="50"
+                /> 
+
+                
+                <!-- fin slide -->
               </div>
             </div>
           </div>
@@ -340,8 +361,13 @@
 
 <script>
 import axios from 'axios'
+import VueSlider from 'vue-slider-component/dist-css/vue-slider-component.umd.min.js'
+import 'vue-slider-component/dist-css/vue-slider-component.css'
 
 export default {
+  components: {
+    VueSlider
+  },
   props: {
     // search: {
     //   type: String,
@@ -428,6 +454,8 @@ export default {
     // this.changeColorDays()
     // this.locationsFunction()
     // this.getLocation()
+    // eslint-disable-next-line no-console
+    console.log(this.range)
     if (this.search === 'others') {
       this.disableNative = true
     }

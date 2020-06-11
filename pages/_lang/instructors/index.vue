@@ -487,7 +487,7 @@ export default {
     const langId = params.lang
     // let days = ['0', '1', '2', '3', '4', '5', '6']
     let days = []
-    let range = [0, 50]
+    let range = [0, 0]
     let native = 0
     let rating = null
     let location = null
