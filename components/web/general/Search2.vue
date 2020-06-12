@@ -240,7 +240,7 @@
 </template>
 <style lang="sass" scoped>
   .used
-    background-color: #efc0d8 !important
+    background-color: pink !important
     border-color: #fb05bb !important 
   // #fb05bb
   .searchSelect, .searchSelect-pink
@@ -254,7 +254,7 @@
     border-width: 1px
     border-style: solid
   .searchSelect-pink
-    background-color: #efc0d8
+    background-color: pink
     border-color: #fb05bb
 
 
@@ -334,7 +334,7 @@
     cursor: pointer
     background-color: white
   .button-search-pink
-    background-color: #efc0d8
+    background-color: pink
     border-color: #fb05bb
 
 

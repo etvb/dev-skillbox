@@ -75,10 +75,10 @@
                       {{ instructor.user.name + ' ' + instructor.user.lastname[0] + '.' }}
                     </h5>
                   </div>
-                  <p class="has-text-grey-lighter has-text-weight-semibold">
+                  <p class="has-text-grey has-text-weight-semibold">
                     Native Language: <span>{{ instructor.user.language.english }}</span>
                   </p><br>
-                  <p class="container-profile-raiting has-text-grey-lighter has-text-weight-semibold">
+                  <p class="container-profile-raiting has-text-grey has-text-weight-semibold">
                     Raiting: <rating :rating="instructor.average_rating ? instructor.average_rating : 0" />
                   </p>
                 </div>
@@ -108,7 +108,7 @@
                 </b-tag>
                 <rating :rating="instructor.average_rating ? instructor.average_rating : 0" class="is-pulled-right" /> -->
                 <div>
-                  <p class="is-size-7 has-text-grey-lighter has-text-weight-bold">
+                  <p class="is-size-7 has-text-grey has-text-weight-bold">
                     Lesson Price:
                   </p>
                   <p class="has-text-weight-semibold">
@@ -126,7 +126,7 @@
                   </nuxt-link>
                 </div>
                 <div>
-                  <p class="is-size-7 has-text-grey-lighter has-text-weight-bold">
+                  <p class="is-size-7 has-text-grey has-text-weight-bold">
                     Location:
                   </p>
                   <p class="has-text-weight-semibold">
@@ -141,7 +141,7 @@
                   </nuxt-link>
                 </div>
                 <div>
-                  <p class="is-size-7 has-text-grey-lighter has-text-weight-bold">
+                  <p class="is-size-7 has-text-grey has-text-weight-bold">
                     Teaches:
                   </p>
                   <p class="has-text-weight-semibold">
@@ -209,10 +209,10 @@
                       </h5>
                     <!-- flag -->
                     </div>
-                    <p class="has-text-grey-lighter has-text-weight-semibold">
+                    <p class="has-text-grey has-text-weight-semibold">
                       Native Language: <span>{{ lang.english }}</span>
                     </p><br>
-                    <p class="container-profile-raiting has-text-grey-lighter has-text-weight-semibold">
+                    <p class="container-profile-raiting has-text-grey has-text-weight-semibold">
                       Raiting: <rating :rating="instructor.average_rating ? instructor.average_rating : 0" />
                     </p>
                   </div>
@@ -253,7 +253,7 @@
                   </b-tag>
                   <rating :rating="instructor.average_rating ? instructor.average_rating : 0" class="is-pulled-right" /> -->
                   <div>
-                    <p class="is-size-7 has-text-grey-lighter has-text-weight-bold">
+                    <p class="is-size-7 has-text-grey has-text-weight-bold">
                       Lesson Price:
                     </p>
                     <p class="has-text-weight-semibold">
@@ -271,7 +271,7 @@
                     </nuxt-link>
                   </div>
                   <div>
-                    <p class="is-size-7 has-text-grey-lighter has-text-weight-bold">
+                    <p class="is-size-7 has-text-grey has-text-weight-bold">
                       Location:
                     </p>
                     <p class="has-text-weight-semibold">
@@ -286,7 +286,7 @@
                     </nuxt-link>
                   </div>
                   <div>
-                    <p class="is-size-7 has-text-grey-lighter has-text-weight-bold">
+                    <p class="is-size-7 has-text-grey has-text-weight-bold">
                       Teaches:
                     </p>
                     <p class="has-text-weight-semibold">
@@ -487,7 +487,7 @@ export default {
     const langId = params.lang
     // let days = ['0', '1', '2', '3', '4', '5', '6']
     let days = []
-    let range = [0, 0]
+    let range = [0, 50]
     let native = 0
     let rating = null
     let location = null
