@@ -317,6 +317,7 @@
   </div>
 </template>
 <style lang="sass">
+
   .colorButton
     background-color: pink
   hr
@@ -363,6 +364,7 @@
   
   .conteiner-like
     padding-right: 22px
+    
 
 
   .container-profile-description

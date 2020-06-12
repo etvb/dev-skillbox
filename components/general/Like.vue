@@ -5,13 +5,18 @@
     class="is-pulled-right"
   >
     <b-icon
-      :pack="liked ? 'fas' : 'far'"
+      :pack="liked ? 'fas has-text-danger' : 'far'"
       icon="heart"
       class="has-text-black"
-      size="is-medium"
+      size=""
     />
   </a>  
 </template>
+<style lang="sass" scoped>
+  .fas
+    color: pink
+
+</style>
 <script>
 import axios from 'axios'
 export default {

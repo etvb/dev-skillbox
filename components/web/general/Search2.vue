@@ -239,6 +239,7 @@
   </div>
 </template>
 <style lang="sass" scoped>
+
   .used
     background-color: pink !important
     border-color: #fb05bb !important 
@@ -450,6 +451,7 @@ export default {
     }
   },
   mounted() {
+    this.changeColorVueSlider()
     this.setLanguages()
     // this.changeColorDays()
     // this.locationsFunction()
@@ -461,6 +463,19 @@ export default {
     }
   },
   methods: {
+    changeColorVueSlider() {
+      const vueSliderProcess = document.getElementsByClassName(
+        'vue-slider-process'
+      )
+      const tooltip = document.getElementsByClassName(
+        'vue-slider-dot-tooltip-inner'
+      )
+      const vueSliderRail = document.getElementsByClassName('vue-slider-rail')
+      vueSliderProcess[0].style.backgroundColor = '#fb05bb'
+      vueSliderRail[0].style.backgroundColor = '#fb05bb'
+      tooltip[0].style.backgroundColor = 'pink'
+      tooltip[0].style.borderColor = 'pink'
+    },
     changeColorDays(dia) {
       switch (dia) {
         case 0:
