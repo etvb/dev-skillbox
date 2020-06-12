@@ -25,7 +25,7 @@
         We've  found {{ suma() }} teachers
       </h4>
       <div class="columns">
-        <div class="column is-2">
+        <div class="column is-3">
           <div>
             <!-- <search
               :selected="selectedLang"
@@ -71,9 +71,13 @@
                 <!-- <div v-else class="-profile-picture is-inline-block" /> -->
                 <div class="container-profile-main">
                   <div class="container-profile-name">
-                    <h5 class="title is-marginless is-6 has-text-weight-bold">
+                    <h5 class="title is-marginless is-5 has-text-weight-bold">
                       {{ instructor.user.name + ' ' + instructor.user.lastname[0] + '.' }}
                     </h5>
+                    <!-- flag -->
+                    <span class="container-profile-flag">
+                      <img :src="pais(instructor.user.country)">
+                    </span>   
                   </div>
                   <p class="has-text-grey has-text-weight-semibold">
                     Native Language: <span>{{ instructor.user.language.english }}</span>
@@ -82,10 +86,6 @@
                     Raiting: <rating :rating="instructor.average_rating ? instructor.average_rating : 0" />
                   </p>
                 </div>
-                <!-- flag -->
-                <span class="container-profile-flag">
-                  <img :src="pais(instructor.user.country)">
-                </span>   
                 <div class="conteiner-like">
                   <like />
                 </div>
@@ -119,7 +119,7 @@
                   >
                     <!-- @click="activateCalendarModal" -->
                     <button 
-                      class="button is-info is-expand is-fullwidth"
+                      class="button is-expand is-fullwidth colorButton"
                     >
                       Book
                     </button>
@@ -135,7 +135,7 @@
                   <nuxt-link
                     :to="'/'+$route.params.lang+'/instructors/' + instructor.id"
                   > 
-                    <button class="button is-info is-expand is-fullwidth">
+                    <button class="button is-expand is-fullwidth colorButton">
                       Schedule
                     </button>
                   </nuxt-link>
@@ -151,7 +151,7 @@
                     :disabled="!instructor.video_url"
                     @click="openVideo(instructor.video_url)"
                     :value="instructor.video_url"
-                    class="button is-info is-expand is-fullwidth"
+                    class="button is-expand is-fullwidth colorButton"
                   > 
                     Video
                   </button>
@@ -204,10 +204,13 @@
                   >
                   <div class="container-profile-main">
                     <div class="container-profile-name">
-                      <h5 class="title is-marginless is-6 has-text-weight-bold">
+                      <h5 class="title is-marginless is-5 has-text-weight-bold">
                         {{ instructor.user.name + ' ' + instructor.user.lastname[0] + '.' }}
                       </h5>
-                    <!-- flag -->
+                      <!-- flag -->
+                      <span class="container-profile-flag">
+                        <img :src="pais(instructor.user.country)">
+                      </span>   
                     </div>
                     <p class="has-text-grey has-text-weight-semibold">
                       Native Language: <span>{{ lang.english }}</span>
@@ -216,10 +219,6 @@
                       Raiting: <rating :rating="instructor.average_rating ? instructor.average_rating : 0" />
                     </p>
                   </div>
-                  <!-- flag -->
-                  <span class="container-profile-flag">
-                    <img :src="pais(instructor.user.country)">
-                  </span>   
                   <div class="conteiner-like">
                     <like />
                   </div>
@@ -264,7 +263,7 @@
                     >
                       <!-- @click="activateCalendarModal" -->
                       <button 
-                        class="button is-info is-expand is-fullwidth"
+                        class="button is-expand is-fullwidth colorButton"
                       >
                         Book
                       </button>
@@ -280,7 +279,7 @@
                     <nuxt-link
                       :to="'/'+lang.id+'/instructors/' + instructor.id"
                     > 
-                      <button class="button is-info is-expand is-fullwidth">
+                      <button class="button is-expand is-fullwidth colorButton">
                         Schedule
                       </button>
                     </nuxt-link>
@@ -296,7 +295,7 @@
                       :disabled="!instructor.video_url"
                       @click="openVideo(instructor.video_url)"
                       :value="instructor.video_url"
-                      class="button is-info is-expand is-fullwidth"
+                      class="button is-expand is-fullwidth colorButton"
                     > 
                       Video
                     </button>
@@ -312,13 +311,14 @@
             </div>
           </template>
         </div>
-        <div class=" column is-2" />
+        <div class=" column is-3" />
       </div>
     </div>
   </div>
 </template>
 <style lang="sass">
-
+  .colorButton
+    background-color: pink
   hr
     margin-top: 10px
   rating
@@ -335,10 +335,14 @@
     margin-left: 20px
     margin-right: 20px
     text-align: initial
-    
+
+  .container-profile-name  
+    display: flex
+    justify-content: flex-start
+    align-items: center
+    line-height: 1
 
   .container-profile-info, 
-  .container-profile-name,
   .container-profile-teacher
     display: flex
     justify-content: space-between 
@@ -353,11 +357,12 @@
     margin-top: -25px
   
   .container-profile-flag
-    margin-right: 10px
-    border: 1px solid hsl(0, 0%, 96%)
+    margin-left: 10px
+    // border: 1px solid hsl(0, 0%, 96%)
+    width: 30px
   
   .conteiner-like
-    padding: 22px
+    padding-right: 22px
 
 
   .container-profile-description
