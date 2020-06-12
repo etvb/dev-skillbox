@@ -82,7 +82,7 @@
                   <p class="has-text-grey has-text-weight-semibold">
                     Native Language: <span>{{ instructor.user.language.english }}</span>
                   </p><br>
-                  <p class="container-profile-raiting has-text-grey has-text-weight-semibold">
+                  <p v-show="instructor.average_rating" class="container-profile-raiting has-text-grey has-text-weight-semibold">
                     Raiting: <rating :rating="instructor.average_rating ? instructor.average_rating : 0" />
                   </p>
                 </div>
@@ -215,7 +215,7 @@
                     <p class="has-text-grey has-text-weight-semibold">
                       Native Language: <span>{{ lang.english }}</span>
                     </p><br>
-                    <p class="container-profile-raiting has-text-grey has-text-weight-semibold">
+                    <p v-show="instructor.average_rating" class="container-profile-raiting has-text-grey has-text-weight-semibold">
                       Raiting: <rating :rating="instructor.average_rating ? instructor.average_rating : 0" />
                     </p>
                   </div>
