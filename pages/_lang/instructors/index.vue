@@ -97,7 +97,7 @@
                   <nuxt-link
                     :to="'/'+$route.params.lang+'/instructors/' + instructor.id"
                   >
-                    <span class="has-text-weight-bold has-text-info	"> read more.</span> 
+                    <span v-show="readMore(instructor.description) >= 180" class="has-text-weight-bold colorReadMore"> read more.</span> 
                   </nuxt-link>
                 </p>
               </div>
@@ -241,7 +241,7 @@
                     <nuxt-link
                       :to="'/'+lang.id+'/instructors/' + instructor.id"
                     >
-                      <span class="has-text-weight-bold has-text-info	"> read more.</span> 
+                      <span v-show="readMore(instructor.description) >= 180" class="has-text-weight-bold colorReadMore"> read more.</span> 
                     </nuxt-link>
                   </p>
                 </div>
@@ -318,6 +318,8 @@
 </template>
 <style lang="sass">
 
+  .colorReadMore
+    color: pink
   .colorButton
     background-color: pink
   hr
@@ -580,6 +582,13 @@ export default {
     // this.suma()
   },
   methods: {
+    readMore(value) {
+      // show read more if description is more than 180 charcters and have to be used whit truncate
+      if (value === null) {
+        return 0
+      }
+      return value.length
+    },
     activateCalendarModal() {
       this.isCalendarModalActive = true
       setTimeout(() => {
