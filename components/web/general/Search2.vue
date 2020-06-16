@@ -104,7 +104,7 @@
               <select
                 v-model="native"
                 @change="changeNativeSpeaker(native)"
-                :disabled="disableNative"
+                :disabled="disableNative5"
                 class="searchSelect-pink"
               >
                 <option value="1">
@@ -158,6 +158,7 @@
                 <vue-slider
                   v-model="range[1]"
                   :tooltip="'always'"
+                  :tooltip-placement="['bottom']"
                   @change="changeRangePrice"
                   type="range"
                   min="0"
@@ -405,6 +406,7 @@ export default {
   },
   data() {
     return {
+      marks: [0, 50],
       usado: true,
       disableNative: false,
       min: '',
@@ -475,6 +477,9 @@ export default {
       vueSliderRail[0].style.backgroundColor = '#fb05bb'
       tooltip[0].style.backgroundColor = 'pink'
       tooltip[0].style.borderColor = 'pink'
+      tooltip[0].style.color = 'black'
+      tooltip[0].style.fontSize = '11px'
+      tooltip[0].style.padding = 0
     },
     changeColorDays(dia) {
       switch (dia) {
