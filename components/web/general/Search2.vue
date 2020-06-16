@@ -272,7 +272,11 @@
   #NO
     position: absolute
     z-index: 1
-    padding-left: 5px
+    margin-top: 3px
+    margin-left: 7px
+    font-family: 'sans-serif'
+    font-size: 13px
+    color: black
   i.fas,
   i.far
     color: hsl(204, 86%, 53%)
