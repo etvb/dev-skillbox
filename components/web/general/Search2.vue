@@ -24,38 +24,38 @@
 
 
           <!--start buttom language -->
-          <div class="button-search-pink">
-            <!-- <i class="fas fa-globe" /> -->
+          <!-- <div class="button-search-pink"> -->
+          <!-- <i class="fas fa-globe" /> -->
+          <!-- {{ search }} -->
+          <b-field class="field">
             <span class="titleButtom">Language</span>
-            <!-- {{ search }} -->
-            <b-field class="field">
-              <!-- :input="searchInstructors()" -->
-              <select
-                v-model="search"
-                @change="changeLanguage(search)"
-                class="searchSelect-pink"
+            <!-- :input="searchInstructors()" -->
+            <select
+              v-model="search"
+              @change="changeLanguage(search)"
+              class="searchSelect-pink"
+            >
+              <option
+                v-for="language in languages"
+                :value="language.id"
+                :key="language.id"
               >
-                <option
-                  v-for="language in languages"
-                  :value="language.id"
-                  :key="language.id"
-                >
-                  {{ language.english }}
-                </option>
-                <option value="others">
-                  Other languages
-                </option>
-              </select>
-              <i class="fas fa-angle-down arrow" />
-            </b-field>
-          </div>
+                {{ language.english }}
+              </option>
+              <option value="others">
+                Other languages
+              </option>
+            </select>
+            <i class="fas fa-angle-down arrow" />
+          </b-field>
+          <!-- </div> -->
           <!--end buttom language -->
 
           <!-- button-Availability -->
           <div @click="showMe()" :class="[daysComponent.length !== 0 ? used='used' : '']" class="button-search">
             <!-- <i class="far fa-calendar-alt" /> -->
 
-            <span class="titleButtom">Availability</span>
+            <span class="titleButtom2">Availability</span>
             <br>
             <div>
               <!-- {{ daysComponent }} -->
@@ -94,145 +94,112 @@
           <!-- end button-Availability -->
 
           <!-- button-Speaker -->
-          <div class="button-search-pink">
-            <!-- <i class="fas fa-chalkboard-teacher" /> -->
+          <!-- <div class="button-search-pink"> -->
+          <!-- <i class="fas fa-chalkboard-teacher" /> -->
+          <b-field class="field">
             <span class="titleButtom">Native Speaker</span>
             <div id="NO">
               No
             </div>
-            <b-field class="field">
-              <select
-                v-model="native"
-                @change="changeNativeSpeaker(native)"
-                :disabled="disableNative5"
-                class="searchSelect-pink"
-              >
-                <option value="1">
-                  Yes
-                </option>
-                <option value="0" selected="selected">
-                  No
-                </option>
-              </select>
-              <i class="fas fa-angle-down arrow" />
-            </b-field>
-          </div>
+            <select
+              v-model="native"
+              @change="changeNativeSpeaker(native)"
+              :disabled="disableNative5"
+              class="searchSelect-pink"
+            >
+              <option value="1">
+                Yes
+              </option>
+              <option value="0" selected="selected">
+                No
+              </option>
+            </select>
+            <i class="fas fa-angle-down arrow" />
+          </b-field>
+          <!-- </div> -->
           <!--end button-Speaker -->
 
           <!-- Lesson Price -->
-          <div :class="[range[1] !== '0' ? used='used' : '']" class="button-search">
-            <!-- <i class="far fa-money-bill-alt" /> -->
-            <span class="titleButtom">Lesson Price</span>
-            <div>
-              <!-- <i class="fas fa-angle-down" /> -->
-              <div class="contentNumber">
-                <!-- <input
-                  v-model="range[0]"
-                  :max="range[1]"
-                  @change="changeRangePrice"
-                  class="sizeNumber"
-                  type="number"
-                  placeholder="Min 0"
-                  min="0"
-                > -->
-                <!-- <input
-                  v-model="range[1]"
-                  @change="changeRangePrice"
-                  :class="[range[1] !== '0' ? used = 'used' : '']"
-                  min="0"
-                  class="sizeNumber searchSelect"
-                  type="number"
-                  placeholder="Max 50"
-                  max="50"
-                > -->
-                <!-- slide -->
-                <!-- <div class="slider-wrapper">
-                  <input 
-                    v-model="range[1]"
-                    @change="changeRangePrice"
-                    type="range"
-                    min="0"
-                    max="50"
-                  >
-                </div> -->
-                <vue-slider
-                  v-model="range[1]"
-                  :tooltip="'always'"
-                  :tooltip-placement="['bottom']"
-                  @change="changeRangePrice"
-                  type="range"
-                  min="0"
-                  max="50"
-                /> 
+          <b-field :class="[range[1] !== '0' ? used='used' : '']" class="button-search">
+            <span>Lesson Price</span>
+            <div class="contentNumber">
+              <vue-slider
+                v-model="range[1]"
+                :tooltip="'always'"
+                :tooltip-placement="['bottom']"
+                @change="changeRangePrice"
+                
+                min="0"
+                max="50"
+              /> 
 
                 
-                <!-- fin slide -->
-              </div>
+              <!-- fin slide -->
             </div>
-          </div>
+            <!-- </div> -->
+          </b-field>
           <!--end Lesson Price -->
 
           <!-- localtion -->
-          <div :class="[locationSelected !== '' ? used ='used': '', ]" class="button-search">
-            <!-- <i class="fas fa-chalkboard-teacher" /> -->
-            <span class="titleButtom">Location</span>
+          <!-- <div :class="[locationSelected !== '' ? used ='used': '', ]" class="button-search"> -->
+          <!-- <i class="fas fa-chalkboard-teacher" /> -->
 
-            <b-field class="field">
-              <select
-                v-model="locationSelected"
-                @change="changeLocation(locationSelected)"
-                :class="[locationSelected !== '' ? used='used' : '']"
-                class="searchSelect"
+          <b-field class="field">
+            <span class="titleButtom">Location</span>
+            <select
+              v-model="locationSelected"
+              @change="changeLocation(locationSelected)"
+              :class="[locationSelected !== '' ? used='used' : '']"
+              class="searchSelect"
+            >
+              <option value="">
+                All
+              </option>
+              <option
+                v-for="$location in locationes"
+                :key="$location"
               >
-                <option value="">
-                  All
-                </option>
-                <option
-                  v-for="$location in locationes"
-                  :key="$location"
-                >
-                  {{ $location }}
-                </option>
-              </select>
-              <i class="fas fa-angle-down arrow" />
-            </b-field>
-          </div>
+                {{ $location }}
+              </option>
+            </select>
+            <i class="fas fa-angle-down arrow" />
+          </b-field>
+          <!-- </div> -->
           <!--end localtion -->
 
           <!-- rating -->
-          <div :class="[rating !== '' ? used ='used': '']" class="button-search">
-            <!-- <i class="fas fa-chalkboard-teacher" /> -->
-            <span class="titleButtom">Rating</span>
+          
+          <!-- <i class="fas fa-chalkboard-teacher" /> -->
 
-            <b-field class="field">
-              <select
-                v-model="rating"
-                @change="changeRating(rating)"
-                :class="[rating !== '' ? used='used' : '']"
-                class="searchSelect"
-              >
-                <!-- :expanded="true"
+          <b-field class="field">
+            <span class="titleButtom">Rating</span>
+            <select
+              v-model="rating"
+              @change="changeRating(rating)"
+              :class="[rating !== '' ? used='used' : '']"
+              class="searchSelect"
+            >
+              <!-- :expanded="true"
                 placeholder=""
                 size="is-small" -->
-                <option value="">
-                  All
-                </option>
-                <option value="1">
-                  *
-                </option>
-                <option value="2">
-                  * *
-                </option>
-                <option value="3">
-                  * * *
-                </option>
-                <option value="4">
-                  * * * *
-                </option>
-              </select>
-              <i class="fas fa-angle-down arrow" />
-            </b-field>
-          </div>
+              <option value="">
+                All
+              </option>
+              <option value="1">
+                *
+              </option>
+              <option value="2">
+                * *
+              </option>
+              <option value="3">
+                * * *
+              </option>
+              <option value="4">
+                * * * *
+              </option>
+            </select>
+            <i class="fas fa-angle-down arrow" />
+          </b-field>
           <!--end rating -->
         </div>
       </nav>
@@ -243,16 +210,31 @@
 
   .used
     background-color: pink !important
-    border-color: #fb05bb !important 
+    border: 3px solid #e84660 !important 
   // #fb05bb
   .searchSelect, .searchSelect-pink
+
+    text-align: center
+    padding-top: 20px
+    border: 1px solid lightgrey
+    // display: inline-block
+    // height: 55px
+    border-radius: 10px
+    // min-width: 150px
+    // cursor: pointer
+    // background-color: white
+
+
+
+
+
     text-align-last: center
     background-color: white
-    min-width: 137px
-    height: 24px
+    min-width: 160px
+    height: 55px
     appearance: none
     -webkit-appearance: none
-    padding-left: 8px
+    // padding-left: 8px
     border-color: #dbdbdb
     border-width: 1px
     border-style: solid
@@ -260,22 +242,27 @@
     font-weight: bold
   .searchSelect-pink
     background-color: pink
-    border-color: #fb05bb
+    border-color: #e84660
+    border-width: 3px
 
 
   .field
+    margin: 0 5px 5px 5px
     position: relative
+    display: inline-block
   .arrow
     position: absolute
-    top: 7px
+    top: 30px
     left: 116px
     z-index: 10
+    pointer-events: none
   .colorDays
     color: #fb05bb
   #NO
+    pointer-events: none
     position: absolute
     z-index: 1
-    margin-top: 3px
+    margin-top: 27px
     margin-left: 60px
     font-family: 'sans-serif'
     font-size: 13px
@@ -285,7 +272,7 @@
   i.far
     color: hsl(204, 86%, 53%)
   .fa-angle-down
-    color: #fb05bb !important
+    color: #e84660 !important
   .navbar-menu2
     // background-color: #f5f9fc
     // height: 80px
@@ -306,13 +293,15 @@
     top: 0;
     z-index: 10
   .days
+    width: 150px
     border: 1px solid lightgrey
     position: absolute
     top: 120px
     background-color: white
     padding: 3px
     display: none
-    z-index: 10
+    z-index: 20
+    text-align: initial;
   @media screen and (min-width: 230px)
     .days
       top: 120px
@@ -334,13 +323,14 @@
       margin-left: 0
   .button-search, 
   .button-search-pink
+    text-align: center
     padding: 0 5px
     margin: 0 5px 5px 5px
     border: 1px solid lightgrey
     display: inline-block
     height: 55px
     border-radius: 10px
-    min-width: 150px
+    min-width: 160px
     cursor: pointer
     background-color: white
   .button-search-pink
@@ -350,10 +340,16 @@
 
   .button-search .fiel .control span select
     border: 0
-  .titleButtom
+  .titleButtom, .titleButtom2
     color: black
     font-size: 14px
     font-weight: bold
+    width: 100%
+    text-align-last: center
+    pointer-events: none
+  .titleButtom
+    position: absolute
+    
   .mySize
     width: 150px;
     flex-wrap: wrap;
@@ -364,6 +360,7 @@
   .lessRating
     width: 120px
   .contentNumber
+    display: grid
     text-align: center
   .sizeNumber
     width: 137px
@@ -628,7 +625,7 @@ export default {
     hideNO() {
       // add 'NO' in the buttom native spiker
       const element = document.getElementById('NO')
-      element.style.zIndex = '0'
+      element.style.display = 'none'
     },
     changeDays(dia) {
       this.$emit('changeDays', this.daysComponent)
