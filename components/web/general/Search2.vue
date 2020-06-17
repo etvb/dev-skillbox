@@ -246,6 +246,7 @@
     border-color: #fb05bb !important 
   // #fb05bb
   .searchSelect, .searchSelect-pink
+    text-align-last: center
     background-color: white
     min-width: 137px
     height: 24px
@@ -255,6 +256,8 @@
     border-color: #dbdbdb
     border-width: 1px
     border-style: solid
+    color: darkgrey
+    font-weight: bold
   .searchSelect-pink
     background-color: pink
     border-color: #fb05bb
@@ -273,10 +276,11 @@
     position: absolute
     z-index: 1
     margin-top: 3px
-    margin-left: 7px
+    margin-left: 60px
     font-family: 'sans-serif'
     font-size: 13px
-    color: black
+    color: darkgrey
+    font-weight: bold
   i.fas,
   i.far
     color: hsl(204, 86%, 53%)
@@ -347,6 +351,7 @@
   .button-search .fiel .control span select
     border: 0
   .titleButtom
+    color: black
     font-size: 14px
     font-weight: bold
   .mySize
