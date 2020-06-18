@@ -125,7 +125,7 @@
                     </button>
                   </nuxt-link>
                 </div>
-                <div>
+                <div class="marginado">
                   <p class="is-size-7 has-text-grey has-text-weight-bold">
                     Location:
                   </p>
@@ -269,7 +269,7 @@
                       </button>
                     </nuxt-link>
                   </div>
-                  <div>
+                  <div class="marginado">
                     <p class="is-size-7 has-text-grey has-text-weight-bold">
                       Location:
                     </p>
@@ -359,9 +359,13 @@
   
   .container-profile-teacher
     div
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
+      display: flex
+      flex-direction: column
+      justify-content: flex-end
+      flex: 1 1 168px
+
+  .marginado
+    margin: 0 10px
 
   .container-profile-raiting
     margin-top: -25px
@@ -370,9 +374,11 @@
     margin-left: 10px
     // border: 1px solid hsl(0, 0%, 96%)
     width: 30px
+    align-self: flex-start
   
   .conteiner-like
     padding-right: 22px
+    margin-top: 3px
     
 
 
@@ -437,7 +443,7 @@
       margin-right: 5px
       font-size: 14px
     .conteiner-like
-      padding: 14px 5px 22px 5px
+      padding: 0 5px 22px 5px
     .container-profile-description
       min-height: 60px
       max-height: 80px
