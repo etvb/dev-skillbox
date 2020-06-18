@@ -318,10 +318,17 @@
 </template>
 <style lang="sass">
 
+  .button:disabled
+    color:black
+
   .colorReadMore
-    color: pink
+    color: #e84660
   .colorButton
-    background-color: pink
+    background-color: #e84660
+    border-color: #e84660
+    color: white
+  .colorButton:disabled
+    color: black
   hr
     margin-top: 10px
   rating
