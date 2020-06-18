@@ -348,7 +348,7 @@
 
   .container-profile-name  
     display: flex
-    justify-content: flex-start
+    justify-content: space-between
     align-items: center
     line-height: 1
 

@@ -5,7 +5,7 @@
     class="is-pulled-right"
   >
     <b-icon
-      :pack="liked ? 'fas has-text-danger' : 'far'"
+      :pack="liked ? 'fas -has-text-log' : 'far'"
       icon="heart"
       class="has-text-black"
       size=""
