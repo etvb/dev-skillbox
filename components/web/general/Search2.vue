@@ -209,7 +209,7 @@
 <style lang="sass" scoped>
 
   .used
-    background-color: pink !important
+    background-color: #ffc0cbb3 !important
     border: 3px solid #e84660 !important 
   // #fb05bb
   .searchSelect, .searchSelect-pink
@@ -242,7 +242,7 @@
     font-weight: bold
     font-size: 15px
   .searchSelect-pink
-    background-color: pink
+    background-color: #ffc0cbb3
     border-color: #e84660
     border-width: 3px
 
@@ -335,7 +335,7 @@
     // cursor: pointer
     background-color: white
   .button-search-pink
-    background-color: pink
+    background-color: #ffc0cbb3
     border-color: #fb05bb
 
 
@@ -483,8 +483,8 @@ export default {
       const vueSliderRail = document.getElementsByClassName('vue-slider-rail')
       vueSliderProcess[0].style.backgroundColor = '#e84660'
       vueSliderRail[0].style.backgroundColor = '#e84660'
-      tooltip[0].style.backgroundColor = 'pink'
-      tooltip[0].style.borderColor = 'pink'
+      tooltip[0].style.backgroundColor = '#ffc0cbb3'
+      tooltip[0].style.borderColor = '#ffc0cbb3'
       tooltip[0].style.color = 'black'
       tooltip[0].style.fontSize = '11px'
       tooltip[0].style.padding = 0
