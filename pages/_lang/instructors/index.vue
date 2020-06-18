@@ -111,7 +111,7 @@
                   <p class="is-size-7 has-text-grey has-text-weight-bold">
                     Lesson Price:
                   </p>
-                  <p class="has-text-weight-semibold">
+                  <p class="has-text-weight-semibold has-text-black">
                     USD {{ instructor.price_by_class }}
                   </p>
                   <nuxt-link
@@ -129,7 +129,7 @@
                   <p class="is-size-7 has-text-grey has-text-weight-bold">
                     Location:
                   </p>
-                  <p class="has-text-weight-semibold">
+                  <p class="has-text-weight-semibold has-text-black">
                     {{ instructor.user.country }}
                   </p>
                   <nuxt-link
@@ -144,7 +144,7 @@
                   <p class="is-size-7 has-text-grey has-text-weight-bold">
                     Teaches:
                   </p>
-                  <p class="has-text-weight-semibold">
+                  <p class="has-text-weight-semibold has-text-black">
                     put lengugages
                   </p>
                   <button
@@ -255,7 +255,7 @@
                     <p class="is-size-7 has-text-grey has-text-weight-bold">
                       Lesson Price:
                     </p>
-                    <p class="has-text-weight-semibold">
+                    <p class="has-text-weight-semibold has-text-black">
                       USD {{ instructor.price_by_class }}
                     </p>
                     <nuxt-link
@@ -273,7 +273,7 @@
                     <p class="is-size-7 has-text-grey has-text-weight-bold">
                       Location:
                     </p>
-                    <p class="has-text-weight-semibold">
+                    <p class="has-text-weight-semibold has-text-black">
                       {{ instructor.user.country }}
                     </p>
                     <nuxt-link
@@ -288,7 +288,7 @@
                     <p class="is-size-7 has-text-grey has-text-weight-bold">
                       Teaches:
                     </p>
-                    <p class="has-text-weight-semibold">
+                    <p class="has-text-weight-semibold has-text-black">
                       put lengugages
                     </p>
                     <button
@@ -327,6 +327,7 @@
     background-color: #e84660
     border-color: #e84660
     color: white
+    font-weight: 600
   .colorButton:disabled
     color: black
   hr
@@ -388,6 +389,8 @@
     .profile-description
       margin-left: 30px
       margin-right: 30px
+      font-weight: 600
+      color: black
 
   // .container-profile-name
   //   flex: 1 1 auto
@@ -421,8 +424,8 @@
   .-card-vertical
     .-profile-picture
       margin-right: 1rem
-      height: 60px
-      width: 60px
+      height: 90px
+      width: 90px
     .-description
       vertical-align: super
     &:hover
