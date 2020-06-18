@@ -121,7 +121,7 @@
 
           <!-- Lesson Price -->
           <b-field :class="[range[1] !== '0' ? used='used' : '']" class="button-search">
-            <span>Lesson Price</span>
+            <span class="titleButtom2">Lesson Price</span>
             <div class="contentNumber">
               <vue-slider
                 v-model="range[1]"
@@ -231,15 +231,16 @@
     text-align-last: center
     background-color: white
     min-width: 160px
-    height: 55px
+    height: 50px
     appearance: none
     -webkit-appearance: none
     // padding-left: 8px
     border-color: #dbdbdb
-    border-width: 1px
+    border-width: 2px
     border-style: solid
     color: darkgrey
     font-weight: bold
+    font-size: 15px
   .searchSelect-pink
     background-color: pink
     border-color: #e84660
@@ -253,11 +254,11 @@
   .arrow
     position: absolute
     top: 30px
-    left: 116px
+    left: 135px
     z-index: 10
     pointer-events: none
   .colorDays
-    color: #fb05bb
+    color: #e84660
   #NO
     pointer-events: none
     position: absolute
@@ -326,12 +327,12 @@
     text-align: center
     padding: 0 5px
     margin: 0 5px 5px 5px
-    border: 1px solid lightgrey
+    border: 2px solid lightgrey
     display: inline-block
-    height: 55px
+    height: 50px
     border-radius: 10px
     min-width: 160px
-    cursor: pointer
+    // cursor: pointer
     background-color: white
   .button-search-pink
     background-color: pink
@@ -349,6 +350,7 @@
     pointer-events: none
   .titleButtom
     position: absolute
+    margin-top: 3px
     
   .mySize
     width: 150px;
@@ -479,8 +481,8 @@ export default {
         'vue-slider-dot-tooltip-inner'
       )
       const vueSliderRail = document.getElementsByClassName('vue-slider-rail')
-      vueSliderProcess[0].style.backgroundColor = '#fb05bb'
-      vueSliderRail[0].style.backgroundColor = '#fb05bb'
+      vueSliderProcess[0].style.backgroundColor = '#e84660'
+      vueSliderRail[0].style.backgroundColor = '#e84660'
       tooltip[0].style.backgroundColor = 'pink'
       tooltip[0].style.borderColor = 'pink'
       tooltip[0].style.color = 'black'
