@@ -54,12 +54,14 @@
             >
               <div class="container-profile-info">
                 <!-- changed the img tag fot div, if the user has image show  -->
-                <div
-                  id="container-profile-img"
-                  v-if="instructor.user.profile_picture"
-                  :style="'background-image: url(' + instructor.user.profile_picture + '); background-size: cover; background-repeat: no-repeat'"
-                  class="-is-circle -profile-picture is-inline-block "
-                />
+                <div v-if="instructor.user.profile_picture" class="-profile-picture">
+                  <div
+                    id="container-profile-img"
+                    
+                    :style="'background-image: url(' + instructor.user.profile_picture + '); background-size: cover; background-repeat: no-repeat'"
+                    class="-is-circle is-inline-block -profile-picture"
+                  />
+                </div>
                 
                 <!-- if the user don´t have imege show this -->
                 <img
@@ -71,7 +73,7 @@
                 <!-- <div v-else class="-profile-picture is-inline-block" /> -->
                 <div class="container-profile-main">
                   <div class="container-profile-name">
-                    <h5 class="title is-marginless is-5 has-text-weight-bold">
+                    <h5 class="title is-marginless is-5 has-text-weight-bold has-text-black">
                       {{ instructor.user.name + ' ' + instructor.user.lastname[0] + '.' }}
                     </h5>
                     <!-- flag -->
@@ -97,7 +99,7 @@
                   <nuxt-link
                     :to="'/'+$route.params.lang+'/instructors/' + instructor.id"
                   >
-                    <span v-show="readMore(instructor.description) >= 180" class="has-text-weight-bold colorReadMore"> read more.</span> 
+                    <span v-show="readMore(instructor.description) >= 180" class="colorReadMore"> read more.</span> 
                   </nuxt-link>
                 </p>
               </div>
@@ -111,7 +113,7 @@
                   <p class="is-size-7 has-text-grey has-text-weight-bold">
                     Lesson Price:
                   </p>
-                  <p class="has-text-weight-semibold has-text-black">
+                  <p class="has-text-weight-semibold has-text-black mb-6">
                     USD {{ instructor.price_by_class }}
                   </p>
                   <nuxt-link
@@ -129,7 +131,7 @@
                   <p class="is-size-7 has-text-grey has-text-weight-bold">
                     Location:
                   </p>
-                  <p class="has-text-weight-semibold has-text-black">
+                  <p class="has-text-weight-semibold has-text-black mb-6">
                     {{ instructor.user.country }}
                   </p>
                   <nuxt-link
@@ -204,7 +206,7 @@
                   >
                   <div class="container-profile-main">
                     <div class="container-profile-name">
-                      <h5 class="title is-marginless is-5 has-text-weight-bold">
+                      <h5 class="title is-marginless is-5 has-text-weight-bold has-text-black">
                         {{ instructor.user.name + ' ' + instructor.user.lastname[0] + '.' }}
                       </h5>
                       <!-- flag -->
@@ -241,7 +243,7 @@
                     <nuxt-link
                       :to="'/'+lang.id+'/instructors/' + instructor.id"
                     >
-                      <span v-show="readMore(instructor.description) >= 180" class="has-text-weight-bold colorReadMore"> read more.</span> 
+                      <span v-show="readMore(instructor.description) >= 180" class="colorReadMore"> read more.</span> 
                     </nuxt-link>
                   </p>
                 </div>
@@ -328,10 +330,12 @@
     border-color: #e84660
     color: white
     font-weight: 600
+    margin-top: 10px
   .colorButton:disabled
     color: black
   hr
-    margin-top: 10px
+    margin: 10px 0
+
   rating
     float: none !important
   .container-card
@@ -356,7 +360,9 @@
   .container-profile-info, 
   .container-profile-teacher
     display: flex
-    justify-content: space-between 
+    justify-content: space-between
+    margin-left: 10px
+
   
   .container-profile-teacher
     div
@@ -366,7 +372,7 @@
       flex: 1 1 168px
 
   .marginado
-    margin: 0 10px
+    margin: 0 30px
 
   .container-profile-raiting
     margin-top: -25px
@@ -374,7 +380,7 @@
   .container-profile-flag
     margin-left: 10px
     // border: 1px solid hsl(0, 0%, 96%)
-    width: 30px
+    width: 40px
     align-self: flex-start
   
   .conteiner-like
@@ -387,8 +393,8 @@
     min-height: 60px
     max-height: 80px
     .profile-description
-      margin-left: 30px
-      margin-right: 30px
+      margin-left: 10px
+      // margin-right: 30px
       font-weight: 600
       color: black
 
@@ -423,9 +429,9 @@
 
   .-card-vertical
     .-profile-picture
-      margin-right: 1rem
-      height: 90px
-      width: 90px
+      // margin-right: 1rem
+      height: 80px
+      width: 80px
     .-description
       vertical-align: super
     &:hover
