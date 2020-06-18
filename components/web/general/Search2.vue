@@ -254,7 +254,7 @@
   .arrow
     position: absolute
     top: 30px
-    left: 135px
+    left: 143px
     z-index: 10
     pointer-events: none
   .colorDays
