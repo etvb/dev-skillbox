@@ -55,12 +55,15 @@
                 <div class="container-profile-info">
                   <!-- changed the img tag fot div, if the user has image show  -->
                   <div
-                    id="container-profile-img"
                     v-if="instructor.user.profile_picture"
-                    :style="'background-image: url(' + instructor.user.profile_picture + '); background-size: cover; background-repeat: no-repeat'"
-                    class="-is-circle -profile-picture is-inline-block "
-                  />
-                
+                    class="-profile-picture"
+                  >
+                    <div
+                      id="container-profile-img"
+                      :style="'background-image: url(' + instructor.user.profile_picture + '); background-size: cover; background-repeat: no-repeat'"
+                      class="-is-circle -profile-picture is-inline-block "
+                    />
+                  </div>
                   <!-- if the user don´t have imege show this -->
                   <img
                     v-else
@@ -71,21 +74,21 @@
                   <!-- <div v-else class="-profile-picture is-inline-block" /> -->
                   <div class="container-profile-main">
                     <div class="container-profile-name">
-                      <h5 class="title is-marginless is-6 has-text-weight-bold">
+                      <h5 class="title is-marginless is-6 has-text-weight-bold has-text-black">
                         {{ instructor.user.name + ' ' + instructor.user.lastname[0] + '.' }}
                       </h5>
+                      <!-- flag -->
+                      <span class="container-profile-flag">
+                        <img :src="pais(instructor.user.country)">
+                      </span>   
                     </div>
-                    <p class="has-text-grey-lighter has-text-weight-semibold">
+                    <p class="-has-text-gray has-text-weight-semibold">
                       Native Language: <span>{{ instructor.user.language.english }}</span>
                     </p><br>
-                    <p class="container-profile-raiting has-text-grey-lighter has-text-weight-semibold">
+                    <p v-show="instructor.average_rating" class="container-profile-raiting -has-text-gray has-text-weight-semibold">
                       Raiting: <rating :rating="instructor.average_rating ? instructor.average_rating : 0" />
                     </p>
                   </div>
-                  <!-- flag -->
-                  <span class="container-profile-flag">
-                    <img :src="pais(instructor.user.country)">
-                  </span>   
                   <div class="conteiner-like">
                     <like />
                   </div>
@@ -141,17 +144,17 @@
               <like class="-like" />
             </div> -->
             <hr>
-            <h6 class="title is-6 -is-marginless-bottom has-text-grey-lighter has-text-weight-semibold">
+            <h6 class="title is-6 -is-marginless-bottom -has-text-gray">
               About {{ adaptedName }}
             </h6>
-            <div>
+            <div class="title is-6">
               {{ instructor.bio }}
             </div>
             <hr>
-            <h6 class="title is-6 -is-spaced-top -is-marginless-bottom has-text-grey-lighter has-text-weight-semibold">
+            <h6 class="title is-6 -is-spaced-top -is-marginless-bottom -has-text-gray">
               Teaches:
             </h6>
-            <p v-for="(language, index) in instructorLanguages" :key="index">
+            <p v-for="(language, index) in instructorLanguages" :key="index" class="title is-6">
               {{ language }}
             </p>
             <!-- <h6 class="title is-6 -is-spaced-top -is-marginless-bottom">
@@ -168,10 +171,10 @@
             </p> -->
             <div class="container-profile-teacher">
               <div>
-                <p class="is-size-7 has-text-grey-lighter has-text-weight-bold">
+                <p class="is-size-7 -has-text-gray has-text-weight-bold">
                   Lesson Price:
                 </p>
-                <p class="has-text-weight-semibold">
+                <p class="title is-6 ">
                   USD {{ instructor.price_by_class }}
                 </p>
                 <button
@@ -181,11 +184,11 @@
                   Book
                 </button>
               </div>
-              <div>
-                <p class="is-size-7 has-text-grey-lighter has-text-weight-bold">
+              <div class="marginado">
+                <p class="is-size-7 -has-text-gray has-text-weight-bold">
                   Location:
                 </p>
-                <p class="has-text-weight-semibold">
+                <p class="title is-6">
                   {{ instructor.user.country }}
                 </p>
                 <button class="button is-info is-expand is-fullwidth">
@@ -332,6 +335,8 @@
   .-times
     +tablet
       margin-top: 140px
+.container-profile-teacher
+  margin: 0
 .-card-details-instructor
   .-column-profile
     border-right: solid 2px whitesmoke
@@ -346,7 +351,7 @@
       background: white
       z-index: 9
 
-      background-position: center
+      // background-position: center
       background-repeat: no-repeat
       background-size: cover
     hr2
@@ -389,8 +394,8 @@
       padding-right: 10px
 
     #container-profile-img
-      width: 60px
-      height: 50px
+      // width: 60px
+      // height: 60px
 
 </style>
 <script>
