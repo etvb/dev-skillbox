@@ -210,7 +210,7 @@
 
   .used
     background-color: #ffc0cbb3 !important
-    border: 3px solid #e84660 !important 
+    border: 3px solid #df4661 !important 
   // #fb05bb
   .searchSelect, .searchSelect-pink
 
@@ -243,7 +243,7 @@
     font-size: 15px
   .searchSelect-pink
     background-color: #ffc0cbb3
-    border-color: #e84660
+    border-color: #df4661
     border-width: 3px
 
 
@@ -258,7 +258,7 @@
     z-index: 10
     pointer-events: none
   .colorDays
-    color: #e84660
+    color: #df4661
   #NO
     pointer-events: none
     position: absolute
@@ -273,7 +273,7 @@
   i.far
     color: hsl(204, 86%, 53%)
   .fa-angle-down
-    color: #e84660 !important
+    color: #df4661 !important
   .navbar-menu2
     // background-color: #f5f9fc
     // height: 80px
@@ -481,8 +481,8 @@ export default {
         'vue-slider-dot-tooltip-inner'
       )
       const vueSliderRail = document.getElementsByClassName('vue-slider-rail')
-      vueSliderProcess[0].style.backgroundColor = '#e84660'
-      vueSliderRail[0].style.backgroundColor = '#e84660'
+      vueSliderProcess[0].style.backgroundColor = '#df4661'
+      vueSliderRail[0].style.backgroundColor = '#df4661'
       tooltip[0].style.backgroundColor = '#ffc0cbb3'
       tooltip[0].style.borderColor = '#ffc0cbb3'
       tooltip[0].style.color = 'black'
