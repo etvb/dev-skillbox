@@ -37,7 +37,8 @@
           </div>
         </div>
         <div v-if="language.instructors" class="column">
-          <div
+          <nuxt-link
+            :to="'/'+$route.params.lang+'/instructors/' + instructor.id"
             v-for="(instructor, index) in language.instructors"
             v-if="instructor.user"
             :key="instructor.id"
@@ -47,7 +48,7 @@
             v-for="(instructor, index) in language.instructors"
             v-if="instructor.user"
             :key="instructor.id"
-          > -->
+            > -->
             <div
               :class="index != 0 ? '-is-spaced-top': ''"
               class="box is-radiusless -card-vertical container-profile "
@@ -151,7 +152,7 @@
                   </p>
                   <button
                     :disabled="!instructor.video_url"
-                    @click="openVideo(instructor.video_url)"
+                    @click.prevent="openVideo(instructor.video_url)"
                     :value="instructor.video_url"
                     class="button is-expand is-fullwidth colorButton"
                   > 
@@ -160,12 +161,12 @@
                 </div>
               </div>
             </div>
-          </div>
+          </nuxt-link>
         </div>
         <!-- insertar aqui -->
         <div v-else class="column">
           <template v-for="(lang, indexLang) in language">
-            <div
+            <nuxt-link
               :to="'/'+lang.id+'/instructors/' + instructor.id"
               v-for="(instructor, index) in lang.instructors"
               v-if="instructor.user"
@@ -295,7 +296,7 @@
                     </p>
                     <button
                       :disabled="!instructor.video_url"
-                      @click="openVideo(instructor.video_url)"
+                      @click.prevent="openVideo(instructor.video_url)"
                       :value="instructor.video_url"
                       class="button is-expand is-fullwidth colorButton"
                     > 
@@ -310,7 +311,7 @@
                   <rating :rating="instructor.average_rating ? instructor.average_rating : 0" class="is-pulled-right" />
                 </div> -->
               </div>
-            </div>
+            </nuxt-link>
           </template>
         </div>
         <div class=" column is-3" />
