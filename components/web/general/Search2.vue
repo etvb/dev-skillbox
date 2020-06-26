@@ -101,10 +101,10 @@
             <div id="NO">
               No
             </div>
+            <!-- if you want disable the native speaker button, put this like a param= :disabled="disableNative" -->
             <select
               v-model="native"
               @change="changeNativeSpeaker(native)"
-              :disabled="disableNative5"
               class="searchSelect-pink"
             >
               <option value="1">
@@ -129,8 +129,8 @@
                 :tooltip-placement="['bottom']"
                 @change="changeRangePrice"
                 
-                min="0"
-                max="50"
+                :min="min"
+                :max="max"
               /> 
 
                 
@@ -417,8 +417,8 @@ export default {
       marks: [0, 50],
       usado: true,
       disableNative: false,
-      min: '',
-      max: '',
+      min: 0,
+      max: 50,
       native: '',
       rating: '',
       locationSelected: '',
@@ -467,7 +467,7 @@ export default {
     // this.locationsFunction()
     // this.getLocation()
     // eslint-disable-next-line no-console
-    console.log(this.range)
+    // console.log(this.range)
     if (this.search === 'others') {
       this.disableNative = true
     }

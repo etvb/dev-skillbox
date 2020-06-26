@@ -43,6 +43,7 @@
             v-if="instructor.user"
             :key="instructor.id"
           >
+            {{ key }}
             <!-- <nuxt-link
             :to="'/'+$route.params.lang+'/instructors/' + instructor.id"
             v-for="(instructor, index) in language.instructors"
@@ -167,10 +168,10 @@
         <div v-else class="column">
           <template v-for="(lang, indexLang) in language">
             <nuxt-link
-              :to="'/'+lang.id+'/instructors/' + instructor.id"
-              v-for="(instructor, index) in lang.instructors"
-              v-if="instructor.user"
-              :key="instructor.id"
+              v-for="(instructorL, index) in lang.instructors"
+              :to="'/'+lang.id+'/instructors/' + instructorL.id"
+              v-if="instructorL.user"
+              :key="index"
               :class="indexLang != 0 ? '-is-spaced-top': ''"
               class="is-block"
             >
@@ -192,8 +193,8 @@
               >
                 <div class="container-profile-info">
                   <div
-                    v-if="instructor.user.profile_picture"
-                    :style="'background-image: url(' + instructor.user.profile_picture + '); background-size: cover; background-repeat: no-repeat'"
+                    v-if="instructorL.user.profile_picture"
+                    :style="'background-image: url(' + instructorL.user.profile_picture + '); background-size: cover; background-repeat: no-repeat'"
                     class="-is-circle -profile-picture is-inline-block"
                   />
 
@@ -208,18 +209,18 @@
                   <div class="container-profile-main">
                     <div class="container-profile-name">
                       <h5 class="title is-marginless is-5 has-text-weight-bold has-text-black">
-                        {{ instructor.user.name + ' ' + instructor.user.lastname[0] + '.' }}
+                        {{ instructorL.user.name + ' ' + instructorL.user.lastname[0] + '.' }}
                       </h5>
                       <!-- flag -->
                       <span class="container-profile-flag">
-                        <img :src="pais(instructor.user.country)">
+                        <img :src="pais(instructorL.user.country)">
                       </span>   
                     </div>
                     <p class="has-text-grey has-text-weight-semibold">
                       Native Language: <span>{{ lang.english }}</span>
                     </p><br>
-                    <p v-show="instructor.average_rating" class="container-profile-raiting has-text-grey has-text-weight-semibold">
-                      Raiting: <rating :rating="instructor.average_rating ? instructor.average_rating : 0" />
+                    <p v-show="instructorL.average_rating" class="container-profile-raiting has-text-grey has-text-weight-semibold">
+                      Raiting: <rating :rating="instructorL.average_rating ? instructorL.average_rating : 0" />
                     </p>
                   </div>
                   <div class="conteiner-like">
@@ -240,11 +241,11 @@
                 <hr>
                 <div class="is-inline-block -description container-profile-description">
                   <p class="subtitle is-6 profile-description">
-                    {{ instructor.description | truncate(180) }}  
+                    {{ instructorL.description | truncate(180) }}  
                     <nuxt-link
-                      :to="'/'+lang.id+'/instructors/' + instructor.id"
+                      :to="'/'+lang.id+'/instructors/' + instructorL.id"
                     >
-                      <span v-show="readMore(instructor.description) >= 180" class="colorReadMore"> read more.</span> 
+                      <span v-show="readMore(instructorL.description) >= 180" class="colorReadMore"> read more.</span> 
                     </nuxt-link>
                   </p>
                 </div>
@@ -259,10 +260,10 @@
                       Lesson Price:
                     </p>
                     <p class="has-text-weight-semibold has-text-black">
-                      USD {{ instructor.price_by_class }}
+                      USD {{ instructorL.price_by_class }}
                     </p>
                     <nuxt-link
-                      :to="'/'+$route.params.lang+'/instructors/' + instructor.id + '?isCalendarModalActive=true'"
+                      :to="'/'+$route.params.lang+'/instructors/' + instructorL.id + '?isCalendarModalActive=true'"
                     >
                       <!-- @click="activateCalendarModal" -->
                       <button 
@@ -277,10 +278,10 @@
                       Location:
                     </p>
                     <p class="has-text-weight-semibold has-text-black">
-                      {{ instructor.user.country }}
+                      {{ instructorL.user.country }}
                     </p>
                     <nuxt-link
-                      :to="'/'+lang.id+'/instructors/' + instructor.id"
+                      :to="'/'+lang.id+'/instructors/' + instructorL.id"
                     > 
                       <button class="button is-expand is-fullwidth colorButton">
                         Schedule
@@ -295,9 +296,9 @@
                       put lengugages
                     </p>
                     <button
-                      :disabled="!instructor.video_url"
-                      @click.prevent="openVideo(instructor.video_url)"
-                      :value="instructor.video_url"
+                      :disabled="!instructorL.video_url"
+                      @click.prevent="openVideo(instructorL.video_url)"
+                      :value="instructorL.video_url"
                       class="button is-expand is-fullwidth colorButton"
                     > 
                       Video
