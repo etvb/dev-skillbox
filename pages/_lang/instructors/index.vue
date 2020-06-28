@@ -217,7 +217,7 @@
                       </span>   
                     </div>
                     <p class="has-text-grey has-text-weight-semibold">
-                      Native Language: <span>{{ lang.english }}</span>
+                      Native Language: <span>{{ instructorL.user.language.english }}</span>
                     </p><br>
                     <p v-show="instructorL.average_rating" class="container-profile-raiting has-text-grey has-text-weight-semibold">
                       Raiting: <rating :rating="instructorL.average_rating ? instructorL.average_rating : 0" />

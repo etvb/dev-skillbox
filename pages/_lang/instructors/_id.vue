@@ -480,7 +480,11 @@ export default {
     },
     // Languages that can teach the instructor
     instructorLanguages() {
+      // eslint-disable-next-line no-console
+      console.log('entre al lenguaje')
       const languages = this.instructor.languages
+      // eslint-disable-next-line no-console
+      console.log(languages)
       const nameLanguages = []
       languages.forEach(language => {
         const nameLanguage = language.english
@@ -571,6 +575,10 @@ export default {
       const url = `${process.env.apiUrl}languages/${idLanguage}`
 
       axios.get(url).then(response => {
+        // eslint-disable-next-line no-console
+        console.log('obteniendo los le guajes a enseñas')
+        // eslint-disable-next-line no-console
+        console.log(response.data)
         this.languageToTeach = response.data
       })
     },
