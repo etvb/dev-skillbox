@@ -149,7 +149,10 @@
                     Teaches:
                   </p>
                   <p class="has-text-weight-semibold has-text-black">
-                    put lengugages
+                    <span v-for="(languageTeach, index) in instructor.languages" :key="index">
+                      {{ languageTeach.english }},
+
+                    </span>
                   </p>
                   <button
                     :disabled="!instructor.video_url"
@@ -293,7 +296,9 @@
                       Teaches:
                     </p>
                     <p class="has-text-weight-semibold has-text-black">
-                      put lengugages
+                      <span v-for="(languageTeach, index) in instructorL.languages" :key="index">
+                        {{ languageTeach.english }},
+                      </span>
                     </p>
                     <button
                       :disabled="!instructorL.video_url"
@@ -556,7 +561,7 @@ export default {
     // eslint-disable-next-line no-console
     console.log('data de ESTE INDX')
     // eslint-disable-next-line no-console
-    console.log(data.language)
+    console.log(data)
     // eslint-disable-next-line no-console
     // console.log(langId)
     // Filter by rating
