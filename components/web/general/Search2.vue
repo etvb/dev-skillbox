@@ -215,6 +215,8 @@
 
   .pointer
     cursor: pointer
+    &:hover
+      box-shadow: 0 10px 8px rgba(0, 0, 0, 0.15), 0 1px 10px rgba(0, 0, 0, 0.2)
 
   .used
     background-color: #ffc0cbb3 !important
