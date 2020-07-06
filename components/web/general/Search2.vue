@@ -208,6 +208,11 @@
 </template>
 <style lang="sass" scoped>
 
+  select option
+    background-color: white
+    -moz-background-color: white
+    
+
   .pointer
     cursor: pointer
 
