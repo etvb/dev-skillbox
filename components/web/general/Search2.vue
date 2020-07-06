@@ -33,7 +33,7 @@
             <select
               v-model="search"
               @change="changeLanguage(search)"
-              class="searchSelect-pink"
+              class="searchSelect-pink pointer"
             >
               <option
                 v-for="language in languages"
@@ -52,7 +52,7 @@
           <!--end buttom language -->
 
           <!-- button-Availability -->
-          <div @click="showMe()" :class="[daysComponent.length !== 0 ? used='used' : '']" class="button-search">
+          <div @click="showMe()" :class="[daysComponent.length !== 0 ? used='used' : '']" class="button-search pointer">
             <!-- <i class="far fa-calendar-alt" /> -->
 
             <span class="titleButtom2">Availability</span>
@@ -105,7 +105,7 @@
             <select
               v-model="native"
               @change="changeNativeSpeaker(native)"
-              class="searchSelect-pink"
+              class="searchSelect-pink pointer"
             >
               <option value="1">
                 Yes
@@ -150,7 +150,7 @@
               v-model="locationSelected"
               @change="changeLocation(locationSelected)"
               :class="[locationSelected !== '' ? used='used' : '']"
-              class="searchSelect"
+              class="searchSelect pointer"
             >
               <option value="">
                 All
@@ -177,7 +177,7 @@
               v-model="rating"
               @change="changeRating(rating)"
               :class="[rating !== '' ? used='used' : '']"
-              class="searchSelect"
+              class="searchSelect pointer"
             >
               <!-- :expanded="true"
                 placeholder=""
@@ -207,6 +207,9 @@
   </div>
 </template>
 <style lang="sass" scoped>
+
+  .pointer
+    cursor: pointer
 
   .used
     background-color: #ffc0cbb3 !important
