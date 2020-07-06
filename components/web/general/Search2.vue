@@ -143,7 +143,6 @@
           <!-- localtion -->
           <!-- <div :class="[locationSelected !== '' ? used ='used': '', ]" class="button-search"> -->
           <!-- <i class="fas fa-chalkboard-teacher" /> -->
-
           <b-field class="field">
             <span class="titleButtom">Location</span>
             <select
@@ -153,13 +152,15 @@
               class="searchSelect pointer"
             >
               <option value="">
-                All
+                &nbsp;&nbsp;All
               </option>
+              
               <option
                 v-for="$location in locationes"
                 :key="$location"
+                :value="$location"
               >
-                {{ $location }}
+                &nbsp;&nbsp;{{ $location }}
               </option>
             </select>
             <i class="fas fa-angle-down arrow" />
