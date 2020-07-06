@@ -40,10 +40,10 @@
                 :value="language.id"
                 :key="language.id"
               >
-                {{ language.english }}
+                &nbsp;&nbsp;{{ language.english }}
               </option>
               <option value="others">
-                Other languages
+                &nbsp;&nbsp;Other languages
               </option>
             </select>
             <i class="fas fa-angle-down arrow" />
@@ -108,10 +108,10 @@
               class="searchSelect-pink pointer"
             >
               <option value="1">
-                Yes
+                &nbsp;&nbsp;Yes
               </option>
               <option value="0" selected="selected">
-                No
+                &nbsp;&nbsp;No
               </option>
             </select>
             <i class="fas fa-angle-down arrow" />
@@ -183,19 +183,19 @@
                 placeholder=""
                 size="is-small" -->
               <option value="">
-                All
+                &nbsp;&nbsp;All
               </option>
               <option value="1">
-                *
+                &nbsp;&nbsp;*
               </option>
               <option value="2">
-                * *
+                &nbsp;&nbsp;* *
               </option>
               <option value="3">
-                * * *
+                &nbsp;&nbsp;* * *
               </option>
               <option value="4">
-                * * * *
+                &nbsp;&nbsp;* * * *
               </option>
             </select>
             <i class="fas fa-angle-down arrow" />
@@ -211,12 +211,16 @@
   select option
     background-color: white
     -moz-background-color: white
+    text-align: center
     
 
   .pointer
     cursor: pointer
     &:hover
       box-shadow: 0 10px 8px rgba(0, 0, 0, 0.15), 0 1px 10px rgba(0, 0, 0, 0.2)
+
+  select:focus
+    outline:none !important
 
   .used
     background-color: #ffc0cbb3 !important
