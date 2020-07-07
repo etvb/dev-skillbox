@@ -57,7 +57,7 @@
 
             <span class="titleButtom2">Availability</span>
             <br>
-            <div class="lineHige">
+            <div>
               <!-- {{ daysComponent }} -->
               <span id="su" class="sizeSmall has-text-weight-bold colorDays">Su</span>
               <span id="mo" class="sizeSmall has-text-weight-bold colorDays">Mo</span>
@@ -210,14 +210,7 @@
 <style lang="sass" scoped>
 
   .navbar-menu
-<<<<<<< HEAD
-    line-height: normal
-=======
       line-height: 1.3
->>>>>>> newSearch
-
-  .lineHige
-    // line-height: 1
 
   select option
     background-color: white
