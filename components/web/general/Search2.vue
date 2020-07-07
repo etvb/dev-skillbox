@@ -209,8 +209,11 @@
 </template>
 <style lang="sass" scoped>
 
+  .navbar-menu
+      line-height: normal
+
   .lineHige
-    line-height: 1
+    // line-height: 1
 
   select option
     background-color: white
@@ -333,6 +336,7 @@
     font-size: 10px
   @media screen and (min-width: 1024px)
     #search nav .navbar-menu
+      line-height: normal
       font-family: calibri 
       font-size: 18px
       justify-content: center
