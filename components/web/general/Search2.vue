@@ -57,7 +57,7 @@
 
             <span class="titleButtom2">Availability</span>
             <br>
-            <div>
+            <div class="lineHige">
               <!-- {{ daysComponent }} -->
               <span id="su" class="sizeSmall has-text-weight-bold colorDays">Su</span>
               <span id="mo" class="sizeSmall has-text-weight-bold colorDays">Mo</span>
@@ -209,6 +209,9 @@
 </template>
 <style lang="sass" scoped>
 
+  .lineHige
+    line-height: 1
+
   select option
     background-color: white
     -moz-background-color: white
@@ -276,8 +279,8 @@
     pointer-events: none
     position: absolute
     z-index: 1
-    margin-top: 27px
-    margin-left: 60px
+    margin-top: 22px
+    margin-left: 74px
     // font-family: 'sans-serif'
     // font-size: 13px
     color: darkgrey
@@ -360,7 +363,7 @@
     font-family: calibri 
     font-size: 18px
     color: black
-    font-size: 14px
+    // font-size: 14px
     font-weight: bold
     width: 100%
     text-align-last: center
@@ -381,6 +384,8 @@
   .contentNumber
     display: grid
     text-align: center
+    font-family: calibri 
+    font-size: 18px
   .sizeNumber
     width: 137px
     height: 24px
