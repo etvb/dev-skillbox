@@ -231,7 +231,7 @@
     border: 3px solid #df4661 !important 
   // #fb05bb
   .searchSelect, .searchSelect-pink
-
+    max-width: 161px 
     text-align: center
     padding-top: 20px
     border: 1px solid lightgrey
@@ -245,7 +245,6 @@
     text-align-last: center
     background-color: white
     min-width: 160px
-    max-width: 160px
     height: 50px
     appearance: none
     -webkit-appearance: none
