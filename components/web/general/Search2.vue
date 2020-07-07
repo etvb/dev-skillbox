@@ -238,11 +238,7 @@
     // min-width: 150px
     // cursor: pointer
     // background-color: white
-
-
-
-
-
+    font-family: calibri  
     text-align-last: center
     background-color: white
     min-width: 160px
@@ -254,8 +250,8 @@
     border-width: 2px
     border-style: solid
     color: darkgrey
-    font-weight: bold
-    font-size: 15px
+    // font-weight: bold
+    font-size: 18px
   .searchSelect-pink
     background-color: #ffc0cbb3
     border-color: #df4661
@@ -275,15 +271,17 @@
   .colorDays
     color: #df4661
   #NO
+    font-family: calibri 
+    font-size: 18px
     pointer-events: none
     position: absolute
     z-index: 1
     margin-top: 27px
     margin-left: 60px
-    font-family: 'sans-serif'
-    font-size: 13px
+    // font-family: 'sans-serif'
+    // font-size: 13px
     color: darkgrey
-    font-weight: bold
+    // font-weight: bold
   i.fas,
   i.far
     color: hsl(204, 86%, 53%)
@@ -332,6 +330,8 @@
     font-size: 10px
   @media screen and (min-width: 1024px)
     #search nav .navbar-menu
+      font-family: calibri 
+      font-size: 18px
       justify-content: center
     #search nav .navbar-menu .navbar-start
       margin-right: 0
@@ -357,6 +357,8 @@
   .button-search .fiel .control span select
     border: 0
   .titleButtom, .titleButtom2
+    font-family: calibri 
+    font-size: 18px
     color: black
     font-size: 14px
     font-weight: bold
