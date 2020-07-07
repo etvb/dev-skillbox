@@ -210,7 +210,11 @@
 <style lang="sass" scoped>
 
   .navbar-menu
+<<<<<<< HEAD
     line-height: normal
+=======
+      line-height: 1.3
+>>>>>>> newSearch
 
   .lineHige
     // line-height: 1
