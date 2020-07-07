@@ -245,6 +245,7 @@
     text-align-last: center
     background-color: white
     min-width: 160px
+    max-width: 160px
     height: 50px
     appearance: none
     -webkit-appearance: none
