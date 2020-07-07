@@ -210,7 +210,7 @@
 <style lang="sass" scoped>
 
   .navbar-menu
-      line-height: normal
+    line-height: normal
 
   .lineHige
     // line-height: 1
