@@ -294,6 +294,9 @@
     // background-color: #f5f9fc
     // height: 80px
     // width: 100%
+    display: -webkit-box
+    display: -webkit-flex
+    display: -ms-flexbox
     display: flex
     justify-content: center
     align-items: center
