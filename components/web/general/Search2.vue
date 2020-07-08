@@ -28,16 +28,18 @@
           <!-- <i class="fas fa-globe" /> -->
           <!-- {{ search }} -->
           <b-field class="field">
-            <span class="titleButtom">Language</span>
+            <span class="titleButtomLanguage">Language</span>
             <!-- :input="searchInstructors()" -->
+            {{ idioma2 }}
             <select
               v-model="search"
-              @change="changeLanguage(search)"
+              @change="changeLanguage(search, label)"
               class="searchSelect-pink pointer"
             >
               <option
                 v-for="language in languages"
                 :value="language.id"
+                :label="language.english"
                 :key="language.id"
               >
                 &nbsp;&nbsp;{{ language.english }}
@@ -97,7 +99,7 @@
           <!-- <div class="button-search-pink"> -->
           <!-- <i class="fas fa-chalkboard-teacher" /> -->
           <b-field class="field">
-            <span class="titleButtom">Native Speaker</span>
+            <span class="titleButtomSpeaker">Native Speaker</span>
             <div id="NO">
               No
             </div>
@@ -144,9 +146,11 @@
           <!-- <div :class="[locationSelected !== '' ? used ='used': '', ]" class="button-search"> -->
           <!-- <i class="fas fa-chalkboard-teacher" /> -->
           <b-field class="field">
-            <span class="titleButtom">Location</span>
+            <span class="titleButtomLocation">Location</span>
+            
+            <!-- lo que se seleccione en el option se almacena en la data locationSelected esto es por el v-model, por defecto el valor del option  -->
             <select
-              v-model="locationSelected"
+              v-model="locationSelected" 
               @change="changeLocation(locationSelected)"
               :class="[locationSelected !== '' ? used='used' : '']"
               class="searchSelect pointer"
@@ -173,7 +177,7 @@
           <!-- <i class="fas fa-chalkboard-teacher" /> -->
 
           <b-field class="field">
-            <span class="titleButtom">Rating</span>
+            <span class="titleButtomRating">Rating</span>
             <select
               v-model="rating"
               @change="changeRating(rating)"
@@ -363,19 +367,41 @@
 
   .button-search .fiel .control span select
     border: 0
-  .titleButtom, .titleButtom2
+  .titleButtom,.titleButtomLanguage, .titleButtomSpeaker, .titleButtomLocation, .titleButtomRating, .titleButtom2
     font-family: calibri 
     font-size: 18px
     color: black
     // font-size: 14px
     font-weight: bold
     width: 100%
-    text-align-last: center
     pointer-events: none
-  .titleButtom
+    // text-align-last: center
+  .titleButtom 
     position: absolute
     margin-top: 3px
-    
+  .titleButtomLanguage,
+    position: absolute
+    margin-top: 3px
+    left: 28%
+  .titleButtomSpeaker
+    position: absolute
+    margin-top: 3px
+    left: 15%
+  .titleButtomSpeaker
+    position: absolute
+    margin-top: 3px
+    left: 15%
+  .titleButtomLocation
+    position: absolute
+    margin-top: 3px
+    left: 28%
+  .titleButtomRating
+    position: absolute
+    margin-top: 3px
+    left: 32%
+
+
+
   .mySize
     width: 150px;
     flex-wrap: wrap;
@@ -440,6 +466,7 @@ export default {
   },
   data() {
     return {
+      idioma2: '',
       marks: [0, 50],
       usado: true,
       disableNative: false,
@@ -687,6 +714,12 @@ export default {
       // this.$router.pa
       // this.$route.params.lang = this.search
       // otra forma de hacerlo
+
+      // eslint-disable-next-line no-console
+      console.log('MIRAME')
+      // this.getLanguageSelected()
+      // eslint-disable-next-line no-console
+      console.log()
       this.$router.push({
         path: '/' + value + '/instructors',
         query: {
@@ -700,6 +733,9 @@ export default {
         path: this.$route.fullPath,
         query: { price: this.range[0] + '-' + this.range[1] }
       })
+    },
+    getLanguageSelected() {
+      alert('hola')
     }
   }
 }
