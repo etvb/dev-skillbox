@@ -154,7 +154,9 @@
               </p>
             </div> -->
             <span class="titleButtomLocation">Location</span>
-            <div>{{}}</div>
+            <div class="optionButtomLanguage">
+              {{ countryPasada }}
+            </div>
             
             <!-- lo que se seleccione en el option se almacena en la data locationSelected esto es por el v-model, por defecto el valor del option  -->
             <select
