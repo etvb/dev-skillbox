@@ -112,10 +112,10 @@
               class="searchSelect-pink pointer"
             >
               <option value="1">
-                &nbsp;&nbsp;Yes
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Yes
               </option>
-              <option value="0" selected="selected">
-                &nbsp;&nbsp;No
+              <option value="0" >
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No
               </option>
             </select>
             <i class="fas fa-angle-down arrow" />
@@ -166,7 +166,7 @@
               class="searchSelect pointer"
             >
               <option value="">
-                All
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;All
               </option>
               <option
                 v-for="$location in locationes"
@@ -197,7 +197,7 @@
                 placeholder=""
                 size="is-small" -->
               <option value="">
-                &nbsp;&nbsp;All
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;All
               </option>
               <option value="1">
                 &nbsp;&nbsp;*
@@ -244,8 +244,8 @@
     border: 3px solid #df4661 !important 
   // #fb05bb
   .searchSelect, .searchSelect-pink
-    max-width: 161px 
-    text-align: center
+    max-width: 160px 
+    // text-align: center
     padding-top: 20px
     border: 1px solid lightgrey
     // display: inline-block
@@ -255,7 +255,7 @@
     // cursor: pointer
     // background-color: white
     font-family: calibri  
-    text-align-last: center
+    // text-align-last: center
     background-color: white
     min-width: 160px
     height: 50px
