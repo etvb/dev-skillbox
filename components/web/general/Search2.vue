@@ -36,7 +36,7 @@
             <select
               id="language"
               v-model="search"
-              @change="changeLanguage(search, label)"
+              @change="changeLanguage(search)"
               class="searchSelect-pink pointer"
             >
               <option
@@ -148,7 +148,13 @@
           <!-- <div :class="[locationSelected !== '' ? used ='used': '', ]" class="button-search"> -->
           <!-- <i class="fas fa-chalkboard-teacher" /> -->
           <b-field class="field">
+            <!-- <div>
+              <p class="titleButtomLocation">
+                Locatio
+              </p>
+            </div> -->
             <span class="titleButtomLocation">Location</span>
+            <div>{{}}</div>
             
             <!-- lo que se seleccione en el option se almacena en la data locationSelected esto es por el v-model, por defecto el valor del option  -->
             <select
@@ -158,9 +164,8 @@
               class="searchSelect pointer"
             >
               <option value="">
-                &nbsp;&nbsp;All
+                All
               </option>
-              
               <option
                 v-for="$location in locationes"
                 :key="$location"
@@ -407,11 +412,12 @@
     color: darkgrey
     font-size: 18px
     font-family: calibri
-    top: 23px
+    top: 24px
     left: 9px
     background-color: #f8d0da
     width: 90%
     text-align: center
+    pointer-events: none
 
 
 
@@ -749,13 +755,13 @@ export default {
         path: this.$route.fullPath,
         query: { price: this.range[0] + '-' + this.range[1] }
       })
-    },
-    getLanguageSelected() {
-      // alert('hola')
-      const language = document.getElementById('language')
-      const languageSelected = language.options[language.selectedIndex].text
-      this.idioma2 = languageSelected
     }
+    // getLanguageSelected() {
+    //   // alert('hola')
+    //   const language = document.getElementById('language')
+    //   const languageSelected = language.options[language.selectedIndex].text
+    //   this.idioma2 = languageSelected
+    // }
   }
 }
 </script>
