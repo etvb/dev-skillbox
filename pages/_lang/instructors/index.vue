@@ -7,6 +7,7 @@
     <div class="container">
       <!-- navbar -->
       <search2
+        :languageSelected="languageSelected"
         :selected="selectedLang"
         :daysChecked="daysChecked"
         :range="range"
@@ -594,6 +595,20 @@ export default {
         // data.language.instructors = nuevo
       }
     }
+    if (langId === 'others') {
+      return {
+        language: data.language,
+        daysChecked: days,
+        totalInstructors: data.totalInstructors,
+        range,
+        infoInstructors: data.language,
+        countryParaPasar: location,
+        native,
+        location,
+        rating,
+        languageSelected: 'Others languages'
+      }
+    }
     return {
       language: data.language,
       daysChecked: days,
@@ -603,7 +618,8 @@ export default {
       countryParaPasar: location,
       native,
       location,
-      rating
+      rating,
+      languageSelected: data.language.english
     }
   },
   mounted() {

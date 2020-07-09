@@ -30,8 +30,11 @@
           <b-field class="field">
             <span class="titleButtomLanguage">Language</span>
             <!-- :input="searchInstructors()" -->
-            {{ idioma2 }}
+            <div class="optionButtomLanguage">
+              {{ languageSelected }}
+            </div>
             <select
+              id="language"
               v-model="search"
               @change="changeLanguage(search, label)"
               class="searchSelect-pink pointer"
@@ -39,7 +42,6 @@
               <option
                 v-for="language in languages"
                 :value="language.id"
-                :label="language.english"
                 :key="language.id"
               >
                 &nbsp;&nbsp;{{ language.english }}
@@ -400,12 +402,23 @@
     margin-top: 3px
     left: 32%
 
+  .optionButtomLanguage
+    position: absolute
+    color: darkgrey
+    font-size: 18px
+    font-family: calibri
+    top: 23px
+    left: 9px
+    background-color: #f8d0da
+    width: 90%
+    text-align: center
+
 
 
   .mySize
-    width: 150px;
-    flex-wrap: wrap;
-    height: 55px;
+    width: 150px
+    flex-wrap: wrap
+    height: 55px
   .moreSpeaker, .morePrice
     width: 180px
 
@@ -431,6 +444,10 @@ export default {
     VueSlider
   },
   props: {
+    languageSelected: {
+      type: String,
+      default: ''
+    },
     // search: {
     //   type: String,
     //   default: ''
@@ -717,7 +734,6 @@ export default {
 
       // eslint-disable-next-line no-console
       console.log('MIRAME')
-      // this.getLanguageSelected()
       // eslint-disable-next-line no-console
       console.log()
       this.$router.push({
@@ -735,7 +751,10 @@ export default {
       })
     },
     getLanguageSelected() {
-      alert('hola')
+      // alert('hola')
+      const language = document.getElementById('language')
+      const languageSelected = language.options[language.selectedIndex].text
+      this.idioma2 = languageSelected
     }
   }
 }
