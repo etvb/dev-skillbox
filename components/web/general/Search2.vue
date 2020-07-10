@@ -160,7 +160,6 @@
           </div> -->
           <b-field class="field">
             <div
-              id="layerSearchSelect"
               :class="[locationSelected == '' ? layerSearchSelect='layerSearchSelectShow' : 'layerSearchSelectNone']"
               class="layerSearchSelect"
             >
@@ -204,6 +203,14 @@
           <!-- <i class="fas fa-chalkboard-teacher" /> -->
 
           <b-field class="field">
+            <div
+              :class="[rating == '' ? layerSearchSelect='layerSearchSelectShow' : 'layerSearchSelectNone']"
+              class="layerSearchSelect"
+            >
+              <span class="layerSearchTitle">
+                Rating
+              </span>
+            </div>
             <span class="titleButtomRating">Rating</span>
             <select
               v-model="rating"
