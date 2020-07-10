@@ -114,7 +114,7 @@
               <option value="1">
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Yes
               </option>
-              <option value="0" >
+              <option value="0">
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No
               </option>
             </select>
@@ -147,12 +147,12 @@
           <!-- localtion -->
           <!-- <div :class="[locationSelected !== '' ? used ='used': '', ]" class="button-search"> -->
           <!-- <i class="fas fa-chalkboard-teacher" /> -->
+          <div class="titleButtomLocation">
+            <p>
+              Location
+            </p>
+          </div>
           <b-field class="field">
-            <!-- <div>
-              <p class="titleButtomLocation">
-                Locatio
-              </p>
-            </div> -->
             <span class="titleButtomLocation">Location</span>
             <div class="optionButtomLanguage">
               {{ countryPasada }}
