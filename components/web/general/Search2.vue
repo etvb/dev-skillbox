@@ -21,11 +21,11 @@
         </div>
         <div id="navbar2" class="navbar-menu">
           <!-- aqui poner los botones -->
-<!-- 
-          <div class="">
-            <p>
+
+          <!-- <div class="layerSearchSelect">
+            <span class="layerSearchTitle">
               Location
-            </p>
+            </span>
           </div> -->
 
 
@@ -159,10 +159,20 @@
             </p>
           </div> -->
           <b-field class="field">
+            <div
+              id="layerSearchSelect"
+              :class="[locationSelected == '' ? layerSearchSelect='layerSearchSelectShow' : 'layerSearchSelectNone']"
+              class="layerSearchSelect"
+            >
+              <span class="layerSearchTitle">
+                Location
+              </span>
+            </div>
             <span class="titleButtomLocation">Location</span>
             <div 
               :class="[locationSelected !== '' ? optionButtomLanguagePink='optionButtomLanguagePink' : '']"
-              class="optionButtomLocation">
+              class="optionButtomLocation"
+            >
               {{ countryPasada }}
             </div>
             
@@ -280,6 +290,36 @@
     background-color: #ffc0cbb3
     border-color: #df4661
     border-width: 3px
+
+  .layerSearchSelect
+    position: absolute
+    max-width: 160px 
+    min-width: 160px
+    height: 50px
+    // padding-top: 20px
+    border: 1px solid lightgrey
+    border-radius: 10px
+    font-family: calibri  
+    background-color: white
+    border-color: #dbdbdb
+    border-width: 2px
+    border-style: solid
+    color: black
+    font-size: 18px
+    font-weight: bold
+    display: table
+    text-align: center
+    z-index: 1
+    pointer-events: none
+  .layerSearchTitle
+    vertical-align: middle
+    display: table-cell
+  .layerSearchSelectNone
+    visibility: hidden
+  
+
+
+
 
 
   .field
@@ -432,7 +472,6 @@
     overflow: hidden
   .optionButtomLanguage
     background-color: #f8d0da
-
   .optionButtomLanguagePink
     background-color: #f8d0da
 
@@ -773,7 +812,12 @@ export default {
         path: this.$route.fullPath,
         query: { price: this.range[0] + '-' + this.range[1] }
       })
+    },
+    layerSearchSelect() {
+      // eslint-disable-next-line no-console
+      console.log('askdflk')
     }
+
     // getLanguageSelected() {
     //   // alert('hola')
     //   const language = document.getElementById('language')
