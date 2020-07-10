@@ -21,6 +21,12 @@
         </div>
         <div id="navbar2" class="navbar-menu">
           <!-- aqui poner los botones -->
+<!-- 
+          <div class="">
+            <p>
+              Location
+            </p>
+          </div> -->
 
 
           <!--start buttom language -->
@@ -147,14 +153,16 @@
           <!-- localtion -->
           <!-- <div :class="[locationSelected !== '' ? used ='used': '', ]" class="button-search"> -->
           <!-- <i class="fas fa-chalkboard-teacher" /> -->
-          <div class="titleButtomLocation">
+          <!-- <div class="titleButtomLocation">
             <p>
               Location
             </p>
-          </div>
+          </div> -->
           <b-field class="field">
             <span class="titleButtomLocation">Location</span>
-            <div class="optionButtomLanguage">
+            <div 
+              :class="[locationSelected !== '' ? optionButtomLanguagePink='optionButtomLanguagePink' : '']"
+              class="optionButtomLocation">
               {{ countryPasada }}
             </div>
             
@@ -240,7 +248,7 @@
     outline:none !important
 
   .used
-    background-color: #ffc0cbb3 !important
+    background-color: #f8d0da !important
     border: 3px solid #df4661 !important 
   // #fb05bb
   .searchSelect, .searchSelect-pink
@@ -370,7 +378,7 @@
     // cursor: pointer
     background-color: white
   .button-search-pink
-    background-color: #ffc0cbb3
+    background-color: #f8d0da
     border-color: #fb05bb
 
 
@@ -408,18 +416,26 @@
     position: absolute
     margin-top: 3px
     left: 32%
-
-  .optionButtomLanguage
+  // fondo del boton #f8d0da
+  .optionButtomLanguage, .optionButtomLocation
     position: absolute
     color: darkgrey
     font-size: 18px
     font-family: calibri
     top: 24px
     left: 9px
-    background-color: #f8d0da
+    // background-color: #f8d0da
     width: 90%
     text-align: center
     pointer-events: none
+    height: 23px
+    overflow: hidden
+  .optionButtomLanguage
+    background-color: #f8d0da
+
+  .optionButtomLanguagePink
+    background-color: #f8d0da
+
 
 
 
@@ -561,8 +577,8 @@ export default {
       const vueSliderRail = document.getElementsByClassName('vue-slider-rail')
       vueSliderProcess[0].style.backgroundColor = '#df4661'
       vueSliderRail[0].style.backgroundColor = '#df4661'
-      tooltip[0].style.backgroundColor = '#ffc0cbb3'
-      tooltip[0].style.borderColor = '#ffc0cbb3'
+      tooltip[0].style.backgroundColor = '#f8d0da'
+      tooltip[0].style.borderColor = '#f8d0da'
       tooltip[0].style.color = 'black'
       tooltip[0].style.fontSize = '11px'
       tooltip[0].style.padding = 0
