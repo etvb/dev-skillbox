@@ -62,54 +62,55 @@
           <!--end buttom language -->
 
           <!-- button-Availability -->
-          <div @click="showMe()" :class="[daysComponent.length !== 0 ? used='used' : '']" class="button-search pointer">
-            <!-- <div
-              :class="[locationSelected == '' ? layerSearchSelect='layerSearchSelectShow' : 'layerSearchSelectNone']"
-              class="layerSearchSelect"
+          <b-field class="field">
+            <div
+              :class="[daysComponent.length == 0 ? layerSearchSelect='layerSearchSelectShow' : 'layerSearchSelectNone']"
+              class="layerSearchSelectAvailability"
             >
               <span class="layerSearchTitle">
                 Availability
               </span>
-            </div> -->
-
-            <!-- <i class="far fa-calendar-alt" /> -->
-
-            <span class="titleButtom2">Availability</span>
-            <br>
-            <div>
-              <!-- {{ daysComponent }} -->
-              <span id="su" class="sizeSmall has-text-weight-bold ">Su</span>
-              <span id="mo" class="sizeSmall has-text-weight-bold ">Mo</span>
-              <span id="tu" class="sizeSmall has-text-weight-bold ">Tu</span>
-              <span id="we" class="sizeSmall has-text-weight-bold ">We</span>
-              <span id="th" class="sizeSmall has-text-weight-bold ">Th</span>
-              <span id="fr" class="sizeSmall has-text-weight-bold ">Fr</span>
-              <span id="sa" class="sizeSmall has-text-weight-bold ">Sa</span>
-              <i class="fas fa-angle-down" />
             </div>
-            <div id="menu" class="days">
-              <div
-                v-for="day in days"
-                :key="day.id"
-                class="field"
-              >
-                <!-- <b-checkbox
+            <div @click="showMe()" :class="[daysComponent.length !== 0 ? used='used' : '']" class="button-search pointer">
+              <!-- <i class="far fa-calendar-alt" /> -->
+
+              <span class="titleButtom2">Availability</span>
+              <br>
+              <div>
+                <!-- {{ daysComponent }} -->
+                <span id="su" class="sizeSmall has-text-weight-bold colorDays ">Su</span>
+                <span id="mo" class="sizeSmall has-text-weight-bold colorDays ">Mo</span>
+                <span id="tu" class="sizeSmall has-text-weight-bold colorDays ">Tu</span>
+                <span id="we" class="sizeSmall has-text-weight-bold colorDays ">We</span>
+                <span id="th" class="sizeSmall has-text-weight-bold colorDays ">Th</span>
+                <span id="fr" class="sizeSmall has-text-weight-bold colorDays ">Fr</span>
+                <span id="sa" class="sizeSmall has-text-weight-bold colorDays ">Sa</span>
+                <i class="fas fa-angle-down" />
+              </div>
+              <div id="menu" class="days">
+                <div
+                  v-for="day in days"
+                  :key="day.id"
+                  class="field"
+                >
+                  <!-- <b-checkbox
                   v-model="daysChecked"
                   :native-value="day.id"
                   :input="searchInstructors()"
                 >
                   {{ day.name }}
                 </b-checkbox> -->
-                <b-checkbox
-                  v-model="daysComponent"
-                  :native-value="day.id"
-                  @input="changeDays(day.id)"
-                >
-                  {{ day.name }}
-                </b-checkbox>
+                  <b-checkbox
+                    v-model="daysComponent"
+                    :native-value="day.id"
+                    @input="changeDays(day.id)"
+                  >
+                    {{ day.name }}
+                  </b-checkbox>
+                </div>
               </div>
             </div>
-          </div>
+          </b-field>
           <!-- end button-Availability -->
 
           <!-- button-Speaker -->
@@ -307,7 +308,7 @@
     border-color: #df4661
     border-width: 3px
 
-  .layerSearchSelect
+  .layerSearchSelect, .layerSearchSelectAvailability
     position: absolute
     max-width: 160px 
     min-width: 160px
@@ -327,6 +328,10 @@
     text-align: center
     z-index: 1
     pointer-events: none
+  .layerSearchSelectAvailability
+    min-width: 162px
+    top: 0
+    left: 4px
   .layerSearchTitle
     vertical-align: middle
     display: table-cell
@@ -402,7 +407,7 @@
     text-align: initial;
   @media screen and (min-width: 230px)
     .days
-      top: 120px
+      top: 54px
   // @media screen and (min-width: 373px)
   //   .days
   //     top: 120px
