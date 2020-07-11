@@ -6,11 +6,11 @@
     />
     <div class="container">
       <!-- navbar -->
+      <!-- :range="range"  y ano se lo paso para que pueda funcionar el boton del precio -->
       <search2
         :languageSelected="languageSelected"
         :selected="selectedLang"
         :daysChecked="daysChecked"
-        :range="range"
         :mostrar="false"
         :countryPasada="countryParaPasar"
         :dataPrueba="infoInstructors"

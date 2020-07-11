@@ -130,7 +130,7 @@
           <!--end button-Speaker -->
 
           <!-- Lesson Price -->
-          <b-field :class="[range[1] !== '0' ? used='used' : '']" class="button-search">
+          <b-field :class="[range[1] !== 0 ? used='used' : '']" class="button-search">
             <span class="titleButtom2">Lesson Price</span>
             <div class="contentNumber">
               <vue-slider
@@ -548,13 +548,13 @@ export default {
     },
     range: {
       type: Array,
-      default: () => [0, 50]
+      default: () => [0, 0]
     }
   },
   data() {
     return {
       idioma2: '',
-      marks: [0, 50],
+      // marks: [0, 50],
       usado: true,
       disableNative: false,
       min: 0,
