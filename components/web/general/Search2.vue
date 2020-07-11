@@ -63,19 +63,28 @@
 
           <!-- button-Availability -->
           <div @click="showMe()" :class="[daysComponent.length !== 0 ? used='used' : '']" class="button-search pointer">
+            <!-- <div
+              :class="[locationSelected == '' ? layerSearchSelect='layerSearchSelectShow' : 'layerSearchSelectNone']"
+              class="layerSearchSelect"
+            >
+              <span class="layerSearchTitle">
+                Availability
+              </span>
+            </div> -->
+
             <!-- <i class="far fa-calendar-alt" /> -->
 
             <span class="titleButtom2">Availability</span>
             <br>
             <div>
               <!-- {{ daysComponent }} -->
-              <span id="su" class="sizeSmall has-text-weight-bold colorDays">Su</span>
-              <span id="mo" class="sizeSmall has-text-weight-bold colorDays">Mo</span>
-              <span id="tu" class="sizeSmall has-text-weight-bold colorDays">Tu</span>
-              <span id="we" class="sizeSmall has-text-weight-bold colorDays">We</span>
-              <span id="th" class="sizeSmall has-text-weight-bold colorDays">Th</span>
-              <span id="fr" class="sizeSmall has-text-weight-bold colorDays">Fr</span>
-              <span id="sa" class="sizeSmall has-text-weight-bold colorDays">Sa</span>
+              <span id="su" class="sizeSmall has-text-weight-bold ">Su</span>
+              <span id="mo" class="sizeSmall has-text-weight-bold ">Mo</span>
+              <span id="tu" class="sizeSmall has-text-weight-bold ">Tu</span>
+              <span id="we" class="sizeSmall has-text-weight-bold ">We</span>
+              <span id="th" class="sizeSmall has-text-weight-bold ">Th</span>
+              <span id="fr" class="sizeSmall has-text-weight-bold ">Fr</span>
+              <span id="sa" class="sizeSmall has-text-weight-bold ">Sa</span>
               <i class="fas fa-angle-down" />
             </div>
             <div id="menu" class="days">
@@ -340,7 +349,8 @@
     z-index: 10
     pointer-events: none
   .colorDays
-    color: #df4661
+    visibility: hidden
+    // color: #df4661
   #NO
     font-family: calibri 
     font-size: 18px
@@ -400,8 +410,10 @@
   .days.show
     display: block
   .sizeSmall
+    font-family: calibri
     margin-top: 5px
     font-size: 10px
+    color: darkgrey
   @media screen and (min-width: 1024px)
     #search nav .navbar-menu
       line-height: normal
