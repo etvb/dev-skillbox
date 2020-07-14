@@ -85,7 +85,7 @@
                 <span id="th" class="sizeSmall has-text-weight-bold colorDays ">Th</span>
                 <span id="fr" class="sizeSmall has-text-weight-bold colorDays ">Fr</span>
                 <span id="sa" class="sizeSmall has-text-weight-bold colorDays ">Sa</span>
-                <i class="fas fa-angle-down" />
+                <i class="fas fa-angle-down arrow" />
               </div>
               <div id="menu" class="days">
                 <div
