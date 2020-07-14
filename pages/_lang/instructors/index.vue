@@ -220,10 +220,10 @@
                         <img :src="pais(instructorL.user.country)">
                       </span>   
                     </div>
-                    <p class="has-text-grey has-text-weight-semibold newSize">
+                    <p class="has-text-grey newSize">
                       Native Language: <span>{{ instructorL.user.language.english }}</span>
                     </p><br>
-                    <p v-show="instructorL.average_rating" class="container-profile-raiting has-text-grey has-text-weight-semibold">
+                    <p v-show="instructorL.average_rating" class="container-profile-raiting has-text-grey ">
                       Raiting: <rating :rating="instructorL.average_rating ? instructorL.average_rating : 0" />
                     </p>
                   </div>
@@ -329,10 +329,11 @@
 <style lang="sass">
 
   .newSize
-    line-height: 0.5
+    line-height: 1
     font-size: 1.25rem
     position: relative
-    top: -3px
+    top: -12px
+    margin-top: 7px
 
   .button:disabled
     color:black
@@ -389,9 +390,9 @@
     margin: 0 30px
 
   .container-profile-raiting
-    margin-top: -20px
+    margin-top: -36px
     font-size: 1.25rem
-    line-height: 0
+    // line-height: 0
 
 
   .container-profile-flag
@@ -456,6 +457,13 @@
       box-shadow: 0 10px 8px rgba(0, 0, 0, 0.15), 0 1px 10px rgba(0, 0, 0, 0.2)
   
   @media screen and (max-width: 500px)
+    .newSize
+      line-height: 1
+      font-size: 1.25rem
+      position: relative
+      top: -12px
+      margin-top: 10px
+
     #prueba
       padding-left: 10px
       padding-right: 10px
