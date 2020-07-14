@@ -84,10 +84,10 @@
                       <img :src="pais(instructor.user.country)">
                     </span>   
                   </div>
-                  <p class="has-text-grey has-text-weight-semibold">
+                  <p class="has-text-grey newSize">
                     Native Language: <span>{{ instructor.user.language.english }}</span>
                   </p><br>
-                  <p v-show="instructor.average_rating" class="container-profile-raiting has-text-grey has-text-weight-semibold">
+                  <p v-show="instructor.average_rating" class="container-profile-raiting has-text-grey">
                     Raiting: <rating :rating="instructor.average_rating ? instructor.average_rating : 0" />
                   </p>
                 </div>
@@ -220,7 +220,7 @@
                         <img :src="pais(instructorL.user.country)">
                       </span>   
                     </div>
-                    <p class="has-text-grey has-text-weight-semibold">
+                    <p class="has-text-grey has-text-weight-semibold newSize">
                       Native Language: <span>{{ instructorL.user.language.english }}</span>
                     </p><br>
                     <p v-show="instructorL.average_rating" class="container-profile-raiting has-text-grey has-text-weight-semibold">
@@ -328,6 +328,12 @@
 </template>
 <style lang="sass">
 
+  .newSize
+    line-height: 0.5
+    font-size: 1.25rem
+    position: relative
+    top: -3px
+
   .button:disabled
     color:black
 
@@ -383,8 +389,11 @@
     margin: 0 30px
 
   .container-profile-raiting
-    margin-top: -25px
-  
+    margin-top: -20px
+    font-size: 1.25rem
+    line-height: 0
+
+
   .container-profile-flag
     margin-left: 10px
     // border: 1px solid hsl(0, 0%, 96%)
