@@ -98,11 +98,11 @@
               <hr>
               <div class="is-inline-block -description container-profile-description">
                 <p class="subtitle is-6 profile-description">
-                  {{ instructor.description | truncate(180) }}  
+                  {{ instructor.description | truncate(161) }}  
                   <nuxt-link
                     :to="'/'+$route.params.lang+'/instructors/' + instructor.id"
                   >
-                    <span v-show="readMore(instructor.description) >= 180" class="colorReadMore"> read more.</span> 
+                    <span v-show="readMore(instructor.description) >= 161" class="colorReadMore"> read more.</span> 
                   </nuxt-link>
                 </p>
               </div>
@@ -245,11 +245,11 @@
                 <hr>
                 <div class="is-inline-block -description container-profile-description">
                   <p class="subtitle is-6 profile-description">
-                    {{ instructorL.description | truncate(180) }}  
+                    {{ instructorL.description | truncate(135) }}  
                     <nuxt-link
                       :to="'/'+lang.id+'/instructors/' + instructorL.id"
                     >
-                      <span v-show="readMore(instructorL.description) >= 180" class="colorReadMore"> read more.</span> 
+                      <span v-show="readMore(instructorL.description) >= 135" class="colorReadMore"> read more.</span> 
                     </nuxt-link>
                   </p>
                 </div>
