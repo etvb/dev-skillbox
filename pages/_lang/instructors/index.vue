@@ -10,7 +10,7 @@
       <search2
         :languageSelected="languageSelected"
         :selected="selectedLang"
-        
+        :daysChecked="daysChecked"
         :mostrar="false"
         :countryPasada="countryParaPasar"
         :dataPrueba="infoInstructors"

@@ -78,13 +78,13 @@
               <br>
               <div>
                 <!-- {{ daysComponent }} -->
-                <span id="su" class="sizeSmall has-text-weight-bold colorDays ">Su</span>
-                <span id="mo" class="sizeSmall has-text-weight-bold colorDays ">Mo</span>
-                <span id="tu" class="sizeSmall has-text-weight-bold colorDays ">Tu</span>
-                <span id="we" class="sizeSmall has-text-weight-bold colorDays ">We</span>
-                <span id="th" class="sizeSmall has-text-weight-bold colorDays ">Th</span>
-                <span id="fr" class="sizeSmall has-text-weight-bold colorDays ">Fr</span>
-                <span id="sa" class="sizeSmall has-text-weight-bold colorDays ">Sa</span>
+                <span id="su" class="sizeSmall has-text-weight-bold  ">Su</span>
+                <span id="mo" class="sizeSmall has-text-weight-bold  ">Mo</span>
+                <span id="tu" class="sizeSmall has-text-weight-bold  ">Tu</span>
+                <span id="we" class="sizeSmall has-text-weight-bold  ">We</span>
+                <span id="th" class="sizeSmall has-text-weight-bold  ">Th</span>
+                <span id="fr" class="sizeSmall has-text-weight-bold  ">Fr</span>
+                <span id="sa" class="sizeSmall has-text-weight-bold  ">Sa</span>
                 <i class="fas fa-angle-down arrow" />
               </div>
               <div id="menu" class="days">
