@@ -98,11 +98,11 @@
               <hr>
               <div class="is-inline-block -description container-profile-description">
                 <p class="subtitle is-6 profile-description">
-                  {{ instructor.description | truncate(161) }}  
+                  {{ instructor.description | truncate2(150) }}  
                   <nuxt-link
                     :to="'/'+$route.params.lang+'/instructors/' + instructor.id"
                   >
-                    <span v-show="readMore(instructor.description) >= 161" class="colorReadMore"> read more.</span> 
+                    <span v-show="readMore(instructor.description) >= 150" class="colorReadMore"> read more.</span> 
                   </nuxt-link>
                 </p>
               </div>
@@ -245,11 +245,11 @@
                 <hr>
                 <div class="is-inline-block -description container-profile-description">
                   <p class="subtitle is-6 profile-description">
-                    {{ instructorL.description | truncate(135) }}  
+                    {{ instructorL.description | truncate2(150) }}  
                     <nuxt-link
                       :to="'/'+lang.id+'/instructors/' + instructorL.id"
                     >
-                      <span v-show="readMore(instructorL.description) >= 135" class="colorReadMore"> read more.</span> 
+                      <span v-show="readMore(instructorL.description) >= 150" class="colorReadMore"> read more.</span> 
                     </nuxt-link>
                   </p>
                 </div>
@@ -505,6 +505,22 @@ export default {
     Rating
   },
   filters: {
+    truncate2: function(text, limit) {
+      if (String(text).length > limit) {
+        for (let i = limit; i > 0; i--) {
+          if (
+            text.charAt(i) === ' ' &&
+            (text.charAt(i - 1) !== ',' ||
+              text.charAt(i - 1) !== '.' ||
+              text.charAt(i - 1) !== ';')
+          ) {
+            return text.substring(0, i) + '...'
+          }
+        }
+        return text.substring(0, limit) + '...'
+      } else return text
+    },
+
     truncate: function(value, limit) {
       // eslint-disable-next-line no-console
       // console.log(value)
