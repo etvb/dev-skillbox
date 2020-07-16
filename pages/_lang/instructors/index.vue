@@ -160,8 +160,6 @@
                         {{ languageTeach.english }}
                         
                       </span>
-
-                      <!-- {{ deleteLastComa(languageTeach.english, instructor.languages.length) }} -->
             
                     </span>
                   </p>
@@ -308,7 +306,14 @@
                     </p>
                     <p class="has-text-weight-semibold has-text-black">
                       <span v-for="(languageTeach, index) in instructorL.languages" :key="index">
-                        {{ languageTeach.english }},
+                        <span v-if="index+1 < instructorL.languages.length">
+                          {{ languageTeach.english +',' }}
+                        
+                        </span>
+                        <span v-else>
+                          {{ languageTeach.english }}
+                        
+                        </span>
                       </span>
                     </p>
                     <button
