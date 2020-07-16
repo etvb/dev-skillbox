@@ -100,13 +100,20 @@
                 >
                   {{ day.name }}
                 </b-checkbox> -->
+                 
                   <b-checkbox
+                    type="is-algo"
                     v-model="daysComponent"
                     :native-value="day.id"
                     @input="changeDays(day.id)"
                   >
                     {{ day.name }}
                   </b-checkbox>
+<!-- 
+                  <input v-model="daysComponent" type="checkbox" value="day.id">
+                  <label for="">
+                    {{ day.name }}
+                  </label> -->
                 </div>
               </div>
             </div>
@@ -256,6 +263,9 @@
   </div>
 </template>
 <style lang="sass" scoped>
+
+  .is-algo
+    background-color: red !important
 
   .navbar-menu
       line-height: 1.3
@@ -619,6 +629,7 @@ export default {
   },
   mounted() {
     this.changeColorVueSlider()
+    this.changeColor()
     this.setLanguages()
     // this.changeColorDays()
     // this.locationsFunction()
@@ -840,6 +851,17 @@ export default {
     layerSearchSelect() {
       // eslint-disable-next-line no-console
       console.log('askdflk')
+    },
+    changeColor() {
+      const chechBox = document.getElementsByClassName('is-algo')
+      // eslint-disable-next-line no-console
+      console.log(chechBox)
+
+      for (const iterator of chechBox) {
+        iterator.style.backgroundColor = '#f8d0da'
+        iterator.style.borderColor = '#f8d0da'
+      }
+      // chechBox.style.backgroundColor = '#f8d0da'
     }
 
     // getLanguageSelected() {
