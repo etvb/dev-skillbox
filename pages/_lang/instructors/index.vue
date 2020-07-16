@@ -113,7 +113,7 @@
                 </b-tag>
                 <rating :rating="instructor.average_rating ? instructor.average_rating : 0" class="is-pulled-right" /> -->
                 <div>
-                  <p class="is-size-7 has-text-grey has-text-weight-bold">
+                  <p class="is-size-6 has-text-grey has-text-weight-bold">
                     Lesson Price:
                   </p>
                   <p class="has-text-weight-semibold has-text-black mb-6">
@@ -131,7 +131,7 @@
                   </nuxt-link>
                 </div>
                 <div class="marginado">
-                  <p class="is-size-7 has-text-grey has-text-weight-bold">
+                  <p class="is-size-6 has-text-grey has-text-weight-bold">
                     Location:
                   </p>
                   <p class="has-text-weight-semibold has-text-black mb-6">
@@ -146,7 +146,7 @@
                   </nuxt-link>
                 </div>
                 <div>
-                  <p class="is-size-7 has-text-grey has-text-weight-bold">
+                  <p class="is-size-6 has-text-grey has-text-weight-bold">
                     Teaches:
                   </p>
                   <p class="has-text-weight-semibold has-text-black">
@@ -268,7 +268,7 @@
                   </b-tag>
                   <rating :rating="instructor.average_rating ? instructor.average_rating : 0" class="is-pulled-right" /> -->
                   <div>
-                    <p class="is-size-7 has-text-grey has-text-weight-bold">
+                    <p class="is-size-6 has-text-grey has-text-weight-bold">
                       Lesson Price:
                     </p>
                     <p class="has-text-weight-semibold has-text-black">
@@ -286,7 +286,7 @@
                     </nuxt-link>
                   </div>
                   <div class="marginado">
-                    <p class="is-size-7 has-text-grey has-text-weight-bold">
+                    <p class="is-size-6 has-text-grey has-text-weight-bold">
                       Location:
                     </p>
                     <p class="has-text-weight-semibold has-text-black">
@@ -301,7 +301,7 @@
                     </nuxt-link>
                   </div>
                   <div>
-                    <p class="is-size-7 has-text-grey has-text-weight-bold">
+                    <p class="is-size-6 has-text-grey has-text-weight-bold">
                       Teaches:
                     </p>
                     <p class="has-text-weight-semibold has-text-black">
