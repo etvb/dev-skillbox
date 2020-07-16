@@ -151,9 +151,18 @@
                   </p>
                   <p class="has-text-weight-semibold has-text-black">
                     <span v-for="(languageTeach, index) in instructor.languages" :key="index">
-                      {{ deleteLastComa(languageTeach.english, instructor.languages.length) }}
-                      {{ teach }}
 
+                      <span v-if="index+1 < instructor.languages.length">
+                        {{ languageTeach.english +',' }}
+                        
+                      </span>
+                      <span v-else>
+                        {{ languageTeach.english }}
+                        
+                      </span>
+
+                      <!-- {{ deleteLastComa(languageTeach.english, instructor.languages.length) }} -->
+            
                     </span>
                   </p>
                   <button
@@ -724,9 +733,6 @@ export default {
           return `https://www.countryflags.io/${pa}/flat/64.png`
         }
       }
-    },
-    deleteLastComa(language, total) {
-      return language + ','
     }
   }
   // methods: {
