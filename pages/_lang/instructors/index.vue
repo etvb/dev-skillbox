@@ -151,7 +151,8 @@
                   </p>
                   <p class="has-text-weight-semibold has-text-black">
                     <span v-for="(languageTeach, index) in instructor.languages" :key="index">
-                      {{ languageTeach.english }},
+                      {{ deleteLastComa(languageTeach.english, instructor.languages.length) }}
+                      {{ teach }}
 
                     </span>
                   </p>
@@ -536,6 +537,8 @@ export default {
   watchQuery: true,
   data() {
     return {
+      teach: '',
+      count: 0,
       video: '',
       isCalendarModalActive: false,
       isCardModalIntroductionVideo: false,
@@ -721,6 +724,9 @@ export default {
           return `https://www.countryflags.io/${pa}/flat/64.png`
         }
       }
+    },
+    deleteLastComa(language, total) {
+      return language + ','
     }
   }
   // methods: {
