@@ -102,14 +102,15 @@
                 </b-checkbox> -->
                  
                   <b-checkbox
-                    type="is-algo"
+                    :id="day.id"
                     v-model="daysComponent"
                     :native-value="day.id"
                     @input="changeDays(day.id)"
+                    type="is-algo"
                   >
                     {{ day.name }}
                   </b-checkbox>
-<!-- 
+                  <!-- 
                   <input v-model="daysComponent" type="checkbox" value="day.id">
                   <label for="">
                     {{ day.name }}
@@ -263,9 +264,6 @@
   </div>
 </template>
 <style lang="sass" scoped>
-
-  .is-algo
-    background-color: red !important
 
   .navbar-menu
       line-height: 1.3
@@ -800,6 +798,7 @@ export default {
     changeDays(dia) {
       this.$emit('changeDays', this.daysComponent)
       this.changeColorDays(dia)
+      this.changeColorCheckboxClick()
     },
     changeLocation(value) {
       this.$router.push({
@@ -855,13 +854,86 @@ export default {
     changeColor() {
       const chechBox = document.getElementsByClassName('is-algo')
       // eslint-disable-next-line no-console
-      console.log(chechBox)
+      // console.log(chechBox)
 
       for (const iterator of chechBox) {
         iterator.style.backgroundColor = '#f8d0da'
         iterator.style.borderColor = '#f8d0da'
       }
       // chechBox.style.backgroundColor = '#f8d0da'
+    },
+    changeColorCheckboxClick() {
+      const isChecked0 = document.querySelector('input[value="0"]').checked
+      const isChecked1 = document.querySelector('input[value="1"]').checked
+      const isChecked2 = document.querySelector('input[value="2"]').checked
+      const isChecked3 = document.querySelector('input[value="3"]').checked
+      const isChecked4 = document.querySelector('input[value="4"]').checked
+      const isChecked5 = document.querySelector('input[value="5"]').checked
+      const isChecked6 = document.querySelector('input[value="6"]').checked
+
+      // eslint-disable-next-line no-console
+      console.log('DENTRO')
+      if (!isChecked0) {
+        const chechBox = document.querySelector('input[value="0"] + span')
+        chechBox.style.backgroundColor = '#fff'
+        // eslint-disable-next-line no-console
+        console.log(chechBox)
+      } else {
+        const chechBox = document.querySelector('input[value="0"] + span')
+        chechBox.style.backgroundColor = '#f8d0da'
+      }
+
+      if (!isChecked1) {
+        const chechBox = document.querySelector('input[value="1"] + span')
+        chechBox.style.backgroundColor = '#fff'
+        // eslint-disable-next-line no-console
+        console.log(chechBox)
+      } else {
+        const chechBox = document.querySelector('input[value="1"] + span')
+        chechBox.style.backgroundColor = '#f8d0da'
+      }
+
+      if (!isChecked2) {
+        const chechBox = document.querySelector('input[value="2"] + span')
+        chechBox.style.backgroundColor = '#fff'
+      } else {
+        const chechBox = document.querySelector('input[value="2"] + span')
+        chechBox.style.backgroundColor = '#f8d0da'
+      }
+      if (!isChecked3) {
+        const chechBox = document.querySelector('input[value="3"] + span')
+        chechBox.style.backgroundColor = '#fff'
+      } else {
+        const chechBox = document.querySelector('input[value="3"] + span')
+        chechBox.style.backgroundColor = '#f8d0da'
+      }
+      if (!isChecked4) {
+        const chechBox = document.querySelector('input[value="4"] + span')
+        chechBox.style.backgroundColor = '#fff'
+        // eslint-disable-next-line no-console
+        console.log(chechBox)
+      } else {
+        const chechBox = document.querySelector('input[value="4"] + span')
+        chechBox.style.backgroundColor = '#f8d0da'
+      }
+      if (!isChecked5) {
+        const chechBox = document.querySelector('input[value="5"] + span')
+        chechBox.style.backgroundColor = '#fff'
+        // eslint-disable-next-line no-console
+        console.log(chechBox)
+      } else {
+        const chechBox = document.querySelector('input[value="5"] + span')
+        chechBox.style.backgroundColor = '#f8d0da'
+      }
+      if (!isChecked6) {
+        const chechBox = document.querySelector('input[value="6"] + span')
+        chechBox.style.backgroundColor = '#fff'
+        // eslint-disable-next-line no-console
+        console.log(chechBox)
+      } else {
+        const chechBox = document.querySelector('input[value="6"] + span')
+        chechBox.style.backgroundColor = '#f8d0da'
+      }
     }
 
     // getLanguageSelected() {
