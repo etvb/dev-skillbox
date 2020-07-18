@@ -126,7 +126,7 @@
           <!-- <i class="fas fa-chalkboard-teacher" /> -->
           <b-field class="field">
             <div
-              :class="[locationSelected == '' ? layerSearchSelect='layerSearchSelectShow' : 'layerSearchSelectNone']"
+              :class="[native == '' ? layerSearchSelect='layerSearchSelectShow' : 'layerSearchSelectNone']"
               class="layerSearchSelect"
             >
               <span class="layerSearchTitle">
@@ -143,11 +143,14 @@
               @change="changeNativeSpeaker(native)"
               class="searchSelect-pink pointer"
             >
+              <option value="">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;All
+              </option>
               <option value="1">
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Yes
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Yes
               </option>
               <option value="0">
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No
               </option>
             </select>
             <i class="fas fa-angle-down arrow" />
