@@ -125,10 +125,18 @@
           <!-- <div class="button-search-pink"> -->
           <!-- <i class="fas fa-chalkboard-teacher" /> -->
           <b-field class="field">
-            <span class="titleButtomSpeaker">Native Speaker</span>
-            <div id="NO">
-              No
+            <div
+              :class="[locationSelected == '' ? layerSearchSelect='layerSearchSelectShow' : 'layerSearchSelectNone']"
+              class="layerSearchSelect"
+            >
+              <span class="layerSearchTitle">
+                Native Speaker
+              </span>
             </div>
+            <span class="titleButtomSpeaker">Native Speaker</span>
+            <!-- <div id="NO">
+              No
+            </div> -->
             <!-- if you want disable the native speaker button, put this like a param= :disabled="disableNative" -->
             <select
               v-model="native"
@@ -784,17 +792,17 @@ export default {
       this.locationes = locations
     },
     changeNativeSpeaker(value) {
-      this.hideNO()
+      // this.hideNO()
       this.$router.push({
         path: this.$route.fullPath,
         query: { native: value }
       })
     },
-    hideNO() {
-      // add 'NO' in the buttom native spiker
-      const element = document.getElementById('NO')
-      element.style.display = 'none'
-    },
+    // hideNO() {
+    //   // add 'NO' in the buttom native spiker
+    //   const element = document.getElementById('NO')
+    //   element.style.display = 'none'
+    // },
     changeDays(dia) {
       this.$emit('changeDays', this.daysComponent)
       this.changeColorDays(dia)
