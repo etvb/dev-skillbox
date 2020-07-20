@@ -577,6 +577,7 @@ export default {
     // let days = ['0', '1', '2', '3', '4', '5', '6']
     let days = []
     let range = [0, 50]
+    // 5 es por un valor diferente de 0 y 1, por que null, 0 o '' es lo mismo
     let native = 5
     let rating = null
     let location = null
