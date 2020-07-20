@@ -279,7 +279,7 @@
                     >
                       <!-- @click="activateCalendarModal" -->
                       <button 
-                        class="button is-expand is-fullwidth colorButton"
+                        class="button is-expand is-fullwidth colorButton size12"
                       >
                         Book
                       </button>
@@ -295,7 +295,7 @@
                     <nuxt-link
                       :to="'/'+lang.id+'/instructors/' + instructorL.id"
                     > 
-                      <button class="button is-expand is-fullwidth colorButton">
+                      <button class="button is-expand is-fullwidth colorButton size12">
                         Schedule
                       </button>
                     </nuxt-link>
@@ -320,7 +320,7 @@
                       :disabled="!instructorL.video_url"
                       @click.prevent="openVideo(instructorL.video_url)"
                       :value="instructorL.video_url"
-                      class="button is-expand is-fullwidth colorButton"
+                      class="button is-expand is-fullwidth colorButton size12"
                     > 
                       Video
                     </button>
