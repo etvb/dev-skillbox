@@ -124,7 +124,7 @@
                   >
                     <!-- @click="activateCalendarModal" -->
                     <button 
-                      class="button is-expand is-fullwidth colorButton"
+                      class="button is-expand is-fullwidth colorButton size12"
                     >
                       Book
                     </button>
@@ -140,7 +140,7 @@
                   <nuxt-link
                     :to="'/'+$route.params.lang+'/instructors/' + instructor.id"
                   > 
-                    <button class="button is-expand is-fullwidth colorButton">
+                    <button class="button is-expand is-fullwidth colorButton size12">
                       Schedule
                     </button>
                   </nuxt-link>
@@ -167,7 +167,7 @@
                     :disabled="!instructor.video_url"
                     @click.prevent="openVideo(instructor.video_url)"
                     :value="instructor.video_url"
-                    class="button is-expand is-fullwidth colorButton"
+                    class="button is-expand is-fullwidth colorButton size12 "
                   > 
                     Video
                   </button>
@@ -342,6 +342,9 @@
   </div>
 </template>
 <style lang="sass">
+
+  .size12
+    font-size: 1.2rem
 
   .newSize
     line-height: 1
