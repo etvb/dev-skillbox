@@ -452,7 +452,7 @@
   .button-search-pink
     text-align: center
     padding: 0 5px
-    margin: 0 5px 5px 5px
+    // margin: 0 5px 5px 5px
     border: 2px solid lightgrey
     display: inline-block
     height: 50px
