@@ -49,7 +49,7 @@
             <!-- <hr> -->
             <!-- </div> -->
             <!-- In case only have profile picture -->
-            <div>
+            <div class="inlineBlock">
               <div v-show="instructor.user" class="-is-relative -container-profile-picture -is-fullwidth has-text-centered">
                 <!-- nueva vista -->
                 <div class="container-profile-info">
@@ -74,7 +74,7 @@
                   <!-- <div v-else class="-profile-picture is-inline-block" /> -->
                   <div class="container-profile-main">
                     <div class="container-profile-name">
-                      <h5 class="title is-marginless is-6 has-text-weight-bold has-text-black">
+                      <h5 class="title is-marginless is-5 has-text-weight-bold has-text-black">
                         {{ instructor.user.name + ' ' + instructor.user.lastname[0] + '.' }}
                       </h5>
                       <!-- flag -->
@@ -82,7 +82,7 @@
                         <img :src="pais(instructor.user.country)">
                       </span>   
                     </div>
-                    <p class="-has-text-gray has-text-weight-semibold">
+                    <p class="-has-text-gray has-text-weight-semibold newSize">
                       Native Language: <span>{{ instructor.user.language.english }}</span>
                     </p><br>
                     <p v-show="instructor.average_rating" class="container-profile-raiting -has-text-gray has-text-weight-semibold">
@@ -161,7 +161,7 @@
               Native language
             </h6> -->
             <p>
-              {{ instructorLanguage.english }}
+              <!-- {{ instructorLanguage.english }} -->
             </p>
             <!-- <h6 class="title is-6 -is-spaced-top -is-marginless-bottom">
               Location
@@ -330,6 +330,8 @@
 </template>
 <style lang="sass">
 @import '~/assets/css/_media-queries.sass'
+.newSize
+  font-size: 1.25rem
 .-box-schedule
   margin: 0 1rem
   .-times
@@ -384,6 +386,14 @@
     padding-top: 20px
   
   @media screen and (max-width: 500px)
+
+    .inlineBlock
+      display: inline-block
+    .description
+      padding-top: 0
+      margin-top: 0
+    .-is-spaced-top 
+      margin-top: 0 !important
     .contenedor-principal
       padding-left: 10px
       padding-right: 10px
@@ -573,7 +583,11 @@ export default {
     getLanguageToTeach(idLanguage) {
       idLanguage = this.$route.params.lang
       const url = `${process.env.apiUrl}languages/${idLanguage}`
+      // eslint-disable-next-line no-console
+      console.log('id del language')
 
+      // eslint-disable-next-line no-console
+      console.log(idLanguage)
       axios.get(url).then(response => {
         // eslint-disable-next-line no-console
         console.log('obteniendo los le guajes a enseñas')
@@ -699,6 +713,11 @@ export default {
           this.instructor.user.language_id
         }`
         axios.get(url).then(response => {
+          // eslint-disable-next-line no-console
+          console.log('lenguajes TODOS')
+          // eslint-disable-next-line no-console
+          console.log(response.data)
+
           this.instructorLanguage = response.data
         })
       }
