@@ -481,6 +481,11 @@
       box-shadow: 0 10px 8px rgba(0, 0, 0, 0.15), 0 1px 10px rgba(0, 0, 0, 0.2)
   
   @media screen and (max-width: 500px)
+    .littleMore
+      font-size: 15px !important
+    .size12
+      font-size: 1rem
+      // letter-spacing: 2px;
     .newSize
       line-height: 1
       font-size: 1.25rem
