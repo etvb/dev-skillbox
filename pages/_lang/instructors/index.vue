@@ -345,7 +345,7 @@
 
   .size12
     font-size: 1.2rem
-
+    letter-spacing: 2px;
   .newSize
     line-height: 1
     font-size: 1.25rem
