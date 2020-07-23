@@ -116,7 +116,7 @@
                   <p class=" has-text-grey has-text-weight-bold littleMore">
                     Lesson Price:
                   </p>
-                  <p class="has-text-weight-semibold has-text-black mb-6 littleMore">
+                  <p class="has-text-weight-bold has-text-black mb-6 littleMore">
                     USD {{ instructor.price_by_class }}
                   </p>
                   <nuxt-link
@@ -134,7 +134,7 @@
                   <p class=" has-text-grey has-text-weight-bold littleMore">
                     Location:
                   </p>
-                  <p class="has-text-weight-semibold has-text-black mb-6 littleMore">
+                  <p class="has-text-weight-bold has-text-black mb-6 littleMore">
                     {{ instructor.user.country }}
                   </p>
                   <nuxt-link
@@ -149,7 +149,7 @@
                   <p class="is-size-6 has-text-grey has-text-weight-bold littleMore">
                     Teaches:
                   </p>
-                  <p class="has-text-weight-semibold has-text-black littleMore">
+                  <p class="has-text-weight-bold has-text-black littleMore">
                     <span v-for="(languageTeach, index) in instructor.languages" :key="index">
 
                       <span v-if="index+1 < instructor.languages.length">
@@ -271,7 +271,7 @@
                     <p class="has-text-grey has-text-weight-bold littleMore">
                       Lesson Price:
                     </p>
-                    <p class="has-text-weight-semibold has-text-black littleMore">
+                    <p class="has-text-weight-bold has-text-black littleMore">
                       USD {{ instructorL.price_by_class }}
                     </p>
                     <nuxt-link
@@ -289,7 +289,7 @@
                     <p class="is-size-6 has-text-grey has-text-weight-bold littleMore">
                       Location:
                     </p>
-                    <p class="has-text-weight-semibold has-text-black littleMore">
+                    <p class="has-text-weight-bold has-text-black littleMore">
                       {{ instructorL.user.country }}
                     </p>
                     <nuxt-link
@@ -304,7 +304,7 @@
                     <p class="is-size-6 has-text-grey has-text-weight-bold littleMore">
                       Teaches:
                     </p>
-                    <p class="has-text-weight-semibold has-text-black littleMore">
+                    <p class="has-text-weight-bold has-text-black littleMore">
                       <span v-for="(languageTeach, index) in instructorL.languages" :key="index">
                         <span v-if="index+1 < instructorL.languages.length">
                           {{ languageTeach.english +',' }}
@@ -344,6 +344,7 @@
 <style lang="sass">
   .littleMore
     font-size: 17px !important
+    // letter-spacing: .5px
 
   .size12
     font-size: 1.2rem
