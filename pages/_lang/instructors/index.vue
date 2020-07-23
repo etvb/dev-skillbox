@@ -12,6 +12,7 @@
         :selected="selectedLang"
         :daysChecked="daysChecked"
         :mostrar="false"
+        :range="range"
         :countryPasada="countryParaPasar"
         :dataPrueba="infoInstructors"
         :prueba="language"
