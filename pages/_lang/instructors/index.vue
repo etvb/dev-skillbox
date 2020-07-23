@@ -113,10 +113,10 @@
                 </b-tag>
                 <rating :rating="instructor.average_rating ? instructor.average_rating : 0" class="is-pulled-right" /> -->
                 <div>
-                  <p class="is-size-6 has-text-grey has-text-weight-bold">
+                  <p class=" has-text-grey has-text-weight-bold littleMore">
                     Lesson Price:
                   </p>
-                  <p class="has-text-weight-semibold has-text-black mb-6">
+                  <p class="has-text-weight-semibold has-text-black mb-6 littleMore">
                     USD {{ instructor.price_by_class }}
                   </p>
                   <nuxt-link
@@ -131,10 +131,10 @@
                   </nuxt-link>
                 </div>
                 <div class="marginado">
-                  <p class="is-size-6 has-text-grey has-text-weight-bold">
+                  <p class=" has-text-grey has-text-weight-bold littleMore">
                     Location:
                   </p>
-                  <p class="has-text-weight-semibold has-text-black mb-6">
+                  <p class="has-text-weight-semibold has-text-black mb-6 littleMore">
                     {{ instructor.user.country }}
                   </p>
                   <nuxt-link
@@ -146,10 +146,10 @@
                   </nuxt-link>
                 </div>
                 <div>
-                  <p class="is-size-6 has-text-grey has-text-weight-bold">
+                  <p class="is-size-6 has-text-grey has-text-weight-bold littleMore">
                     Teaches:
                   </p>
-                  <p class="has-text-weight-semibold has-text-black">
+                  <p class="has-text-weight-semibold has-text-black littleMore">
                     <span v-for="(languageTeach, index) in instructor.languages" :key="index">
 
                       <span v-if="index+1 < instructor.languages.length">
@@ -268,10 +268,10 @@
                   </b-tag>
                   <rating :rating="instructor.average_rating ? instructor.average_rating : 0" class="is-pulled-right" /> -->
                   <div>
-                    <p class="is-size-6 has-text-grey has-text-weight-bold">
+                    <p class="has-text-grey has-text-weight-bold littleMore">
                       Lesson Price:
                     </p>
-                    <p class="has-text-weight-semibold has-text-black">
+                    <p class="has-text-weight-semibold has-text-black littleMore">
                       USD {{ instructorL.price_by_class }}
                     </p>
                     <nuxt-link
@@ -286,10 +286,10 @@
                     </nuxt-link>
                   </div>
                   <div class="marginado">
-                    <p class="is-size-6 has-text-grey has-text-weight-bold">
+                    <p class="is-size-6 has-text-grey has-text-weight-bold littleMore">
                       Location:
                     </p>
-                    <p class="has-text-weight-semibold has-text-black">
+                    <p class="has-text-weight-semibold has-text-black littleMore">
                       {{ instructorL.user.country }}
                     </p>
                     <nuxt-link
@@ -301,10 +301,10 @@
                     </nuxt-link>
                   </div>
                   <div>
-                    <p class="is-size-6 has-text-grey has-text-weight-bold">
+                    <p class="is-size-6 has-text-grey has-text-weight-bold littleMore">
                       Teaches:
                     </p>
-                    <p class="has-text-weight-semibold has-text-black">
+                    <p class="has-text-weight-semibold has-text-black littleMore">
                       <span v-for="(languageTeach, index) in instructorL.languages" :key="index">
                         <span v-if="index+1 < instructorL.languages.length">
                           {{ languageTeach.english +',' }}
@@ -342,6 +342,8 @@
   </div>
 </template>
 <style lang="sass">
+  .littleMore
+    font-size: 17px !important
 
   .size12
     font-size: 1.2rem
@@ -363,7 +365,7 @@
     border-color: #e84660
     color: white
     font-weight: 600
-    margin-top: 10px
+    margin-top: 5px
   .colorButton:disabled
     color: black
   hr
