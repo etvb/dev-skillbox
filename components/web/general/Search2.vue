@@ -231,7 +231,7 @@
           
           <!-- <i class="fas fa-chalkboard-teacher" /> -->
 
-          <b-field class="field">
+          <b-field class="field ocultar">
             <div
               :class="[rating == '' ? layerSearchSelect='layerSearchSelectShow' : 'layerSearchSelectNone']"
               class="layerSearchSelect"
@@ -275,6 +275,9 @@
   </div>
 </template>
 <style lang="sass" scoped>
+
+  .ocultar
+    display: none !important
 
   .navbar-menu
       line-height: 1.3
