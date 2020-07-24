@@ -159,8 +159,8 @@
           <!--end button-Speaker -->
 
           <!-- Lesson Price -->
-          <b-field :class="[range[1] !== '0' ? used='used' : '']" class="button-search">
-            <span class="titleButtom2">Lesson Price</span>
+          <b-field :class="[range[1] !== '0' ? used='used' : '']" class="button-search hasPositionRelative">
+            <span class="titleButtomPrice">Lesson Price</span>
             <div class="contentNumber">
               <vue-slider
                 v-model="range[1]"
@@ -281,6 +281,11 @@
 
   .lineHeight
     line-height: 12px
+
+  .hasPositionRelative
+    // position: relative
+    line-height: 19px
+
 
   .navbar-menu
       line-height: 1.3
@@ -473,7 +478,7 @@
 
   .button-search .fiel .control span select
     border: 0
-  .titleButtom,.titleButtomLanguage, .titleButtomSpeaker, .titleButtomLocation, .titleButtomRating, .titleButtom2
+  .titleButtom,.titleButtomLanguage, .titleButtomSpeaker, .titleButtomLocation, .titleButtomRating, .titleButtom2, .titleButtomPrice 
     font-family: calibri 
     font-size: 20px
     color: black
@@ -498,6 +503,9 @@
     position: absolute
     margin-top: 3px
     left: 28%
+  .titleButtomPrice
+    position: relative
+    top: 2px
   .titleButtomRating
     position: absolute
     margin-top: 3px
@@ -538,6 +546,9 @@
     text-align: center
     font-family: calibri 
     font-size: 18px
+    position: relative
+    top: 7px
+    
   .sizeNumber
     width: 137px
     height: 24px
