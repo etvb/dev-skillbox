@@ -484,8 +484,9 @@
     margin-top: 3px
   .titleButtomLanguage,
     position: absolute
-    margin-top: 3px
-    left: 28%
+    margin-top: 2px
+    left: 26%
+    z-index: 1
   .titleButtomSpeaker
     position: absolute
     margin-top: 3px
