@@ -75,8 +75,8 @@
               <!-- <i class="far fa-calendar-alt" /> -->
 
               <span class="titleButtom2">Availability</span>
-              <br>
-              <div>
+              <!-- <br> -->
+              <div class="lineHeight">
                 <!-- {{ daysComponent }} -->
                 <span id="su" class="sizeSmall has-text-weight-bold  ">Su</span>
                 <span id="mo" class="sizeSmall has-text-weight-bold  ">Mo</span>
@@ -279,6 +279,9 @@
   .ocultar
     display: none !important
 
+  .lineHeight
+    line-height: 12px
+
   .navbar-menu
       line-height: 1.3
 
@@ -476,7 +479,7 @@
     color: black
     // font-size: 14px
     font-weight: bold
-    width: 100%
+    // width: 100%
     pointer-events: none
     // text-align-last: center
   .titleButtom 
@@ -489,12 +492,8 @@
     z-index: 1
   .titleButtomSpeaker
     position: absolute
-    margin-top: 3px
-    left: 15%
-  .titleButtomSpeaker
-    position: absolute
-    margin-top: 3px
-    left: 15%
+    margin-top: 2px
+    left: 9%
   .titleButtomLocation
     position: absolute
     margin-top: 3px
