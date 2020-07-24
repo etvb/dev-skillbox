@@ -353,7 +353,7 @@
   .layerSearchSelectAvailability
     min-width: 162px
     top: 0
-    left: 4px
+    left: 0
   .layerSearchTitle
     vertical-align: middle
     display: table-cell
@@ -472,7 +472,7 @@
     border: 0
   .titleButtom,.titleButtomLanguage, .titleButtomSpeaker, .titleButtomLocation, .titleButtomRating, .titleButtom2
     font-family: calibri 
-    font-size: 18px
+    font-size: 20px
     color: black
     // font-size: 14px
     font-weight: bold
