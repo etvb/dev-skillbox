@@ -454,6 +454,7 @@
   @media screen and (min-width: 1024px)
     #search nav .navbar-menu
       justify-content: center
+      text-align: center
     #search nav .navbar-menu .navbar-start
       margin-right: 0
     #search nav .navbar-menu .navbar-end

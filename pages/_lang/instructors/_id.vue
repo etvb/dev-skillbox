@@ -16,7 +16,7 @@
     <div id="prueba" class="container">
       <a @click.prevent="goBack" href="#" class="-has-text-primary">Back to results</a>
       <div class="columns is-centered">
-        <div class="column is-8">
+        <div class="column is-6">
           <div id="prueba" class="box is-radiusless -card-details-instructor">
             <!-- In case have course picture -->
             <!-- <div v-if="instructor.course.img"> -->
@@ -82,10 +82,10 @@
                         <img :src="pais(instructor.user.country)">
                       </span>   
                     </div>
-                    <p class="-has-text-gray has-text-weight-semibold newSize">
+                    <p class="-has-text-gray newSize">
                       Native Language: <span>{{ instructor.user.language.english }}</span>
                     </p><br>
-                    <p v-show="instructor.average_rating" class="container-profile-raiting -has-text-gray has-text-weight-semibold">
+                    <p v-show="instructor.average_rating" class="container-profile-raiting -has-text-gray">
                       Raiting: <rating :rating="instructor.average_rating ? instructor.average_rating : 0" />
                     </p>
                   </div>
@@ -124,7 +124,7 @@
               </b-tag>
               <rating :rating="4" class="is-pulled-right" />
             </div> -->
-            <p class="-is-spaced-top title is-6 description ">
+            <p class="-is-spaced-top title is-6 description profile-description">
               {{ instructor.description }}
             </p>
             <!-- <div
@@ -147,14 +147,14 @@
             <h6 class="title is-6 -is-marginless-bottom -has-text-gray">
               About {{ adaptedName }}
             </h6>
-            <div class="title is-6">
+            <div class="title is-6 profile-description">
               {{ instructor.bio }}
             </div>
             <hr>
-            <h6 class="title is-6 -is-spaced-top -is-marginless-bottom -has-text-gray">
+            <h6 class="-is-spaced-top -is-marginless-bottom -has-text-gray has-text-weight-bold littleMore">
               Teaches:
             </h6>
-            <p v-for="(language, index) in instructorLanguages" :key="index" class="title is-6">
+            <p v-for="(language, index) in instructorLanguages" :key="index" class="title is-6 has-text-weight-bold">
               {{ language }}
             </p>
             <!-- <h6 class="title is-6 -is-spaced-top -is-marginless-bottom">
@@ -171,27 +171,27 @@
             </p> -->
             <div class="container-profile-teacher">
               <div>
-                <p class="is-size-7 -has-text-gray has-text-weight-bold">
+                <p class="-has-text-gray has-text-weight-bold littleMore">
                   Lesson Price:
                 </p>
-                <p class="title is-6 ">
+                <p class="title is-6 has-text-weight-bold">
                   USD {{ instructor.price_by_class }}
                 </p>
                 <button
                   @click="activateCalendarModal"
-                  class="button is-info is-expand is-fullwidth"
+                  class="button is-expand is-fullwidth colorButton size12"
                 >
                   Book
                 </button>
               </div>
               <div class="marginado">
-                <p class="is-size-7 -has-text-gray has-text-weight-bold">
+                <p class="-has-text-gray has-text-weight-bold littleMore">
                   Location:
                 </p>
-                <p class="title is-6">
+                <p class="title is-6 has-text-weight-bold">
                   {{ instructor.user.country }}
                 </p>
-                <button class="button is-info is-expand is-fullwidth">
+                <button class="button is-expand is-fullwidth colorButton size12">
                   Schedule
                 </button>
               </div>
@@ -206,7 +206,7 @@
                   :disabled="!instructor.video_url"
                   @click="openVideo(instructor.video_url)"
                   :value="instructor.video_url"
-                  class="button is-info is-expand is-fullwidth"
+                  class="button is-expand is-fullwidth colorButton size12"
                 > 
                   Video
                 </button>
@@ -330,6 +330,22 @@
 </template>
 <style lang="sass">
 @import '~/assets/css/_media-queries.sass'
+.size12
+  font-size: 1.2rem
+  letter-spacing: 2px;
+.profile-description
+  // margin-left: 10px
+  // margin-right: 30px
+  font-weight: 600
+  color: black
+.littleMore
+  font-size: 17px !important
+.colorButton
+  background-color: #e84660
+  border-color: #e84660
+  color: white
+  font-weight: 600
+  margin-top: 5px
 .newSize
   font-size: 1.25rem
 .-box-schedule
