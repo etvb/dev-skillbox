@@ -4,10 +4,12 @@
     href="javascript:void(0)"
     class="is-pulled-right"
   >
+    <!-- class="has-text-black" -->
+
     <b-icon
       :pack="liked ? 'fas -has-text-log' : 'far'"
       icon="heart"
-      class="has-text-black"
+      class=""
       size=""
     />
   </a>  
@@ -15,6 +17,8 @@
 <style lang="sass" scoped>
   .fas
     color: pink
+  .icon
+    color: #7a7a7a
 
 </style>
 <script>
