@@ -236,7 +236,7 @@
                       Raiting: <rating :rating="instructorL.average_rating ? instructorL.average_rating : 0" />
                     </p>
                   </div>
-                  <div class="conteiner-like2">
+                  <div class="conteiner-like">
                     <like />
                   </div>
                   <!-- <div class="is-inline-block -description">
@@ -425,11 +425,13 @@
   
   .conteiner-like
     // padding-right: 22px
-    margin-top: 8px
+    margin-top: 7px
+    font-size: 22px
+
     
-  .conteiner-like2
-    margin-top: 5px
-    font-size: 1.3em
+  // .conteiner-like2
+  //   margin-top: 7px
+  //   font-size: 22px
 
 
   .container-profile-description
