@@ -144,17 +144,17 @@
               <like class="-like" />
             </div> -->
             <hr>
-            <h6 class="title is-6 -is-marginless-bottom -has-text-gray">
+            <h6 class=" is-6 -is-marginless-bottom -has-text-gray">
               About {{ adaptedName }}
             </h6>
-            <div class="title is-6 profile-description">
+            <div class=" is-6 profile-description">
               {{ instructor.bio }}
             </div>
             <hr>
-            <h6 class="-is-spaced-top -is-marginless-bottom -has-text-gray has-text-weight-bold littleMore">
+            <h6 class="-is-spaced-top -is-marginless-bottom -has-text-gray  littleMore">
               Teaches:
             </h6>
-            <p v-for="(language, index) in instructorLanguages" :key="index" class="title is-6 has-text-weight-bold">
+            <p v-for="(language, index) in instructorLanguages" :key="index" class="title has-text-weight-normal mb-6 is-6 ">
               {{ language }}
             </p>
             <!-- <h6 class="title is-6 -is-spaced-top -is-marginless-bottom">
@@ -171,10 +171,10 @@
             </p> -->
             <div class="container-profile-teacher">
               <div>
-                <p class="-has-text-gray has-text-weight-bold littleMore">
+                <p class="-has-text-gray littleMore">
                   Lesson Price:
                 </p>
-                <p class="title is-6 has-text-weight-bold">
+                <p class="title has-text-weight-normal is-6 ">
                   USD {{ instructor.price_by_class }}
                 </p>
                 <button
@@ -185,10 +185,10 @@
                 </button>
               </div>
               <div class="marginado">
-                <p class="-has-text-gray has-text-weight-bold littleMore">
+                <p class="-has-text-gray littleMore">
                   Location:
                 </p>
-                <p class="title is-6 has-text-weight-bold">
+                <p class="title has-text-weight-normal is-6 ">
                   {{ instructor.user.country }}
                 </p>
                 <button class="button is-expand is-fullwidth colorButton size12">
@@ -336,7 +336,7 @@
 .profile-description
   // margin-left: 10px
   // margin-right: 30px
-  font-weight: 600
+  // font-weight: 600
   color: black
 .littleMore
   font-size: 17px !important
