@@ -80,12 +80,7 @@
                     <h5 class="title is-marginless is-5 has-text-weight-bold has-text-black">
                       {{ instructor.user.name + ' ' + instructor.user.lastname[0] + '.' }}
                     </h5>
-                    <!-- flag -->
-                    <span class="container-profile-flag">
-                      <div class="borde">
-                      </div>
-                      <img :src="pais(instructor.user.country)">
-                    </span>   
+                    <!-- flag -->   
                   </div>
                   <p class="has-text-grey newSize">
                     Native Language: <span>{{ instructor.user.language.english }}</span>
@@ -94,6 +89,10 @@
                     Raiting: <rating :rating="instructor.average_rating ? instructor.average_rating : 0" />
                   </p>
                 </div>
+                <span class="container-profile-flag">
+                  <div class="borde" />
+                  <img :src="pais(instructor.user.country)">
+                </span>
                 <div class="conteiner-like">
                   <like />
                 </div>
@@ -403,6 +402,8 @@
     justify-content: space-between
     align-items: center
     line-height: 1
+    margin-top: 10px
+    padding-bottom: 11px
 
   .container-profile-info, 
   .container-profile-teacher
@@ -429,11 +430,12 @@
 
   .container-profile-flag
     position: relative
-    margin-left: 10px
+    margin-right: 10px
     // border: 1px solid hsl(0, 0%, 96%)
     width: 40px
     align-self: flex-start
     // border: 1px #f9f7f6 solid
+    flex: 0 0 auto
   
   .conteiner-like
     // padding-right: 22px
