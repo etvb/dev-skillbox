@@ -328,7 +328,7 @@
     </div>
   </div>
 </template>
-<style lang="sass">
+<style lang="sass" scoped>
 @import '~/assets/css/_media-queries.sass'
 .size12
   font-size: 1.2rem
@@ -341,11 +341,15 @@
 .littleMore
   font-size: 17px !important
 .colorButton
-  background-color: #e84660
-  border-color: #e84660
-  color: white
-  font-weight: 600
-  margin-top: 5px
+    background-color: #e84660
+    // border-color: #e84660
+    color: white
+    font-weight: 600
+    margin-top: 5px
+.colorButton:disabled
+    color: black
+    background-color: white
+    
 .newSize
   font-size: 1.25rem
 .-box-schedule

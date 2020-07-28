@@ -366,7 +366,7 @@
     background-color: #e84660
     border-color: #e84660
     color: white
-    font-weight: 600
+    // font-weight: 600
     margin-top: 5px
   .colorButton:disabled
     color: black
