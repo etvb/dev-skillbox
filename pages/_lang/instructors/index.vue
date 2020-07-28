@@ -422,6 +422,7 @@
     // border: 1px solid hsl(0, 0%, 96%)
     width: 40px
     align-self: flex-start
+    border: 1px #7a7a7a solid
   
   .conteiner-like
     // padding-right: 22px
