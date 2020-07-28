@@ -79,6 +79,7 @@
                       </h5>
                       <!-- flag -->
                       <span class="container-profile-flag">
+                        <div class="borde"></div>
                         <img :src="pais(instructor.user.country)">
                       </span>   
                     </div>
@@ -330,6 +331,13 @@
 </template>
 <style lang="sass" scoped>
 @import '~/assets/css/_media-queries.sass'
+
+.borde
+  position: absolute
+  width: 40px
+  height: 26px
+  top:  7px
+  border: 1px #f9f7f6 solid
 .size12
   font-size: 1.2rem
   letter-spacing: 2px;
