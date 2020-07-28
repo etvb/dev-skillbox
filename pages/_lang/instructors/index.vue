@@ -82,6 +82,8 @@
                     </h5>
                     <!-- flag -->
                     <span class="container-profile-flag">
+                      <div class="borde">
+                      </div>
                       <img :src="pais(instructor.user.country)">
                     </span>   
                   </div>
@@ -343,6 +345,14 @@
   </div>
 </template>
 <style lang="sass">
+  .borde
+    position: absolute
+    width: 40px
+    height: 26px
+    top:  7px
+    border: 1px #f9f7f6 solid
+    // background-color: red
+    // #f9f7f6
   .littleMore
     font-size: 17px !important
     // letter-spacing: .5px
@@ -418,11 +428,12 @@
 
 
   .container-profile-flag
+    position: relative
     margin-left: 10px
     // border: 1px solid hsl(0, 0%, 96%)
     width: 40px
     align-self: flex-start
-    border: 1px #f9f7f6 solid
+    // border: 1px #f9f7f6 solid
   
   .conteiner-like
     // padding-right: 22px
