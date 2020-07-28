@@ -151,9 +151,9 @@ export default {
         this.loading = false
       }, 1000)
       const days = this.getDaysFiltereds()
-      // const rangePrice = this.getRangePrice()
+      const rangePrice = this.getRangePrice()
       // this.$router.push('/' + this.search + '/instructors')
-      this.$router.push('/' + this.search + '/instructors?' + days)
+      this.$router.push('/' + this.search + '/instructors?' + days + rangePrice)
     },
     setLanguages() {
       // eslint-disable-next-line no-console

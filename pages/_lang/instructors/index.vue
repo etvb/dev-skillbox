@@ -422,7 +422,7 @@
     // border: 1px solid hsl(0, 0%, 96%)
     width: 40px
     align-self: flex-start
-    border: 1px #7a7a7a solid
+    border: 1px #f9f7f6 solid
   
   .conteiner-like
     // padding-right: 22px
@@ -584,9 +584,9 @@ export default {
       language: {
         instructors: []
       },
-      totalInstructors: 0,
+      totalInstructors: 0
       // daysChecked: [],
-      range: []
+      // range: []
       // prueba: {}
       // countryParaPasar: []
     }

@@ -159,7 +159,7 @@
           <!--end button-Speaker -->
 
           <!-- Lesson Price -->
-          <b-field :class="[range[1] !== '0' ? used='used' : '']" class="button-search hasPositionRelative">
+          <b-field :class="[range[1] !== '50' ? used='used' : '']" class="button-search hasPositionRelative">
             <span class="titleButtomPrice">Lesson Price</span>
             <div class="contentNumber">
               <vue-slider
