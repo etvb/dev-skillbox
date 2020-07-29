@@ -45,7 +45,6 @@
             v-if="instructor.user"
             :key="instructor.id"
           >
-            {{ key }}
             <!-- <nuxt-link
             :to="'/'+$route.params.lang+'/instructors/' + instructor.id"
             v-for="(instructor, index) in language.instructors"
@@ -94,7 +93,9 @@
                   <img :src="pais(instructor.user.country)">
                 </span>
                 <div class="conteiner-like">
-                  <like />
+                  <like 
+                    :idTeacher="instructor.id"
+                  />
                 </div>
               </div>
               <hr>
@@ -238,7 +239,9 @@
                     </p>
                   </div>
                   <div class="conteiner-like">
-                    <like />
+                    <like
+                      :idTeacher="instructorL.id"
+                    />
                   </div>
                   <!-- <div class="is-inline-block -description">
                     <h5 class="title is-6 is-marginless">
@@ -583,6 +586,7 @@ export default {
   watchQuery: true,
   data() {
     return {
+      idTeacher: '',
       teach: '',
       count: 0,
       video: '',
@@ -710,6 +714,9 @@ export default {
     // this.suma()
   },
   methods: {
+    getIdTeacher(id) {
+      this.idTeacher = id
+    },
     readMore(value) {
       // show read more if description is more than 180 charcters and have to be used whit truncate
       if (value === null) {

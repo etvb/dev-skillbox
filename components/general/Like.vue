@@ -24,6 +24,7 @@
 <script>
 import axios from 'axios'
 export default {
+  props: ['idTeacher'],
   data() {
     return {
       liked: false
@@ -37,7 +38,12 @@ export default {
       this.storeLike()
     },
     storeLike() {
-      const idInstructor = this.$route.params.id
+      let idInstructor
+      if (this.idTeacher) {
+        idInstructor = this.idTeacher
+      } else {
+        idInstructor = this.$route.params.id
+      }
       const user = this.$store.getters['auth/loggedUser']
       const url = `${process.env.apiUrl}instructors/${idInstructor}/like`
       const data = {
