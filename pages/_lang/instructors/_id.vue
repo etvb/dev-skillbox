@@ -350,16 +350,28 @@
   font-size: 17px !important
 .colorButton
     background-color: #e84660
-    // border-color: #e84660
+    border-color: #e84660
     color: white
     font-weight: 600
     margin-top: 5px
 .colorButton:disabled
     color: black
+    border-color: #dbdbdb
     background-color: white
     
 .newSize
   font-size: 1.25rem
+  line-height: 1
+  position: relative
+  top: -12px
+  margin-top: 7px
+
+.container-profile-main
+  flex: 1 1 auto
+  margin-left: 20px
+  margin-right: 20px
+  text-align: initial
+
 
 .container-profile-name  
   display: flex
@@ -373,8 +385,45 @@
   .-times
     +tablet
       margin-top: 140px
+
+.container-profile-info, 
+.container-profile-teacher
+  display: flex
+  justify-content: space-between
+  margin-left: 10px
+
 .container-profile-teacher
   margin: 0
+
+.container-profile-flag
+  position: relative
+  margin-right: 10px
+  // border: 1px solid hsl(0, 0%, 96%)
+  width: 40px
+  align-self: flex-start
+  // border: 1px #f9f7f6 solid
+  flex: 0 0 auto
+
+.conteiner-like
+  // padding-right: 22px
+  margin-top: 7px
+  font-size: 22px
+
+.container-profile-raiting
+  margin-top: -36px
+  font-size: 1.25rem
+  
+.container-profile-teacher
+  div
+    display: flex
+    flex-direction: column
+    justify-content: flex-end
+    flex: 1 1 168px
+
+.marginado
+    margin: 0 30px
+
+
 .-card-details-instructor
   .-column-profile
     border-right: solid 2px whitesmoke
