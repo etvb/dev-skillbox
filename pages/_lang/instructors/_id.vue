@@ -360,6 +360,14 @@
     
 .newSize
   font-size: 1.25rem
+
+.container-profile-name  
+  display: flex
+  justify-content: space-between
+  align-items: center
+  line-height: 1
+  margin-top: 0
+  padding-bottom: 0
 .-box-schedule
   margin: 0 1rem
   .-times
