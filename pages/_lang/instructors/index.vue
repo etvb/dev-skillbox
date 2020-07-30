@@ -225,11 +225,7 @@
                     <div class="container-profile-name">
                       <h5 class="title is-marginless is-5 has-text-weight-bold has-text-black">
                         {{ instructorL.user.name + ' ' + instructorL.user.lastname[0] + '.' }}
-                      </h5>
-                      <!-- flag -->
-                      <span class="container-profile-flag">
-                        <img :src="pais(instructorL.user.country)">
-                      </span>   
+                      </h5>       
                     </div>
                     <p class="has-text-grey newSize">
                       Native Language: <span>{{ instructorL.user.language.english }}</span>
@@ -238,6 +234,11 @@
                       Raiting: <rating :rating="instructorL.average_rating ? instructorL.average_rating : 0" />
                     </p>
                   </div>
+                  <!-- flag -->
+                  <span class="container-profile-flag">
+                    <div class="borde" />
+                    <img :src="pais(instructorL.user.country)">
+                  </span>
                   <div class="conteiner-like">
                     <like
                       :idTeacher="instructorL.id"
@@ -297,9 +298,12 @@
                     <p class="has-text-weight-bold has-text-black littleMore">
                       {{ instructorL.user.country }}
                     </p>
-                    <nuxt-link
+                    <!-- <nuxt-link
                       :to="'/'+lang.id+'/instructors/' + instructorL.id"
-                    > 
+                    >  -->
+                    <nuxt-link
+                      :to="'/'+$route.params.lang+'/instructors/' + instructorL.id + '?isCalendarModalActive=true'"
+                    >
                       <button class="button is-expand is-fullwidth colorButton size12">
                         Schedule
                       </button>
