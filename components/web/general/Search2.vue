@@ -598,7 +598,7 @@ export default {
     },
     range: {
       type: Array,
-      default: () => [0, 50]
+      default: () => [0, '50']
     }
   },
   data() {

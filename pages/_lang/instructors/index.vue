@@ -593,7 +593,7 @@ export default {
   watchQuery: true,
   data() {
     return {
-      idTeacher: '',
+      // idTeacher: '',
       teach: '',
       count: 0,
       video: '',
@@ -721,9 +721,9 @@ export default {
     // this.suma()
   },
   methods: {
-    getIdTeacher(id) {
-      this.idTeacher = id
-    },
+    // getIdTeacher(id) {
+    //   this.idTeacher = id
+    // },
     readMore(value) {
       // show read more if description is more than 180 charcters and have to be used whit truncate
       if (value === null) {
