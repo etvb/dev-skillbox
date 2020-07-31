@@ -910,6 +910,14 @@ export default {
       const friday = document.getElementById('fr')
       const saturday = document.getElementById('sa')
       const chechBoxSunday = document.querySelector('input[value="0"] + span')
+      const chechBoxMonday = document.querySelector('input[value="1"] + span')
+      const chechBoxTuesday = document.querySelector('input[value="2"] + span')
+      const chechBoxWednesday = document.querySelector(
+        'input[value="3"] + span'
+      )
+      const chechBoxThursday = document.querySelector('input[value="4"] + span')
+      const chechBoxFriday = document.querySelector('input[value="5"] + span')
+      const chechBoxSaturday = document.querySelector('input[value="6"] + span')
 
       // eslint-disable-next-line no-console
       console.log('DENTRO')
@@ -921,69 +929,46 @@ export default {
         chechBoxSunday.style.backgroundColor = '#f8d0da'
         sunday.classList.remove('colorDays')
       }
-
       if (!isChecked1) {
-        const chechBox = document.querySelector('input[value="1"] + span')
-        chechBox.style.backgroundColor = '#fff'
+        chechBoxMonday.style.backgroundColor = '#fff'
         monday.classList.add('colorDays')
-
-        // eslint-disable-next-line no-console
-        console.log(chechBox)
       } else {
-        const chechBox = document.querySelector('input[value="1"] + span')
-        chechBox.style.backgroundColor = '#f8d0da'
+        chechBoxMonday.style.backgroundColor = '#f8d0da'
         monday.classList.remove('colorDays')
       }
-
       if (!isChecked2) {
-        const chechBox = document.querySelector('input[value="2"] + span')
-        chechBox.style.backgroundColor = '#fff'
+        chechBoxTuesday.style.backgroundColor = '#fff'
         tuesday.classList.add('colorDays')
       } else {
-        const chechBox = document.querySelector('input[value="2"] + span')
-        chechBox.style.backgroundColor = '#f8d0da'
+        chechBoxTuesday.style.backgroundColor = '#f8d0da'
         tuesday.classList.remove('colorDays')
       }
       if (!isChecked3) {
-        const chechBox = document.querySelector('input[value="3"] + span')
-        chechBox.style.backgroundColor = '#fff '
+        chechBoxWednesday.style.backgroundColor = '#fff '
         wednesday.classList.add('colorDays')
       } else {
-        const chechBox = document.querySelector('input[value="3"] + span')
-        chechBox.style.backgroundColor = '#f8d0da'
+        chechBoxWednesday.style.backgroundColor = '#f8d0da'
         wednesday.classList.remove('colorDays')
       }
       if (!isChecked4) {
-        const chechBox = document.querySelector('input[value="4"] + span')
-        chechBox.style.backgroundColor = '#fff'
+        chechBoxThursday.style.backgroundColor = '#fff'
         thurday.classList.add('colorDays')
-        // eslint-disable-next-line no-console
-        console.log(chechBox)
       } else {
-        const chechBox = document.querySelector('input[value="4"] + span')
-        chechBox.style.backgroundColor = '#f8d0da'
+        chechBoxThursday.style.backgroundColor = '#f8d0da'
         thurday.classList.remove('colorDays')
       }
       if (!isChecked5) {
-        const chechBox = document.querySelector('input[value="5"] + span')
-        chechBox.style.backgroundColor = '#fff'
+        chechBoxFriday.style.backgroundColor = '#fff'
         friday.classList.add('colorDays')
-        // eslint-disable-next-line no-console
-        console.log(chechBox)
       } else {
-        const chechBox = document.querySelector('input[value="5"] + span')
-        chechBox.style.backgroundColor = '#f8d0da'
+        chechBoxFriday.style.backgroundColor = '#f8d0da'
         friday.classList.remove('colorDays')
       }
       if (!isChecked6) {
-        const chechBox = document.querySelector('input[value="6"] + span')
-        chechBox.style.backgroundColor = '#fff'
+        chechBoxSaturday.style.backgroundColor = '#fff'
         saturday.classList.add('colorDays')
-        // eslint-disable-next-line no-console
-        console.log(chechBox)
       } else {
-        const chechBox = document.querySelector('input[value="6"] + span')
-        chechBox.style.backgroundColor = '#f8d0da'
+        chechBoxSaturday.style.backgroundColor = '#f8d0da'
         saturday.classList.remove('colorDays')
       }
     }
