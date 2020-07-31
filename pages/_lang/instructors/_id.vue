@@ -192,7 +192,9 @@
                 <p class="title has-text-weight-normal is-6 ">
                   {{ instructor.user.country }}
                 </p>
-                <button class="button is-expand is-fullwidth colorButton size12">
+                <button 
+                  @click="activateCalendarModal"
+                  class="button is-expand is-fullwidth colorButton size12">
                   Schedule
                 </button>
               </div>
