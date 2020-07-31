@@ -909,20 +909,16 @@ export default {
       const thurday = document.getElementById('th')
       const friday = document.getElementById('fr')
       const saturday = document.getElementById('sa')
-      const chechBox = document.querySelector('input[value="0"] + span')
+      const chechBoxSunday = document.querySelector('input[value="0"] + span')
 
       // eslint-disable-next-line no-console
       console.log('DENTRO')
       if (!isChecked0) {
-        // const chechBox = document.querySelector('input[value="0"] + span')
         // Cuando no esta checado entra aqui
-        chechBox.style.backgroundColor = '#fff'
-        // eslint-disable-next-line no-console
-        console.log(chechBox)
+        chechBoxSunday.style.backgroundColor = '#fff'
         sunday.classList.add('colorDays')
       } else {
-        // const chechBox = document.querySelector('input[value="0"] + span')
-        chechBox.style.backgroundColor = '#f8d0da'
+        chechBoxSunday.style.backgroundColor = '#f8d0da'
         sunday.classList.remove('colorDays')
       }
 
