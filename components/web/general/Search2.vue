@@ -64,14 +64,14 @@
           <!-- button-Availability -->
           <b-field class="field">
             <div
-              :class="[daysComponent.length == 0 ? layerSearchSelect='layerSearchSelectShow' : 'layerSearchSelectNone']"
+              :class="[daysChecked.length == 0 ? layerSearchSelect='' : 'layerSearchSelectNone']"
               class="layerSearchSelectAvailability"
             >
               <span class="layerSearchTitle">
                 Availability
               </span>
             </div>
-            <div @click="showMe()" :class="[daysComponent.length !== 0 ? used='used' : '']" class="button-search pointer">
+            <div @click="showMe()" :class="[daysChecked.length !== 0 ? used='used' : '']" class="button-search pointer">
               <!-- <i class="far fa-calendar-alt" /> -->
 
               <span class="titleButtom2">Availability</span>
@@ -103,7 +103,7 @@
                  
                   <b-checkbox
                     :id="day.id"
-                    v-model="daysComponent"
+                    v-model="daysChecked"
                     :native-value="day.id"
                     @input="changeDays(day.id)"
                     type="is-algo"
@@ -625,8 +625,9 @@ export default {
         { name: 'Friday', id: 5 },
         { name: 'Saturday', id: 6 }
       ],
-      loading: false,
-      daysComponent: this.daysChecked.slice()
+      loading: false
+      // daysComponent: []
+      // this.daysChecked.slice()
     }
   },
   // computed: {
@@ -651,14 +652,18 @@ export default {
     }
   },
   mounted() {
+    // this.changeColorDays()
     this.changeColorVueSlider()
     this.changeColor()
     this.setLanguages()
+    this.changeColorCheckboxClick()
     // this.changeColorDays()
     // this.locationsFunction()
     // this.getLocation()
     // eslint-disable-next-line no-console
-    // console.log(this.range)
+    console.log('alcargar')
+    // eslint-disable-next-line no-console
+    console.log(this.daysChecked)
     if (this.search === 'others') {
       this.disableNative = true
     }
@@ -680,37 +685,38 @@ export default {
       tooltip[0].style.fontSize = '11px'
       tooltip[0].style.padding = 0
     },
-    changeColorDays(dia) {
-      switch (dia) {
-        case 0:
-          const sunday = document.getElementById('su')
-          sunday.classList.toggle('colorDays')
-          break
-        case 1:
-          const monday = document.getElementById('mo')
-          monday.classList.toggle('colorDays')
-          break
-        case 2:
-          const tuesday = document.getElementById('tu')
-          tuesday.classList.toggle('colorDays')
-          break
-        case 3:
-          const wednesday = document.getElementById('we')
-          wednesday.classList.toggle('colorDays')
-          break
-        case 4:
-          const thurday = document.getElementById('th')
-          thurday.classList.toggle('colorDays')
-          break
-        case 5:
-          const friday = document.getElementById('fr')
-          friday.classList.toggle('colorDays')
-          break
-        case 6:
-          const saturday = document.getElementById('sa')
-          saturday.classList.toggle('colorDays')
-      }
-    },
+    // changeColorDays(dia) {
+    // show or hide the days in the view, put this in the changeColorCheckboxClick function
+    //   switch (dia) {
+    //     case 0:
+    //       const sunday = document.getElementById('su')
+    //       sunday.classList.toggle('colorDays')
+    //       break
+    //     case 1:
+    //       const monday = document.getElementById('mo')
+    //       monday.classList.toggle('colorDays')
+    //       break
+    //     case 2:
+    //       const tuesday = document.getElementById('tu')
+    //       tuesday.classList.toggle('colorDays')
+    //       break
+    //     case 3:
+    //       const wednesday = document.getElementById('we')
+    //       wednesday.classList.toggle('colorDays')
+    //       break
+    //     case 4:
+    //       const thurday = document.getElementById('th')
+    //       thurday.classList.toggle('colorDays')
+    //       break
+    //     case 5:
+    //       const friday = document.getElementById('fr')
+    //       friday.classList.toggle('colorDays')
+    //       break
+    //     case 6:
+    //       const saturday = document.getElementById('sa')
+    //       saturday.classList.toggle('colorDays')
+    //   }
+    // },
     openMenu2(event) {
       const element = event.target
       const trigger = element.closest('div')
@@ -821,8 +827,8 @@ export default {
     //   element.style.display = 'none'
     // },
     changeDays(dia) {
-      this.$emit('changeDays', this.daysComponent)
-      this.changeColorDays(dia)
+      this.$emit('changeDays', this.daysChecked)
+      // this.changeColorDays(dia)
       this.changeColorCheckboxClick()
     },
     changeLocation(value) {
@@ -877,6 +883,7 @@ export default {
       console.log('askdflk')
     },
     changeColor() {
+      // Put backgroun and border color to the checbox in the begining
       const chechBox = document.getElementsByClassName('is-algo')
       // eslint-disable-next-line no-console
       // console.log(chechBox)
@@ -895,69 +902,93 @@ export default {
       const isChecked4 = document.querySelector('input[value="4"]').checked
       const isChecked5 = document.querySelector('input[value="5"]').checked
       const isChecked6 = document.querySelector('input[value="6"]').checked
+      const sunday = document.getElementById('su')
+      const monday = document.getElementById('mo')
+      const tuesday = document.getElementById('tu')
+      const wednesday = document.getElementById('we')
+      const thurday = document.getElementById('th')
+      const friday = document.getElementById('fr')
+      const saturday = document.getElementById('sa')
+      const chechBox = document.querySelector('input[value="0"] + span')
 
       // eslint-disable-next-line no-console
       console.log('DENTRO')
       if (!isChecked0) {
-        const chechBox = document.querySelector('input[value="0"] + span')
+        // const chechBox = document.querySelector('input[value="0"] + span')
+        // Cuando no esta checado entra aqui
         chechBox.style.backgroundColor = '#fff'
         // eslint-disable-next-line no-console
         console.log(chechBox)
+        sunday.classList.add('colorDays')
       } else {
-        const chechBox = document.querySelector('input[value="0"] + span')
+        // const chechBox = document.querySelector('input[value="0"] + span')
         chechBox.style.backgroundColor = '#f8d0da'
+        sunday.classList.remove('colorDays')
       }
 
       if (!isChecked1) {
         const chechBox = document.querySelector('input[value="1"] + span')
         chechBox.style.backgroundColor = '#fff'
+        monday.classList.add('colorDays')
+
         // eslint-disable-next-line no-console
         console.log(chechBox)
       } else {
         const chechBox = document.querySelector('input[value="1"] + span')
         chechBox.style.backgroundColor = '#f8d0da'
+        monday.classList.remove('colorDays')
       }
 
       if (!isChecked2) {
         const chechBox = document.querySelector('input[value="2"] + span')
         chechBox.style.backgroundColor = '#fff'
+        tuesday.classList.add('colorDays')
       } else {
         const chechBox = document.querySelector('input[value="2"] + span')
         chechBox.style.backgroundColor = '#f8d0da'
+        tuesday.classList.remove('colorDays')
       }
       if (!isChecked3) {
         const chechBox = document.querySelector('input[value="3"] + span')
-        chechBox.style.backgroundColor = '#fff'
+        chechBox.style.backgroundColor = '#fff '
+        wednesday.classList.add('colorDays')
       } else {
         const chechBox = document.querySelector('input[value="3"] + span')
         chechBox.style.backgroundColor = '#f8d0da'
+        wednesday.classList.remove('colorDays')
       }
       if (!isChecked4) {
         const chechBox = document.querySelector('input[value="4"] + span')
         chechBox.style.backgroundColor = '#fff'
+        thurday.classList.add('colorDays')
         // eslint-disable-next-line no-console
         console.log(chechBox)
       } else {
         const chechBox = document.querySelector('input[value="4"] + span')
         chechBox.style.backgroundColor = '#f8d0da'
+        thurday.classList.remove('colorDays')
       }
       if (!isChecked5) {
         const chechBox = document.querySelector('input[value="5"] + span')
         chechBox.style.backgroundColor = '#fff'
+        friday.classList.add('colorDays')
         // eslint-disable-next-line no-console
         console.log(chechBox)
       } else {
         const chechBox = document.querySelector('input[value="5"] + span')
         chechBox.style.backgroundColor = '#f8d0da'
+        friday.classList.remove('colorDays')
       }
       if (!isChecked6) {
         const chechBox = document.querySelector('input[value="6"] + span')
         chechBox.style.backgroundColor = '#fff'
+        saturday.classList.add('colorDays')
         // eslint-disable-next-line no-console
         console.log(chechBox)
       } else {
         const chechBox = document.querySelector('input[value="6"] + span')
         chechBox.style.backgroundColor = '#f8d0da'
+        saturday.classList.remove('colorDays')
       }
     }
 
