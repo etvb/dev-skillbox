@@ -201,7 +201,7 @@
               :class="[locationSelected !== '' ? optionButtomLanguagePink='optionButtomLanguagePink' : '']"
               class="optionButtomLocation"
             >
-              {{ countryPasada }}
+              {{ locationSelected }}
             </div>
             
             <!-- lo que se seleccione en el option se almacena en la data locationSelected esto es por el v-model, por defecto el valor del option  -->
@@ -215,7 +215,7 @@
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;All
               </option>
               <option
-                v-for="$location in dataPrueba"
+                v-for="$location in locations"
                 :key="$location"
                 :value="$location"
               >
@@ -607,7 +607,7 @@ export default {
   },
   data() {
     return {
-      idioma2: '',
+      // idioma: '',
       // marks: [0, 50],
       usado: true,
       disableNative: false,
@@ -616,7 +616,7 @@ export default {
       native: this.nativeSpeaker,
       rating: '',
       locationSelected: '',
-      locationes: [],
+      locations: [],
       // prueba: 0,
       search: '',
       languages: '',
@@ -649,11 +649,14 @@ export default {
     if (this.selected) {
       this.search = this.selected
     }
+    // eslint-disable-next-line no-console
+    console.log('Antes de cargar EN SEARCH2')
     // if (this.dataPrueba.instructors) {
     //   this.locationsFunctionInstructors()
     // } else {
     //   this.locationFunctionOther()
     // }
+    this.getLocations()
   },
   mounted() {
     // this.changeColorDays()
@@ -665,7 +668,7 @@ export default {
     // this.locationsFunction()
     // this.getLocation()
     // eslint-disable-next-line no-console
-    console.log('alcargar')
+    console.log('alcargar EN SEARCH"')
     // eslint-disable-next-line no-console
     console.log(this.daysChecked)
     if (this.search === 'others') {
@@ -674,7 +677,7 @@ export default {
   },
   updated() {
     // eslint-disable-next-line no-console
-    console.log('ALGO CAMBIO')
+    // console.log('ALGO CAMBIO')
     // this.locationsFunctionInstructors()
   },
   methods: {
@@ -795,25 +798,14 @@ export default {
       console.log(location)
       return '&location=' + location
     }, */
-    locationsFunctionInstructors() {
-      const instructors = this.dataPrueba.instructors
-      const locations = []
-      instructors.forEach(element => {
-        // this if filter the data, do not save the same info and data null in the array locations
-        if (
-          locations.indexOf(element.user.country) === -1 &&
-          element.user.country !== null
-        ) {
-          locations.push(element.user.country)
-        }
-      })
-      this.locationes = locations
-    },
-    locationFunctionOther() {
-      const instructors = this.dataPrueba
-      const locations = []
-      instructors.forEach(element => {
-        element.instructors.forEach(element => {
+    getLocations() {
+      // eslint-disable-next-line no-console
+      console.log('obteniendo las locaciones')
+      if (this.dataPrueba.instructors) {
+        const instructors = this.dataPrueba.instructors
+        const locations = []
+        instructors.forEach(element => {
+          // this if filter the data, do not save the same info and data null in the array locations
           if (
             locations.indexOf(element.user.country) === -1 &&
             element.user.country !== null
@@ -821,8 +813,23 @@ export default {
             locations.push(element.user.country)
           }
         })
-      })
-      this.locationes = locations
+        // this.locationes = locations
+        this.locations = locations
+      } else {
+        const instructors = this.dataPrueba
+        const locations = []
+        instructors.forEach(element => {
+          element.instructors.forEach(element => {
+            if (
+              locations.indexOf(element.user.country) === -1 &&
+              element.user.country !== null
+            ) {
+              locations.push(element.user.country)
+            }
+          })
+        })
+        this.locations = locations
+      }
     },
     changeNativeSpeaker(value) {
       // this.hideNO()
