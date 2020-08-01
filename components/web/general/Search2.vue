@@ -126,7 +126,7 @@
           <!-- <i class="fas fa-chalkboard-teacher" /> -->
           <b-field class="field">
             <div
-              :class="[native == '' ? layerSearchSelect='layerSearchSelectShow' : 'layerSearchSelectNone']"
+              :class="[native == '5' ? layerSearchSelect='layerSearchSelectShow' : 'layerSearchSelectNone']"
               class="layerSearchSelect"
             >
               <span class="layerSearchTitle">
@@ -143,7 +143,7 @@
               @change="changeNativeSpeaker(native)"
               class="searchSelect-pink pointer"
             >
-              <option value="">
+              <option value="5">
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;All
               </option>
               <option value="1">
@@ -599,6 +599,10 @@ export default {
     range: {
       type: Array,
       default: () => [0, '50']
+    },
+    nativeSpeaker: {
+      type: String,
+      default: '5'
     }
   },
   data() {
@@ -609,7 +613,7 @@ export default {
       disableNative: false,
       min: 0,
       max: 50,
-      native: '',
+      native: this.nativeSpeaker,
       rating: '',
       locationSelected: '',
       locationes: [],

@@ -8,6 +8,7 @@
       <!-- navbar -->
       <!-- :range="range"  y ano se lo paso para que pueda funcionar el boton del precio -->
       <search2
+        :nativeSpeaker="native.toString()"
         :languageSelected="languageSelected"
         :selected="selectedLang"
         :daysChecked="daysChecked"
