@@ -15,7 +15,7 @@
         :mostrar="false"
         :range="range"
         :countryPasada="countryParaPasar"
-        :dataPrueba="infoInstructors"
+        :dataPrueba="getLocations()"
         :prueba="language"
         @changeDays="changeDays"
         @prueba="infoComponente"
@@ -594,6 +594,7 @@ export default {
   watchQuery: true,
   data() {
     return {
+      locaciones: [],
       // idTeacher: '',
       teach: '',
       count: 0,
@@ -722,6 +723,26 @@ export default {
     // this.suma()
   },
   methods: {
+    getLocations() {
+      // eslint-disable-next-line no-console
+      console.log('obteniendo las locaciones')
+      // eslint-disable-next-line no-console
+      console.log(this.infoInstructors)
+
+      const instructors = this.infoInstructors.instructors
+      const locations = []
+      instructors.forEach(element => {
+        // this if filter the data, do not save the same info and data null in the array locations
+        if (
+          locations.indexOf(element.user.country) === -1 &&
+          element.user.country !== null
+        ) {
+          locations.push(element.user.country)
+        }
+      })
+      // this.locationes = locations
+      return locations
+    },
     // getIdTeacher(id) {
     //   this.idTeacher = id
     // },

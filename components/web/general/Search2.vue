@@ -215,7 +215,7 @@
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;All
               </option>
               <option
-                v-for="$location in locationes"
+                v-for="$location in dataPrueba"
                 :key="$location"
                 :value="$location"
               >
@@ -573,8 +573,8 @@ export default {
     //   default: ''
     // },
     dataPrueba: {
-      type: Object,
-      default: () => {}
+      type: Array,
+      default: () => []
     },
     countryPasada: {
       type: String,
@@ -649,11 +649,11 @@ export default {
     if (this.selected) {
       this.search = this.selected
     }
-    if (this.dataPrueba.instructors) {
-      this.locationsFunctionInstructors()
-    } else {
-      this.locationFunctionOther()
-    }
+    // if (this.dataPrueba.instructors) {
+    //   this.locationsFunctionInstructors()
+    // } else {
+    //   this.locationFunctionOther()
+    // }
   },
   mounted() {
     // this.changeColorDays()
@@ -671,6 +671,11 @@ export default {
     if (this.search === 'others') {
       this.disableNative = true
     }
+  },
+  updated() {
+    // eslint-disable-next-line no-console
+    console.log('ALGO CAMBIO')
+    // this.locationsFunctionInstructors()
   },
   methods: {
     changeColorVueSlider() {
@@ -794,6 +799,7 @@ export default {
       const instructors = this.dataPrueba.instructors
       const locations = []
       instructors.forEach(element => {
+        // this if filter the data, do not save the same info and data null in the array locations
         if (
           locations.indexOf(element.user.country) === -1 &&
           element.user.country !== null
