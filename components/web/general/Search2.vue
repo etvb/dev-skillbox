@@ -201,7 +201,7 @@
               :class="[locationSelected !== '' ? optionButtomLanguagePink='optionButtomLanguagePink' : '']"
               class="optionButtomLocation"
             >
-              {{ locationSelected }}
+              {{ countryPasada }}
             </div>
             
             <!-- lo que se seleccione en el option se almacena en la data locationSelected esto es por el v-model, por defecto el valor del option  -->
@@ -211,7 +211,7 @@
               :class="[locationSelected !== '' ? used='used' : '']"
               class="searchSelect pointer"
             >
-              <option value="">
+              <option id="ALL" value="">
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;All
               </option>
               <option
@@ -564,6 +564,10 @@ export default {
     VueSlider
   },
   props: {
+    locationsIndex: {
+      type: Array,
+      default: () => []
+    },
     languageSelected: {
       type: String,
       default: ''
@@ -573,8 +577,8 @@ export default {
     //   default: ''
     // },
     dataPrueba: {
-      type: Array,
-      default: () => []
+      type: Object,
+      default: () => {}
     },
     countryPasada: {
       type: String,
@@ -604,6 +608,10 @@ export default {
       type: String,
       default: '5'
     }
+    // activateGetLocation: {
+    //   type: Boolean,
+    //   defaylt: false
+    // }
   },
   data() {
     return {
@@ -615,7 +623,7 @@ export default {
       max: 50,
       native: this.nativeSpeaker,
       rating: '',
-      locationSelected: '',
+      locationSelected: this.countryPasada,
       locations: [],
       // prueba: 0,
       search: '',
@@ -656,9 +664,11 @@ export default {
     // } else {
     //   this.locationFunctionOther()
     // }
-    this.getLocations()
+    // this.getLocations()
   },
   mounted() {
+    this.getLocations()
+
     // this.changeColorDays()
     this.changeColorVueSlider()
     this.changeColor()
@@ -669,18 +679,15 @@ export default {
     // this.getLocation()
     // eslint-disable-next-line no-console
     console.log('alcargar EN SEARCH"')
-    // eslint-disable-next-line no-console
-    console.log(this.daysChecked)
     if (this.search === 'others') {
       this.disableNative = true
     }
   },
-  updated() {
-    // eslint-disable-next-line no-console
-    // console.log('ALGO CAMBIO')
-    // this.locationsFunctionInstructors()
-  },
   methods: {
+    prueba() {
+      alert('hola')
+    },
+
     changeColorVueSlider() {
       const vueSliderProcess = document.getElementsByClassName(
         'vue-slider-process'
@@ -849,6 +856,13 @@ export default {
       this.changeColorCheckboxClick()
     },
     changeLocation(value) {
+      if (value === '') {
+        // eslint-disable-next-line no-console
+        console.log('EJECUTANDOLA DSD EL BOTON')
+        setTimeout(() => {
+          // this.getLocations()
+        }, 2000)
+      }
       this.$router.push({
         path: this.$route.fullPath,
         query: { location: value }

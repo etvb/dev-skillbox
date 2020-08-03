@@ -8,6 +8,7 @@
       <!-- navbar -->
       <!-- :range="range"  y ano se lo paso para que pueda funcionar el boton del precio -->
       <search2
+        :locationsIndex="getLocationsIndex"
         :nativeSpeaker="native.toString()"
         :languageSelected="languageSelected"
         :selected="selectedLang"
@@ -625,7 +626,7 @@ export default {
     // 5 es por un valor diferente de 0 y 1, por que null, 0 o '' es lo mismo
     let native = 5
     let rating = null
-    let location = null
+    let location = ''
     // const location = ''
     // eslint-disable-next-line no-console
     console.log('ASYNC ' + query.location)
@@ -659,6 +660,33 @@ export default {
     console.log('data de ESTE INDX')
     // eslint-disable-next-line no-console
     console.log(data)
+
+    const getLocationsIndex = []
+
+    if (data.language.instructors) {
+      data.language.instructors.forEach(element => {
+        if (
+          getLocationsIndex.indexOf(element.user.country) === -1 &&
+          element.user.country !== null
+        ) {
+          getLocationsIndex.push(element.user.country)
+        }
+      })
+    } else {
+      data.language.forEach(element => {
+        element.instructors.forEach(element => {
+          if (
+            getLocationsIndex.indexOf(element.user.country) === -1 &&
+            element.user.country !== null
+          ) {
+            getLocationsIndex.push(element.user.country)
+          }
+        })
+      })
+    }
+
+    // eslint-disable-next-line no-console
+    // console.log(borrarLocations)
     // eslint-disable-next-line no-console
     // console.log(langId)
     // Filter by rating
@@ -702,7 +730,8 @@ export default {
         native,
         location,
         rating,
-        languageSelected: 'Others languages'
+        languageSelected: 'Others languages',
+        getLocationsIndex
       }
     }
     return {
@@ -715,7 +744,8 @@ export default {
       native,
       location,
       rating,
-      languageSelected: data.language.english
+      languageSelected: data.language.english,
+      getLocationsIndex
     }
   },
   mounted() {
@@ -724,8 +754,15 @@ export default {
     // eslint-disable-next-line no-console
     console.log('alcargar INDEX')
     // this.getLocations()
+    // eslint-disable-next-line no-console
+    console.log(this.borrarLocations)
   },
   methods: {
+    borrame() {
+      // this.datosBorrar = data.language.english
+      // eslint-disable-next-line no-console
+      console.log('HOLA')
+    },
     // getIdTeacher(id) {
     //   this.idTeacher = id
     // },
