@@ -215,7 +215,7 @@
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;All
               </option>
               <option
-                v-for="$location in locations"
+                v-for="$location in locationsIndex"
                 :key="$location"
                 :value="$location"
               >
