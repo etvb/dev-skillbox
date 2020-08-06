@@ -333,6 +333,8 @@
 </template>
 <style lang="sass" scoped>
 @import '~/assets/css/_media-queries.sass'
+.button:hover
+  color: #363636
 
 .borde
   position: absolute
