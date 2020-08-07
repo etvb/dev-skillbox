@@ -79,7 +79,7 @@
                       </h5>
                       <!-- flag -->
                       <span class="container-profile-flag">
-                        <div class="borde"></div>
+                        <div class="borde" />
                         <img :src="pais(instructor.user.country)">
                       </span>   
                     </div>
@@ -474,27 +474,61 @@
   .description
     padding-top: 20px
   
-  @media screen and (max-width: 500px)
+@media screen and (max-width: 500px)
 
-    .inlineBlock
-      display: inline-block
-    .description
-      padding-top: 0
-      margin-top: 0
-    .-is-spaced-top 
-      margin-top: 0 !important
-    .contenedor-principal
-      padding-left: 10px
-      padding-right: 10px
-  
-    #prueba
-      background-color: red
-      padding-left: 10px
-      padding-right: 10px
+  .marginado
+    margin: 0 20px
 
-    #container-profile-img
-      // width: 60px
-      // height: 60px
+  .inlineBlock
+    display: inline-block
+  .description
+    padding-top: 0
+    margin-top: 0
+  .-is-spaced-top 
+    margin-top: 0 !important
+  .contenedor-principal
+    padding-left: 10px
+    padding-right: 10px
+
+  #prueba
+    // background-color: red
+    padding-left: 10px
+    padding-right: 10px
+
+  #container-profile-img
+    // width: 60px
+    // height: 60px
+    margin-right: 0
+
+  .littleMore
+    font-size: 15px !important
+  .size12
+    font-size: 1rem
+    // letter-spacing: 2px;
+  .newSize
+    line-height: 1
+    font-size: 1.25rem
+    position: relative
+    top: -12px
+    margin-top: 10px
+
+  .mybg, .container-profile, .container-profile-main
+    // background-color: red
+    padding-left: 5px
+    padding-right: 5px
+  .container-profile-main
+    flex: 1 1 auto
+    margin-left: 5px
+    margin-right: 5px
+    font-size: 14px
+  .conteiner-like
+    padding: 0 5px 22px 5px
+  .container-profile-description
+    min-height: 60px
+    max-height: 80px
+  #container-profile-img
+    margin-right: 0
+
 
 </style>
 <script>
