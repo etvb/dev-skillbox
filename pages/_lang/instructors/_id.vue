@@ -76,12 +76,7 @@
                     <div class="container-profile-name">
                       <h5 class="title is-marginless is-5 has-text-weight-bold has-text-black">
                         {{ instructor.user.name + ' ' + instructor.user.lastname[0] + '.' }}
-                      </h5>
-                      <!-- flag -->
-                      <span class="container-profile-flag">
-                        <div class="borde" />
-                        <img :src="pais(instructor.user.country)">
-                      </span>   
+                      </h5>   
                     </div>
                     <p class="-has-text-gray newSize">
                       Native Language: <span>{{ instructor.user.language.english }}</span>
@@ -90,6 +85,11 @@
                       Raiting: <rating :rating="instructor.average_rating ? instructor.average_rating : 0" />
                     </p>
                   </div>
+                  <!-- flag -->
+                  <span class="container-profile-flag">
+                    <div class="borde" />
+                    <img :src="pais(instructor.user.country)">
+                  </span>
                   <div class="conteiner-like">
                     <like />
                   </div>
@@ -194,7 +194,8 @@
                 </p>
                 <button 
                   @click="activateCalendarModal"
-                  class="button is-expand is-fullwidth colorButton size12">
+                  class="button is-expand is-fullwidth colorButton size12"
+                >
                   Schedule
                 </button>
               </div>
@@ -367,7 +368,7 @@
   font-size: 1.25rem
   line-height: 1
   position: relative
-  top: -12px
+  top: -9px
   margin-top: 7px
 
 .container-profile-main
