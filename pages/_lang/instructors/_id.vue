@@ -50,7 +50,7 @@
             <!-- </div> -->
             <!-- In case only have profile picture -->
             <div class="inlineBlock">
-              <div v-show="instructor.user" class="-is-relative -container-profile-picture -is-fullwidth has-text-centered">
+              <div v-show="instructor.user" class="-is-relative -container-profile-picture2 -is-fullwidth has-text-centered">
                 <!-- nueva vista -->
                 <div class="container-profile-info">
                   <!-- changed the img tag fot div, if the user has image show  -->
@@ -431,7 +431,7 @@
 .-card-details-instructor
   .-column-profile
     border-right: solid 2px whitesmoke
-  .-container-profile-picture
+  .-container-profile-picture2
     height: 80px
     .-profile-picture
       height: 80px
