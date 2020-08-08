@@ -368,7 +368,7 @@
   font-size: 1.25rem
   line-height: 1
   position: relative
-  top: -9px
+  top: -6px
   margin-top: 7px
 
 .container-profile-main
@@ -415,7 +415,7 @@
   font-size: 22px
 
 .container-profile-raiting
-  margin-top: -36px
+  margin-top: -31px
   font-size: 1.25rem
   
 .container-profile-teacher
