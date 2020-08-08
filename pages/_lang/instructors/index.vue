@@ -81,7 +81,6 @@
                     <h5 class="title is-marginless is-5 has-text-weight-bold has-text-black">
                       {{ instructor.user.name + ' ' + instructor.user.lastname[0] + '.' }}
                     </h5>
-                    <!-- flag -->   
                   </div>
                   <p class="has-text-grey newSize">
                     Native Language: <span>{{ instructor.user.language.english }}</span>
@@ -90,6 +89,7 @@
                     Raiting: <rating :rating="instructor.average_rating ? instructor.average_rating : 0" />
                   </p>
                 </div>
+                <!-- flag -->   
                 <span class="container-profile-flag">
                   <div class="borde" />
                   <img :src="pais(instructor.user.country)">

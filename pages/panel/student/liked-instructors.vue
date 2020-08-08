@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="columns is-multiple">
+    <div class="columns is-multiple wrap">
       <div
         v-for="instructor in instructors"
         :key="instructor.id"
@@ -45,6 +45,10 @@
     </div>
   </div>
 </template>
+<style lang="sass" scoped>
+.wrap
+  flex-wrap: wrap
+</style>
 <script>
 import axios from 'axios'
 export default {
