@@ -12,7 +12,7 @@
               {{ instructor.user.parsed_name }}
             </p>
           </header>
-          <div class="card-content">
+          <div class="card-content fix-card-content">
             <div class="content">
               <p v-if="instructor.bio">
                 {{ instructor.bio }}
@@ -48,6 +48,9 @@
 <style lang="sass" scoped>
 .wrap
   flex-wrap: wrap
+.fix-card-content
+  height: 110px
+  overflow: auto
 </style>
 <script>
 import axios from 'axios'
