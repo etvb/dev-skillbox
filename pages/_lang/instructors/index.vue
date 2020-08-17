@@ -319,7 +319,11 @@
                       Teaches:
                     </p>
                     <p class="has-text-weight-bold has-text-black littleMore">
-                      <span v-for="(languageTeach, index) in instructorL.languages" :key="index">
+                      {{ lang.english }}
+                      
+                      <!--Esto Muestra TODOS LOS LENGUAGES QUE EL INSTRUCTOR ENSEÑA
+                      this show all languages that the instructor teaches
+                         <span v-for="(languageTeach, index) in instructorL.languages" :key="index">
                         <span v-if="index+1 < instructorL.languages.length">
                           {{ languageTeach.english +',' }}
                         
@@ -328,7 +332,7 @@
                           {{ languageTeach.english }}
                         
                         </span>
-                      </span>
+                      </span> -->
                     </p>
                     <button
                       :disabled="!instructorL.video_url"
