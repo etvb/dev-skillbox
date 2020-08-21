@@ -26,132 +26,132 @@
     <!-- NEW PART -->
     <div class="section">
       <div class="container">
-        <h3 class="title title25"> 
+        <h3 class="title title25B titleWorks"> 
           HOW IT WORKS
         </h3>
       </div>
-      <a href="#">
-        <div class="container box">
-          <div class="columns is-mobile">
-            <div class="column">
-              <p class="title25 is-4">FIND</p>
-              <p>Search for the language you want to learn and choose a teacher who suits you best.</p>
+      <div class="container box background-gray">
+        <a href="#">
+          <div class="columns is-mobile paddingFind">
+            <div class="column has-text-white">
+              <p class="title25B  ">FIND</p>
+              <p class="fontSizeP">Search for the language you want to learn and choose a teacher who suits you best.</p>
             </div>
-            <div class="column">
-              <figure class="image">
-                <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+            <div class="column centerImagen">
+              <figure class="image imageContainer positionSmileKids">
+                <img class="is-rounded border" src="kids.jpg">
               </figure>
             </div>
           </div>
-        </div>
-      </a>
+        </a>
+      </div>
 
-      <a href="#">
-        <div class="container box">
+      <div class="container box background-gray marginWorks">
+        <a href="#">
           <div class="columns is-mobile">
-            <div class="column">
-              <figure class="image">
-                <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+            <div class="column centerImagen">
+              <figure class="image imageContainer positionCelGirl">
+                <img class="is-rounded border" src="smille-girls.jpg">
               </figure>
             </div>
-            <div class="column">
-              <p class="title25 is-4">Book</p>
-              <p>Check the teacher‘s availability and book your one-on-one language class right away.</p>
+            <div class="column has-text-white">
+              <p class="title25B ">Book</p>
+              <p class="fontSizeP">Check the teacher‘s availability and book your one-on-one language class right away.</p>
             </div>
           </div>
-        </div>
-      </a>
+        </a>
+      </div>
 
-      <a href="#">
-        <div class="container box">
+      <div class="container box background-gray">
+        <a href="#">
           <div class="columns is-mobile">
-            <div class="column">
-              <p class="title25 is-4">START</p>
-              <p>Join your teacher in your one-on-one video class from wherever you feel comfortable. Start unboxing your skillzz...</p>
+            <div class="column has-text-white">
+              <p class="title25B ">START</p>
+              <p class="fontSizeP">Join your teacher in your one-on-one video class from wherever you feel comfortable. Start unboxing your skillzz...</p>
             </div>
-            <div class="column">
-              <figure class="image">
-                <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+            <div class="column centerImagen">
+              <figure class="image imageContainer positioYellowGirl">
+                <img class="is-rounded border" src="girl-with-yellow-sweater.jpg">
               </figure>
             </div>
           </div>
-        </div>
-      </a>
+        </a>
+      </div>
     </div>
 
     <!-- COMMUNITY -->
     <div class="section">
       <div class="container">
-        <h3 class="title title25"> 
+        <h3 class="title title25B titleCommunity"> 
           JOIN OUR COMMUNITY
         </h3>
       </div>
-      <a href="#">
-        <div class="container box">
+      <div class="container box background-gray">
+        <a href="#">
           <div class="columns is-mobile">
-            <div class="column">
-              <p class="title25 is-4">STUDENT</p>
-              <ul>
+            <div class="column has-text-white">
+              <p class="title25B">STUDENT</p>
+              <ul class="fontSizeP">
                 <li>Be flexible: Book classes whenever you have time.</li>
                 <li>Profit the most: Join a one-on-one class for a reasonable price.</li>
                 <li>No rush to your class: Just start your device and join the class wherever you are.</li>
               </ul>
             </div>
-            <div class="column">
-              <figure class="image">
-                <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+            <div class="column centerImagen">
+              <figure class="image imageContainer ṕositionCoffeGirl">
+                <img class="is-rounded border" src="girld-with-coffe.jpg">
               </figure>
             </div>
           </div>
-        </div>
-      </a>
+        </a>
+      </div>
 
-      <a href="#">
-        <div class="container box">
+      <div class="container box background-gray">
+        <a href="#">
           <div class="columns is-mobile">
-            <div class="column">
-              <figure class="image">
-                <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+            <div class="column centerImagen">
+              <figure class="image imageContainer positionCoffeMan">
+                <img class="is-rounded border" src="boy-with-coffe.jpg">
               </figure>
             </div>
-            <div class="column">
-              <p class="title25 is-4">TEACHER</p>
-              <ul>
+            <div class="column has-text-white">
+              <p class="title25B is-4">TEACHER</p>
+              <ul class="fontSizeP">
                 <li>Earn money flexibly: Teach online from home and on your schedule.</li>
                 <li>Motivated learners: Work with motivated students who have picked you as their teacher.</li>
                 <li>Be creative: Design your own curriculum and teach the way you want.</li>
               </ul>
             </div>
           </div>
-        </div>
-      </a>
+        </a>
+      </div>
 
-      <a href="#">
-        <div class="container box">
+      <div class="container box background-gray">
+        <a href="#">
           <div class="columns is-mobile">
-            <div class="column">
-              <p class="title25 is-4">DO YOU HAVE A QUESTION?</p>
-              <p>Please contact us.</p>
+            <div class="column has-text-white has-text-centered">
+              <p class="title25B">DO YOU HAVE A QUESTION?</p>
+              <p class="title25">Please contact us.</p>
             </div>
             <div class="column">
-              <figure class="image">
-                <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+              <figure class="image imageContainer positionTabletMan">
+                <img class="is-rounded border" src="man-with-a-tablet.jpg">
               </figure>
             </div>
           </div>
-        </div>
-      </a>
-      <a href="#">
-        <div class="container box">
+        </a>
+      </div>
+      <div class="container box background-gray">
+        <a href="#">
           <div class="columns is-mobile">
-            <div class="column">
-              <p class="title25 is-4">DO YOU LIKE OUR PLATFORM?</p>
-              <p>Tell a friend.</p>
+            <div class="column has-text-white has-text-centered">
+              <p class="title25B">DO YOU LIKE OUR PLATFORM?</p>
+              <p class="title25">Tell a friend.</p>
             </div>
             <div class="column" />
           </div>
-        </div>
-      </a>
+        </a>
+      </div>
     </div>
     <!-- /COMMUNITY -->
 
@@ -309,10 +309,120 @@
 </template>
 <style lang="sass" scoped>
   @import "~/assets/css/_media-queries.sass"
-  .title25
+  .background-gray
+    background-color: #82827a8a
+  .background-gray:hover
+    background-color: #e84660
+  .border
+    border: 2px solid #e84660
+  .centerImagen
+    margin: auto
+  .fontSizeP
+    font-size: 14px
+    font-family: Calibri
+  .imageContainer
+    // position: absolute
+    // top: 0
+    // z-index: 1
+    width: 140px
+    height: 140px
+    display: block
+    margin: auto
+    img
+      width: 100%
+      height: 100%
+
+  .title25B
     // font-family: 'Calibri'
-    font-size: 25px
+    font-size: 18px
     font-weight: 600
+    font-family: 'Bradley Hand'
+  .title25
+    font-size: 14px
+    font-family: Calibri
+
+  .titleWorks, .titleCommunity
+    color: #82827a8a
+    padding-left: 20px
+    margin-bottom: 10px
+
+  +tablet
+    .fontSizeP
+      font-size: 22px
+    .title25B
+      // font-family: 'Calibri'
+      font-size: 25px
+      font-weight: 600
+      font-family: 'Bradley Hand'
+    .title25
+      font-size: 25px
+    
+    .imageContainer
+      position: absolute
+      top: 0
+      z-index: 1
+      width: 240px
+      height: 240px
+      img
+        width: 100%
+        height: 100%
+    .positionSmileKids
+      top: -33px
+      right: 30px
+    .positionCelGirl
+      left: 30px
+      top: -93px
+    .positioYellowGirl
+      top: -81px
+      right: 30px
+    .ṕositionCoffeGirl
+      top: -15px
+      right: 30px
+      width: 280px
+      height: 280px
+    .positionCoffeMan
+      top: -14px
+      left: 30px
+      width: 300px
+      height: 300px
+    .positionTabletMan
+      top: -30px
+      right: 30px
+      width: 300px
+      height: 300px
+    .marginWorks
+      margin-top: 70px
+      margin-bottom: 70px
+    .paddingFind
+      padding-top: 10px
+      padding-bottom: 10px
+
+  +desktop
+    .positionSmileKids
+      top: -33px
+      right: 181px
+    .positionCelGirl
+      left: 132px
+      top: -93px
+    .positioYellowGirl
+      top: -81px
+      right: 133px
+    .ṕositionCoffeGirl
+      top: -15px
+      right: 133px
+      width: 280px
+      height: 280px
+    .positionCoffeMan
+      top: -14px
+      left: 153px
+      width: 300px
+      height: 300px
+    .positionTabletMan
+      top: -30px
+      right: 180px
+      width: 300px
+      height: 300px
+
     
 
   .-home-jumbotron
