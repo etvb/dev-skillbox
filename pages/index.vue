@@ -31,7 +31,7 @@
         </h3>
       </div>
       <div class="container box background-gray">
-        <a href="#">
+        <a @click.prevent="goSearch">
           <div class="columns is-mobile paddingFind">
             <div class="column has-text-white">
               <p class="title25B  ">FIND</p>
@@ -47,7 +47,7 @@
       </div>
 
       <div class="container box background-gray marginWorks">
-        <a href="#">
+        <a @click.prevent="goSearch">
           <div class="columns is-mobile">
             <div class="column centerImagen">
               <figure class="image imageContainer positionCelGirl">
@@ -63,7 +63,7 @@
       </div>
 
       <div class="container box background-gray">
-        <a href="#">
+        <a @click.prevent="goSearch">
           <div class="columns is-mobile">
             <div class="column has-text-white">
               <p class="title25B ">START</p>
@@ -87,10 +87,12 @@
         </h3>
       </div>
       <div class="container box background-gray">
-        <a href="#">
+        <nuxt-link to="/auth/signup">
           <div class="columns is-mobile">
             <div class="column has-text-white">
-              <p class="title25B">STUDENT</p>
+              <p class="title25B">
+                STUDENT
+              </p>
               <ul class="fontSizeP">
                 <li>Be flexible: Book classes whenever you have time.</li>
                 <li>Profit the most: Join a one-on-one class for a reasonable price.</li>
@@ -103,11 +105,11 @@
               </figure>
             </div>
           </div>
-        </a>
+        </nuxt-link>
       </div>
 
       <div class="container box background-gray">
-        <a href="#">
+        <nuxt-link to="/teach">
           <div class="columns is-mobile">
             <div class="column centerImagen">
               <figure class="image imageContainer positionCoffeMan">
@@ -115,7 +117,9 @@
               </figure>
             </div>
             <div class="column has-text-white">
-              <p class="title25B is-4">TEACHER</p>
+              <p class="title25B is-4">
+                TEACHER
+              </p>
               <ul class="fontSizeP">
                 <li>Earn money flexibly: Teach online from home and on your schedule.</li>
                 <li>Motivated learners: Work with motivated students who have picked you as their teacher.</li>
@@ -123,15 +127,19 @@
               </ul>
             </div>
           </div>
-        </a>
+        </nuxt-link>
       </div>
 
       <div class="container box background-gray">
-        <a href="#">
+        <nuxt-link to="/contact">
           <div class="columns is-mobile">
             <div class="column has-text-white has-text-centered">
-              <p class="title25B">DO YOU HAVE A QUESTION?</p>
-              <p class="title25">Please contact us.</p>
+              <p class="title25B">
+                DO YOU HAVE A QUESTION?
+              </p>
+              <p class="title25">
+                Please contact us.
+              </p>
             </div>
             <div class="column">
               <figure class="image imageContainer positionTabletMan">
@@ -139,10 +147,14 @@
               </figure>
             </div>
           </div>
-        </a>
+        </nuxt-link>
       </div>
       <div class="container box background-gray">
-        <a href="#">
+        <a 
+          href="mailto:?subject=Foreign Language Teachers&amp;body=Hi! I think you should checkout Skillzzbox! They connect students with foreign language teachers for live video classes. Here is the link: www.skillzzbox.com"
+          title="Share by Email"
+          class="-has-text-primary"
+        >
           <div class="columns is-mobile">
             <div class="column has-text-white has-text-centered">
               <p class="title25B">DO YOU LIKE OUR PLATFORM?</p>
@@ -154,6 +166,8 @@
       </div>
     </div>
     <!-- /COMMUNITY -->
+
+    <!-- /NEW-PART-->
 
     <!-- Description -->
     <div class="section">
@@ -450,6 +464,16 @@ import Search from '~/components/web/general/Search.vue'
 export default {
   components: {
     Search
+  },
+  data() {
+    return {
+      prueba: 'hola'
+    }
+  },
+  methods: {
+    goSearch() {
+      this.$router.push('/' + '40' + '/instructors?days=0,1,2,3,4,5,6')
+    }
   }
 }
 </script>
