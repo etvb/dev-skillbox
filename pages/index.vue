@@ -22,6 +22,11 @@
       </div>
     </div>
     <!-- ./ Jumbotron -->
+    <div class="section">
+      <div class="container">
+        <p class="centerText newSubTitle">IMPROVE YOUR LANGUAGE SKILLZZ AT EASE<br> BOOK WHENEVER YOU HAVE TIME<br>JOIN ONE-ON-ONE VIDEO CLASSES FOR ANY BUDGET<br>FIND QUALIFIED AND HIGHLY MOTIVATED TEACHERS</p>
+      </div>
+    </div>
 
     <!-- NEW PART -->
     <div class="section">
@@ -93,7 +98,7 @@
               <p class="title25B">
                 STUDENT
               </p>
-              <ul class="fontSizeP">
+              <ul class="fontSizeP bulletPoint">
                 <li>Be flexible: Book classes whenever you have time.</li>
                 <li>Profit the most: Join a one-on-one class for a reasonable price.</li>
                 <li>No rush to your class: Just start your device and join the class wherever you are.</li>
@@ -120,7 +125,7 @@
               <p class="title25B is-4">
                 TEACHER
               </p>
-              <ul class="fontSizeP">
+              <ul class="fontSizeP bulletPoint">
                 <li>Earn money flexibly: Teach online from home and on your schedule.</li>
                 <li>Motivated learners: Work with motivated students who have picked you as their teacher.</li>
                 <li>Be creative: Design your own curriculum and teach the way you want.</li>
@@ -329,8 +334,13 @@
     background-color: #e84660
   .border
     border: 2px solid #e84660
+  .bulletPoint
+    list-style: circle
+    margin-left: 20px
   .centerImagen
     margin: auto
+  .centerText
+    text-align: center
   .fontSizeP
     font-size: 14px
     font-family: Calibri
@@ -345,7 +355,10 @@
     img
       width: 100%
       height: 100%
-
+  .newSubTitle
+    color: #82827a8a
+    font-family: 'Bradley Hand'
+    font-size: 18px 
   .title25B
     // font-family: 'Calibri'
     font-size: 18px
@@ -354,15 +367,20 @@
   .title25
     font-size: 14px
     font-family: Calibri
-
   .titleWorks, .titleCommunity
-    color: #82827a8a
+    color: #82827ae3
     padding-left: 20px
     margin-bottom: 10px
+
+
 
   +tablet
     .fontSizeP
       font-size: 22px
+    .newSubTitle
+      color: #82827a8a
+      font-family: 'Bradley Hand'
+      font-size: 20px 
     .title25B
       // font-family: 'Calibri'
       font-size: 25px
@@ -370,7 +388,6 @@
       font-family: 'Bradley Hand'
     .title25
       font-size: 25px
-    
     .imageContainer
       position: absolute
       top: 0
@@ -411,7 +428,12 @@
       padding-top: 10px
       padding-bottom: 10px
 
+
   +desktop
+    .newSubTitle
+      color: #82827a8a
+      font-family: 'Bradley Hand'
+      font-size: 24px
     .positionSmileKids
       top: -33px
       right: 181px
