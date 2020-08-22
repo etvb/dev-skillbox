@@ -38,7 +38,7 @@
       <div class="container box background-gray">
         <a @click.prevent="goSearch">
           <div class="columns is-mobile paddingFind">
-            <div class="column has-text-white">
+            <div class="column has-text-white morePaddingLeft">
               <p class="title25B  ">FIND</p>
               <p class="fontSizeP">Search for the language you want to learn and choose a teacher who suits you best.</p>
             </div>
@@ -94,7 +94,7 @@
       <div class="container box background-gray">
         <nuxt-link to="/auth/signup">
           <div class="columns is-mobile">
-            <div class="column has-text-white">
+            <div class="column morePaddingLeft has-text-white">
               <p class="title25B">
                 STUDENT
               </p>
@@ -147,7 +147,7 @@
               </p>
             </div>
             <div class="column">
-              <figure class="image imageContainer positionTabletMan">
+              <figure class="image imageContainerTabletMan  positionTabletMan">
                 <img class="is-rounded border" src="man-with-a-tablet.jpg">
               </figure>
             </div>
@@ -175,7 +175,7 @@
     <!-- /NEW-PART-->
 
     <!-- Description -->
-    <div class="section">
+    <!-- <div class="section">
       <div class="container">
         <h3 class="title is-3 has-text-centered">
           How it works
@@ -208,9 +208,9 @@
               <h5 class="title is-4 -is-spaced-top -is-marginless-bottom">
                 Book
               </h5>
-              <p>
+              <p> -->
                 <!-- Review the calendar of your teacher and book your class right away -->
-                Check the teacher's availability and book your class right away
+                <!-- Check the teacher's availability and book your class right away
               </p>
             </div>
           </div>
@@ -232,11 +232,11 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <!-- ./Description -->
 
     <!-- Join our community -->
-    <div class="hero -has-bg-light">
+    <!-- <div class="hero -has-bg-light">
       <div class="hero-body">
         <div class="container has-text-centered">
           <h3 class="title is-3">
@@ -278,7 +278,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <!-- <div class="hero -has-bg-light">
       <div class="hero-body">
         <div class="container has-text-centered">
@@ -299,7 +299,7 @@
     </div> -->
     <!-- ./Join our community -->
 
-    <div class="section">
+    <!-- <div class="section">
       <div class="container has-text-centered subtitle is-4">
         <h4 class="subtitle is-4 is-inline">
           Do you have questions?
@@ -310,11 +310,11 @@
         <br><br>
         <h4 class="subtitle is-4 is-inline">
           Do you like our platform?
-        </h4>
+        </h4> -->
         <!-- <nuxt-link to="/tell-a-friend" class="-has-text-primary">
           Tell a friend
         </nuxt-link> -->
-        <a
+        <!-- <a
           href="mailto:?subject=Foreign Language Teachers&amp;body=Hi! I think you should checkout Skillzzbox! They connect students with foreign language teachers for live video classes. Here is the link: www.skillzzbox.com"
           title="Share by Email"
           class="-has-text-primary"
@@ -323,7 +323,7 @@
         </a>
       </div>
     </div>
-    </nuxt-link>
+    </nuxt-link> -->
   </div>
 </template>
 <style lang="sass" scoped>
@@ -335,7 +335,7 @@
   .border
     border: 2px solid #e84660
   .bulletPoint
-    list-style: circle
+    list-style: square
     margin-left: 20px
   .centerImagen
     margin: auto
@@ -344,7 +344,7 @@
   .fontSizeP
     font-size: 14px
     font-family: Calibri
-  .imageContainer
+  .imageContainer, .imageContainerTabletMan
     // position: absolute
     // top: 0
     // z-index: 1
@@ -355,6 +355,10 @@
     img
       width: 100%
       height: 100%
+  .imageContainerTabletMan
+    position: absolute
+  .morePaddingLeft
+    padding-left: 5px
   .newSubTitle
     color: #82827a8a
     font-family: 'Bradley Hand'
@@ -369,8 +373,12 @@
     font-family: Calibri
   .titleWorks, .titleCommunity
     color: #82827ae3
-    padding-left: 20px
+    margin-left: 10px
     margin-bottom: 10px
+  .positionTabletMan
+      top: 61px
+      right: 26px
+      z-index: 1
 
 
 
@@ -397,6 +405,8 @@
       img
         width: 100%
         height: 100%
+    .morePaddingLeft
+      padding-left: 45px
     .positionSmileKids
       top: -33px
       right: 30px
@@ -427,6 +437,9 @@
     .paddingFind
       padding-top: 10px
       padding-bottom: 10px
+    .titleWorks, .titleCommunity
+      margin-left: 45px
+
 
 
   +desktop
