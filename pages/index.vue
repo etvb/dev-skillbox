@@ -332,6 +332,7 @@
     background-color: #82827a8a
   .background-gray:hover
     background-color: #e84660
+    box-shadow: 0 10px 8px rgba(0, 0, 0, 0.15), 0 1px 10px rgba(0, 0, 0, 0.2)
   .border
     border: 2px solid #e84660
   .bulletPoint
