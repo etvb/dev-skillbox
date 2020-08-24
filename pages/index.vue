@@ -44,7 +44,7 @@
             </div>
             <div class="column centerImagen">
               <figure class="image imageContainer positionSmileKids">
-                <img class="is-rounded border" src="kids.jpg">
+                <img class="is-rounded border" src="kids2.jpg">
               </figure>
             </div>
           </div>
@@ -56,7 +56,7 @@
           <div class="columns is-mobile">
             <div class="column centerImagen">
               <figure class="image imageContainer positionCelGirl">
-                <img class="is-rounded border" src="smille-girls.jpg">
+                <img class="is-rounded border" src="smille-girls2.jpg">
               </figure>
             </div>
             <div class="column has-text-white">
@@ -76,7 +76,7 @@
             </div>
             <div class="column centerImagen">
               <figure class="image imageContainer positioYellowGirl">
-                <img class="is-rounded border" src="girl-with-yellow-sweater.jpg">
+                <img class="is-rounded border" src="girl-with-yellow-sweater2.jpg">
               </figure>
             </div>
           </div>
@@ -106,7 +106,7 @@
             </div>
             <div class="column centerImagen">
               <figure class="image imageContainer ṕositionCoffeGirl">
-                <img class="is-rounded border" src="girld-with-coffe.jpg">
+                <img class="is-rounded border" src="girld-with-coffe2.jpg">
               </figure>
             </div>
           </div>
@@ -118,7 +118,7 @@
           <div class="columns is-mobile">
             <div class="column centerImagen">
               <figure class="image imageContainer positionCoffeMan">
-                <img class="is-rounded border" src="boy-with-coffe.jpg">
+                <img class="is-rounded border" src="boy-with-coffe2.jpg">
               </figure>
             </div>
             <div class="column has-text-white">
@@ -148,7 +148,7 @@
             </div>
             <div class="column">
               <figure class="image imageContainerTabletMan  positionTabletMan">
-                <img class="is-rounded border" src="man-with-a-tablet.jpg">
+                <img class="is-rounded border" src="man-with-a-tablet2.jpg">
               </figure>
             </div>
           </div>
