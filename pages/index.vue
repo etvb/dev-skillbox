@@ -355,6 +355,7 @@
     img
       width: 100%
       height: 100%
+      box-shadow: 0 0 8px black
   .imageContainerTabletMan
     position: absolute
   .morePaddingLeft
