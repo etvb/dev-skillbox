@@ -38,7 +38,7 @@
       <div class="container box background-gray">
         <a @click.prevent="goSearch">
           <div class="columns is-mobile paddingFind">
-            <div class="column has-text-white morePaddingLeft">
+            <div class="column has-text-white morePaddingLeft whitout3Padding">
               <p class="title25B  ">FIND</p>
               <p class="fontSizeP">Search for the language you want to learn and choose a teacher who suits you best.</p>
             </div>
@@ -59,7 +59,7 @@
                 <img class="is-rounded border" src="smille-girls2.jpg">
               </figure>
             </div>
-            <div class="column has-text-white">
+            <div class="column has-text-white whitoutPadding">
               <p class="title25B ">Book</p>
               <p class="fontSizeP">Check the teacher‘s availability and book your one-on-one language class right away.</p>
             </div>
@@ -70,7 +70,7 @@
       <div class="container box background-gray">
         <a @click.prevent="goSearch">
           <div class="columns is-mobile">
-            <div class="column has-text-white">
+            <div class="column has-text-white whitoutPadding">
               <p class="title25B ">START</p>
               <p class="fontSizeP">Join your teacher in your one-on-one video class from wherever you feel comfortable. Start unboxing your skillzz...</p>
             </div>
@@ -94,7 +94,7 @@
       <div class="container box background-gray">
         <nuxt-link to="/auth/signup">
           <div class="columns is-mobile">
-            <div class="column morePaddingLeft has-text-white">
+            <div class="column morePaddingLeft has-text-white whitout3Padding">
               <p class="title25B">
                 STUDENT
               </p>
@@ -121,7 +121,7 @@
                 <img class="is-rounded border" src="boy-with-coffe2.jpg">
               </figure>
             </div>
-            <div class="column has-text-white">
+            <div class="column has-text-white whitoutPadding">
               <p class="title25B is-4">
                 TEACHER
               </p>
@@ -138,7 +138,7 @@
       <div class="container box background-gray">
         <nuxt-link to="/contact">
           <div class="columns is-mobile">
-            <div class="column has-text-white has-text-centered">
+            <div class="column has-text-white has-text-centered whitoutPadding">
               <p class="title25B">
                 DO YOU HAVE A QUESTION?
               </p>
@@ -161,7 +161,7 @@
           class="-has-text-primary"
         >
           <div class="columns is-mobile">
-            <div class="column has-text-white has-text-centered">
+            <div class="column has-text-white has-text-centered whitoutPadding">
               <p class="title25B">DO YOU LIKE OUR PLATFORM?</p>
               <p class="title25">Tell a friend.</p>
             </div>
@@ -346,13 +346,13 @@
     font-size: 14px
     font-family: Calibri
   .imageContainer, .imageContainerTabletMan
-    // position: absolute
-    // top: 0
-    // z-index: 1
-    width: 140px
-    height: 140px
-    display: block
-    margin: auto
+    position: absolute
+    top: 0
+    z-index: 1
+    width: 160px
+    height: 160px
+    // display: block
+    // margin: auto
     img
       width: 100%
       height: 100%
@@ -377,10 +377,26 @@
     color: #82827ae3
     margin-left: 10px
     margin-bottom: 10px
+  .positionSmileKids
+      top: -9px
+      right: 9px
+  .positionCelGirl
+      top: -22px
   .positionTabletMan
       top: 61px
       right: 26px
       z-index: 1
+  .whitoutPadding
+    padding: 0
+  .whitout3Padding
+    padding-top: 0
+    padding-bottom: 0
+    padding-right: 0
+  .positioYellowGirl
+      top: -1px
+      right: 0
+      width: 170px
+      height: 170px
 
 
 
