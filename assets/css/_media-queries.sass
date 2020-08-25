@@ -1,3 +1,4 @@
+$mobilePlus: 570px !default
 // Responsiveness
 $tablet: 769px !default
 // 960px container + 40px
@@ -17,6 +18,10 @@ $widescreen: 1192px !default
 
 =mobile
   @media screen and (max-width: $tablet - 1px)
+    @content
+  
+=mobilePlus
+  @media screen and (min-width: $mobilePlus)
     @content
 
 =tablet

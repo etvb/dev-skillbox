@@ -378,14 +378,21 @@
     margin-left: 10px
     margin-bottom: 10px
   .positionSmileKids
-      top: -9px
-      right: 9px
+      top: -11px
+      right: 4px
   .positionCelGirl
       top: -22px
+      left: 0
   .positionTabletMan
-      top: 61px
-      right: 26px
+      top: 35px
+      right: 6px
       z-index: 1
+  .ṕositionCoffeGirl
+      top: 74px
+      right: 0
+  .positionCoffeMan
+      top: 80px
+      left: 8px
   .whitoutPadding
     padding: 0
   .whitout3Padding
@@ -397,6 +404,27 @@
       right: 0
       width: 170px
       height: 170px
+
+  +mobilePlus
+    .positionSmileKids
+      // top: -33px
+      right: 58px
+    .positionCelGirl
+      left: 59px
+      // top: -93px
+    .positioYellowGirl
+      // top: -81px
+      right: 30px
+    .ṕositionCoffeGirl
+      top: -15px
+      right: 30px
+    .positionCoffeMan
+      top: -14px
+      left: 30px
+    .positionTabletMan
+      top: 24px
+      right: 59px
+    
 
 
 
