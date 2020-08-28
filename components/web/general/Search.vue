@@ -1,6 +1,6 @@
 <template>
   <div>
-    {{ $route.query.price }}
+    <!-- {{ $route.query.price }} -->
     <b-field>
       <b-select
         v-model="search"
@@ -24,7 +24,7 @@
         <button
           @click="searchInstructors"
           :class="{'is-loading': loading}"
-          class="button -has-bg-primary has-text-white is-medium -is-borderless"
+          class="button -has-gb-primary-pink has-text-white is-medium -is-borderless"
         >
           Search
         </button>
