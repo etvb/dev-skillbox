@@ -364,7 +364,8 @@
   .newSubTitle
     color: #82827a8a
     font-family: 'Bradley Hand'
-    font-size: 18px 
+    font-size: 18px
+    font-weight: bold
   .title25B
     // font-family: 'Calibri'
     font-size: 18px

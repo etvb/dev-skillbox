@@ -1,7 +1,7 @@
 <template>
   <div>
-    {{ $route.query.price }}
-    <b-field>
+    <!-- {{ $route.query.price }} -->
+    <b-field class="contenedor2">
       <b-select
         v-model="search"
         placeholder="Select language"
@@ -20,11 +20,12 @@
           Other languages
         </option>
       </b-select>
+      <i class="fas fa-chevron-down arrow2" />
       <p class="control">
         <button
           @click="searchInstructors"
           :class="{'is-loading': loading}"
-          class="button -has-bg-primary has-text-white is-medium -is-borderless"
+          class="button -has-gb-primary-pink has-text-white is-medium -is-borderless"
         >
           Search
         </button>
@@ -67,6 +68,16 @@
 <style lang="sass">
 .-price-filter
   margin-bottom: 2.5rem!important
+.arrow2
+  font-size: 23px
+  color: #e84660
+  position: absolute
+  top: 12px
+  right: 108px
+  z-index: 10
+  pointer-events: none
+.contenedor2
+  position: relative  
 </style>
 
 <script>
