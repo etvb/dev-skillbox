@@ -328,10 +328,6 @@
 </template>
 <style lang="sass" scoped>
   @import "~/assets/css/_media-queries.sass"
-  select
-    &::after
-      border-color: red !important
-
   .background-gray
     background-color: #82827a8a
   .background-gray:hover
