@@ -70,7 +70,7 @@
       <div class="container box background-gray">
         <a @click.prevent="goSearch">
           <div class="columns is-mobile">
-            <div class="column has-text-white whitoutPadding">
+            <div class="column has-text-white morePaddingLeft">
               <p class="title25B ">START</p>
               <p class="fontSizeP">Join your teacher in your one-on-one video class from wherever you feel comfortable. Start unboxing your skillzz...</p>
             </div>
@@ -94,7 +94,7 @@
       <div class="container box background-gray">
         <nuxt-link to="/auth/signup">
           <div class="columns is-mobile">
-            <div class="column morePaddingLeft has-text-white whitout3Padding">
+            <div class="column morePaddingLeft has-text-white whitout3Padding is-two-thirds-desktop">
               <p class="title25B">
                 STUDENT
               </p>
@@ -490,29 +490,46 @@
 
 
   +desktop
+    .fontSizeP
+      font-size: 30px
     .newSubTitle
       color: #82827a8a
       font-family: 'Bradley Hand'
-      font-size: 24px
+      font-size: 30px
+    .title25B
+      font-size: 33px
+    .title25
+      font-size: 30px
+    .imageContainer
+      position: absolute
+      top: 0
+      z-index: 1
+      width: 280px
+      height: 280px
+      img
+        width: 100%
+        height: 100%
     .positionSmileKids
-      top: -33px
+      top: -54px
       right: 181px
     .positionCelGirl
       left: 132px
-      top: -93px
+      top: -84px
     .positioYellowGirl
-      top: -81px
+      top: -48px
       right: 133px
+      width: 300px
+      height: 300px
     .ṕositionCoffeGirl
       top: -15px
-      right: 133px
-      width: 280px
-      height: 280px
+      right: 29px
+      width: 320px
+      height: 320px
     .positionCoffeMan
       top: -14px
       left: 153px
-      width: 300px
-      height: 300px
+      width: 320px
+      height: 320px
     .positionTabletMan
       top: -30px
       right: 180px
