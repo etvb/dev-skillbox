@@ -43,8 +43,11 @@
               <p class="fontSizeP">Search for the language you want to learn and choose a teacher who suits you best.</p>
             </div>
             <div class="column centerImagen">
-              <figure class="image imageContainer positionSmileKids">
+              <!-- <figure class="image imageContainer positionSmileKids">
                 <img class="is-rounded border" src="kids2.jpg">
+              </figure> -->
+              <figure class="image imageContainer positionSmileKids">
+                <img class="is-rounded border" style="background-image: url('kids2.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center">
               </figure>
             </div>
           </div>
@@ -56,7 +59,8 @@
           <div class="columns is-mobile">
             <div class="column centerImagen">
               <figure class="image imageContainer positionCelGirl">
-                <img class="is-rounded border" src="smille-girls2.jpg">
+                <!-- <img class="is-rounded border" src="smille-girls2.jpg"> -->
+                <img class="is-rounded border" style="background-image: url('smille-girls2.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center">
               </figure>
             </div>
             <div class="column has-text-white whitoutPadding">
@@ -76,7 +80,9 @@
             </div>
             <div class="column centerImagen">
               <figure class="image imageContainer positioYellowGirl">
-                <img class="is-rounded border" src="girl-with-yellow-sweater2.jpg">
+                <!-- <img class="is-rounded border" src="girl-with-yellow-sweater2.jpg"> -->
+                <img class="is-rounded border" style="background-image: url('girl-with-yellow-sweater2.jpg'); background-size: cover; background-repeat: no-repeat;">
+
               </figure>
             </div>
           </div>
@@ -106,7 +112,8 @@
             </div>
             <div class="column centerImagen">
               <figure class="image imageContainer ṕositionCoffeGirl">
-                <img class="is-rounded border" src="girld-with-coffe2.jpg">
+                <!-- <img class="is-rounded border" src="girld-with-coffe2.jpg"> -->
+                <img class="is-rounded border" style="background-image: url('girld-with-coffe2.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center">
               </figure>
             </div>
           </div>
@@ -118,7 +125,8 @@
           <div class="columns is-mobile">
             <div class="column centerImagen">
               <figure class="image imageContainer positionCoffeMan">
-                <img class="is-rounded border" src="boy-with-coffe2.jpg">
+                <!-- <img class="is-rounded border" src="boy-with-coffe2.jpg"> -->
+                <img class="is-rounded border" style="background-image: url('boy-with-coffe2.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center">
               </figure>
             </div>
             <div class="column has-text-white whitoutPadding">
@@ -148,7 +156,8 @@
             </div>
             <div class="column">
               <figure class="image imageContainerTabletMan  positionTabletMan">
-                <img class="is-rounded border" src="man-with-a-tablet2.jpg">
+                <!-- <img class="is-rounded border" src="man-with-a-tablet2.jpg"> -->
+                <img class="is-rounded border" style="background-image: url('man-with-a-tablet2.jpg'); background-size: cover; background-repeat: no-repeat;">
               </figure>
             </div>
           </div>
