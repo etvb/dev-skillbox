@@ -184,18 +184,22 @@
             </div>
           </nuxt-link>
         </div>
+
+        
+
         <!-- insertar aqui -->
         <div v-else class="column">
           <template v-for="(lang, indexLang) in language">
-            <nuxt-link
-              v-for="(instructorL, index) in lang.instructors"
-              :to="'/'+lang.id+'/instructors/' + instructorL.id"
-              v-if="instructorL.user"
-              :key="index"
-              :class="indexLang != 0 ? '-is-spaced-top': ''"
-              class="is-block"
-            >
-              <!-- <nuxt-link
+            <div :key="indexLang">
+              <nuxt-link
+                v-for="(instructorL, index) in lang.instructors"
+                :to="'/'+lang.id+'/instructors/' + instructorL.id"
+                v-if="instructorL.user"
+                :key="index"
+                :class="indexLang != 0 ? '-is-spaced-top': ''"
+                class="is-block"
+              >
+                <!-- <nuxt-link
               :to="'/'+lang.id+'/instructors/' + instructor.id"
               v-for="(instructor, index) in lang.instructors"
               v-if="instructor.user"
@@ -203,52 +207,53 @@
               :class="indexLang != 0 ? '-is-spaced-top': ''"
               class="is-block"
               > -->
-              <!-- <div
+                <!-- <div
                 :class="index != 0 ? '-is-spaced-top': ''"
                 class="box is-radiusless -card-vertical"
               > -->
-              <div
-                :class="index != 0 ? '-is-spaced-top': ''"
-                class="box is-radiusless -card-vertical container-profile "
-              >
-                <div class="container-profile-info">
-                  <div
-                    v-if="instructorL.user.profile_picture"
-                    :style="'background-image: url(' + instructorL.user.profile_picture + '); background-size: cover; background-repeat: no-repeat'"
-                    class="-is-circle -profile-picture is-inline-block"
-                  />
-
-                  <!-- <div v-else class="-profile-picture is-inline-block" /> -->
-                  
-                  <img
-                    v-else
-                    style="opacity: .2;"
-                    src="/profile.png"
-                    class="-is-circle -profile-picture"
-                  >
-                  <div class="container-profile-main">
-                    <div class="container-profile-name">
-                      <h5 class="title is-marginless is-5 has-text-weight-bold has-text-black">
-                        {{ instructorL.user.name + ' ' + instructorL.user.lastname[0] + '.' }}
-                      </h5>       
-                    </div>
-                    <p class="has-text-grey newSize">
-                      Native Language: <span>{{ instructorL.user.language.english }}</span>
-                    </p><br>
-                    <p v-show="instructorL.average_rating" class="container-profile-raiting has-text-grey ">
-                      Raiting: <rating :rating="instructorL.average_rating ? instructorL.average_rating : 0" />
-                    </p>
-                  </div>
-                  <!-- flag -->
-                  <span class="container-profile-flag">
-                    <div class="borde" />
-                    <img :src="pais(instructorL.user.country)">
-                  </span>
-                  <div class="conteiner-like">
-                    <like
-                      :idTeacher="instructorL.id"
+              
+                <div
+                  :class="index != 0 ? '-is-spaced-top': ''"
+                  class="box is-radiusless -card-vertical container-profile "
+                >
+                  <div class="container-profile-info">
+                    <div
+                      v-if="instructorL.user.profile_picture"
+                      :style="'background-image: url(' + instructorL.user.profile_picture + '); background-size: cover; background-repeat: no-repeat'"
+                      class="-is-circle -profile-picture is-inline-block"
                     />
-                  </div>
+
+                    <!-- <div v-else class="-profile-picture is-inline-block" /> -->
+                  
+                    <img
+                      v-else
+                      style="opacity: .2;"
+                      src="/profile.png"
+                      class="-is-circle -profile-picture"
+                    >
+                    <div class="container-profile-main">
+                      <div class="container-profile-name">
+                        <h5 class="title is-marginless is-5 has-text-weight-bold has-text-black">
+                          {{ instructorL.user.name + ' ' + instructorL.user.lastname[0] + '.' }}
+                        </h5>       
+                      </div>
+                      <p class="has-text-grey newSize">
+                        Native Language: <span>{{ instructorL.user.language.english }}</span>
+                      </p><br>
+                      <p v-show="instructorL.average_rating" class="container-profile-raiting has-text-grey ">
+                        Raiting: <rating :rating="instructorL.average_rating ? instructorL.average_rating : 0" />
+                      </p>
+                    </div>
+                    <!-- flag -->
+                    <span class="container-profile-flag">
+                      <div class="borde" />
+                      <img :src="pais(instructorL.user.country)">
+                    </span>
+                    <div class="conteiner-like">
+                      <like
+                        :idTeacher="instructorL.id"
+                      />
+                    </div>
                   <!-- <div class="is-inline-block -description">
                     <h5 class="title is-6 is-marginless">
                       {{ instructor.user.name + ' ' + instructor.user.lastname[0] + '.' }}
@@ -260,66 +265,66 @@
                       {{ instructor.description }}
                     </p>
                   </div> -->
-                </div>
-                <hr>
-                <div class="is-inline-block -description container-profile-description">
-                  <p class="subtitle is-6 profile-description">
-                    {{ instructorL.description | truncate2(150) }}  
-                    <nuxt-link
-                      :to="'/'+lang.id+'/instructors/' + instructorL.id"
-                    >
-                      <span v-show="readMore(instructorL.description) >= 150" class="colorReadMore"> read more.</span> 
-                    </nuxt-link>
-                  </p>
-                </div>
-                <hr>
-                <div class="container-profile-teacher">
-                  <!-- <b-tag class="is-rounded -top-badge">
+                  </div>
+                  <hr>
+                  <div class="is-inline-block -description container-profile-description">
+                    <p class="subtitle is-6 profile-description">
+                      {{ instructorL.description | truncate2(150) }}  
+                      <nuxt-link
+                        :to="'/'+lang.id+'/instructors/' + instructorL.id"
+                      >
+                        <span v-show="readMore(instructorL.description) >= 150" class="colorReadMore"> read more.</span> 
+                      </nuxt-link>
+                    </p>
+                  </div>
+                  <hr>
+                  <div class="container-profile-teacher">
+                    <!-- <b-tag class="is-rounded -top-badge">
                     &nbsp; Top &nbsp;
                   </b-tag>
                   <rating :rating="instructor.average_rating ? instructor.average_rating : 0" class="is-pulled-right" /> -->
-                  <div>
-                    <p class="has-text-grey has-text-weight-bold littleMore">
-                      Lesson Price:
-                    </p>
-                    <p class="has-text-weight-bold has-text-black littleMore">
-                      USD {{ instructorL.price_by_class }}
-                    </p>
-                    <nuxt-link
-                      :to="'/'+$route.params.lang+'/instructors/' + instructorL.id + '?isCalendarModalActive=true'"
-                    >
-                      <!-- @click="activateCalendarModal" -->
-                      <button 
-                        class="button is-expand is-fullwidth colorButton size12"
+                    <div>
+                      <p class="has-text-grey has-text-weight-bold littleMore">
+                        Lesson Price:
+                      </p>
+                      <p class="has-text-weight-bold has-text-black littleMore">
+                        USD {{ instructorL.price_by_class }}
+                      </p>
+                      <nuxt-link
+                        :to="'/'+$route.params.lang+'/instructors/' + instructorL.id + '?isCalendarModalActive=true'"
                       >
-                        Book
-                      </button>
-                    </nuxt-link>
-                  </div>
-                  <div class="marginado">
-                    <p class="is-size-6 has-text-grey has-text-weight-bold littleMore">
-                      Location:
-                    </p>
-                    <p class="has-text-weight-bold has-text-black littleMore">
-                      {{ instructorL.user.country }}
-                    </p>
-                    <!-- <nuxt-link
+                        <!-- @click="activateCalendarModal" -->
+                        <button 
+                          class="button is-expand is-fullwidth colorButton size12"
+                        >
+                          Book
+                        </button>
+                      </nuxt-link>
+                    </div>
+                    <div class="marginado">
+                      <p class="is-size-6 has-text-grey has-text-weight-bold littleMore">
+                        Location:
+                      </p>
+                      <p class="has-text-weight-bold has-text-black littleMore">
+                        {{ instructorL.user.country }}
+                      </p>
+                      <!-- <nuxt-link
                       :to="'/'+lang.id+'/instructors/' + instructorL.id"
                     >  -->
-                    <nuxt-link
-                      :to="'/'+$route.params.lang+'/instructors/' + instructorL.id + '?isCalendarModalActive=true'"
-                    >
-                      <button class="button is-expand is-fullwidth colorButton size12">
-                        Schedule
-                      </button>
-                    </nuxt-link>
-                  </div>
-                  <div>
-                    <p class="is-size-6 has-text-grey has-text-weight-bold littleMore">
-                      Teaches:
-                    </p>
-                    <p class="has-text-weight-bold has-text-black littleMore">
-                      {{ lang.english }}
+                      <nuxt-link
+                        :to="'/'+$route.params.lang+'/instructors/' + instructorL.id + '?isCalendarModalActive=true'"
+                      >
+                        <button class="button is-expand is-fullwidth colorButton size12">
+                          Schedule
+                        </button>
+                      </nuxt-link>
+                    </div>
+                    <div>
+                      <p class="is-size-6 has-text-grey has-text-weight-bold littleMore">
+                        Teaches:
+                      </p>
+                      <p class="has-text-weight-bold has-text-black littleMore">
+                        {{ lang.english }}
                       
                       <!--Esto Muestra TODOS LOS LENGUAGES QUE EL INSTRUCTOR ENSEÑA
                       this show all languages that the instructor teaches
@@ -333,25 +338,26 @@
                         
                         </span>
                       </span> -->
-                    </p>
-                    <button
-                      :disabled="!instructorL.video_url"
-                      @click.prevent="openVideo(instructorL.video_url)"
-                      :value="instructorL.video_url"
-                      class="button is-expand is-fullwidth colorButton size12"
-                    > 
-                      Video
-                    </button>
+                      </p>
+                      <button
+                        :disabled="!instructorL.video_url"
+                        @click.prevent="openVideo(instructorL.video_url)"
+                        :value="instructorL.video_url"
+                        class="button is-expand is-fullwidth colorButton size12"
+                      > 
+                        Video
+                      </button>
+                    </div>
                   </div>
-                </div>
                 <!-- <div class="">
                   <b-tag class="is-rounded -top-badge">
                     &nbsp; Top &nbsp;
                   </b-tag>
                   <rating :rating="instructor.average_rating ? instructor.average_rating : 0" class="is-pulled-right" />
                 </div> -->
-              </div>
-            </nuxt-link>
+                </div>
+              </nuxt-link>
+            </div>
           </template>
         </div>
         <div class=" column is-3" />
@@ -624,6 +630,8 @@ export default {
   },
   async asyncData({ params, query }) {
     const langId = params.lang
+    // eslint-disable-next-line no-console
+    // console.log('LANGUAGE' + params.lang)
     // let days = ['0', '1', '2', '3', '4', '5', '6']
     let days = []
     let range = [0, '50']
@@ -723,19 +731,35 @@ export default {
         // data.language.instructors = nuevo
       }
     }
-    if (langId === 'others') {
-      return {
-        language: data.language,
-        daysChecked: days,
-        totalInstructors: data.totalInstructors,
-        range,
-        infoInstructors: data.language,
-        countryParaPasar: location,
-        native,
-        location,
-        rating,
-        languageSelected: 'Others languages',
-        getLocationsIndex
+    if (langId === 'all' || langId === 'others') {
+      if (langId === 'all') {
+        return {
+          language: data.language,
+          daysChecked: days,
+          totalInstructors: data.totalInstructors,
+          range,
+          infoInstructors: data.language,
+          countryParaPasar: location,
+          native,
+          location,
+          rating,
+          languageSelected: 'All',
+          getLocationsIndex
+        }
+      } else if (langId === 'others') {
+        return {
+          language: data.language,
+          daysChecked: days,
+          totalInstructors: data.totalInstructors,
+          range,
+          infoInstructors: data.language,
+          countryParaPasar: location,
+          native,
+          location,
+          rating,
+          languageSelected: 'Others languages',
+          getLocationsIndex
+        }
       }
     }
     return {
