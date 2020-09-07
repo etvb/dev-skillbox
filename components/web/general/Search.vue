@@ -66,6 +66,10 @@
   </div>
 </template>
 <style lang="sass">
+.select select:focus
+  border-color: pink
+  box-shadow: none
+
 .-price-filter
   margin-bottom: 2.5rem!important
 .arrow2
