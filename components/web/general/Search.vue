@@ -69,6 +69,7 @@
 .-price-filter
   margin-bottom: 2.5rem!important
 .arrow2
+  background-color: white
   font-size: 23px
   color: #e84660
   position: absolute
