@@ -34,6 +34,14 @@
           <!-- <i class="fas fa-globe" /> -->
           <!-- {{ search }} -->
           <b-field class="field">
+            <div
+              :class="[languageSelected == 'All' ? layerSearchSelect='layerSearchSelectShow' : 'layerSearchSelectNone']"
+              class="layerSearchSelect"
+            >
+              <span class="layerSearchTitle">
+                Language
+              </span>
+            </div>
             <span class="titleButtomLanguage">Language</span>
             <!-- :input="searchInstructors()" -->
             <div class="optionButtomLanguage">
@@ -356,7 +364,7 @@
     font-weight: bold
     display: table
     text-align: center
-    z-index: 1
+    z-index: 2
     pointer-events: none
   .layerSearchSelectAvailability
     min-width: 162px

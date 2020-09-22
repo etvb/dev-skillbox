@@ -191,9 +191,11 @@ export default {
   }
 }
 </script>
-<style lang="sass">
+<style lang="sass" scoped>
   .-sign-up-modal
     z-index: 999
     .modal-content
       max-width: 500px
+  // .input, .box
+  //   border: 1px solid #167df0
 </style>

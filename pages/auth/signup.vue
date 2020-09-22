@@ -16,7 +16,7 @@
         >
           <div class="column is-4">
             <form @submit.prevent="register" action="/register">
-              <card title="Sign Up">
+              <card title="Sign Up" class="blueColor">
                 <template v-slot:body>
                   <b-message
                     v-if="errorsValidation && uncatchedError === false"
@@ -40,13 +40,15 @@
                     We have a problem with your register
                   </b-message>
                   <b-field label="First Name">
-                    <b-input v-model="name" required />
+                    <b-input id="inputName" v-model="name" class="blueColor" required />
                   </b-field>
                   <b-field label="Last Name">
-                    <b-input v-model="lastname" required />
+                    <b-input id="inputLastName" class="blueColor" v-model="lastname" required />
                   </b-field>
                   <b-field label="Email">
                     <b-input
+                      id="inputEmail"
+                      class="blueColor"
                       v-model="email"
                       type="email"
                       required
@@ -54,6 +56,8 @@
                   </b-field>
                   <b-field label="Password">
                     <b-input
+                      id="inputPassword"
+                      class="blueColor"
                       v-model="password"
                       type="password"
                       required
@@ -115,6 +119,21 @@
     </div>
   </div>
 </template>
+<style lang="sass" scoped>
+  hr
+    background-color: red
+    height: 1px
+  .blueColor, 
+    border-radius: 4px
+    box-shadow: inset 0 1px 2px white
+    border: 2px solid #167df0
+
+
+
+
+    
+
+</style>
 <script>
 import Card from '~/components/general/Card.vue'
 import axios from 'axios'
@@ -135,7 +154,31 @@ export default {
       errorsValidation: false
     }
   },
+  mounted() {
+    this.withoutShadow()
+  },
   methods: {
+    withoutShadow() {
+      const $inputName = document.getElementById('inputName')
+      const $inputLastName = document.getElementById('inputLastName')
+      const $inputEmail = document.getElementById('inputEmail')
+      const $inputPassword = document.getElementById('inputPassword')
+      const $hr = document.getElementsByTagName('hr')
+
+      $inputName.style.boxShadow = 'inset 0 1px 2px white'
+      $inputName.style.borderColor = 'white'
+
+      $inputLastName.style.boxShadow = 'inset 0 1px 2px white'
+      $inputEmail.style.boxShadow = 'inset 0 1px 2px white'
+      $inputPassword.style.boxShadow = 'inset 0 1px 2px white'
+
+      $inputLastName.style.borderColor = 'white'
+      $inputEmail.style.borderColor = 'white'
+      $inputPassword.style.borderColor = 'white'
+
+      $hr[5].style.backgroundColor = '#e84660'
+      $hr[6].style.backgroundColor = '#e84660'
+    },
     register() {
       this.loading = true
       const url = process.env.apiUrl + 'auth/signup'
