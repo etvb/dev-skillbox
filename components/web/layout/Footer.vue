@@ -61,14 +61,16 @@
         </div>
       </div>
     </div>
-    <div class="-copyright box is-radiusless -is-spaced-top">
+    <div class="-copyright withoutBox box is-radiusless -is-spaced-top">
       <div class="container has-text-white has-text-right">
         <small class="is-size-7">&copy; Copyright {{ year }}, <strong class="has-text-white">Skillzzbox</strong></small>
       </div>
     </div>
   </footer>
 </template>
-<style lang="sass">
+<style lang="sass" >
+  .withoutBox
+    border: none !important
   .footer
     background-color: #343a40
     color: white

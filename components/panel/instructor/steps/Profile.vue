@@ -20,6 +20,7 @@
       <b-field label="Native Language">
         <b-select
           v-model="user.language_id"
+          class="blueColor"
           placeholder="Select a language"
           expanded
           required
@@ -37,6 +38,7 @@
       <b-field label="Timezone">
         <b-select
           v-model="user.timezone"
+          class="blueColor"
           placeholder="Select your location"
           expanded
           required
@@ -54,6 +56,7 @@
       <b-field label="Location">
         <b-select
           v-model="user.country"
+          class="blueColor"
           placeholder="Select your location"
           expanded
         >
@@ -192,3 +195,12 @@ export default {
   }
 }
 </script>
+<style lang="sass">
+  .blueColor
+    .select
+      select
+        border-radius: 4px
+        box-shadow: inset 0 1px 2px white
+        border: 1px solid #167df0
+
+</style>

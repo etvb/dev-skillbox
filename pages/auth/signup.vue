@@ -121,12 +121,12 @@
 </template>
 <style lang="sass" scoped>
   hr
-    background-color: red
+    background-color: #e84660
     height: 1px
   .blueColor, 
     border-radius: 4px
     box-shadow: inset 0 1px 2px white
-    border: 2px solid #167df0
+    border: 1px solid #167df0
 
 
 

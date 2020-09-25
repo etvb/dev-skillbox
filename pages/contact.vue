@@ -103,7 +103,10 @@ export default {
 }
 </script>
 <style>
+.textarea {
+  border: 1px solid #167df0;
+}
 .mybg {
-  background-color: #f5f9fc;
+  /* background-color: #f5f9fc; */
 }
 </style>

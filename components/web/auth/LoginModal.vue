@@ -6,7 +6,7 @@
     >
       <div class="modal-background" />
       <div class="modal-content">
-        <card title="Log In">
+        <card title="LogIn">
           <template v-slot:body>
             <b-message
               v-if="errorsValidation && uncatchedError === false"
@@ -134,6 +134,9 @@ export default {
 }
 </script>
 <style lang="sass">
+  hr
+    background-color: #e84660
+    height: 1px
   .-log-in-modal
     z-index: 999
     .modal-content

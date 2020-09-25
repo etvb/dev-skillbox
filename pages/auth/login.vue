@@ -15,7 +15,7 @@
           class="columns is-centered"
         >
           <div class="column is-4">
-            <card title="Log In">
+            <card title="LogIn">
               <template v-slot:body>
                 <b-message
                   v-if="errorsValidation && uncatchedError === false"

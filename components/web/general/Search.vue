@@ -4,6 +4,7 @@
     <b-field class="contenedor2">
       <b-select
         v-model="search"
+        class="withoutBorder"
         placeholder="Select language"
         icon="earth"
         size="is-medium"
@@ -66,6 +67,9 @@
   </div>
 </template>
 <style lang="sass">
+.withoutBorder
+  .select
+    border: 0px solid white
 .select select:focus
   border-color: pink
   box-shadow: none

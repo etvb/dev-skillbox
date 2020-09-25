@@ -74,6 +74,7 @@
                 <b-field label="Native Language">
                   <b-select
                     v-model="user.language_id"
+                    class="blueBorder"
                     placeholder="Select a language"
                     expanded
                     required
@@ -91,6 +92,7 @@
                 <b-field label="Location/Timezone">
                   <b-select
                     v-model="user.timezone"
+                    class="blueBorder"
                     placeholder="Select your timezone/location"
                     expanded
                   >
@@ -292,6 +294,14 @@ export default {
 }
 </script>
 <style lang="sass">
+.blueBorder
+  .select
+    select
+      border-radius: 4px
+      box-shadow: inset 0 1px 2px white
+      border: 1px solid #167df0
+    &::after
+      border-color: #e84660 !important
 .cropper
   max-height: 400px
 .-container-profile-picture

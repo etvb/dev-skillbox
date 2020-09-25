@@ -21,6 +21,7 @@
           </select> -->
           <b-timepicker 
             id="prueba"
+            class="withoutBox"
             v-model="day.start_at"
             :increment-minutes="60"
             :max-time="maxTime()"
@@ -31,6 +32,7 @@
         </td>
         <td>
           <b-timepicker
+            class="withoutBox"
             v-model="day.end_at"
             :increment-minutes="60"
             :min-time="minTime(day.start_at)"
@@ -333,7 +335,10 @@ export default {
   }
 }
 </script>
-<style scoped>
+<style >
+.withoutBox .select {
+  border: none !important;
+}
 td {
   vertical-align: middle;
 }

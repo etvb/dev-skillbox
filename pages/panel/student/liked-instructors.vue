@@ -6,7 +6,7 @@
         :key="instructor.id"
         class="column is-6"
       >
-        <div class="card">
+        <div class="card blueBorder">
           <header class="card-header">
             <p class="card-header-title">
               {{ instructor.user.parsed_name }}
@@ -46,6 +46,8 @@
   </div>
 </template>
 <style lang="sass" scoped>
+.blueBorder
+  border: 1px solid #167df0
 .wrap
   flex-wrap: wrap
 .fix-card-content

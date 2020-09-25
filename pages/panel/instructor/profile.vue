@@ -65,7 +65,7 @@
                 </b-field>
 
                 <b-field label="My motivation">
-                  <b-input v-model="instructor.description" type="textarea" />
+                  <b-input v-model="instructor.description" type="textarea" class="borderBlue" />
                 </b-field>
 
                 <b-field label="About me">
@@ -75,6 +75,7 @@
                 <b-field label="Native Language">
                   <b-select
                     v-model="user.language_id"
+                    class="withBorderBlue"
                     placeholder="Select a language"
                     expanded
                   >
@@ -91,6 +92,7 @@
                 <b-field label="Timezone">
                   <b-select
                     v-model="user.timezone"
+                    class="withBorderBlue"
                     placeholder="Select your location"
                     expanded
                   >
@@ -107,6 +109,7 @@
                 <b-field label="Location">
                   <b-select
                     v-model="user.country"
+                    class="withBorderBlue"
                     placeholder="Select your location"
                     expanded
                   >
@@ -150,6 +153,26 @@
   </div>
 </template>
 <style lang="sass">
+// .borderBlue
+.textarea
+  border-radius: 4px
+  height: auto !important
+  border: 1px solid #167df0
+.withBorderBlue
+  .select
+    border-radius: 4px
+    height: auto !important
+    border: 1px solid #167df0
+
+.select
+  select
+    border-color: white
+  &::after
+    border-color: #e84660 !important
+// .select
+//   &::after
+//     border-color: red !important
+
 .-container-profile-picture
   height: 80px
   label.upload
