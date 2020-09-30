@@ -35,7 +35,7 @@
           HOW IT WORKS
         </h3>
       </div>
-      <div class="container box background-gray">
+      <div class="container box background-gray whitoutFrame">
         <a @click.prevent="goSearch">
           <div class="columns is-mobile paddingFind">
             <div class="column has-text-white morePaddingLeft whitout3Padding">
@@ -54,7 +54,7 @@
         </a>
       </div>
 
-      <div class="container box background-gray marginWorks">
+      <div class="container box background-gray marginWorks whitoutFrame">
         <a @click.prevent="goSearch">
           <div class="columns is-mobile">
             <div class="column centerImagen">
@@ -71,7 +71,7 @@
         </a>
       </div>
 
-      <div class="container box background-gray">
+      <div class="container box background-gray whitoutFrame">
         <a @click.prevent="goSearch">
           <div class="columns is-mobile">
             <div class="column has-text-white morePaddingLeft">
@@ -97,7 +97,7 @@
           JOIN OUR COMMUNITY
         </h3>
       </div>
-      <div class="container box background-gray">
+      <div class="container box background-gray whitoutFrame">
         <nuxt-link to="/auth/signup">
           <div class="columns is-mobile">
             <div class="column morePaddingLeft has-text-white whitout3Padding is-two-thirds-desktop">
@@ -120,7 +120,7 @@
         </nuxt-link>
       </div>
 
-      <div class="container box background-gray">
+      <div class="container box background-gray whitoutFrame">
         <nuxt-link to="/teach">
           <div class="columns is-mobile">
             <div class="column centerImagen">
@@ -143,7 +143,7 @@
         </nuxt-link>
       </div>
 
-      <div class="container box background-gray">
+      <div class="container box background-gray whitoutFrame">
         <nuxt-link to="/contact">
           <div class="columns is-mobile">
             <div class="column has-text-white has-text-centered whitoutPadding">
@@ -163,7 +163,7 @@
           </div>
         </nuxt-link>
       </div>
-      <div class="container box background-gray">
+      <div class="container box background-gray whitoutFrame">
         <a 
           href="mailto:?subject=Foreign Language Teachers&amp;body=Hi! I think you should checkout Skillzzbox! They connect students with foreign language teachers for live video classes. Here is the link: www.skillzzbox.com"
           title="Share by Email"
@@ -337,6 +337,9 @@
 </template>
 <style lang="sass" scoped>
   @import "~/assets/css/_media-queries.sass"
+  .whitoutFrame
+    border: none
+
   .background-gray
     background-color: #82827a8a
   .background-gray:hover

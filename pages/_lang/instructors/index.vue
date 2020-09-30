@@ -55,7 +55,7 @@
             > -->
             <div
               :class="index != 0 ? '-is-spaced-top': ''"
-              class="box is-radiusless -card-vertical container-profile "
+              class="box is-radiusless -card-vertical container-profile whitoutFrame "
             >
               <div class="container-profile-info">
                 <!-- changed the img tag fot div, if the user has image show  -->
@@ -100,7 +100,7 @@
                   />
                 </div>
               </div>
-              <hr>
+              <hr class="whitoutBackgroundColorRED">
               <div class="is-inline-block -description container-profile-description">
                 <p class="subtitle is-6 profile-description">
                   {{ instructor.description | truncate2(150) }}  
@@ -111,7 +111,7 @@
                   </nuxt-link>
                 </p>
               </div>
-              <hr>
+              <hr class="whitoutBackgroundColorRED">
               <div class="container-profile-teacher">
                 <!-- <b-tag class="is-rounded -top-badge">
                   &nbsp; Top &nbsp;
@@ -214,7 +214,7 @@
               
                 <div
                   :class="index != 0 ? '-is-spaced-top': ''"
-                  class="box is-radiusless -card-vertical container-profile "
+                  class="box is-radiusless -card-vertical container-profile whitoutFrame"
                 >
                   <div class="container-profile-info">
                     <div
@@ -266,7 +266,7 @@
                     </p>
                   </div> -->
                   </div>
-                  <hr>
+                  <hr class="whitoutBackgroundColorRED">
                   <div class="is-inline-block -description container-profile-description">
                     <p class="subtitle is-6 profile-description">
                       {{ instructorL.description | truncate2(150) }}  
@@ -277,7 +277,7 @@
                       </nuxt-link>
                     </p>
                   </div>
-                  <hr>
+                  <hr class="whitoutBackgroundColorRED">
                   <div class="container-profile-teacher">
                     <!-- <b-tag class="is-rounded -top-badge">
                     &nbsp; Top &nbsp;
@@ -365,7 +365,13 @@
     </div>
   </div>
 </template>
-<style lang="sass">
+<style lang="sass" >
+  .whitoutBackgroundColorRED
+    background-color: #f5f5f5
+
+  .whitoutFrame
+    border: none
+
   .borde
     position: absolute
     width: 40px

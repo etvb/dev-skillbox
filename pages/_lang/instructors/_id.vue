@@ -17,7 +17,7 @@
       <a @click.prevent="goBack" href="#" class="-has-text-primary">Back to results</a>
       <div class="columns is-centered">
         <div class="column is-6">
-          <div id="prueba" class="box is-radiusless -card-details-instructor">
+          <div id="prueba" class="box is-radiusless -card-details-instructor whitoutFrame">
             <!-- In case have course picture -->
             <!-- <div v-if="instructor.course.img"> -->
             <!-- <div v-if="instructor.course"> -->
@@ -95,7 +95,7 @@
                   </div>
                 </div>
                 <!-- nueva vista FIN -->
-                <hr>
+                <hr class="whitoutBackgroundColorRED">
                 <!-- <div
                   :style="'background-image: url(' + instructor.user.profile_picture + ')'"
                   class="-profile-picture is-inline-block -is-absolute"
@@ -144,14 +144,14 @@
               </button>
               <like class="-like" />
             </div> -->
-            <hr>
+            <hr class="whitoutBackgroundColorRED">
             <h6 class=" is-6 -is-marginless-bottom -has-text-gray">
               About {{ adaptedName }}
             </h6>
             <div class=" is-6 profile-description">
               {{ instructor.bio }}
             </div>
-            <hr>
+            <hr class="whitoutBackgroundColorRED">
             <h6 class="-is-spaced-top -is-marginless-bottom -has-text-gray  littleMore">
               Teaches:
             </h6>
@@ -284,7 +284,7 @@
                     <h4 class="title is-6">
                       Time
                     </h4>
-                    <hr>
+                    <hr class="whitoutBackgroundColorRED">
                     <div
                       v-for="time in times"
                       :key="time"
@@ -300,7 +300,7 @@
                   </div>
                 </div>
               </div>
-              <hr>
+              <hr class="whitoutBackgroundColorRED">
               <div class="columns">
                 <div class="column" />
                 <div class="column is-narrow">
@@ -334,6 +334,9 @@
 </template>
 <style lang="sass" scoped>
 @import '~/assets/css/_media-queries.sass'
+.whitoutBackgroundColorRED
+    background-color: #f5f5f5
+
 .button:hover
   color: #363636
 
