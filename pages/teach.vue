@@ -8,7 +8,7 @@
       </div>
     </div>
 
-    <section class="section">
+    <!-- <section class="section">
       <div class="container">
         <h4 class="title is-5 has-text-centered">
           Why teach with us?
@@ -64,14 +64,14 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <section class="section -has-bg-light">
       <div class="container">
         <div class="columns is-centered">
           <div class="column is-6">
             <form @submit.prevent="register" action="/register">
-              <card title="Sign up as instructor">
+              <card title="Sign up as teacher">
                 <template v-slot:body>
                   <b-message
                     v-if="errorsValidation && uncatchedError === false"
